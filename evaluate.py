@@ -1,5 +1,10 @@
+import os
 import re
 import wilkinson_evaluation
+
+cwd = os.getcwd()
+
+file_path = os.path.join(cwd, r"metafiles\\metafiles_list.txt")
 
 
 def get_doi(line_str: str) -> str:
@@ -13,37 +18,30 @@ def get_doi(line_str: str) -> str:
     return match.group(1) if match else None
 
 
-def get_result_score():
-    with open("wilkinson_result.html", "r", encoding="utf-8") as file:
-        # Read the contents of the file
-        html_content = file.read()
-
-        # Find all occurrences of alt="5stars" with any number of stars (0-5)
-        star_matches = re.findall(r'alt="(\d)stars"', html_content)
-        print(f"star_matches: {star_matches}")
-
-        # Convert the star ratings to integers and calculate the average
-        total_stars = sum(int(stars) for stars in star_matches)
-        average_score = total_stars / len(star_matches) if star_matches else 0
-
-        # Return the average score as a string
-        return "{:.3f}".format(round(average_score, 3))
+# Open the file in read mode
+def read_file_to_list(file_filepath: str = file_path) -> list:
+    lines = []
+    with open(file_filepath, 'r') as file:
+        # Read each line
+        for line in file:
+            lines.append(line)
+        return lines
 
 
-def run():
-    with (open("bonares_dois.csv", "r", encoding="utf-8") as file):
-        with open("bonares_dois_result.csv", "w", encoding="utf-8") as result:
-
+def run_on_list_of_dois(filepath_2: str = "bonares_dois.csv"):
+    with (open(filepath_2, "r", encoding="utf-8") as file):
+        filepath_result = filepath_2.replace(".csv", "_result.csv")
+        with open(filepath_result, "w", encoding="utf-8") as result:
             for line in file:
                 doi = get_doi(line)
                 print(f"found doi: {doi}")
                 if doi:
                     wilkinson_evaluation.evaluate(doi)
-                    result_score = get_result_score()
+                    result_score = wilkinson_evaluation.get_result_score()
                     print(f"result score: {result_score}")
-                    newline = line.rstrip() + "," + result_score
+                    newline = line.rstrip() + "," + ",".join(result_score)
                     result.write(newline + "\n")
 
 
 if __name__ == "__main__":
-    run()
+    run_on_list_of_dois()
