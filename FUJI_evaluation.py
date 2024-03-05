@@ -54,7 +54,7 @@ def write_result_to_csv(object_identifier, score_percent):
 def evaluate(data_doi=None):
     data = data_example
     if data_doi:
-        data["resource"] = data_doi
+        data["object_identifier"] = data_doi
     print(f"running evaluation for {data}")
     response = requests.post(url, json=data, headers=headers, auth=fuji_auth)
 
@@ -71,6 +71,6 @@ def evaluate(data_doi=None):
 
 
 if __name__ == "__main__":
-    evaluate()
-    get_result_score()
+    evaluate("10.20387/bonares-q82e-t008-test")
+    print(get_result_score())
     pass

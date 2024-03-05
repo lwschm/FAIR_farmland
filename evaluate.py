@@ -30,7 +30,7 @@ def read_file_to_list(file_filepath: str = file_path) -> list:
 
 
 def run_on_list_of_dois(filepath_2: str = "bonares_dois.csv"):
-    with open(filepath_2, "r", encoding="utf-8") as file:
+    with (open(filepath_2, "r", encoding="utf-8") as file):
         filepath_result = filepath_2.replace(".csv", "_result.csv")
         with open(filepath_result, "w", encoding="utf-8") as result:
             headers = ("Dataset Name;Object Identifier;F1: FAIR Metrics Gen2- Unique Identifier;F1: FAIR Metrics Gen2 "
