@@ -2,19 +2,24 @@ import os
 import re
 import wilkinson_evaluation
 import FUJI_evaluation
+from requests.exceptions import ConnectTimeout
 
 cwd = os.getcwd()
 
 file_path = os.path.join(cwd, r"metafiles\\metafiles_list.txt")
 
 
-def get_doi(line_str: str) -> str:
+def get_identifier(line_str: str) -> str:
     # Regular expression pattern for matching DOIs
     pattern = r'\b(10\.\d{4,}(?:\.\d+)*\/\S+(?:(?![\"&\'<>])\S)*)\b'
 
     # Find the first match in the text
     match = re.search(pattern, line_str)
-
+    if not match:
+        # Define a regular expression pattern to match the URL
+        pattern = r'(https?://\S+)'
+        # Use re.search to find the first match of the pattern in the line
+        match = re.search(pattern, line_str)
     # Return the matched DOI or None if no match is found
     return match.group(1) if match else None
 
@@ -29,9 +34,10 @@ def read_file_to_list(file_filepath: str = file_path) -> list:
         return lines
 
 
-def run_on_list_of_dois(filepath_2: str = "bonares_dois.csv"):
+def run_on_list_of_dois(filepath_2: str = "input\\bonares_dois.csv"):
     with (open(filepath_2, "r", encoding="utf-8") as file):
         filepath_result = filepath_2.replace(".csv", "_result.csv")
+        filepath_result = filepath_result.replace("input", "output")
         with open(filepath_result, "w", encoding="utf-8") as result:
             headers = ("Dataset Name;Object Identifier;F1: FAIR Metrics Gen2- Unique Identifier;F1: FAIR Metrics Gen2 "
                        "- Identifier Persistence;F1: FAIR Metrics Gen2 - Data Identifier "
@@ -42,27 +48,42 @@ def run_on_list_of_dois(filepath_2: str = "bonares_dois.csv"):
                        ";I3;R1;R1.1;R1.2;R1.3;FAIR")
             result.write(headers + "\n")
             for line in file:
-                doi = get_doi(line)
-                print(f"found doi: {doi}")
-                if doi:
-                    wilkinson_evaluation.evaluate(doi)
+                identifier = get_identifier(line)
+                print(f"found identifier: {identifier}")
+
+                if identifier:
+                    wilkinson_evaluation.evaluate(identifier)
                     result_score_wilkinson = wilkinson_evaluation.get_result_score()
-                    FUJI_evaluation.evaluate(doi)
-                    result_score_fuji = FUJI_evaluation.get_result_score()
-                    print(f"result scores: {result_score_wilkinson}, {result_score_fuji}")
-                    print(f"result type fuji: {type(result_score_fuji)}")
-                    fuji_values = [str(value) for value in result_score_fuji.values()]
-                    newline = line.rstrip().replace(",", ";") + ";" + ";".join(result_score_wilkinson) + ";" + ";" + ";".join(fuji_values)
+                    try:
+                        FUJI_evaluation.evaluate(identifier)
+                        result_score_fuji = FUJI_evaluation.get_result_score()
+                        fuji_values = [str(value) for value in result_score_fuji.values()]
+                        fuji_success = True
+                    except ConnectTimeout:
+                        fuji_success = False
+                        print("Connection timed out while evaluating.")
+                        # Handle the timeout error gracefully
+                    else:
+                        print("Evaluation completed successfully.")
+                        print(f"result scores: {result_score_wilkinson}, {result_score_fuji}")
+                    
+                    if fuji_success:
+                        newline = line.rstrip().replace(",", ";") + ";" + ";".join(
+                            result_score_wilkinson) + ";" + ";" + ";".join(fuji_values)
+                    else:
+                        newline = line.rstrip().replace(",", ";") + ";" + ";".join(
+                            result_score_wilkinson)
                     result.write(newline + "\n")
 
 
-def run_on_list_of_dois_fuji(filepath_2: str = "bonares_dois.csv"):
+def run_on_list_of_dois_fuji(filepath_2: str = "input\\bonares_dois.csv"):
     with (open(filepath_2, "r", encoding="utf-8") as file):
         filepath_result = filepath_2.replace(".csv", "_fuji_result.csv")
+        filepath_result = filepath_result.replace("input", "output")
         with open(filepath_result, "w", encoding="utf-8") as result:
             for line in file:
-                doi = get_doi(line)
-                print(f"found doi: {doi}")
+                doi = get_identifier(line)
+                print(f"found identifier: {doi}")
                 if doi:
                     FUJI_evaluation.evaluate(doi)
                     result_score = FUJI_evaluation.get_result_score()
@@ -72,4 +93,4 @@ def run_on_list_of_dois_fuji(filepath_2: str = "bonares_dois.csv"):
 
 
 if __name__ == "__main__":
-    run_on_list_of_dois("bonares_dois.csv")
+    run_on_list_of_dois("input\\agroportal_core.csv")

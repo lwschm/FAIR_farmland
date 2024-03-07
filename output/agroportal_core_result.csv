@@ -1,0 +1,7 @@
+Dataset Name;Object Identifier;F1: FAIR Metrics Gen2- Unique Identifier;F1: FAIR Metrics Gen2 - Identifier Persistence;F1: FAIR Metrics Gen2 - Data Identifier Persistence;F2: FAIR Metrics Gen2 - Structured Metadata;F2: FAIR Metrics Gen2 - Grounded Metadata;F3: FAIR Metrics Gen2 - Data Identifier Explicitly In Metadata;F3: FAIR Metrics Gen2- Metadata Identifier Explicitly In Metadata;F4: FAIR Metrics Gen2 - Searchable in major search engine;Average;;A;F;I;R;A1;F1;F2;F3;F4;I1;I2;I3;R1;R1.1;R1.2;R1.3;FAIR
+AgronomicTaxon (ATC);http://ontology.irstea.fr/agronomictaxon/core#;1;0;0;0;0;0;0;0;0.125
+GEneral Multilingual Environmental Thesaurus (GEMET);https://agroportal.lirmm.fr/ontologies/GEMET/submissions/14;1;0;0;0;0;0;0;0;0.125
+Common Greenhouse Ontology (CGO);https://www.tno.nl/agrifood/ontology/common-greenhouse-ontology#;1;0;0;0;0;0;0;0;0.125
+Ontology of units of Measure (OM);http://www.ontology-of-units-of-measure.org/resource/om-2;1;0;0;0;0;0;0;0;0.125
+Ontology for Experimental Scientific Objects Core (OESO-CORE);http://www.opensilex.org/vocabulary/oeso;1;0;0;0;0;0;0;0;0.125
+Smart Applications REFerence ontology (SAREF);https://saref.etsi.org/core/;1;0;0;1;1;0;0;0;0.375

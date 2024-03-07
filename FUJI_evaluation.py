@@ -10,7 +10,6 @@ load_dotenv()
 USERNAME = os.getenv("fuji_username")
 PASSWORD = os.getenv("fuji_password")
 fuji_auth = (USERNAME, PASSWORD)
-print(fuji_auth)
 
 # This is the Wilkinson FAIR Evaluation Service
 url = 'http://192.168.220.71:1071/fuji/api/v1/evaluate'
