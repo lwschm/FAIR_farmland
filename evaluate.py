@@ -56,7 +56,9 @@ def run_on_list_of_pids():
                        "retrieval;A1.2: FAIR Metrics Gen2 - Data authentication and authorization;A1.2: FAIR Metrics "
                        "Gen2 - Metadata authentication and authorization;A2: FAIR Metrics Gen2 - Metadata "
                        "Persistence;I1: FAIR Metrics Gen2 - Metadata Knowledge Representation Language (weak);I1: "
-                       "FAIR Metrics Gen2 - Metadata Knowledge Representation Language (strong);I2: FAIR Metrics Gen2 "
+                       "FAIR Metrics Gen2 - Metadata Knowledge Representation Language (strong);I1: FAIR Metrics Gen2 "
+                       "- Data Knowledge Representation Language (weak);I1: FAIR Metrics Gen2 - Data Knowledge "
+                       "Representation Language (strong);I2: FAIR Metrics Gen2"
                        "- Metadata uses FAIR vocabularies (weak);I2: FAIR Metrics Gen2 - Metadata uses FAIR "
                        "vocabularies (strong);I3: FAIR Metrics Gen2 - Metadata contains qualified outward "
                        "references);R1.1: FAIR Metrics Gen2 - Metadata Includes License (strong);R1.1: FAIR Metrics "
@@ -70,23 +72,24 @@ def run_on_list_of_pids():
                 if identifier:
                     wilkinson_evaluation.evaluate(identifier)
                     result_score_wilkinson = wilkinson_evaluation.get_result_score()
-                    #try:
-                    FUJI_evaluation.evaluate(identifier)
-                    result_score_fuji = FUJI_evaluation.get_result_score()
-                    fuji_values = [str(value) for value in result_score_fuji.values()]
-                    fuji_success = True
-                    # except ConnectTimeout:
-                    #     fuji_success = False
-                    #     print("Connection timed out while evaluating.")
-                    #     # Handle the timeout error gracefully
-                    # else:
-                    #     print("Evaluation completed successfully.")
-                    print(f"result scores: {result_score_wilkinson}, {result_score_fuji}")
+                    try:
+                        FUJI_evaluation.evaluate(identifier)
+                        result_score_fuji = FUJI_evaluation.get_result_score()
+                        fuji_values = [str(value) for value in result_score_fuji.values()]
+                        fuji_success = True
+                    except ConnectTimeout:
+                        fuji_success = False
+                        print("Connection timed out while evaluating.")
+                        # Handle the timeout error gracefully
+                    else:
+                        print("Evaluation completed successfully.")
 
                     if fuji_success:
+                        print(f"result scores: {result_score_wilkinson}, {result_score_fuji}")
                         newline = line.rstrip().replace(",", ";") + ";" + ";".join(
                             result_score_wilkinson) + ";" + ";" + ";".join(fuji_values)
                     else:
+                        print(f"result scores: {result_score_wilkinson}")
                         newline = line.rstrip().replace(",", ";") + ";" + ";".join(
                             result_score_wilkinson)
                     result.write(newline + "\n")

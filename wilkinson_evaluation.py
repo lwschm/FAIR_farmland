@@ -2,7 +2,7 @@ import re
 import requests
 
 # This is the Wilkinson FAIR Evaluation Service
-url = 'https://fairdata.services:7171/FAIR_Evaluator/collections/5/evaluate'
+url = 'https://fairdata.services:7171/FAIR_Evaluator/collections/6/evaluate'
 headers = {
     'accept': '*/*',
     'Content-Type': 'application/json'
