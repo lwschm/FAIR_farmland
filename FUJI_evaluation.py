@@ -54,7 +54,7 @@ def evaluate(data_doi=None):
     data = data_example
     if data_doi:
         data["object_identifier"] = data_doi
-    print(f"running evaluation for {data}")
+    print(f"running fuji evaluation for {data}")
     response = requests.post(url, json=data, headers=headers, auth=fuji_auth)
 
     if response.status_code == 200:

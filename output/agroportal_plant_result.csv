@@ -1,0 +1,20 @@
+Dataset Name;Object Identifier;F1: FAIR Metrics Gen2- Unique Identifier;F1: FAIR Metrics Gen2 - Identifier Persistence;F1: FAIR Metrics Gen2 - Data Identifier Persistence;F2: FAIR Metrics Gen2 - Structured Metadata;F2: FAIR Metrics Gen2 - Grounded Metadata;F3: FAIR Metrics Gen2 - Data Identifier Explicitly In Metadata;F3: FAIR Metrics Gen2- Metadata Identifier Explicitly In Metadata;F4: FAIR Metrics Gen2 - Searchable in major search engine;Average;;A;F;I;R;A1;F1;F2;F3;F4;I1;I2;I3;R1;R1.1;R1.2;R1.3;FAIR
+INRAE Thesaurus (INRAETHES);https://doi.org/10.15454/J8GANU;1;1;0;1;1;0;0;0;0.500
+French Crop Usage thesaurus (Classification des plantes cultivées en France en fonction des usages) (CROPUSAGE);https://doi.org/10.15454/QHFTMX;1;1;0;1;1;0;0;0;0.500
+Plant Trait Ontology (TO);https://doi.org/10.1007/978-1-4939-3167-5_5;1;1;0;1;1;0;1;0;0.625
+BBCH-based Plant Phenological Description Ontology (PPDO);https://doi.org/10.15454/TIMQHW;1;1;0;1;1;0;0;0;0.500
+Grapevine Anatomy Ontology (GAO);http://opendata.inrae.fr/gao/1.0.0;1;0;0;0;0;0;0;0;0.125
+Irrigation Ontology (IRRIG);https://doi.org/10.3390/app10051803;1;1;0;1;1;0;1;0;0.625
+FoodOn (FOODON);https://doi.org/10.1038/s41538-018-0032-6;1;1;0;1;1;0;1;0;0.625
+Plant Ontology (PO);http://purl.obolibrary.org/obo/po/releases/2024-02-16/po.owl;1;1;0;0;0;0;0;0;0.250
+Plant Experimental Conditions Ontology (PECO);http://purl.obolibrary.org/obo/peco/releases/2023-11-10/peco.owl;1;1;0;0;0;0;0;0;0.250
+FAO WCA Crop (WCACROPS);http://stats-class.fao.uniroma2.it/WCA_CropList/;1;0;0;0;0;0;0;0;0.125
+Thesaurus of Plant Characteristics (TOP);http://doi.org/10.1111/1365-2745.12698;1;1;0;1;1;0;1;0;0.625
+Sequence Types and Features Ontology (SO);http://purl.obolibrary.org/obo/so/2021-11-22/so.owl;1;1;0;0;0;0;0;0;0.250
+Compositional Dietary Nutrition Ontology (CDNO);https://doi.org/10.3389/fnut.2022.928837;1;1;0;1;1;0;1;0;0.625
+Indicative Crop Classification (ICC);http://stats-class.fao.uniroma2.it/ICC/ICC_v1.1/;1;0;0;0;0;0;0;0;0.125
+Plant Phenology Ontology (PPO);https://doi.org/10.3389/fpls.2018.00517;1;1;0;1;1;0;1;0;0.625
+Crop Disease (CD);http://www.semanticweb.org/mac/ontologies/2018/4/untitled-ontology-24;1;0;0;0;0;0;0;0;0.125
+Plant Experimental Assay Ontology (PEAO);https://bitbucket.org/PlantExpAssay/ontology/raw/v0.1/PlantExperimentalAssayOntology.owl;1;0;0;0;0;0;0;0;0.125
+Feature Annotation Location Description Ontology (FALDO);http://biohackathon.org/resource/faldo;1;0;0;0;0;0;0;0;0.125
+Agricultural and Nutrition Technology Ontology (ANT);http://data.ifpri.org/lod/at/resource/;1;0;0;0;0;0;0;0;0.125

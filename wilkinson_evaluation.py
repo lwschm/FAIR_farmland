@@ -2,15 +2,15 @@ import re
 import requests
 
 # This is the Wilkinson FAIR Evaluation Service
-url = 'https://fairdata.services:7171/FAIR_Evaluator/collections/1/evaluate'
+url = 'https://fairdata.services:7171/FAIR_Evaluator/collections/5/evaluate'
 headers = {
     'accept': '*/*',
     'Content-Type': 'application/json'
 }
 data_example = {
     "executor": "Exec",
-    # "resource": "10.20387/bonares-gx1f-bh69",
-    "resource": "https://atlas.thuenen.de/api/v2/resources?page_size=200&format=json",
+    "resource": "10.20387/bonares-gx1f-bh69",
+    # "resource": "https://atlas.thuenen.de/api/v2/resources?page_size=200&format=json",
     "title": "Test_Eval"
 }
 
@@ -36,7 +36,7 @@ def evaluate(data_doi=None):
     data = data_example
     if data_doi:
         data["resource"] = data_doi
-    print(f"running evaluation for {data}")
+    print(f"running wilkinson evaluation for {data}")
     response = requests.post(url, json=data, headers=headers)
 
     if response.status_code == 200:
@@ -51,6 +51,6 @@ def evaluate(data_doi=None):
 
 
 if __name__ == "__main__":
-    # evaluate()
+    evaluate()
     get_result_score()
     pass
