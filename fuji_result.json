@@ -1,40 +1,39 @@
 {
-    "test_id": "720b75f1fee06e72a60d725ac4017068041aa18a",
+    "test_id": "0ab7925062bd977fb9ab65e21c09912116bea85a",
     "request": {
-        "object_identifier": "10.20387/bonares-499m-gz39",
+        "object_identifier": "http://data.ifpri.org/lod/at/resource/",
         "test_debug": true,
         "metadata_service_endpoint": "",
         "metadata_service_type": "oai_pmh",
         "use_datacite": true,
-        "metric_version": "metrics_v0.5",
-        "normalized_object_identifier": "10.20387/bonares-499m-gz39"
+        "metric_version": "metrics_v0.5"
     },
     "resolved_url": "not defined",
-    "start_timestamp": "2024-03-05T11:55:10Z",
-    "end_timestamp": "2024-03-05T11:55:11Z",
+    "start_timestamp": "2024-03-20T18:19:29Z",
+    "end_timestamp": "2024-03-20T18:19:29Z",
     "metric_specification": "https://doi.org/10.5281/zenodo.6461229",
     "metric_version": "metrics_v0.5",
     "software_version": "3.1.1",
     "total_metrics": 16,
     "summary": {
         "score_earned": {
-            "A": 0.0,
-            "F": 1.5,
-            "I": 0.0,
-            "R": 0.0,
-            "A1": 0.0,
-            "F1": 1.5,
-            "F2": 0.0,
-            "F3": 0.0,
-            "F4": 0.0,
-            "I1": 0.0,
-            "I2": 0.0,
-            "I3": 0.0,
-            "R1": 0.0,
-            "R1.1": 0.0,
-            "R1.2": 0.0,
-            "R1.3": 0.0,
-            "FAIR": 1.5
+            "A": 0,
+            "F": 1,
+            "I": 0,
+            "R": 0,
+            "A1": 0,
+            "F1": 1,
+            "F2": 0,
+            "F3": 0,
+            "F4": 0,
+            "I1": 0,
+            "I2": 0,
+            "I3": 0,
+            "R1": 0,
+            "R1.1": 0,
+            "R1.2": 0,
+            "R1.3": 0,
+            "FAIR": 1.0
         },
         "score_total": {
             "A": 3,
@@ -57,11 +56,11 @@
         },
         "score_percent": {
             "A": 0.0,
-            "F": 21.43,
+            "F": 14.29,
             "I": 0.0,
             "R": 0.0,
             "A1": 0.0,
-            "F1": 75.0,
+            "F1": 50.0,
             "F2": 0.0,
             "F3": 0.0,
             "F4": 0.0,
@@ -72,7 +71,7 @@
             "R1.1": 0.0,
             "R1.2": 0.0,
             "R1.3": 0.0,
-            "FAIR": 6.25
+            "FAIR": 4.17
         },
         "status_total": {
             "A1": 3,
@@ -95,7 +94,7 @@
         },
         "status_passed": {
             "A1": 0,
-            "F1": 2,
+            "F1": 1,
             "F2": 1,
             "F3": 0,
             "F4": 0,
@@ -107,10 +106,10 @@
             "R1.2": 0,
             "R1.3": 0,
             "A": 0,
-            "F": 3,
+            "F": 2,
             "I": 0,
             "R": 0,
-            "FAIR": 3
+            "FAIR": 2
         },
         "maturity": {
             "A": 0,
@@ -187,14 +186,14 @@
             },
             "maturity": 3,
             "output": {
-                "guid": "10.20387/bonares-499m-gz39",
-                "guid_scheme": "doi"
+                "guid": "http://data.ifpri.org/lod/at/resource/",
+                "guid_scheme": "url"
             },
             "test_debug": [
                 "INFO: Using idutils schemes to identify unique or persistent identifiers for metadata",
-                "INFO: Starting assessment on identifier: 10.20387/bonares-499m-gz39",
-                "SUCCESS: Unique identifier schemes found ['doi', 'handle']",
-                "INFO: Finalized unique identifier scheme - doi"
+                "INFO: Starting assessment on identifier: http://data.ifpri.org/lod/at/resource/",
+                "SUCCESS: Unique identifier schemes found ['url']",
+                "INFO: Finalized unique identifier scheme - url"
             ]
         },
         {
@@ -214,11 +213,11 @@
                         }
                     ],
                     "metric_test_score": {
-                        "earned": 0.5,
+                        "earned": 0,
                         "total": 0.5
                     },
-                    "metric_test_maturity": 1,
-                    "metric_test_status": "pass"
+                    "metric_test_maturity": 0,
+                    "metric_test_status": "fail"
                 },
                 "FsF-F1-02D-2": {
                     "metric_test_name": "Persistent identifier is resolvable",
@@ -239,28 +238,20 @@
                     "metric_test_status": "fail"
                 }
             },
-            "test_status": "pass",
+            "test_status": "fail",
             "score": {
-                "earned": 0.5,
+                "earned": 0,
                 "total": 1
             },
-            "maturity": 1,
+            "maturity": 0,
             "output": {
-                "persistent_identifiers": [
-                    {
-                        "pid": "10.20387/bonares-499m-gz39",
-                        "pid_scheme": "doi",
-                        "resolvable_status": false,
-                        "resolved_url": null
-                    }
-                ]
+                "persistent_identifiers": []
             },
             "test_debug": [
-                "INFO: Retrieving page -: https://doi.org/10.20387/bonares-499m-gz39 as text/html, */*",
-                "WARNING: Request failed, status code -: https://doi.org/10.20387/bonares-499m-gz39, text/html, */* - 404",
+                "INFO: Retrieving page -: http://data.ifpri.org/lod/at/resource/ as text/html, */*",
+                "WARNING: Request failed, reason -: http://data.ifpri.org/lod/at/resource/, text/html, */* - URLError: <urlopen error [Errno -2] Name or service not known>",
                 "INFO: PID schemes-based assessment supported by the assessment service - dict_keys(['ark', 'arxiv', 'bioproject', 'biosample', 'doi', 'ensembl', 'genome', 'gnd', 'handle', 'lsid', 'pmid', 'pmcid', 'purl', 'refseq', 'sra', 'uniprot', 'urn', 'identifiers.org', 'w3id'])",
-                "INFO: Found PID which could not be verified (does not resolve properly) -: https://doi.org/10.20387/bonares-499m-gz39",
-                "SUCCESS: Persistence identifier scheme -: doi"
+                "SUCCESS: Persistence identifier scheme -: None"
             ]
         },
         {
@@ -355,29 +346,11 @@
                 "core_metadata_source": []
             },
             "test_debug": [
-                "INFO: Trying to resolve input URL -: 10.20387/bonares-499m-gz39",
-                "WARNING: No response received from -: https://doi.org/10.20387/bonares-499m-gz39, text/html, */*",
+                "INFO: Trying to resolve input URL -: http://data.ifpri.org/lod/at/resource/",
+                "WARNING: No response received from -: http://data.ifpri.org/lod/at/resource/, text/html, */*",
                 "INFO: Content type is None, therefore skipping Embedded metadata (microdata, RDFa) tests",
                 "WARNING: Skipped EMBEDDED metadata identification, no landing page URL or HTML content could be determined",
                 "INFO: Starting to identify EXTERNAL metadata through content negotiation or typed (signposting) links",
-                "WARNING: Landing page could not be identified, therefore EXTERNAL metadata is based on PID only and may be incomplete",
-                "INFO: Trying to retrieve XML metadata through content negotiation from URL -: https://doi.org/10.20387/bonares-499m-gz39",
-                "INFO: Could not identify metadata properties in XML",
-                "INFO: Trying to retrieve schema.org JSON-LD metadata through content negotiation from URL -: https://doi.org/10.20387/bonares-499m-gz39",
-                "INFO: Retrieving page -: https://doi.org/10.20387/bonares-499m-gz39 as application/ld+json",
-                "WARNING: Request failed, status code -: https://doi.org/10.20387/bonares-499m-gz39, application/ld+json - 404",
-                "WARNING: No response received from -: https://doi.org/10.20387/bonares-499m-gz39, application/ld+json",
-                "INFO: Schema.org metadata through content negotiation UNAVAILABLE",
-                "INFO: Trying to retrieve RDF metadata through content negotiation from URL -: https://doi.org/10.20387/bonares-499m-gz39",
-                "INFO: Retrieving page -: https://doi.org/10.20387/bonares-499m-gz39 as text/turtle, application/turtle, application/x-turtle;q=0.8, application/rdf+xml, text/n3;q=0.9, text/rdf+n3;q=0.9,application/ld+json",
-                "WARNING: Request failed, status code -: https://doi.org/10.20387/bonares-499m-gz39, text/turtle, application/turtle, application/x-turtle;q=0.8, application/rdf+xml, text/n3;q=0.9, text/rdf+n3;q=0.9,application/ld+json - 404",
-                "WARNING: No response received from -: https://doi.org/10.20387/bonares-499m-gz39, text/turtle, application/turtle, application/x-turtle;q=0.8, application/rdf+xml, text/n3;q=0.9, text/rdf+n3;q=0.9,application/ld+json",
-                "INFO: Linked Data metadata UNAVAILABLE",
-                "INFO: Trying to retrieve datacite metadata",
-                "INFO: Retrieving page -: https://doi.org/10.20387/bonares-499m-gz39 as application/vnd.datacite.datacite+json",
-                "WARNING: Request failed, status code -: https://doi.org/10.20387/bonares-499m-gz39, application/vnd.datacite.datacite+json - 404",
-                "WARNING: No response received from -: https://doi.org/10.20387/bonares-499m-gz39, application/vnd.datacite.datacite+json",
-                "INFO: Datacite metadata UNAVAILABLE",
                 "INFO: Type of object described by the metadata -: None",
                 "WARNING: Metadata checks probably unreliable: landing page URL could not be determined",
                 "INFO: Testing if any metadata has been made available via common web standards",
@@ -507,12 +480,7 @@
             "test_debug": [
                 "INFO: Will exclusively consider community specific metadata offering methods for FsF-F4-01M-1 which are specified in metrics -: ['html_embedding', 'microdata_rdfa']",
                 "WARNING: Metadata is NOT found through -: ['html_embedding', 'microdata_rdfa']",
-                "INFO: Querying DataCite API for -:10.20387/bonares-499m-gz39",
-                "INFO: Identifier not listed in DataCite catalogue -:10.20387/bonares-499m-gz39",
-                "WARNING: Google Search Cache DB does not exist, see F-UJI installation instructions",
-                "INFO: Identifier not listed in Google Dataset Search cache -:['10.20387/bonares-499m-gz39']",
-                "INFO: Querying Mendeley Data API for -:10.20387/bonares-499m-gz39",
-                "INFO: Identifier not listed in Mendeley Data catalogue -:10.20387/bonares-499m-gz39",
+                "WARNING: No resolvable PID or responding landing page found, therefore skipping data catalogue coverage tests",
                 "WARNING: Metadata is NOT found through registries considered by the assessment service  -: ['DATACITE', 'MENDELEY_DATA', 'GOOGLE_DATASET']",
                 "INFO: This test is not defined in the metric YAML and therefore not performed -: FsF-F4-01M-3"
             ]

@@ -95,21 +95,5 @@ def run_on_list_of_pids():
                     result.write(newline + "\n")
 
 
-def run_on_list_of_dois_fuji(filepath_2: str = "input\\bonares_dois.csv"):
-    with (open(filepath_2, "r", encoding="utf-8") as file):
-        filepath_result = filepath_2.replace(".csv", "_fuji_result.csv")
-        filepath_result = filepath_result.replace("input", "output")
-        with open(filepath_result, "w", encoding="utf-8") as result:
-            for line in file:
-                doi = get_identifier(line)
-                print(f"found identifier: {doi}")
-                if doi:
-                    FUJI_evaluation.evaluate(doi)
-                    result_score = FUJI_evaluation.get_result_score()
-                    print(f"result score: {result_score}")
-                    newline = line.rstrip() + ";" + ";".join(result_score)
-                    result.write(newline + "\n")
-
-
 if __name__ == "__main__":
     run_on_list_of_pids()

@@ -1,5 +1,6 @@
 import re
 import requests
+import csv
 
 # This is the Wilkinson FAIR Evaluation Service
 url = 'https://fairdata.services:7171/FAIR_Evaluator/collections/6/evaluate'
@@ -14,6 +15,9 @@ data_example = {
     "title": "Test_Eval"
 }
 
+bonares_input = "input/bonares_dois.csv"
+example_input = "input/simple_test.csv"
+
 
 def get_result_score(name_of_wilkinson_result_html: str = "wilkinson_result.html") -> list:
     with open(name_of_wilkinson_result_html, "r", encoding="utf-8") as file:
@@ -22,13 +26,17 @@ def get_result_score(name_of_wilkinson_result_html: str = "wilkinson_result.html
 
         # Find all occurrences of alt="5stars" with any number of stars (0-5)
         score_matches = re.findall(r'Score: (\d+)', html_content)
-        # print(f"score_matches: {score_matches}")
 
         # Convert the star ratings to integers and calculate the average
         total_score = sum(int(stars) for stars in score_matches)
         average_score = total_score / len(score_matches) if score_matches else 0
-        score_matches.append("{:.3f}".format(round(average_score, 3)))
-        print(f"Returning score matches: {score_matches}")
+
+        # Multiply each score by 100
+        score_matches = [str(int(score) * 100) for score in score_matches]
+        average_score = int(round(average_score * 100, 3))  # Convert average score to integer
+
+        # Append the average score to the list and return
+        score_matches.append(str(average_score))
         return score_matches
 
 
@@ -50,7 +58,39 @@ def evaluate(data_doi=None):
         print(f"Request failed with status code {response.status_code}")
 
 
+def read_second_column(file_path):
+    """
+    Reads the second column of a CSV file with specified delimiter and encoding.
+
+    Args:
+        file_path (str): The path to the CSV file.
+
+    Returns:
+        list: A list of entries in the second column.
+    """
+    # Initialize an empty list to store the entries
+    second_column_entries = []
+
+    # Open the file in read mode with utf-8 encoding
+    with open(file_path, mode='r', encoding='utf-8') as file:
+        # Create a CSV reader object with the specified delimiter
+        reader = csv.reader(file, delimiter=';')
+
+        # Iterate over each row in the CSV file
+        for row in reader:
+            # Check if the row has at least two elements
+            if len(row) >= 2:
+                # Add the entry in the second column to the list
+                second_column_entries.append(row[1])
+
+    return second_column_entries
+
+
 if __name__ == "__main__":
-    evaluate()
-    get_result_score()
-    pass
+    dois_list = read_second_column(example_input)
+    print("DOIs read from CSV:", dois_list)
+    for doi in dois_list:
+        print("Processing DOI:", doi)
+        evaluate(doi)
+        print(get_result_score())
+        # Call your evaluate function or any other processing function here, passing the current DOI
