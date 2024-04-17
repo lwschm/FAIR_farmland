@@ -1,5 +1,7 @@
+import csv
 import os
 import re
+import datetime
 import wilkinson_evaluation
 import FUJI_evaluation
 from requests.exceptions import ConnectTimeout
@@ -36,15 +38,30 @@ def read_file_to_list(file_filepath: str = file_path) -> list:
         return lines
 
 
+def count_lines(file_io):
+    line_count = sum(1 for _ in file_io)
+    file_io.seek(0)
+    return line_count
+
+
+def format_time(seconds):
+    """Formats time in seconds to hours, minutes, and seconds."""
+    hours, remainder = divmod(seconds, 3600)
+    minutes, seconds = divmod(remainder, 60)
+    return f"{int(hours)} hour{'s' if hours != 1 else ''}, {int(minutes)} minute{'s' if minutes != 1 else ''}, {seconds:.2f} second{'s' if seconds != 1 else ''}"
+
+
 def run_on_list_of_pids():
     root = tk.Tk()
     root.withdraw()  # Hide the root window
 
     filepath_2 = filedialog.askopenfilename(title="Select a CSV file", initialdir=os.path.join(cwd, "input"))
 
-    with (open(filepath_2, "r", encoding="utf-8") as file):
+    with (open(filepath_2, "r", encoding="utf-8", newline="") as file):
+        reader = csv.reader(file, delimiter=";")
         filepath_result = filepath_2.replace(".csv", "_result.csv")
         filepath_result = filepath_result.replace("input", "output")
+        len_file = count_lines(file)
         with open(filepath_result, "w", encoding="utf-8") as result:
             headers = ("Dataset Name;Object Identifier;F1: FAIR Metrics Gen2- Unique Identifier;F1: FAIR Metrics Gen2 "
                        "- Identifier Persistence;F1: FAIR Metrics Gen2 - Data Identifier "
@@ -65,10 +82,15 @@ def run_on_list_of_pids():
                        "Gen2 - Metadata Includes License (weak);Average;;A;F;I;R;A1;F1;F2;F3;F4;I1;I2"
                        ";I3;R1;R1.1;R1.2;R1.3;FAIR")
             result.write(headers + "\n")
-            for line in file:
-                identifier = get_identifier(line)
-                print(f"found identifier: {identifier}")
 
+            # Save start time
+            start_time = datetime.datetime.now()
+
+            for index, line in enumerate(reader, start=1):
+                current_time = datetime.datetime.now().strftime('%H:%M')  # Current hour and minute
+                print(f"{current_time} - Processing line {index} of {len_file}:\\n{line}")
+                identifier = line[1]
+                print(f"found identifier: {identifier}")
                 if identifier:
                     wilkinson_evaluation.evaluate(identifier)
                     result_score_wilkinson = wilkinson_evaluation.get_result_score()
@@ -86,13 +108,30 @@ def run_on_list_of_pids():
 
                     if fuji_success:
                         print(f"result scores: {result_score_wilkinson}, {result_score_fuji}")
-                        newline = line.rstrip().replace(",", ";") + ";" + ";".join(
+                        newline = line[0].rstrip() + ";" + line[1].rstrip() + ";" + ";".join(
                             result_score_wilkinson) + ";" + ";" + ";".join(fuji_values)
                     else:
                         print(f"result scores: {result_score_wilkinson}")
-                        newline = line.rstrip().replace(",", ";") + ";" + ";".join(
+                        newline = line[0].rstrip() + ";" + line[1].rstrip() + ";" + ";".join(
                             result_score_wilkinson)
                     result.write(newline + "\n")
+
+            # Save end time
+            end_time = datetime.datetime.now()
+
+            # Calculate total processing time
+            processing_time = end_time - start_time
+            processing_time_seconds = processing_time.total_seconds()
+
+            # Calculate processing time per line
+            time_per_line = processing_time_seconds / len_file if len_file else 0
+
+            # Format total processing time and processing time per line for display
+            formatted_total_time = format_time(processing_time_seconds)
+            formatted_time_per_line = format_time(time_per_line)
+
+            print(f"Total processing time: {formatted_total_time}.")
+            print(f"Average processing time per line: {formatted_time_per_line}.")
 
 
 if __name__ == "__main__":

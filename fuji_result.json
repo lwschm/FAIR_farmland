@@ -1,39 +1,40 @@
 {
-    "test_id": "0ab7925062bd977fb9ab65e21c09912116bea85a",
+    "test_id": "be5dbb8a32b985f4a790a6af76efb9fbad13336c",
     "request": {
-        "object_identifier": "http://data.ifpri.org/lod/at/resource/",
+        "object_identifier": "10.3220/DATA20230510130443-0",
         "test_debug": true,
         "metadata_service_endpoint": "",
         "metadata_service_type": "oai_pmh",
         "use_datacite": true,
-        "metric_version": "metrics_v0.5"
+        "metric_version": "metrics_v0.5",
+        "normalized_object_identifier": "10.3220/DATA20230510130443-0"
     },
-    "resolved_url": "not defined",
-    "start_timestamp": "2024-03-20T18:19:29Z",
-    "end_timestamp": "2024-03-20T18:19:29Z",
+    "resolved_url": "https://www.openagrar.de/receive/openagrar_mods_00087123",
+    "start_timestamp": "2024-04-17T14:14:23Z",
+    "end_timestamp": "2024-04-17T14:14:26Z",
     "metric_specification": "https://doi.org/10.5281/zenodo.6461229",
     "metric_version": "metrics_v0.5",
     "software_version": "3.1.1",
     "total_metrics": 16,
     "summary": {
         "score_earned": {
-            "A": 0,
-            "F": 1,
-            "I": 0,
-            "R": 0,
-            "A1": 0,
-            "F1": 1,
-            "F2": 0,
-            "F3": 0,
-            "F4": 0,
-            "I1": 0,
-            "I2": 0,
-            "I3": 0,
-            "R1": 0,
-            "R1.1": 0,
-            "R1.2": 0,
-            "R1.3": 0,
-            "FAIR": 1.0
+            "A": 1.0,
+            "F": 4.0,
+            "I": 3.0,
+            "R": 5.0,
+            "A1": 1.0,
+            "F1": 2.0,
+            "F2": 1.0,
+            "F3": 0.0,
+            "F4": 1.0,
+            "I1": 2.0,
+            "I2": 1.0,
+            "I3": 0.0,
+            "R1": 1.0,
+            "R1.1": 2.0,
+            "R1.2": 1.0,
+            "R1.3": 1.0,
+            "FAIR": 13.0
         },
         "score_total": {
             "A": 3,
@@ -55,23 +56,23 @@
             "FAIR": 24.0
         },
         "score_percent": {
-            "A": 0.0,
-            "F": 14.29,
-            "I": 0.0,
-            "R": 0.0,
-            "A1": 0.0,
-            "F1": 50.0,
-            "F2": 0.0,
+            "A": 33.33,
+            "F": 57.14,
+            "I": 75.0,
+            "R": 50.0,
+            "A1": 33.33,
+            "F1": 100.0,
+            "F2": 50.0,
             "F3": 0.0,
-            "F4": 0.0,
-            "I1": 0.0,
-            "I2": 0.0,
+            "F4": 50.0,
+            "I1": 100.0,
+            "I2": 100.0,
             "I3": 0.0,
-            "R1": 0.0,
-            "R1.1": 0.0,
-            "R1.2": 0.0,
-            "R1.3": 0.0,
-            "FAIR": 4.17
+            "R1": 25.0,
+            "R1.1": 100.0,
+            "R1.2": 50.0,
+            "R1.3": 50.0,
+            "FAIR": 54.17
         },
         "status_total": {
             "A1": 3,
@@ -93,42 +94,42 @@
             "FAIR": 16
         },
         "status_passed": {
-            "A1": 0,
-            "F1": 1,
+            "A1": 1,
+            "F1": 2,
             "F2": 1,
             "F3": 0,
-            "F4": 0,
-            "I1": 0,
-            "I2": 0,
+            "F4": 1,
+            "I1": 1,
+            "I2": 1,
             "I3": 0,
-            "R1": 0,
-            "R1.1": 0,
-            "R1.2": 0,
-            "R1.3": 0,
-            "A": 0,
-            "F": 2,
-            "I": 0,
-            "R": 0,
-            "FAIR": 2
+            "R1": 1,
+            "R1.1": 1,
+            "R1.2": 1,
+            "R1.3": 1,
+            "A": 1,
+            "F": 4,
+            "I": 2,
+            "R": 4,
+            "FAIR": 11
         },
         "maturity": {
-            "A": 0,
-            "F": 1,
-            "I": 0,
-            "R": 0,
-            "A1": 0,
-            "F1": 2,
-            "F2": 0,
+            "A": 1,
+            "F": 2,
+            "I": 2,
+            "R": 1,
+            "A1": 1,
+            "F1": 3,
+            "F2": 2,
             "F3": 0,
-            "F4": 0,
-            "I1": 0,
-            "I2": 0,
+            "F4": 3,
+            "I1": 3,
+            "I2": 3,
             "I3": 0,
-            "R1": 0,
-            "R1.1": 0,
-            "R1.2": 0,
-            "R1.3": 0,
-            "FAIR": 1.0
+            "R1": 1,
+            "R1.1": 3,
+            "R1.2": 2,
+            "R1.3": 1,
+            "FAIR": 1.5
         }
     },
     "results": [
@@ -186,14 +187,14 @@
             },
             "maturity": 3,
             "output": {
-                "guid": "http://data.ifpri.org/lod/at/resource/",
-                "guid_scheme": "url"
+                "guid": "10.3220/DATA20230510130443-0",
+                "guid_scheme": "doi"
             },
             "test_debug": [
                 "INFO: Using idutils schemes to identify unique or persistent identifiers for metadata",
-                "INFO: Starting assessment on identifier: http://data.ifpri.org/lod/at/resource/",
-                "SUCCESS: Unique identifier schemes found ['url']",
-                "INFO: Finalized unique identifier scheme - url"
+                "INFO: Starting assessment on identifier: 10.3220/DATA20230510130443-0",
+                "SUCCESS: Unique identifier schemes found ['doi', 'handle']",
+                "INFO: Finalized unique identifier scheme - doi"
             ]
         },
         {
@@ -213,11 +214,11 @@
                         }
                     ],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 0.5,
                         "total": 0.5
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 1,
+                    "metric_test_status": "pass"
                 },
                 "FsF-F1-02D-2": {
                     "metric_test_name": "Persistent identifier is resolvable",
@@ -231,27 +232,34 @@
                         }
                     ],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 1,
                         "total": 1
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 3,
+                    "metric_test_status": "pass"
                 }
             },
-            "test_status": "fail",
+            "test_status": "pass",
             "score": {
-                "earned": 0,
+                "earned": 1,
                 "total": 1
             },
-            "maturity": 0,
+            "maturity": 3,
             "output": {
-                "persistent_identifiers": []
+                "persistent_identifiers": [
+                    {
+                        "pid": "10.3220/DATA20230510130443-0",
+                        "pid_scheme": "doi",
+                        "resolvable_status": true,
+                        "resolved_url": "https://www.openagrar.de/receive/openagrar_mods_00087123"
+                    }
+                ]
             },
             "test_debug": [
-                "INFO: Retrieving page -: http://data.ifpri.org/lod/at/resource/ as text/html, */*",
-                "WARNING: Request failed, reason -: http://data.ifpri.org/lod/at/resource/, text/html, */* - URLError: <urlopen error [Errno -2] Name or service not known>",
+                "INFO: Retrieving page -: https://doi.org/10.3220/DATA20230510130443-0 as text/html, */*",
                 "INFO: PID schemes-based assessment supported by the assessment service - dict_keys(['ark', 'arxiv', 'bioproject', 'biosample', 'doi', 'ensembl', 'genome', 'gnd', 'handle', 'lsid', 'pmid', 'pmcid', 'purl', 'refseq', 'sra', 'uniprot', 'urn', 'identifiers.org', 'w3id'])",
-                "SUCCESS: Persistence identifier scheme -: None"
+                "INFO: Found PID which could be verified (does resolve properly) -: https://doi.org/10.3220/DATA20230510130443-0",
+                "SUCCESS: Persistence identifier scheme -: doi"
             ]
         },
         {
@@ -271,11 +279,11 @@
                         }
                     ],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 0.5,
                         "total": 0.5
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 1,
+                    "metric_test_status": "pass"
                 },
                 "FsF-F2-01M-2": {
                     "metric_test_name": "Core data citation metadata is available",
@@ -298,11 +306,11 @@
                         }
                     ],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 0.5,
                         "total": 0.5
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 2,
+                    "metric_test_status": "pass"
                 },
                 "FsF-F2-01M-3": {
                     "metric_test_name": "Core descriptive metadata is available",
@@ -336,26 +344,154 @@
             },
             "test_status": "pass",
             "score": {
-                "earned": 0,
+                "earned": 1.0,
                 "total": 2
             },
-            "maturity": 0,
+            "maturity": 2,
             "output": {
-                "core_metadata_status": "some metadata",
-                "core_metadata_found": {},
-                "core_metadata_source": []
+                "core_metadata_status": "partial metadata",
+                "core_metadata_found": {
+                    "title": "[Datensatz] Aktualisierte Kulisse organischer B\u00f6den in Deutschland",
+                    "object_type": [
+                        "Dataset",
+                        "research_data"
+                    ],
+                    "creator": [
+                        "Wittnebel, Mareille",
+                        "Tiemeyer, B\u00e4rbel",
+                        "Frank, Stefan",
+                        "http://id.medra.org/contributor/Stefan+Frank-10.3220%2FDATA20230510130443-0-1"
+                    ],
+                    "publisher": [
+                        "OpenAgrar",
+                        "Johann Heinrich von Th\u00fcnen-Institut"
+                    ],
+                    "summary": [
+                        "The updated map of organic soils in Germany (2023) shows all peat and other organic soils in Germany. It contains harmonised information on e.g. different categories of organic soils, anthropogenic influences through deep-ploughing or mineral soil covers, peat thickness and substrates of the underlying soil layers. It has been compiled by the Th\u00fcnen Institute in agreement with the authorities of all federal states, using their maps and data. Further information can be found in Th\u00fcnen Working Paper 212. Replacement of the GeoPackage (4.8.2023) : Correction of the .lyr files for the categories of organic soils (German and English) due to incorrect display of the data; addition of .sld files.",
+                        "Die aktualisierte Kulisse der organischen B\u00f6den in Deutschland (2023) stellt die Moor- und weiteren organischen B\u00f6den in Deutschland dar. Sie enth\u00e4lt harmonisierte Informationen u.a. zu verschiedenen Kategorien von organischen B\u00f6den, zur anthropogenen \u00dcberpr\u00e4gung durch Tiefpfl\u00fcgen oder der \u00dcberdeckung mit Mineralboden, zur M\u00e4chtigkeit der Torfhorizonte und zu den Substraten der unterliegenden Schichten. Sie wurde vom Th\u00fcnen-Institut aus Karten der und in Abstimmung mit den zust\u00e4ndigen L\u00e4nderbeh\u00f6rden erstellt und ist Open Access. Weitere Informationen befinden sich im Th\u00fcnen Working Paper 212. Austausch des GeoPackages (4.8.2023) : Korrektur der .lyr-Dateien f\u00fcr die Moorbodenkategorien (deutsch und englisch) aufgrund fehlerhafter Darstellung; Erg\u00e4nzung um .sld-Dateien."
+                    ],
+                    "object_identifier": [
+                        "10.3220/DATA20230510130443-0",
+                        "https://doi.org/10.3220/DATA20230510130443-0"
+                    ],
+                    "publication_date": "2023"
+                },
+                "core_metadata_source": [
+                    [
+                        "DUBLINCORE_EMBEDDED",
+                        "html_embedding"
+                    ],
+                    [
+                        "SCHEMAORG_EMBEDDED",
+                        "html_embedding"
+                    ],
+                    [
+                        "HIGHWIRE_EPRINTS_EMBEDDED",
+                        "html_embedding"
+                    ],
+                    [
+                        "RDF_NEGOTIATED",
+                        "content_negotiation"
+                    ]
+                ]
             },
             "test_debug": [
-                "INFO: Trying to resolve input URL -: http://data.ifpri.org/lod/at/resource/",
-                "WARNING: No response received from -: http://data.ifpri.org/lod/at/resource/, text/html, */*",
-                "INFO: Content type is None, therefore skipping Embedded metadata (microdata, RDFa) tests",
-                "WARNING: Skipped EMBEDDED metadata identification, no landing page URL or HTML content could be determined",
+                "INFO: Trying to resolve input URL -: 10.3220/DATA20230510130443-0",
+                "INFO: Content negotiation on https://doi.org/10.3220/DATA20230510130443-0 accept=text/html, */*, status=200",
+                "INFO: Creating Cached response content",
+                "INFO: Found HTML page!",
+                "INFO: Starting to analyse EMBEDDED metadata at -: https://www.openagrar.de/receive/openagrar_mods_00087123",
+                "INFO: Trying to identify EMBEDDED  Microdata, OpenGraph or Schema.org -: https://www.openagrar.de/receive/openagrar_mods_00087123",
+                "INFO: Trying to retrieve schema.org JSON-LD metadata from html page",
+                "INFO: Try to parse RDF (JSON-LD) from -: landing page",
+                "INFO: Try to parse JSON-LD using JMESPath retrieved as dict from -: landing page",
+                "INFO: Trying to extract schema.org JSON-LD metadata from -: SCHEMAORG_EMBEDDED",
+                "INFO: Found schema.org JSON-LD which seems to be valid, based on the given context type -:['Dataset']",
+                "SUCCESS: Found schema.org JSON-LD metadata in html page -: dict_keys(['title', 'object_type', 'creator', 'creator_first', 'creator_last', 'publisher', 'license', 'summary', 'object_identifier'])",
+                "INFO: Trying to retrieve Dublin Core metadata from html page",
+                "SUCCESS: Found DublinCore metadata -: dict_keys(['title', 'creator', 'object_type', 'object_identifier', 'summary', 'access_level'])",
+                "INFO: Trying to retrieve Microdata metadata from html page",
+                "INFO: Could not identify Microdata metadata",
+                "INFO: Trying to retrieve RDFa metadata from html page",
+                "INFO: Found RDF Graph which was sucessfully parsed",
+                "INFO: Trying to identify namespaces in RDF Graph",
+                "INFO: Could not find DCAT, schema.org or SKOS/OWL metadata, continuing with generic SPARQL",
+                "INFO: Trying to query generic SPARQL on RDF, found triples: -:17",
+                "INFO: Found RDFa like triples but at least some of them seem to be XHTML or OpenGraph properties which are excluded",
+                "INFO: Trying to retrieve Highwire and eprints metadata from html page",
+                "SUCCESS: Found Highwire or eprints metadata -: dict_keys(['creator', 'object_identifier'])",
+                "INFO: Trying to retrieve OpenGraph metadata from html page",
+                "INFO: OpenGraph metadata UNAVAILABLE",
+                "INFO: Trying to identify Typed Links to data items in html page",
                 "INFO: Starting to identify EXTERNAL metadata through content negotiation or typed (signposting) links",
-                "INFO: Type of object described by the metadata -: None",
-                "WARNING: Metadata checks probably unreliable: landing page URL could not be determined",
+                "INFO: Trying to retrieve XML metadata through content negotiation from URL -: https://www.openagrar.de/receive/openagrar_mods_00087123",
+                "INFO: Retrieving page -: https://www.openagrar.de/receive/openagrar_mods_00087123 as application/xml, text/xml;q=0.5",
+                "INFO: Content negotiation on https://www.openagrar.de/receive/openagrar_mods_00087123 accept=application/xml, text/xml;q=0.5, status=200",
+                "INFO: Creating Cached response content",
+                "INFO: Ignoring HTML response",
+                "INFO: Trying to extract/parse XML metadata from URL -: https://www.openagrar.de/receive/openagrar_mods_00087123",
+                "INFO: Expected XML but content negotiation responded -: MetadataFormats.HTML",
+                "INFO: Could not identify metadata properties in XML",
+                "INFO: Trying to retrieve XML metadata through content negotiation from URL -: https://doi.org/10.3220/DATA20230510130443-0",
+                "INFO: Retrieving page -: https://www.openagrar.de/receive/openagrar_mods_00087123 as application/xml, text/xml;q=0.5",
+                "INFO: Content negotiation on https://www.openagrar.de/receive/openagrar_mods_00087123 accept=application/xml, text/xml;q=0.5, status=200",
+                "INFO: Creating Cached response content",
+                "INFO: Ignoring HTML response",
+                "INFO: Trying to extract/parse XML metadata from URL -: https://www.openagrar.de/receive/openagrar_mods_00087123",
+                "INFO: Expected XML but content negotiation responded -: MetadataFormats.HTML",
+                "INFO: Could not identify metadata properties in XML",
+                "INFO: Trying to retrieve schema.org JSON-LD metadata through content negotiation from URL -: https://www.openagrar.de/receive/openagrar_mods_00087123",
+                "INFO: Retrieving page -: https://www.openagrar.de/receive/openagrar_mods_00087123 as application/ld+json",
+                "INFO: Content negotiation on https://www.openagrar.de/receive/openagrar_mods_00087123 accept=application/ld+json, status=200",
+                "INFO: Creating Cached response content",
+                "INFO: Ignoring HTML response",
+                "INFO: Schema.org metadata through content negotiation UNAVAILABLE",
+                "INFO: Trying to retrieve schema.org JSON-LD metadata through content negotiation from URL -: https://doi.org/10.3220/DATA20230510130443-0",
+                "INFO: Retrieving page -: https://doi.org/10.3220/DATA20230510130443-0 as application/ld+json",
+                "WARNING: Request failed, status code -: https://doi.org/10.3220/DATA20230510130443-0, application/ld+json - 406",
+                "WARNING: No response received from -: https://doi.org/10.3220/DATA20230510130443-0, application/ld+json",
+                "INFO: Schema.org metadata through content negotiation UNAVAILABLE",
+                "INFO: Trying to retrieve RDF metadata through content negotiation from URL -: https://www.openagrar.de/receive/openagrar_mods_00087123",
+                "INFO: Retrieving page -: https://www.openagrar.de/receive/openagrar_mods_00087123 as text/turtle, application/turtle, application/x-turtle;q=0.8, application/rdf+xml, text/n3;q=0.9, text/rdf+n3;q=0.9,application/ld+json",
+                "INFO: Content negotiation on https://www.openagrar.de/receive/openagrar_mods_00087123 accept=text/turtle, application/turtle, application/x-turtle;q=0.8, application/rdf+xml, text/n3;q=0.9, text/rdf+n3;q=0.9,application/ld+json, status=200",
+                "INFO: Creating Cached response content",
+                "INFO: Ignoring HTML response",
+                "INFO: Try to parse RDF from -: https://www.openagrar.de/receive/openagrar_mods_00087123 as turtle",
+                "WARNING: Failed to parse RDF -: https://www.openagrar.de/receive/openagrar_mods_00087123 exactly one of source, location, file or data must be given",
+                "INFO: Retrieving page -: https://doi.org/10.3220/DATA20230510130443-0 as text/turtle, application/turtle, application/x-turtle;q=0.8, application/rdf+xml, text/n3;q=0.9, text/rdf+n3;q=0.9,application/ld+json",
+                "INFO: Content negotiation on https://doi.org/10.3220/DATA20230510130443-0 accept=text/turtle, application/turtle, application/x-turtle;q=0.8, application/rdf+xml, text/n3;q=0.9, text/rdf+n3;q=0.9,application/ld+json, status=200",
+                "INFO: Creating Cached response content",
+                "INFO: Try to parse RDF from -: https://doi.org/10.3220/DATA20230510130443-0 as turtle",
+                "INFO: Found RDF Graph which was sucessfully parsed",
+                "INFO: Trying to identify namespaces in RDF Graph",
+                "INFO: RDF Graph seems to contain SKOS/OWL metadata elements",
+                "INFO: Could not parse Ontology RDF",
+                "INFO: Could not find DCAT, schema.org or SKOS/OWL metadata, continuing with generic SPARQL",
+                "INFO: Trying to query generic SPARQL on RDF, found triples: -:23",
+                "SUCCESS: Found Linked Data metadata -: dict_keys(['object_identifier', 'title', 'publisher', 'publication_date', 'creator'])",
+                "INFO: Trying to retrieve RDF metadata through content negotiation from URL -: https://doi.org/10.3220/DATA20230510130443-0",
+                "INFO: Retrieving page -: https://doi.org/10.3220/DATA20230510130443-0 as text/turtle, application/turtle, application/x-turtle;q=0.8, application/rdf+xml, text/n3;q=0.9, text/rdf+n3;q=0.9,application/ld+json",
+                "INFO: Content negotiation on https://doi.org/10.3220/DATA20230510130443-0 accept=text/turtle, application/turtle, application/x-turtle;q=0.8, application/rdf+xml, text/n3;q=0.9, text/rdf+n3;q=0.9,application/ld+json, status=200",
+                "INFO: Creating Cached response content",
+                "INFO: Try to parse RDF from -: https://doi.org/10.3220/DATA20230510130443-0 as turtle",
+                "INFO: Found RDF Graph which was sucessfully parsed",
+                "INFO: Trying to identify namespaces in RDF Graph",
+                "INFO: RDF Graph seems to contain SKOS/OWL metadata elements",
+                "INFO: Could not parse Ontology RDF",
+                "INFO: Could not find DCAT, schema.org or SKOS/OWL metadata, continuing with generic SPARQL",
+                "INFO: Trying to query generic SPARQL on RDF, found triples: -:23",
+                "SUCCESS: Found Linked Data metadata -: dict_keys(['object_identifier', 'title', 'publisher', 'publication_date', 'creator'])",
+                "INFO: Trying to retrieve datacite metadata",
+                "INFO: Retrieving page -: https://doi.org/10.3220/DATA20230510130443-0 as application/vnd.datacite.datacite+json",
+                "WARNING: Request failed, status code -: https://doi.org/10.3220/DATA20230510130443-0, application/vnd.datacite.datacite+json - 406",
+                "WARNING: No response received from -: https://doi.org/10.3220/DATA20230510130443-0, application/vnd.datacite.datacite+json",
+                "INFO: Datacite metadata UNAVAILABLE",
+                "INFO: Type of object described by the metadata -: ['Dataset', 'research_data']",
                 "INFO: Testing if any metadata has been made available via common web standards",
+                "INFO: Found some descriptive metadata elements -: dict_keys(['title', 'object_type', 'creator', 'publisher', 'license', 'summary', 'object_identifier', 'access_level', 'publication_date'])",
+                "SUCCESS: Found required core citation metadata elements -: ['creator', 'title', 'object_identifier', 'publication_date', 'publisher', 'object_type']",
                 "INFO: Will exclusively consider community specific metadata properties which are specified in metrics -: {'name': ['creator', 'title', 'object_identifier', 'publication_date', 'publisher', 'object_type', 'summary', 'keywords']}",
-                "WARNING: Not all required core descriptive metadata elements exist, missing -: ['summary', 'keywords', 'object_identifier', 'publisher', 'object_type', 'publication_date', 'title', 'creator']"
+                "WARNING: Not all required core descriptive metadata elements exist, missing -: ['keywords']"
             ]
         },
         {
@@ -451,11 +587,11 @@
                         }
                     ],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 1,
                         "total": 1
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 3,
+                    "metric_test_status": "pass"
                 },
                 "FsF-F4-01M-2": {
                     "metric_test_name": "Metadata is registered in major research data registries (DataCite)",
@@ -468,19 +604,33 @@
                     "metric_test_status": "fail"
                 }
             },
-            "test_status": "fail",
+            "test_status": "pass",
             "score": {
-                "earned": 0,
+                "earned": 1,
                 "total": 2
             },
-            "maturity": 0,
+            "maturity": 3,
             "output": {
-                "search_mechanisms": []
+                "search_mechanisms": [
+                    {
+                        "mechanism": "structured data",
+                        "mechanism_info": [
+                            "schemaorg via: html_embedding",
+                            "dublin-core via: html_embedding"
+                        ]
+                    }
+                ]
             },
             "test_debug": [
                 "INFO: Will exclusively consider community specific metadata offering methods for FsF-F4-01M-1 which are specified in metrics -: ['html_embedding', 'microdata_rdfa']",
-                "WARNING: Metadata is NOT found through -: ['html_embedding', 'microdata_rdfa']",
-                "WARNING: No resolvable PID or responding landing page found, therefore skipping data catalogue coverage tests",
+                "SUCCESS: Metadata is offered in a way major search engines can ingest it -: ['schemaorg via: html_embedding', 'dublin-core via: html_embedding']",
+                "INFO: Querying DataCite API for -:10.3220/DATA20230510130443-0",
+                "INFO: Identifier not listed in DataCite catalogue -:10.3220/DATA20230510130443-0",
+                "WARNING: Google Search Cache DB does not exist, see F-UJI installation instructions",
+                "INFO: Identifier not listed in Google Dataset Search cache -:['10.3220/DATA20230510130443-0', 'https://www.openagrar.de/receive/openagrar_mods_00087123']",
+                "INFO: Querying Mendeley Data API for -:10.3220/DATA20230510130443-0",
+                "INFO: Identifier not listed in Mendeley Data catalogue -:10.3220/DATA20230510130443-0",
+                "INFO: Querying Mendeley Data API for -:https://www.openagrar.de/receive/openagrar_mods_00087123",
                 "WARNING: Metadata is NOT found through registries considered by the assessment service  -: ['DATACITE', 'MENDELEY_DATA', 'GOOGLE_DATASET']",
                 "INFO: This test is not defined in the metric YAML and therefore not performed -: FsF-F4-01M-3"
             ]
@@ -520,11 +670,11 @@
                         }
                     ],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 1,
                         "total": 1
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 2,
+                    "metric_test_status": "pass"
                 },
                 "FsF-I1-01M-2": {
                     "metric_test_name": "Parsable, graph data (RDF, JSON-LD) is accessible through content negotiation, typed links or sparql endpoint",
@@ -566,28 +716,40 @@
                         }
                     ],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 1,
                         "total": 1
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 3,
+                    "metric_test_status": "pass"
                 }
             },
-            "test_status": "fail",
+            "test_status": "pass",
             "score": {
-                "earned": 0,
+                "earned": 2,
                 "total": 2
             },
-            "maturity": 0,
-            "output": [],
+            "maturity": 3,
+            "output": [
+                {
+                    "serialization_format": "JSON-LD",
+                    "source": "structured_data",
+                    "is_metadata_found": true
+                },
+                {
+                    "serialization_format": "RDF",
+                    "source": "content_negotiate",
+                    "is_metadata_found": true
+                }
+            ],
             "test_debug": [
                 "INFO: Check of structured data (RDF serialization) embedded in the data page",
-                "INFO: NO structured data (RDF serialization) embedded in the data page",
+                "INFO: JSON-LD (schema.org) serialization found in the data page - JSON-LD",
+                "SUCCESS: Found structured data (RDF serialization) in the data page",
                 "INFO: Check if RDF-based typed link included",
                 "INFO: NO RDF-based typed link found",
                 "INFO: Check if RDF metadata available through content negotiation",
-                "INFO: NO RDF metadata available through content negotiation",
-                "WARNING: NO SPARQL endpoint found through re3data based on the object URI provided"
+                "INFO: RDF graph retrieved through content negotiation, content type - RDF",
+                "SUCCESS: Found RDF content through content negotiation or typed links"
             ]
         },
         {
@@ -610,8 +772,8 @@
                         "earned": 0,
                         "total": 0
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 1,
+                    "metric_test_status": "pass"
                 },
                 "FsF-I2-01M-2": {
                     "metric_test_name": "Namespaces of known semantic resources can be identified in metadata",
@@ -625,24 +787,38 @@
                         }
                     ],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 1,
                         "total": 1
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 3,
+                    "metric_test_status": "pass"
                 }
             },
-            "test_status": "fail",
+            "test_status": "pass",
             "score": {
-                "earned": 0,
+                "earned": 1,
                 "total": 1
             },
-            "maturity": 0,
-            "output": [],
+            "maturity": 3,
+            "output": [
+                {
+                    "namespace": "http://purl.org/ontology/bibo",
+                    "is_namespace_active": true
+                },
+                {
+                    "namespace": "http://viaf.org/viaf",
+                    "is_namespace_active": true
+                }
+            ],
             "test_debug": [
-                "WARNING: NO namespaces of semantic vocabularies found in the metadata",
-                "INFO: Skipping namespace lookup in LOD registry list since no namespaces available",
-                "WARNING: NO known vocabulary namespace URI is found which is listed in  the LOD registry"
+                "INFO: Removing default namespaces from 11 vocabulary namespaces found in structured metadata",
+                "INFO: Default vocabulary namespace(s) excluded -: ['http://schema.org', 'http://purl.org/dc/terms', 'http://xmlns.com/foaf/0.1', 'http://purl.org/dc/elements/1.1', 'http://www.w3.org/2002/07/owl', 'http://xmlns.com/foaf/0.1', 'http://www.w3.org/1999/02/22-rdf-syntax-ns']",
+                "INFO: Removing default namespaces from 2 vocabulary namespaces extracted from links found in metadata",
+                "INFO: Default vocabulary namespace(s) excluded -: ['http://schema.org']",
+                "INFO: Check if known namespace(s) are used in structured metadata (RDF, XML) which exist(s) in a LOD registry -: ['https://doi.org/10.3220', 'http://prismstandard.org/namespaces/basic/2.1', 'http://purl.org/ontology/bibo', 'http://id.medra.org/contributor']",
+                "INFO: Check if known namespace(s) are used in linked property URIs which exist(s) in a LOD registry -: ['http://viaf.org/viaf']",
+                "SUCCESS: Namespace matches found -: ['http://purl.org/ontology/bibo', 'http://viaf.org/viaf']",
+                "WARNING: Vocabulary namespace(s) or URIs specified but no match is found in LOD reference list (examples) -: ['https://doi.org/10.3220', 'http://prismstandard.org/namespaces/basic/2.1', 'http://id.medra.org/contributor']"
             ]
         },
         {
@@ -695,6 +871,8 @@
             "maturity": 0,
             "output": {},
             "test_debug": [
+                "INFO: No related resource(s) found in Schema.org metadata",
+                "INFO: No related resource(s) found in DublinCore metadata",
                 "WARNING: Could not identify related resources in metadata"
             ]
         },
@@ -707,11 +885,11 @@
                     "metric_test_name": "Minimal information about available data content is given in metadata",
                     "metric_test_requirements": [],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 1,
                         "total": 1
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 1,
+                    "metric_test_status": "pass"
                 },
                 "FsF-R1-01MD-1a": {
                     "metric_test_name": "Resource type (e.g. dataset) is given in metadata",
@@ -720,8 +898,8 @@
                         "earned": 0,
                         "total": 0
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": null,
+                    "metric_test_status": "pass"
                 },
                 "FsF-R1-01MD-1b": {
                     "metric_test_name": "Information about data content (e.g. links) is given in metadata",
@@ -784,19 +962,20 @@
                     "metric_test_status": "fail"
                 }
             },
-            "test_status": "fail",
+            "test_status": "pass",
             "score": {
-                "earned": 0,
+                "earned": 1,
                 "total": 4
             },
-            "maturity": 0,
+            "maturity": 1,
             "output": {
-                "object_type": null,
+                "object_type": "dataset",
                 "data_content_descriptor": []
             },
             "test_debug": [
-                "INFO: Object landing page accessible status -: None",
-                "WARNING: NO resource type specified",
+                "INFO: Object landing page accessible status -: True",
+                "SUCCESS: Valid resource type (e.g. subtype of schema.org/CreativeWork, DCMI Type  or DataCite resourceType) specified -: dataset",
+                "WARNING: Invalid resource type (e.g. subtype of schema.org/CreativeWork, DCMI Type  or DataCite resourceType) specified -: research_data",
                 "WARNING: NO data object content available/accessible to perform file descriptors (type and size) tests"
             ]
         },
@@ -809,34 +988,54 @@
                     "metric_test_name": "Licence information is given in an appropriate metadata element",
                     "metric_test_requirements": [],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 1,
                         "total": 1
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 1,
+                    "metric_test_status": "pass"
                 },
                 "FsF-R1.1-01M-2": {
                     "metric_test_name": "Recognized licence is valid (community specific or registered at SPDX)",
                     "metric_test_requirements": [],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 1,
                         "total": 1
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 3,
+                    "metric_test_status": "pass"
                 }
             },
-            "test_status": "fail",
+            "test_status": "pass",
             "score": {
-                "earned": 0,
+                "earned": 2,
                 "total": 2
             },
-            "maturity": 0,
-            "output": [],
+            "maturity": 3,
+            "output": [
+                {
+                    "license": "https://creativecommons.org/licenses/by/4.0",
+                    "osi_approved": false,
+                    "details_url": "http://spdx.org/licenses/CC-BY-4.0.html"
+                },
+                {
+                    "license": "https://creativecommons.org/licenses/by/4.0",
+                    "osi_approved": false,
+                    "details_url": "http://spdx.org/licenses/CC-BY-4.0.html"
+                }
+            ],
             "test_debug": [
-                "WARNING: License information unavailable in metadata",
-                "INFO: Will consider all SPDX licenses as community specific licenses for FsF-R1.1-01M",
-                "WARNING: Skipping SPDX and community license verification since license information unavailable in metadata"
+                "INFO: License metadata found (schema.org) -: ['https://creativecommons.org/licenses/by/4.0/']",
+                "INFO: License expressed as access condition (rights), therefore moved from FsF-A1-01M -: https://creativecommons.org/licenses/by/4.0/",
+                "INFO: Found CreativeCommons license -: https://creativecommons.org/licenses/by/4.0/",
+                "INFO: Verify URL through SPDX registry -: https://creativecommons.org/licenses/by/4.0",
+                "INFO: Found SPDX license representation -: http://spdx.org/licenses/CC-BY-4.0.json",
+                "SUCCESS: Found SPDX license representation (spdx url, osi_approved)",
+                "INFO: Found CreativeCommons license -: https://creativecommons.org/licenses/by/4.0/",
+                "INFO: Verify URL through SPDX registry -: https://creativecommons.org/licenses/by/4.0",
+                "INFO: Found SPDX license representation -: http://spdx.org/licenses/CC-BY-4.0.json",
+                "SUCCESS: Found SPDX license representation (spdx url, osi_approved)",
+                "SUCCESS: Found licence information in metadata",
+                "INFO: Will consider all SPDX licenses as community specific licenses for FsF-R1.1-01M"
             ]
         },
         {
@@ -910,6 +1109,8 @@
                 "access_details": {}
             },
             "test_debug": [
+                "INFO: Found CreativeCommons license -: https://creativecommons.org/licenses/by/4.0/",
+                "WARNING: Access condition looks like license, therefore the following is ignored -: https://creativecommons.org/licenses/by/4.0/",
                 "WARNING: NO access information is available in metadata",
                 "INFO: Skipping standard terms test since NO access information is available in metadata",
                 "INFO: Skipping standard terms test since NO access information is available in metadata",
@@ -926,11 +1127,11 @@
                     "metric_test_name": "Metadata contains elements which hold provenance information and can be mapped to PROV",
                     "metric_test_requirements": [],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 1,
                         "total": 1
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 2,
+                    "metric_test_status": "pass"
                 },
                 "FsF-R1.2-01M-2": {
                     "metric_test_name": "Metadata contains provenance information using formal provenance ontologies (PROV-O)",
@@ -943,16 +1144,40 @@
                     "metric_test_status": "fail"
                 }
             },
-            "test_status": "fail",
+            "test_status": "pass",
             "score": {
-                "earned": 0,
+                "earned": 1,
                 "total": 2
             },
-            "maturity": 0,
+            "maturity": 2,
             "output": {
                 "provenance_metadata_included": {
-                    "is_available": false,
-                    "provenance_metadata": []
+                    "is_available": true,
+                    "provenance_metadata": [
+                        {
+                            "prov_o_mapping": "prov:wasAttributedTo",
+                            "metadata_element": "creator",
+                            "metadata_value": [
+                                "Wittnebel, Mareille",
+                                "Tiemeyer, B\u00e4rbel",
+                                "Frank, Stefan",
+                                "http://id.medra.org/contributor/Stefan+Frank-10.3220%2FDATA20230510130443-0-1"
+                            ]
+                        },
+                        {
+                            "prov_o_mapping": "prov:wasAttributedTo",
+                            "metadata_element": "publisher",
+                            "metadata_value": [
+                                "OpenAgrar",
+                                "Johann Heinrich von Th\u00fcnen-Institut"
+                            ]
+                        },
+                        {
+                            "prov_o_mapping": "prov:generatedAtTime",
+                            "metadata_element": "publication_date",
+                            "metadata_value": "2023"
+                        }
+                    ]
                 },
                 "structured_provenance_available": {
                     "is_available": false,
@@ -963,6 +1188,7 @@
                 "INFO: Check if provenance information is available in descriptive metadata",
                 "INFO: Check if provenance information is available in metadata about related resources",
                 "WARNING: No provenance information found in metadata about related resources",
+                "SUCCESS: Found data creation-related provenance information",
                 "INFO: Check if provenance specific namespaces are listed in metadata",
                 "WARNING: Formal provenance metadata is unavailable"
             ]
@@ -1039,24 +1265,70 @@
                         }
                     ],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 1,
                         "total": 1
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 1,
+                    "metric_test_status": "pass"
                 }
             },
-            "test_status": "fail",
+            "test_status": "pass",
             "score": {
-                "earned": 0,
+                "earned": 1,
                 "total": 1
             },
-            "maturity": 0,
-            "output": [],
+            "maturity": 1,
+            "output": [
+                {
+                    "metadata_standard": "Schema.org",
+                    "url": "http://schema.org/",
+                    "subject_areas": [
+                        "sciences"
+                    ],
+                    "type": "generic",
+                    "source": [
+                        "https://doi.org/10.25504/FAIRsharing.hzdzq8",
+                        "https://rdamsc.bath.ac.uk/msc/m101"
+                    ]
+                },
+                {
+                    "metadata_standard": "Dublin Core",
+                    "url": "http://purl.org/dc/terms/",
+                    "subject_areas": [
+                        "sciences"
+                    ],
+                    "type": "generic",
+                    "source": [
+                        "https://rdamsc.bath.ac.uk/msc/m15",
+                        "https://doi.org/10.25504/FAIRsharing.3nx7t",
+                        "http://www.dcc.ac.uk/resources/metadata-standards/dublin-core"
+                    ]
+                },
+                {
+                    "metadata_standard": "Dublin Core",
+                    "url": "http://purl.org/dc/elements/1.1/",
+                    "subject_areas": [
+                        "sciences"
+                    ],
+                    "type": "generic",
+                    "source": [
+                        "https://rdamsc.bath.ac.uk/msc/m15",
+                        "https://doi.org/10.25504/FAIRsharing.3nx7t",
+                        "http://www.dcc.ac.uk/resources/metadata-standards/dublin-core"
+                    ]
+                }
+            ],
             "test_debug": [
                 "INFO: re3data/datacite client id -: None",
-                "WARNING: Skipped external ressources (e.g. OAI, re3data) checks since landing page could not be resolved",
-                "WARNING: Unable to determine community standard(s)"
+                "INFO: Namespaces included in the metadata -: ['http://schema.org/', 'http://purl.org/dc/terms/', 'http://xmlns.com/foaf/0.1/', 'https://doi.org/10.3220', 'http://prismstandard.org/namespaces/basic/2.1/', 'http://purl.org/dc/elements/1.1/', 'http://www.w3.org/2002/07/owl#', 'http://purl.org/ontology/bibo/', 'http://xmlns.com/foaf/0.1', 'http://id.medra.org/contributor', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#']",
+                "INFO: Found non-disciplinary standard (but RDA listed) -: via ns:  Schema.org - http://schema.org/",
+                "INFO: Found non-disciplinary standard (but RDA listed) -: via ns:  Dublin Core - http://purl.org/dc/terms/",
+                "INFO: Found disciplinary standard -: via ns : PRISM Publishing Requirements for Industry Standard Metadata - http://prismstandard.org/namespaces/basic/2.1/",
+                "INFO: Found non-disciplinary standard (but RDA listed) -: via ns:  Dublin Core - http://purl.org/dc/elements/1.1/",
+                "INFO: Retrieving API and Standards",
+                "INFO: No Datacite client id found, therefore skipping re3data metadata retrieval",
+                "WARNING: NO valid OAI-PMH endpoint found",
+                "SUCCESS: Found non-disciplinary standards (but RDA listed) using namespaces or schemas found in re3data record or via provided metadata or metadata services outputs"
             ]
         },
         {
@@ -1154,24 +1426,29 @@
                     "metric_test_name": "Landing page link is based on standardized web communication protocols.",
                     "metric_test_requirements": [],
                     "metric_test_score": {
-                        "earned": 0,
+                        "earned": 1,
                         "total": 1
                     },
-                    "metric_test_maturity": 0,
-                    "metric_test_status": "fail"
+                    "metric_test_maturity": 3,
+                    "metric_test_status": "pass"
                 }
             },
-            "test_status": "fail",
+            "test_status": "pass",
             "score": {
-                "earned": 0,
+                "earned": 1,
                 "total": 1
             },
-            "maturity": 0,
+            "maturity": 3,
             "output": {
-                "standard_metadata_protocol": {}
+                "standard_metadata_protocol": {
+                    "https": {
+                        "name": "Hyper Text Transfer Protocol Secure"
+                    }
+                }
             },
             "test_debug": [
-                "WARNING: Metadata Identifier is not actionable or protocol errors occurred"
+                "SUCCESS: Standard protocol for access to metadata found -: https",
+                "INFO: NOT all required metadata given, see: FsF-F2-01M"
             ]
         }
     ]
