@@ -5,3 +5,5 @@ geckodriver.exe
 __pycache__/
 *.xlsx
 safe/
+wilkinson_result.html
+fuji_result.json
