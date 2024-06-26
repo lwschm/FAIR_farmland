@@ -7,7 +7,7 @@
 
 fair:FAIRDataQuality a dqv:Category ;
    skos:prefLabel "FAIR Data Quality"@en ;
-   skos:notation "FAIR"@en .
+   skos:description "This category encompasses various metrics related to the FAIR principles of Findability, Accessibility, Interoperability, and Reusability, ensuring the quality and usability of data."@en .
 
 
 
