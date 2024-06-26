@@ -69,6 +69,24 @@ def evaluate(data_doi=None):
         print(response.text)
 
 
+def fuji_evaluate_to_list(data_doi=None):
+    data = data_example
+    if data_doi:
+        data["object_identifier"] = data_doi
+    print(f"Running F-UJI evaluation for {data}")
+
+    response = requests.post(url, json=data, headers=headers, auth=fuji_auth)
+
+    if response.status_code == 200:
+        print("Request successful!")
+        parsed_response = response.json()
+        return parsed_response
+    else:
+        print(f"Request failed with status code {response.status_code}")
+        print(response.text)
+        return None
+
+
 if __name__ == "__main__":
     evaluate("10.20387/bonares-q82e-t008-test")
     print(get_result_score())

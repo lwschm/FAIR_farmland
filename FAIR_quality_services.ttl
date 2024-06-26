@@ -1,0 +1,25 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fairagro: <https://fairagro.net/ontology#> .
+
+fairagro:FAIREvaluationServices
+    a prov:SoftwareAgent ;   
+    rdfs:label "FAIR Evaluation Services (FES)"^^xsd:string ;
+    rdfs:comment """
+    FAIR Metrics Evaluation Collection All Maturity Indicator Tests as of May 8, 2019 authored by https://orcid.org/0000-0001-6960-357X.
+    A set of all "Generation 2" Maturity Indicator tests available as of May 8, 2019. This should be generally useful for all 'traditional data' records;
+    less useful for non-data digital objects such as software (use the MI Collection designed for Software for such tests).
+    """^^xsd:string ;
+    dcterms:hasPart <https://fairsharing.github.io/FAIR-Evaluator-FrontEnd/#!/collections/6/evaluate> ;
+    dcterms:references <https://fairsharing.github.io/FAIR-Evaluator-FrontEnd/#!/collections/6> .
+
+fairagro:FUJIService
+    a prov:SoftwareAgent ;   
+    rdfs:label "F-UJI Automated FAIR Data Assessment Tool"^^xsd:string ;
+    rdfs:comment """
+    F-UJI is a web service to programmatically assess FAIRness of research data objects at the dataset level based on the FAIRsFAIR Data Object Assessment Metrics.
+    """^^xsd:string ;
+    dcterms:hasPart <https://www.f-uji.net/?action=test> ;
+    dcterms:references <https://www.f-uji.net/index.php?action=about> .

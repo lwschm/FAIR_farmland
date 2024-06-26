@@ -44,7 +44,7 @@ def evaluate(data_doi=None):
     data = data_example
     if data_doi:
         data["resource"] = data_doi
-    print(f"running wilkinson evaluation for {data}")
+    print(f"running FES evaluation for {data}")
     response = requests.post(url, json=data, headers=headers)
 
     if response.status_code == 200:
@@ -56,6 +56,36 @@ def evaluate(data_doi=None):
             print("Result saved to 'wilkinson_result.html'")
     else:
         print(f"Request failed with status code {response.status_code}")
+
+
+def fes_evaluate_to_list(data_doi=None):
+    data = data_example
+    if data_doi:
+        data["resource"] = data_doi
+    print(f"Running FES evaluation for {data}")
+
+    response = requests.post(url, json=data, headers=headers)
+
+    if response.status_code == 200:
+        print("Request successful!")
+
+        # Directly parsing the response content
+        html_content = response.content.decode('utf-8')
+
+        # Find all occurrences of Score: followed by a number
+        score_matches = re.findall(r'Score: (\d+)', html_content)
+
+        # Convert the scores to integers and calculate the average
+        total_score = sum(int(score) for score in score_matches)
+        average_score = total_score / len(score_matches) if score_matches else 0
+
+        # Append the average score to the list and return
+        # score_matches.append(str(average_score))
+        return score_matches
+
+    else:
+        print(f"Request failed with status code {response.status_code}")
+        return None
 
 
 def read_second_column(file_path):
@@ -91,6 +121,9 @@ if __name__ == "__main__":
     print("DOIs read from CSV:", dois_list)
     for doi in dois_list:
         print("Processing DOI:", doi)
-        evaluate(doi)
-        print(get_result_score())
-        # Call your evaluate function or any other processing function here, passing the current DOI
+
+        # evaluate(doi)
+        # print(get_result_score())
+
+        res_list = fes_evaluate_to_list(doi)
+        print(res_list)

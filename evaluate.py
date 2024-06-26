@@ -2,7 +2,7 @@ import csv
 import os
 import re
 import datetime
-import wilkinson_evaluation
+import FES_evaluation
 import FUJI_evaluation
 from requests.exceptions import ConnectTimeout
 import tkinter as tk

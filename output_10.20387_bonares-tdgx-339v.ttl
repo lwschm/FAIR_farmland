@@ -1,0 +1,313 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix fairagro: <https://fairagro.net/ontology#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fairagro:dataset-10.20387-bonares-tdgx-339v a dcat:Dataset ;
+    dcterms:title "Biophysicochemical rhizosheath soil properties of 38 maize varieties under drought and well-watered conditions" ;
+    dcat:distribution fairagro:distribution-10.20387-bonares-tdgx-339v .
+
+fairagro:FES-DataAuthenticationAuthorizationMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Data authentication and authorization (A1.2)"@en ;
+    skos:definition "Test a discovered data GUID for the ability to implement authentication and authorization in its resolution protocol. Currently passes InChI Keys, DOIs, Handles, and URLs. It also searches the metadata for the Dublin Core 'accessRights' property, which may point to a document describing the data access process. Recognition of other identifiers will be added upon request by the community."@en ;
+    skos:prefLabel "Data authentication and authorization"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:accessibility .
+
+fairagro:FES-DataIdentifierPersistenceMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Data Identifier Persistence (F1)"@en ;
+    skos:definition "Metric to test if the unique identifier of the data resource is likely to be persistent. Known schema are registered in FAIRSharing. For URLs that don't follow a schema in FAIRSharing we test known URL persistence schemas."@en ;
+    skos:prefLabel "Data Identifier Persistence"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:findability .
+
+fairagro:FES-DataKnowledgeRepresentationLanguageStrongMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Data Knowledge Representation Language (strong) (I1)"@en ;
+    skos:definition "Maturity Indicator to test if the data uses a formal language broadly applicable for knowledge representation. This particular test takes a broad view of what defines a 'knowledge representation language'; in this evaluation, a knowledge representation language is interpreted as one in which terms are semantically-grounded in ontologies. Any form of ontologically-grounded linked data will pass this test."@en ;
+    skos:prefLabel "Data Knowledge Representation Language (strong)"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:interoperability .
+
+fairagro:FES-DataKnowledgeRepresentationLanguageWeakMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Data Knowledge Representation Language (weak) (I1)"@en ;
+    skos:definition "Maturity Indicator to test if the data uses a formal language broadly applicable for knowledge representation. This particular test takes a broad view of what defines a 'knowledge representation language'; in this evaluation, a knowledge representation language is interpreted as one in which terms are semantically-grounded in ontologies. Any form of structured data will pass this test."@en ;
+    skos:prefLabel "Data Knowledge Representation Language (weak)"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:interoperability .
+
+fairagro:FES-GroundedMetadataMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Grounded Metadata (F2)"@en ;
+    skos:definition "Tests whether a machine is able to find 'grounded' metadata, i.e., metadata terms that are in a resolvable namespace, where resolution leads to a definition of the meaning of the term. Examples include JSON-LD, embedded schema, or any form of RDF."@en ;
+    skos:prefLabel "Grounded Metadata"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:findability .
+
+fairagro:FES-IdentifierPersistenceMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Identifier Persistence (F1)"@en ;
+    skos:definition "Metric to test if the unique identifier of the metadata resource is likely to be persistent. Known schema are registered in FAIRSharing. For URLs that don't follow a schema in FAIRSharing we test known URL persistence schemas."@en ;
+    skos:prefLabel "Identifier Persistence"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:findability .
+
+fairagro:FES-MetadataAuthenticationAuthorizationMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Metadata authentication and authorization (A1.2)"@en ;
+    skos:definition "Tests metadata GUID for the ability to implement authentication and authorization in its resolution protocol. Currently passes InChI Keys, DOIs, Handles, and URLs. Recognition of other identifiers will be added upon request by the community."@en ;
+    skos:prefLabel "Metadata authentication and authorization"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:accessibility .
+
+fairagro:FES-MetadataContainsQualifiedOutwardReferencesMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Metadata contains qualified outward references (I3)"@en ;
+    skos:definition "Maturity Indicator to test if the metadata links outward to third-party resources. It only tests metadata that can be represented as Linked Data."@en ;
+    skos:prefLabel "Metadata contains qualified outward references"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:interoperability .
+
+fairagro:FES-MetadataIncludesLicenseStrongMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Metadata Includes License (strong) (R1.1)"@en ;
+    skos:definition "Maturity Indicator to test if the linked data metadata contains an explicit pointer to the license. Tests: xhtml, dvia, dcterms, cc, data.gov.au, and Schema license predicates in linked data, and validates the value of those properties."@en ;
+    skos:prefLabel "Metadata Includes License (strong)"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:reusability .
+
+fairagro:FES-MetadataIncludesLicenseWeakMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Metadata Includes License (weak) (R1.1)"@en ;
+    skos:definition "Maturity Indicator to test if the metadata contains an explicit pointer to the license. This 'weak' test will use a case-insensitive regular expression, and scan both key/value style metadata, as well as linked data metadata. Tests: xhtml, dvia, dcterms, cc, data.gov.au, and Schema license predicates in linked data, and validates the value of those properties."@en ;
+    skos:prefLabel "Metadata Includes License (weak)"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:reusability .
+
+fairagro:FES-MetadataKnowledgeRepresentationLanguageStrongMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Metadata Knowledge Representation Language (strong) (I1)"@en ;
+    skos:definition "Maturity Indicator to test if the metadata uses a formal language broadly applicable for knowledge representation. This particular test takes a broad view of what defines a 'knowledge representation language'; in this evaluation, a knowledge representation language is interpreted as one in which terms are semantically-grounded in ontologies. Any form of RDF will pass this test (including RDF that is automatically extracted by third-party parsers such as Apache Tika)."@en ;
+    skos:prefLabel "Metadata Knowledge Representation Language (strong)"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:interoperability .
+
+fairagro:FES-MetadataKnowledgeRepresentationLanguageWeakMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Metadata Knowledge Representation Language (weak) (I1)"@en ;
+    skos:definition "Maturity Indicator to test if the metadata uses a formal language broadly applicable for knowledge representation. This particular test takes a broad view of what defines a 'knowledge representation language'; in this evaluation, anything that can be represented as structured data will be accepted."@en ;
+    skos:prefLabel "Metadata Knowledge Representation Language (weak)"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:interoperability .
+
+fairagro:FES-MetadataPersistenceMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Metadata Persistence (A2)"@en ;
+    skos:definition "Metric to test if the metadata contains a persistence policy, explicitly identified by a persistencePolicy key (in hashed data) or a http://www.w3.org/2000/10/swap/pim/doc#persistencePolicy predicate in Linked Data."@en ;
+    skos:prefLabel "Metadata Persistence"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:accessibility .
+
+fairagro:FES-MetadataUsesFAIRVocabulariesStrongMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Metadata uses FAIR vocabularies (strong) (I2)"@en ;
+    skos:definition "Maturity Indicator to test if the linked data metadata uses terms that resolve to linked (FAIR) data."@en ;
+    skos:prefLabel "Metadata uses FAIR vocabularies (strong)"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:interoperability .
+
+fairagro:FES-MetadataUsesFAIRVocabulariesWeakMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Metadata uses FAIR vocabularies (weak) (I2)"@en ;
+    skos:definition "Maturity Indicator to test if the linked data metadata uses terms that resolve. This tests only if they resolve, not if they resolve to FAIR data, therefore is a somewhat weak test."@en ;
+    skos:prefLabel "Metadata uses FAIR vocabularies (weak)"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:interoperability .
+
+fairagro:FES-OpenFreeProtocolDataRetrievalMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Uses open free protocol for data retrieval (A1.1)"@en ;
+    skos:definition "Data may be retrieved by an open and free protocol. Tests data GUID for its resolution protocol. Currently passes InChI Keys, DOIs, Handles, and URLs. Recognition of other identifiers will be added upon request by the community."@en ;
+    skos:prefLabel "Uses open free protocol for data retrieval"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:accessibility .
+
+fairagro:FES-OpenFreeProtocolMetadataRetrievalMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Uses open free protocol for metadata retrieval (A1.1)"@en ;
+    skos:definition "Metadata may be retrieved by an open and free protocol. Tests metadata GUID for its resolution protocol. Currently passes InChI Keys, DOIs, Handles, and URLs. Recognition of other identifiers will be added upon request by the community."@en ;
+    skos:prefLabel "Uses open free protocol for metadata retrieval"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:accessibility .
+
+fairagro:FES-SearchableInMajorSearchEngineMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Searchable in major search engine (F4)"@en ;
+    skos:definition "Tests whether a machine is able to discover the resource by search, using Microsoft Bing."@en ;
+    skos:prefLabel "Searchable in Major Search Engine"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:findability .
+
+fairagro:FES-StructuredMetadataMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Structured Metadata (F2)"@en ;
+    skos:definition "Tests whether a machine is able to find structured metadata. This could be (for example) RDFa, embedded json, json-ld, or content-negotiated structured metadata such as RDF Turtle."@en ;
+    skos:prefLabel "Structured Metadata"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:findability .
+
+fairagro:FES-UniqueIdentifierMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2- Unique Identifier (F1)"@en ;
+    skos:definition "Metric to test if the metadata resource has a unique identifier. This is done by comparing the GUID to the patterns (by regexp) of known GUID schemas such as URLs and DOIs. Known schema are registered in FAIRSharing."@en ;
+    skos:prefLabel "Unique Identifier"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:findability .
+
+fairagro:measurement-10__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-OpenFreeProtocolMetadataRetrievalMetric ;
+    dqv:value "1.0"^^xsd:float .
+
+fairagro:measurement-11__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-DataAuthenticationAuthorizationMetric ;
+    dqv:value "0.0"^^xsd:float .
+
+fairagro:measurement-12__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-MetadataAuthenticationAuthorizationMetric ;
+    dqv:value "1.0"^^xsd:float .
+
+fairagro:measurement-13__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-MetadataPersistenceMetric ;
+    dqv:value "0.0"^^xsd:float .
+
+fairagro:measurement-14__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-MetadataKnowledgeRepresentationLanguageWeakMetric ;
+    dqv:value "1.0"^^xsd:float .
+
+fairagro:measurement-15__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-MetadataKnowledgeRepresentationLanguageStrongMetric ;
+    dqv:value "1.0"^^xsd:float .
+
+fairagro:measurement-16__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-DataKnowledgeRepresentationLanguageWeakMetric ;
+    dqv:value "0.0"^^xsd:float .
+
+fairagro:measurement-17__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-DataKnowledgeRepresentationLanguageStrongMetric ;
+    dqv:value "0.0"^^xsd:float .
+
+fairagro:measurement-18__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-MetadataUsesFAIRVocabulariesWeakMetric ;
+    dqv:value "1.0"^^xsd:float .
+
+fairagro:measurement-19__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-MetadataUsesFAIRVocabulariesStrongMetric ;
+    dqv:value "0.0"^^xsd:float .
+
+fairagro:measurement-1__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-UniqueIdentifierMetric ;
+    dqv:value "1.0"^^xsd:float .
+
+fairagro:measurement-20__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-MetadataContainsQualifiedOutwardReferencesMetric ;
+    dqv:value "1.0"^^xsd:float .
+
+fairagro:measurement-21__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-MetadataIncludesLicenseStrongMetric ;
+    dqv:value "0.0"^^xsd:float .
+
+fairagro:measurement-22__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-MetadataIncludesLicenseWeakMetric ;
+    dqv:value "1.0"^^xsd:float .
+
+fairagro:measurement-2__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-IdentifierPersistenceMetric ;
+    dqv:value "1.0"^^xsd:float .
+
+fairagro:measurement-3__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-DataIdentifierPersistenceMetric ;
+    dqv:value "0.0"^^xsd:float .
+
+fairagro:measurement-4__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-StructuredMetadataMetric ;
+    dqv:value "1.0"^^xsd:float .
+
+fairagro:measurement-5__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-GroundedMetadataMetric ;
+    dqv:value "1.0"^^xsd:float .
+
+fairagro:measurement-6__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-DataIdentifierInMetadataMetric ;
+    dqv:value "0.0"^^xsd:float .
+
+fairagro:measurement-7__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-MetadataIdentifierInMetadataMetric ;
+    dqv:value "0.0"^^xsd:float .
+
+fairagro:measurement-8__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-SearchableInMajorSearchEngineMetric ;
+    dqv:value "0.0"^^xsd:float .
+
+fairagro:measurement-9__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
+    dqv:computedBy fairagro:FAIREvaluationServices ;
+    dqv:isMeasurementOf fairagro:FES-OpenFreeProtocolDataRetrievalMetric ;
+    dqv:value "0.0"^^xsd:float .
+
+fairagro:qualityChecking-10.20387-bonares-tdgx-339v a prov:Activity ;
+    rdfs:label "The checking of the dataset distribution's quality"^^xsd:string ;
+    prov:endedAtTime "2024-06-26T18:20:01.793763"^^xsd:dateTime ;
+    prov:generated fairagro:qualityMetadata-10.20387-bonares-tdgx-339v ;
+    prov:startedAtTime "2024-06-26T18:20:01.793763"^^xsd:dateTime ;
+    prov:used fairagro:distribution-10.20387-bonares-tdgx-339v ;
+    prov:wasAssociatedWith fairagro:FAIREvaluationServices .
+
+fairagro:qualityMetadata-10.20387-bonares-tdgx-339v a dqv:QualityMetadata ;
+    prov:generatedAtTime "2024-06-26T18:20:02.209749"^^xsd:dateTime ;
+    prov:wasAttributedTo fairagro:FAIREvaluationServices ;
+    prov:wasGeneratedBy fairagro:qualityChecking-10.20387-bonares-tdgx-339v .
+
+fairagro:distribution-10.20387-bonares-tdgx-339v a dcat:Distribution ;
+    dcterms:format "Dataset" ;
+    dcterms:title "DOI distribution of dataset" ;
+    dcat:accessURL <https://doi.org/10.20387/bonares-tdgx-339v> ;
+    dqv:hasQualityMeasurement fairagro:measurement-10__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-11__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-12__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-13__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-14__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-15__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-16__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-17__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-18__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-19__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-1__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-20__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-21__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-22__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-2__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-3__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-4__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-5__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-6__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-7__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-8__10.20387-bonares-tdgx-339v,
+        fairagro:measurement-9__10.20387-bonares-tdgx-339v .
+
+fairagro:FAIREvaluationServices a prov:SoftwareAgent ;
+    rdfs:label "FAIR Evaluation Services (FES)"^^xsd:string ;
+    dcterms:hasPart <https://fairsharing.github.io/FAIR-Evaluator-FrontEnd/#!/collections/6/evaluate> ;
+    dcterms:references <https://fairsharing.github.io/FAIR-Evaluator-FrontEnd/#!/collections/6> ;
+    rdfs:comment """\r
+    FAIR Metrics Evaluation Collection All Maturity Indicator Tests as of May 8, 2019 authored by https://orcid.org/0000-0001-6960-357X.\r
+    A set of all "Generation 2" Maturity Indicator tests available as of May 8, 2019. This should be generally useful for all 'traditional data' records;\r
+    less useful for non-data digital objects such as software (use the MI Collection designed for Software for such tests).\r
+    """^^xsd:string .
+
