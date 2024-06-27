@@ -18,6 +18,13 @@ fairagro:FES-DataAuthenticationAuthorizationMetric a dqv:Metric ;
     dqv:expectedDataType xsd:float ;
     dqv:inDimension fairagro:accessibility .
 
+fairagro:FES-DataIdentifierExplicitlyInMetadataMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2 - Data Identifier Explicitly In Metadata (F3)"@en ;
+    skos:definition "Metric to test if the metadata contains the unique identifier to the data. This is done by searching for a variety of properties, including foaf:primaryTopic, schema:mainEntity, schema:distribution, sio:is-about, and iao:is-about."@en ;
+    skos:prefLabel "Data Identifier Explicitly In Metadata"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:findability .
+
 fairagro:FES-DataIdentifierPersistenceMetric a dqv:Metric ;
     skos:altLabel "FAIR Metrics Gen2 - Data Identifier Persistence (F1)"@en ;
     skos:definition "Metric to test if the unique identifier of the data resource is likely to be persistent. Known schema are registered in FAIRSharing. For URLs that don't follow a schema in FAIRSharing we test known URL persistence schemas."@en ;
@@ -66,6 +73,13 @@ fairagro:FES-MetadataContainsQualifiedOutwardReferencesMetric a dqv:Metric ;
     skos:prefLabel "Metadata contains qualified outward references"@en ;
     dqv:expectedDataType xsd:float ;
     dqv:inDimension fairagro:interoperability .
+
+fairagro:FES-MetadataIdentifierExplicitlyInMetadataMetric a dqv:Metric ;
+    skos:altLabel "FAIR Metrics Gen2- Metadata Identifier Explicitly In Metadata (F3)"@en ;
+    skos:definition "Metric to test if the metadata contains the unique identifier to the metadata itself. This is done using a variety of 'scraping' tools, including DOI metadata resolution, the use of the 'extruct' Python tool, and others."@en ;
+    skos:prefLabel "Metadata Identifier Explicitly In Metadata"@en ;
+    dqv:expectedDataType xsd:float ;
+    dqv:inDimension fairagro:findability .
 
 fairagro:FES-MetadataIncludesLicenseStrongMetric a dqv:Metric ;
     skos:altLabel "FAIR Metrics Gen2 - Metadata Includes License (strong) (R1.1)"@en ;
@@ -243,12 +257,12 @@ fairagro:measurement-5__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
 
 fairagro:measurement-6__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
     dqv:computedBy fairagro:FAIREvaluationServices ;
-    dqv:isMeasurementOf fairagro:FES-DataIdentifierInMetadataMetric ;
+    dqv:isMeasurementOf fairagro:FES-DataIdentifierExplicitlyInMetadataMetric ;
     dqv:value "0.0"^^xsd:float .
 
 fairagro:measurement-7__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
     dqv:computedBy fairagro:FAIREvaluationServices ;
-    dqv:isMeasurementOf fairagro:FES-MetadataIdentifierInMetadataMetric ;
+    dqv:isMeasurementOf fairagro:FES-MetadataIdentifierExplicitlyInMetadataMetric ;
     dqv:value "0.0"^^xsd:float .
 
 fairagro:measurement-8__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
@@ -263,14 +277,14 @@ fairagro:measurement-9__10.20387-bonares-tdgx-339v a dqv:QualityMeasurement ;
 
 fairagro:qualityChecking-10.20387-bonares-tdgx-339v a prov:Activity ;
     rdfs:label "The checking of the dataset distribution's quality"^^xsd:string ;
-    prov:endedAtTime "2024-06-26T18:20:01.793763"^^xsd:dateTime ;
+    prov:endedAtTime "2024-06-27T13:18:48.459190"^^xsd:dateTime ;
     prov:generated fairagro:qualityMetadata-10.20387-bonares-tdgx-339v ;
-    prov:startedAtTime "2024-06-26T18:20:01.793763"^^xsd:dateTime ;
+    prov:startedAtTime "2024-06-27T13:18:48.459190"^^xsd:dateTime ;
     prov:used fairagro:distribution-10.20387-bonares-tdgx-339v ;
     prov:wasAssociatedWith fairagro:FAIREvaluationServices .
 
 fairagro:qualityMetadata-10.20387-bonares-tdgx-339v a dqv:QualityMetadata ;
-    prov:generatedAtTime "2024-06-26T18:20:02.209749"^^xsd:dateTime ;
+    prov:generatedAtTime "2024-06-27T13:18:48.903116"^^xsd:dateTime ;
     prov:wasAttributedTo fairagro:FAIREvaluationServices ;
     prov:wasGeneratedBy fairagro:qualityChecking-10.20387-bonares-tdgx-339v .
 
@@ -300,6 +314,30 @@ fairagro:distribution-10.20387-bonares-tdgx-339v a dcat:Distribution ;
         fairagro:measurement-7__10.20387-bonares-tdgx-339v,
         fairagro:measurement-8__10.20387-bonares-tdgx-339v,
         fairagro:measurement-9__10.20387-bonares-tdgx-339v .
+
+fairagro:reusability a dqv:Dimension ;
+    skos:definition "The degree to which data can be reused for future research and analysis. This involves providing rich metadata, clear usage licenses, and provenance information to ensure data can be effectively reused."@en ;
+    skos:prefLabel "Reusability"@en ;
+    dqv:inCategory fairagro:FAIRDataQuality .
+
+fairagro:FAIRDataQuality a dqv:Category ;
+    skos:description "This category encompasses various metrics related to the FAIR principles of Findability, Accessibility, Interoperability, and Reusability, ensuring the quality and usability of data."@en ;
+    skos:prefLabel "FAIR Data Quality"@en .
+
+fairagro:accessibility a dqv:Dimension ;
+    skos:definition "The degree to which data is retrievable and accessible by authorized individuals or systems. This includes providing metadata that allows data to be accessed through well-defined protocols."@en ;
+    skos:prefLabel "Accessibility"@en ;
+    dqv:inCategory fairagro:FAIRDataQuality .
+
+fairagro:interoperability a dqv:Dimension ;
+    skos:definition "The degree to which data is able to be integrated with other data and systems. This involves using shared vocabularies, ontologies, and standards to enable data exchange and reuse across different contexts."@en ;
+    skos:prefLabel "Interoperability"@en ;
+    dqv:inCategory fairagro:FAIRDataQuality .
+
+fairagro:findability a dqv:Dimension ;
+    skos:definition "The degree to which data is easy to find for both humans and computers. Metadata and data should be easy to discover with search mechanisms and be uniquely identifiable using standard identifiers."@en ;
+    skos:prefLabel "Findability"@en ;
+    dqv:inCategory fairagro:FAIRDataQuality .
 
 fairagro:FAIREvaluationServices a prov:SoftwareAgent ;
     rdfs:label "FAIR Evaluation Services (FES)"^^xsd:string ;

@@ -20,30 +20,58 @@ checkers_graph = Graph()
 checkers_graph.parse("fair_quality_services.ttl", format='turtle')
 
 # Mapping of FES evaluation results to metric URIs
-fes_metric_mapping = [
-    FAIRAGRO["FES-UniqueIdentifierMetric"],
-    FAIRAGRO["FES-IdentifierPersistenceMetric"],
-    FAIRAGRO["FES-DataIdentifierPersistenceMetric"],
-    FAIRAGRO["FES-StructuredMetadataMetric"],
-    FAIRAGRO["FES-GroundedMetadataMetric"],
-    FAIRAGRO["FES-DataIdentifierInMetadataMetric"],
-    FAIRAGRO["FES-MetadataIdentifierInMetadataMetric"],
-    FAIRAGRO["FES-SearchableInMajorSearchEngineMetric"],
-    FAIRAGRO["FES-OpenFreeProtocolDataRetrievalMetric"],
-    FAIRAGRO["FES-OpenFreeProtocolMetadataRetrievalMetric"],
-    FAIRAGRO["FES-DataAuthenticationAuthorizationMetric"],
-    FAIRAGRO["FES-MetadataAuthenticationAuthorizationMetric"],
-    FAIRAGRO["FES-MetadataPersistenceMetric"],
-    FAIRAGRO["FES-MetadataKnowledgeRepresentationLanguageWeakMetric"],
-    FAIRAGRO["FES-MetadataKnowledgeRepresentationLanguageStrongMetric"],
-    FAIRAGRO["FES-DataKnowledgeRepresentationLanguageWeakMetric"],
-    FAIRAGRO["FES-DataKnowledgeRepresentationLanguageStrongMetric"],
-    FAIRAGRO["FES-MetadataUsesFAIRVocabulariesWeakMetric"],
-    FAIRAGRO["FES-MetadataUsesFAIRVocabulariesStrongMetric"],
-    FAIRAGRO["FES-MetadataContainsQualifiedOutwardReferencesMetric"],
-    FAIRAGRO["FES-MetadataIncludesLicenseStrongMetric"],
-    FAIRAGRO["FES-MetadataIncludesLicenseWeakMetric"],
-]
+fes_metric_mapping = {
+    "category": FAIRAGRO["FAIRDataQuality"],
+    "dimensions": {
+        "findability": {
+            "dimension_uri": FAIRAGRO["findability"],
+            "definition": "The degree to which data is easy to find for both humans and computers. Metadata and data should be easy to discover with search mechanisms and be uniquely identifiable using standard identifiers.",
+            "metrics": [
+                FAIRAGRO["FES-UniqueIdentifierMetric"],
+                FAIRAGRO["FES-IdentifierPersistenceMetric"],
+                FAIRAGRO["FES-DataIdentifierPersistenceMetric"],
+                FAIRAGRO["FES-StructuredMetadataMetric"],
+                FAIRAGRO["FES-GroundedMetadataMetric"],
+                FAIRAGRO["FES-DataIdentifierExplicitlyInMetadataMetric"],
+                FAIRAGRO["FES-MetadataIdentifierExplicitlyInMetadataMetric"],
+                FAIRAGRO["FES-SearchableInMajorSearchEngineMetric"]
+            ]
+        },
+        "accessibility": {
+            "dimension_uri": FAIRAGRO["accessibility"],
+            "definition": "The degree to which data is retrievable and accessible by authorized individuals or systems. This includes providing metadata that allows data to be accessed through well-defined protocols.",
+            "metrics": [
+                FAIRAGRO["FES-OpenFreeProtocolDataRetrievalMetric"],
+                FAIRAGRO["FES-OpenFreeProtocolMetadataRetrievalMetric"],
+                FAIRAGRO["FES-DataAuthenticationAuthorizationMetric"],
+                FAIRAGRO["FES-MetadataAuthenticationAuthorizationMetric"],
+                FAIRAGRO["FES-MetadataPersistenceMetric"]
+            ]
+        },
+        "interoperability": {
+            "dimension_uri": FAIRAGRO["interoperability"],
+            "definition": "The degree to which data is able to be integrated with other data and systems. This involves using shared vocabularies, ontologies, and standards to enable data exchange and reuse across different contexts.",
+            "metrics": [
+                FAIRAGRO["FES-MetadataKnowledgeRepresentationLanguageWeakMetric"],
+                FAIRAGRO["FES-MetadataKnowledgeRepresentationLanguageStrongMetric"],
+                FAIRAGRO["FES-DataKnowledgeRepresentationLanguageWeakMetric"],
+                FAIRAGRO["FES-DataKnowledgeRepresentationLanguageStrongMetric"],
+                FAIRAGRO["FES-MetadataUsesFAIRVocabulariesWeakMetric"],
+                FAIRAGRO["FES-MetadataUsesFAIRVocabulariesStrongMetric"],
+                FAIRAGRO["FES-MetadataContainsQualifiedOutwardReferencesMetric"]
+            ]
+        },
+        "reusability": {
+            "dimension_uri": FAIRAGRO["reusability"],
+            "definition": "The degree to which data can be reused for future research and analysis. This involves providing rich metadata, clear usage licenses, and provenance information to ensure data can be effectively reused.",
+            "metrics": [
+                FAIRAGRO["FES-MetadataIncludesLicenseStrongMetric"],
+                FAIRAGRO["FES-MetadataIncludesLicenseWeakMetric"]
+            ]
+        }
+    }
+}
+
 
 
 
@@ -99,6 +127,21 @@ def create_dqv_representation(doi: str, fes_evaluation_result: list, start_time:
     g.add((quality_checking_activity_uri, PROV.startedAtTime, Literal(start_time.isoformat(), datatype=XSD.dateTime)))
     g.add((quality_checking_activity_uri, PROV.endedAtTime, Literal(end_time.isoformat(), datatype=XSD.dateTime)))
 
+    # Adding category and dimensions from the metrics_graph
+    category_uri = fes_metric_mapping["category"]
+    g.add((category_uri, RDF.type, DQV.Category))
+    for s, p, o in metrics_graph.triples((category_uri, None, None)):
+        g.add((s, p, o))
+
+    for dimension_key, dimension_info in fes_metric_mapping["dimensions"].items():
+        dimension_uri = dimension_info["dimension_uri"]
+        g.add((dimension_uri, RDF.type, DQV.Dimension))
+        g.add((dimension_uri, DQV.inCategory, category_uri))
+        g.add((dimension_uri, SKOS.prefLabel, Literal(dimension_key.capitalize(), lang="en")))
+        g.add((dimension_uri, SKOS.definition, Literal(dimension_info["definition"], lang="en")))
+        for s, p, o in metrics_graph.triples((dimension_uri, None, None)):
+            g.add((s, p, o))
+
     # Adding FES quality service if evaluation result exists
     if fes_evaluation_result:
         for s, p, o in checkers_graph.triples((fes_service_uri, None, None)):
@@ -106,19 +149,24 @@ def create_dqv_representation(doi: str, fes_evaluation_result: list, start_time:
 
         # Adding quality measurements and metrics
         measurements = []
-        for i, result in enumerate(fes_evaluation_result):
-            measurement_uri = FAIRAGRO[f"measurement-{i + 1}__{doi_slug}"]
-            metric_uri = fes_metric_mapping[i]
+        metric_index = 0
+        for dimension_info in fes_metric_mapping["dimensions"].values():
+            for metric_uri in dimension_info["metrics"]:
+                if metric_index >= len(fes_evaluation_result):
+                    break
+                result = fes_evaluation_result[metric_index]
+                measurement_uri = FAIRAGRO[f"measurement-{metric_index + 1}__{doi_slug}"]
+                metric_index += 1
 
-            # Add metric to the graph
-            for s, p, o in metrics_graph.triples((metric_uri, None, None)):
-                g.add((s, p, o))
+                # Add metric to the graph
+                for s, p, o in metrics_graph.triples((metric_uri, None, None)):
+                    g.add((s, p, o))
 
-            g.add((measurement_uri, RDF.type, DQV.QualityMeasurement))
-            g.add((measurement_uri, DQV.isMeasurementOf, metric_uri))
-            g.add((measurement_uri, DQV.value, Literal(result, datatype=XSD.float)))
-            g.add((measurement_uri, DQV.computedBy, fes_service_uri))
-            measurements.append(measurement_uri)
+                g.add((measurement_uri, RDF.type, DQV.QualityMeasurement))
+                g.add((measurement_uri, DQV.isMeasurementOf, metric_uri))
+                g.add((measurement_uri, DQV.value, Literal(result, datatype=XSD.float)))
+                g.add((measurement_uri, DQV.computedBy, fes_service_uri))
+                measurements.append(measurement_uri)
 
         # Linking measurements to the distribution
         for measurement in measurements:
