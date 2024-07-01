@@ -1,0 +1,37 @@
+# This SPARQL query retrieves the URIs of all metrics and their scores for a specific distribution
+# identified by a DOI contained within the distribution URI.
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+
+SELECT ?metric ?score
+WHERE {
+  ?distribution a dcat:Distribution .
+  FILTER(CONTAINS(STR(?distribution), "10.20387-bonares-tdgx-339v"))
+  ?distribution dqv:hasQualityMeasurement ?measurement .
+  ?measurement dqv:isMeasurementOf ?metric .
+  ?measurement dqv:value ?score .
+  ?metric rdf:type dqv:Metric .
+}
+
+
+
+# This SPARQL query retrieves the URIs of metrics with a score of 0.0 for a specific distribution
+# identified by a DOI contained within the distribution URI.
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dqv: <http://www.w3.org/ns/dqv#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+
+SELECT ?metric
+WHERE {
+  ?distribution a dcat:Distribution .
+  FILTER(CONTAINS(STR(?distribution), "10.20387-bonares-tdgx-339v"))
+  ?distribution dqv:hasQualityMeasurement ?measurement .
+  ?measurement dqv:value "0.0"^^xsd:float .
+  ?measurement dqv:isMeasurementOf ?metric .
+  ?metric rdf:type dqv:Metric .
+}
