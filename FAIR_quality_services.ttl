@@ -15,7 +15,7 @@ fairagro:FAIREvaluationServices
     dcterms:hasPart <https://fairsharing.github.io/FAIR-Evaluator-FrontEnd/#!/collections/6/evaluate> ;
     dcterms:references <https://fairsharing.github.io/FAIR-Evaluator-FrontEnd/#!/collections/6> .
 
-fairagro:FUJIService
+fairagro:FUJIAutomatedFAIRDataAssessmentTool
     a prov:SoftwareAgent ;   
     rdfs:label "F-UJI Automated FAIR Data Assessment Tool"^^xsd:string ;
     rdfs:comment """
