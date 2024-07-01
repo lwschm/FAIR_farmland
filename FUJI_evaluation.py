@@ -3,6 +3,8 @@ import json
 from dotenv import load_dotenv
 import requests
 import csv
+from typing import Dict, Any
+from requests.exceptions import ConnectTimeout
 
 # Load dotenv
 load_dotenv()
@@ -18,16 +20,16 @@ headers = {
     'Content-Type': 'application/json'
 }
 data_example = {
-  "object_identifier": "DOI: 10.20387/bonares-zyd4-w9c2",
-  "test_debug": True,
-  "metadata_service_endpoint": "",
-  "metadata_service_type": "oai_pmh",
-  "use_datacite": True,
-  "metric_version": "metrics_v0.5"
+    "object_identifier": "DOI: 10.20387/bonares-zyd4-w9c2",
+    "test_debug": True,
+    "metadata_service_endpoint": "",
+    "metadata_service_type": "oai_pmh",
+    "use_datacite": True,
+    "metric_version": "metrics_v0.5"
 }
 
 
-def get_result_score(name_of_fuji_result_json: str = "fuji_result.json"):
+def get_result_score(name_of_fuji_result_json: str = "fuji_result.json") -> Dict[str, float]:
     with open(name_of_fuji_result_json, "r", encoding="utf-8") as file:
         # Read the contents of the file
         json_content = file.read()
@@ -36,6 +38,38 @@ def get_result_score(name_of_fuji_result_json: str = "fuji_result.json"):
         object_identifier = json_data["request"]["object_identifier"]
         # write_result_to_csv(object_identifier, score_percent)
         return score_percent
+
+
+def map_json_to_metrics(json_input: Dict[str, Any]) -> Dict[str, float]:
+    metric_test_mapping = {
+        "FsF-F1-01D": ["FsF-F1-01D-1", "FsF-F1-01D-2"],
+        "FsF-F1-02D": ["FsF-F1-02D-1", "FsF-F1-02D-2"],
+        "FsF-F2-01M": ["FsF-F2-01M-1", "FsF-F2-01M-2", "FsF-F2-01M-3"],
+        "FsF-F3-01M": ["FsF-F3-01M-1", "FsF-F3-01M-2"],
+        "FsF-F4-01M": ["FsF-F4-01M-1", "FsF-F4-01M-2"],
+        "FsF-A1-01M": ["FsF-A1-01M-1", "FsF-A1-01M-2", "FsF-A1-01M-3"],
+        "FsF-A1-02M": ["FsF-A1-02M-1"],
+        "FsF-A1-03D": ["FsF-A1-03D-1"],
+        "FsF-I1-01M": ["FsF-I1-01M-1", "FsF-I1-01M-2"],
+        "FsF-I2-01M": ["FsF-I2-01M-1", "FsF-I2-01M-2"],
+        "FsF-I3-01M": ["FsF-I3-01M-1", "FsF-I3-01M-2"],
+        "FsF-R1-01MD": ["FsF-R1-01MD-1", "FsF-R1-01MD-1a", "FsF-R1-01MD-1b", "FsF-R1-01MD-2", "FsF-R1-01MD-2a", "FsF-R1-01MD-2b", "FsF-R1-01MD-3", "FsF-R1-01MD-4"],
+        "FsF-R1.1-01M": ["FsF-R1.1-01M-1", "FsF-R1.1-01M-2"],
+        "FsF-R1.2-01M": ["FsF-R1.2-01M-1", "FsF-R1.2-01M-2"],
+        "FsF-R1.3-01M": ["FsF-R1.3-01M-1", "FsF-R1.3-01M-2", "FsF-R1.3-01M-3"],
+        "FsF-R1.3-02D": ["FsF-R1.3-02D-1", "FsF-R1.3-02D-1a", "FsF-R1.3-02D-1b", "FsF-R1.3-02D-1c"]
+    }
+
+    mapped_results = {}
+
+    for result in json_input.get("results", []):
+        metric_id = result["metric_identifier"]
+        if metric_id in metric_test_mapping:
+            for sub_metric in metric_test_mapping[metric_id]:
+                score = result["score"]["earned"] / result["score"]["total"]
+                mapped_results[sub_metric] = score
+
+    return mapped_results
 
 
 def write_result_to_csv(object_identifier, score_percent):
@@ -55,7 +89,16 @@ def evaluate(data_doi=None):
     if data_doi:
         data["object_identifier"] = data_doi
     print(f"running fuji evaluation for {data}")
-    response = requests.post(url, json=data, headers=headers, auth=fuji_auth)
+
+    try:
+        response = requests.post(url, json=data, headers=headers, auth=fuji_auth, timeout=10)
+        response.raise_for_status()
+    except ConnectTimeout:
+        print(f"Request timed out when trying to connect to {url}")
+        return
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+        return
 
     if response.status_code == 200:
         print("Request successful!")
@@ -69,18 +112,26 @@ def evaluate(data_doi=None):
         print(response.text)
 
 
-def fuji_evaluate_to_list(data_doi=None):
+def fuji_evaluate_to_list(data_doi=None) -> Dict[str, float]:
     data = data_example
     if data_doi:
         data["object_identifier"] = data_doi
     print(f"Running F-UJI evaluation for {data}")
 
-    response = requests.post(url, json=data, headers=headers, auth=fuji_auth)
+    try:
+        response = requests.post(url, json=data, headers=headers, auth=fuji_auth, timeout=10)
+        response.raise_for_status()
+    except ConnectTimeout:
+        print(f"Request timed out when trying to connect to {url}")
+        return None
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+        return None
 
     if response.status_code == 200:
         print("Request successful!")
         parsed_response = response.json()
-        return parsed_response
+        return map_json_to_metrics(parsed_response)
     else:
         print(f"Request failed with status code {response.status_code}")
         print(response.text)
@@ -90,4 +141,10 @@ def fuji_evaluate_to_list(data_doi=None):
 if __name__ == "__main__":
     evaluate("10.20387/bonares-q82e-t008-test")
     print(get_result_score())
-    pass
+
+    with open('fuji_result.json', 'r', encoding='utf-8') as f:
+        json_data = json.load(f)
+
+    mapped_metrics = map_json_to_metrics(json_data)
+    for metric, score in mapped_metrics.items():
+        print(f"{metric}: {score}")

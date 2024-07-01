@@ -92,8 +92,8 @@ def run_on_list_of_pids():
                 identifier = line[1]
                 print(f"found identifier: {identifier}")
                 if identifier:
-                    wilkinson_evaluation.evaluate(identifier)
-                    result_score_wilkinson = wilkinson_evaluation.get_result_score()
+                    FES_evaluation.evaluate(identifier)
+                    result_score_wilkinson = FES_evaluation.get_result_score()
                     try:
                         FUJI_evaluation.evaluate(identifier)
                         result_score_fuji = FUJI_evaluation.get_result_score()
