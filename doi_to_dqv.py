@@ -44,7 +44,7 @@ def create_dqv_representation(doi: str, fes_evaluation_result: list, fuji_evalua
     dataset_uri = FAIRAGRO[f"dataset-{doi_slug}"]
     distribution_uri = FAIRAGRO[f"distribution-{doi_slug}"]
     fes_service_uri = FAIRAGRO["FAIREvaluationServices"]
-    fuji_service_uri = FAIRAGRO["FUJIEvaluationServices"]
+    fuji_service_uri = FAIRAGRO["FUJIAutomatedFAIRDataAssessmentTool"]
     quality_metadata_uri = FAIRAGRO[f"qualityMetadata-{doi_slug}"]
     quality_checking_activity_uri = FAIRAGRO[f"qualityChecking-{doi_slug}"]
 
