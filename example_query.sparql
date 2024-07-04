@@ -1,3 +1,19 @@
+# This SPARQL query retrieves the titles and DOIs of datasets, where the DOI is extracted from the access URL of the distribution.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+
+SELECT ?title ?doi
+WHERE {
+  ?dataset a dcat:Dataset ;
+           dcterms:title ?title ;
+           dcat:distribution ?distribution .
+  ?distribution dcat:accessURL ?url .
+  BIND(STRAFTER(STR(?url), "https://doi.org/") AS ?doi)
+}
+
+
+
 # This SPARQL query retrieves the URIs of all metrics and their scores for a specific distribution
 # identified by a DOI contained within the distribution URI.
 

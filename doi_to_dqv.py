@@ -163,7 +163,8 @@ def create_dqv_representation(doi: str, fes_evaluation_result: list, fuji_evalua
 
 if __name__ == "__main__":
     # Fixed DOI for testing
-    doi = "10.20387/bonares-tdgx-339v"
+    # doi = "10.20387/bonares-tdgx-339v"
+    doi = "10.5447/ipk/2017/2"
 
     # Define the start time before the evaluation
     start_time = datetime.now()
