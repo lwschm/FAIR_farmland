@@ -13,7 +13,7 @@ USERNAME = os.getenv("fuji_username")
 PASSWORD = os.getenv("fuji_password")
 fuji_auth = (USERNAME, PASSWORD)
 
-# This is the Wilkinson FAIR Evaluation Service
+# FUJI URL
 url = 'http://192.168.220.71:1071/fuji/api/v1/evaluate'
 headers = {
     'accept': '*/*',

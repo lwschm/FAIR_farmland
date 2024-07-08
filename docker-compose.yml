@@ -1,0 +1,18 @@
+services:
+  fuseki:
+    image: stain/jena-fuseki
+    ports:
+      - "3030:3030"
+    volumes:
+      - ./fuseki_data:/fuseki/backup
+    environment:
+      - ADMIN_PASSWORD=${fuseki_password}
+
+  fastapi:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - fuseki
+    volumes:
+      - .:/app
