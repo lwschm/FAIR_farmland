@@ -19,13 +19,14 @@ SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # Read the metrics and checkers Turtle files into separate graphs
 metrics_graph = Graph()
-metrics_graph.parse("fair_data_quality_metrics.ttl", format='turtle')
+metrics_graph.parse("DataQualityVocabulary/fair_data_quality_metrics.ttl", format='turtle')
 
 checkers_graph = Graph()
-checkers_graph.parse("fair_quality_services.ttl", format='turtle')
+checkers_graph.parse("DataQualityVocabulary/fair_quality_services.ttl", format='turtle')
 
 
-def create_dqv_representation(doi: str, fes_evaluation_result: list, fuji_evaluation_result: dict, start_time: datetime, end_time: datetime):
+def create_dqv_representation(doi: str, fes_evaluation_result: list, fuji_evaluation_result: dict, start_time: datetime,
+                              end_time: datetime):
     dataset_info = get_datacite_doi_info(doi)
     if not dataset_info:
         return None
@@ -200,9 +201,13 @@ if __name__ == "__main__":
     # Create DQV representation
     graph = create_dqv_representation(doi, fes_evaluation_result, fuji_evaluation_result, start_time, end_time)
     if graph:
-        output_file = f"output_{doi.replace('/', '_')}.ttl"
+        output_file = f"DataQualityVocabulary/output/output_{doi.replace('/', '_')}.ttl"
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(graph.serialize(format='turtle'))
+        print(f"Output written to {output_file}")
+        output_file = f"DataQualityVocabulary/output/output_{doi.replace('/', '_')}.jsonld"
+        with open(output_file, 'w', encoding='utf-8') as f:
+            f.write(graph.serialize(format='json-ld'))
         print(f"Output written to {output_file}")
     else:
         print("Failed to create DQV representation.")
