@@ -6,7 +6,7 @@ This repository contains data and scripts designed for the automated scraping an
 
 - **Automated Scraping:** Utilizes pre-built scripts to automate the collection of ontology metadata.
 - **Metadata Evaluation:** Leverages FUJI and FAIR Evaluation Services to computationally score metadata according to FAIR principles.
-- **FAIR Assessment Output:** Outputs FAIR assessment results in Turtle / JSON-LD file format using the Data Quality Vocabulary (DQV).
+- **FAIR Assessment RDF-Output:** Outputs FAIR assessment results in Turtle / JSON-LD file format using the Data Quality Vocabulary (DQV).
 
 ## Contributors
 
