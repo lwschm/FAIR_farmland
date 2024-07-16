@@ -3,10 +3,12 @@ services:
     image: stain/jena-fuseki
     ports:
       - "3030:3030"
-    volumes:
-      - ./fuseki_data:/fuseki/backup
     environment:
-      - ADMIN_PASSWORD=${fuseki_password}
+      ADMIN_PASSWORD: ${FUSEKI_PASSWORD}
+    env_file:
+      - .env
+    networks:
+      - mynetwork
 
   fastapi:
     build: .
@@ -16,3 +18,11 @@ services:
       - fuseki
     volumes:
       - .:/app
+    env_file:
+      - .env
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
