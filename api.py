@@ -1,9 +1,29 @@
 from fastapi import FastAPI, HTTPException, Form
+from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from SPARQLWrapper import SPARQLWrapper, JSON
+from landing_page import get_landing_page
+from doi_to_dqv import create_dqv_representation, fes_evaluate_to_list, fuji_evaluate_to_list
+
+from datetime import datetime
+import os
 
 app = FastAPI()
 
 FUSEKI_ENDPOINT = "http://fuseki:3030/FAIR_DQV/sparql"  # Ensure this matches your Fuseki dataset name
+
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+async def favicon():
+    return FileResponse("static/favicon.ico")
+
+
+@app.get("/", response_class=HTMLResponse)
+async def landing_page():
+    return get_landing_page()
 
 
 @app.get("/datasets")
@@ -240,7 +260,94 @@ async def average_quality_measurements(doi: str = Form("10.5447/ipk/2017/2")):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.post("/fes_evaluation")
+async def run_fes_evaluation(doi: str = Form("10.5447/ipk/2017/2")):
+    try:
+        # Call the fes_evaluate_to_list function with the provided DOI
+        evaluation_result = fes_evaluate_to_list(doi)
+
+        if evaluation_result:
+            return {"doi": doi, "evaluation_scores": evaluation_result}
+        else:
+            raise HTTPException(status_code=500, detail="FES evaluation failed")
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/fuji_evaluation")
+async def run_fuji_evaluation(doi: str = Form("10.20387/bonares-q82e-t008-test")):
+    try:
+        # Call the fuji_evaluate_to_list function with the provided DOI
+        evaluation_result = fuji_evaluate_to_list(doi)
+
+        if evaluation_result:
+            return {"doi": doi, "evaluation_scores": evaluation_result}
+        else:
+            raise HTTPException(status_code=500, detail="FUJI evaluation failed")
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/generate_dqv_file/")
+async def generate_dqv_file(doi: str = Form(...)):
+    try:
+        # Start time for evaluation
+        start_time = datetime.now()
+
+        # Get the evaluation results from FES
+        fes_evaluation_result = fes_evaluate_to_list(doi)
+
+        if not fes_evaluation_result:
+            raise HTTPException(status_code=500, detail="Failed to get FES evaluation results")
+
+        # Try to get the FUJI evaluation result
+        fuji_evaluation_result = None
+        try:
+            fuji_evaluation_result = fuji_evaluate_to_list(doi)
+            if not fuji_evaluation_result:
+                fuji_evaluation_result = {}  # If FUJI fails, use an empty dict
+        except Exception as fuji_error:
+            print(f"FUJI evaluation failed or timed out: {fuji_error}")
+            # Proceed without FUJI if it fails
+            fuji_evaluation_result = {}
+
+        # End time for evaluation
+        end_time = datetime.now()
+
+        # Create the DQV representation graph, ensuring that None values are handled
+        graph = create_dqv_representation(doi, fes_evaluation_result or [], fuji_evaluation_result or {}, start_time,
+                                          end_time)
+
+        if graph:
+            # Generate output files
+            output_dir = "DataQualityVocabulary/output/"
+            if not os.path.exists(output_dir):
+                os.makedirs(output_dir)
+
+            ttl_file = f"{output_dir}output_{doi.replace('/', '_')}.ttl"
+            jsonld_file = f"{output_dir}output_{doi.replace('/', '_')}.jsonld"
+
+            with open(ttl_file, 'w', encoding='utf-8') as f:
+                f.write(graph.serialize(format='turtle'))
+
+            with open(jsonld_file, 'w', encoding='utf-8') as f:
+                f.write(graph.serialize(format='json-ld'))
+
+            print(f"Output written to {ttl_file} and {jsonld_file}")
+
+            # Return one of the files (e.g., Turtle file)
+            return FileResponse(ttl_file, filename=os.path.basename(ttl_file), media_type='application/ttl')
+
+        else:
+            raise HTTPException(status_code=500, detail="Failed to create DQV representation")
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("api:app", host="127.0.0.1", port=8081, reload=True)
 
