@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException, Form
-from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.responses import HTMLResponse, FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from SPARQLWrapper import SPARQLWrapper, JSON
 from landing_page import get_landing_page
@@ -7,6 +7,7 @@ from doi_to_dqv import create_dqv_representation, fes_evaluate_to_list, fuji_eva
 
 from datetime import datetime
 import os
+from io import BytesIO
 
 app = FastAPI()
 
@@ -307,50 +308,57 @@ async def generate_dqv_file(doi: str = Form(...), fes: str = Form("true"), fuji:
         # Perform FES evaluation if fes is True
         if fes:
             try:
-                fes_evaluate_to_list(doi)
+                fes_evaluation_result = fes_evaluate_to_list(doi)
+                if not fes_evaluation_result:
+                    raise HTTPException(status_code=500, detail="Failed to get FES evaluation results")
             except Exception as fes_error:
+                print(f"FES evaluation failed: {fes_error}")
                 raise HTTPException(status_code=500, detail="FES evaluation failed")
 
         # Perform FUJI evaluation if fuji is True
         if fuji:
             try:
                 fuji_evaluation_result = fuji_evaluate_to_list(doi)
+                if not fuji_evaluation_result:
+                    fuji_evaluation_result = {}  # If FUJI fails, use an empty dict
             except Exception as fuji_error:
-                fuji_evaluation_result = {}
+                print(f"FUJI evaluation failed or timed out: {fuji_error}")
+                fuji_evaluation_result = {}  # Proceed without FUJI if it fails
 
         # End time for evaluation
         end_time = datetime.now()
 
         # Create the DQV representation graph
-        graph = create_dqv_representation(doi, fes_evaluation_result or [], fuji_evaluation_result or {}, start_time, end_time)
+        graph = create_dqv_representation(
+            doi,
+            fes_evaluation_result or [],
+            fuji_evaluation_result or {},
+            start_time,
+            end_time
+        )
 
         if graph:
-            # Generate output files based on the selected format
-            output_dir = "DataQualityVocabulary/output/"
-            if not os.path.exists(output_dir):
-                os.makedirs(output_dir)
-
+            # Generate output files in memory using a BytesIO buffer
+            buffer = BytesIO()
             if output_format == "ttl":
+                graph.serialize(destination=buffer, format='turtle')  # Serialize to Turtle format
+                media_type = 'application/ttl'
                 file_extension = "ttl"
-                mime_type = 'application/ttl'
-                file_path = f"{output_dir}output_{doi.replace('/', '_')}.{file_extension}"
-                with open(file_path, 'w', encoding='utf-8') as f:
-                    f.write(graph.serialize(format='turtle'))
-
             elif output_format == "jsonld":
+                graph.serialize(destination=buffer, format='json-ld')  # Serialize to JSON-LD format
+                media_type = 'application/ld+json'
                 file_extension = "jsonld"
-                mime_type = 'application/ld+json'
-                file_path = f"{output_dir}output_{doi.replace('/', '_')}.{file_extension}"
-                with open(file_path, 'w', encoding='utf-8') as f:
-                    f.write(graph.serialize(format='json-ld'))
-
             else:
                 raise HTTPException(status_code=400, detail="Invalid output format")
 
-            print(f"Output written to {file_path}")
+            buffer.seek(0)  # Move the pointer to the beginning of the buffer
 
-            # Return the file with the correct filename and mime type
-            return FileResponse(file_path, filename=f"output_{doi.replace('/', '_')}.{file_extension}", media_type=mime_type)
+            # Return the buffer as a StreamingResponse
+            return StreamingResponse(
+                buffer,
+                media_type=media_type,
+                headers={"Content-Disposition": f"attachment; filename=output_{doi.replace('/', '_')}.{file_extension}"}
+            )
 
         else:
             raise HTTPException(status_code=500, detail="Failed to create DQV representation")
