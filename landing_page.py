@@ -211,6 +211,7 @@ def get_landing_page() -> HTMLResponse:
             <div class="top-menu">
                 <a href="/">Home</a>
                 <a href="https://github.com/fairagro/FAIR_evaluation_repository" target="_blank">GitHub</a>
+                <a href="/docs" target="_blank" rel="noopener noreferrer">API</a>
             </div>
             <div class="container">
                 <!-- Displaying the favicon at the top -->
