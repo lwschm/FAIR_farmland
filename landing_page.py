@@ -7,6 +7,22 @@ def get_landing_page() -> HTMLResponse:
             <title>FAIR-ER - The FAIR Evaluation Repository</title>
             <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
             <style>
+                /* Top menu styling */
+                .top-menu {
+                    background-color: #6A994E;
+                    padding: 10px 0;
+                    text-align: center;
+                }
+                .top-menu a {
+                    color: white;
+                    text-decoration: none;
+                    font-size: 1.2em;
+                    margin: 0 15px;
+                    font-weight: bold;
+                }
+                .top-menu a:hover {
+                    text-decoration: underline;
+                }
                 body {
                     font-family: Arial, sans-serif;
                     margin: 0;
@@ -32,7 +48,7 @@ def get_landing_page() -> HTMLResponse:
                     max-width: 600px;
                 }
                 .btn {
-                    background-color: #007BFF;
+                    background-color: #6A994E !important;
                     color: white;
                     padding: 15px 25px;
                     font-size: 1.2em;
@@ -45,7 +61,7 @@ def get_landing_page() -> HTMLResponse:
                     margin-top: 10px;  /* Adds spacing between dropdown and button */
                 }
                 .btn:hover {
-                    background-color: #0056b3;
+                    background-color: #4d7a37 !important;
                 }
                 footer {
                     margin-top: 2em;
@@ -191,6 +207,11 @@ def get_landing_page() -> HTMLResponse:
             </script>
         </head>
         <body>
+             <!-- Top Menu -->
+            <div class="top-menu">
+                <a href="/">Home</a>
+                <a href="https://github.com/fairagro/FAIR_evaluation_repository" target="_blank">GitHub</a>
+            </div>
             <div class="container">
                 <!-- Displaying the favicon at the top -->
                 <div class="favicon-container">
