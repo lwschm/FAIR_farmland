@@ -1,6 +1,5 @@
 from fastapi.responses import HTMLResponse
 
-
 def get_landing_page() -> HTMLResponse:
     return HTMLResponse("""
     <html>
@@ -43,6 +42,7 @@ def get_landing_page() -> HTMLResponse:
                     text-align: center;
                     text-decoration: none;
                     transition: background-color 0.3s ease;
+                    margin-top: 10px;  /* Adds spacing between dropdown and button */
                 }
                 .btn:hover {
                     background-color: #0056b3;
@@ -60,6 +60,20 @@ def get_landing_page() -> HTMLResponse:
                     border-radius: 5px;
                     margin-bottom: 20px;
                 }
+                /* Form styling to vertically stack dropdown and button */
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                select {
+                    padding: 10px;
+                    font-size: 1.2em;
+                    margin-bottom: 20px;
+                    border: 2px solid #007BFF;
+                    border-radius: 5px;
+                    width: 300px;
+                }
                 input[type="submit"] {
                     background-color: #007BFF;
                     color: white;
@@ -69,69 +83,110 @@ def get_landing_page() -> HTMLResponse:
                     border-radius: 5px;
                     cursor: pointer;
                     transition: background-color 0.3s ease;
+                    margin-top: 10px;  /* Spacing between dropdown and button */
                 }
                 input[type="submit"]:hover {
                     background-color: #0056b3;
                 }
-                /* Styling for the favicon image */
+                /* Centered label and checkboxes */
+                .input-container label {
+                    display: block;
+                    text-align: center;
+                    margin-bottom: 10px;
+                    font-size: 1.2em;
+                }
+                .checkbox-group {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-bottom: 15px;
+                }
+                .checkbox {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    margin-bottom: 10px;
+                    width: 200px;
+                }
+                .checkbox input {
+                    transform: scale(1.5);
+                    margin: 0;
+                    vertical-align: middle;
+                }
+                .checkbox label {
+                    margin-left: 10px;
+                    font-size: 1.2em;
+                    line-height: 1;
+                    display: flex;
+                    align-items: center;
+                }
+                /* Increased logo size */
                 .favicon-container img {
-                    width: 100px; /* Adjust the size as needed */
+                    width: 200px;
                     height: auto;
                     margin-top: 20px;
                 }
-                /* Label positioning to move it above the input field */
-                label {
-                    font-size: 1.2em;
-                    font-weight: bold;
-                    display: block;  /* Ensures the label is above the input field */
-                    margin-bottom: 5px;
-                }
-                /* Progress bar styling */
-                #loading {
-                    display: none;
+                /* Spinner styling */
+                .spinner-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     margin-top: 20px;
-                    font-size: 1.5em;
-                    color: #007BFF;
                 }
-                #loading-bar {
+
+                .spinner {
                     display: none;
-                    width: 100%;  /* Set the width to be responsive */
-                    max-width: 400px;  /* Maximum width of the bar */
-                    height: 20px;
-                    background-color: #f3f3f3;
-                    border: 1px solid #007BFF;
-                    border-radius: 10px;
-                    overflow: hidden;
-                    margin-top: 20px;
-                    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+                    border: 6px solid #f3f3f3;
+                    border-radius: 50%;
+                    border-top: 6px solid #007BFF;
+                    width: 40px;
+                    height: 40px;
+                    animation: spin 2s linear infinite;
                 }
-                #loading-bar-progress {
-                    width: 100%; /* Start full and decrease */
-                    height: 100%;
-                    background-color: #007BFF;
-                    transition: width 0.3s ease;
-                }
-                .progress-text {
-                    font-size: 1em;
-                    color: #007BFF;
-                    margin-top: 10px;
+
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
                 }
             </style>
             <script>
-                function startLoading() {
-                    document.getElementById("loading").style.display = "block";
-                    document.getElementById("loading-bar").style.display = "block";
-                    document.getElementById("progress-text").style.display = "block";
+                async function handleFormSubmit(event) {
+                    event.preventDefault();  // Prevent the default form submission
 
-                    let progress = 100;
-                    const interval = setInterval(() => {
-                        if (progress <= 0) {
-                            clearInterval(interval);
+                    const form = event.target;
+                    const formData = new FormData(form);
+
+                    // Show the spinner
+                    document.getElementById("spinner").style.display = "block";
+
+                    // Get the selected format
+                    const outputFormat = formData.get("output_format");
+
+                    // Fetch the file
+                    try {
+                        const response = await fetch(form.action, {
+                            method: "POST",
+                            body: formData
+                        });
+
+                        if (response.ok) {
+                            const blob = await response.blob();
+                            const downloadUrl = window.URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.href = downloadUrl;
+                            a.download = `output.${outputFormat}`;  // Set the downloaded file name dynamically
+                            document.body.appendChild(a);
+                            a.click();
+                            a.remove();
                         } else {
-                            progress -= 1;
-                            document.getElementById("loading-bar-progress").style.width = progress + "%";
+                            alert("Error downloading file");
                         }
-                    }, 300);  // 300ms * 100 = 30 seconds
+                    } catch (error) {
+                        alert("Error occurred during the request.");
+                    } finally {
+                        // Hide the spinner when the request is finished
+                        document.getElementById("spinner").style.display = "none";
+                    }
                 }
             </script>
         </head>
@@ -147,18 +202,41 @@ def get_landing_page() -> HTMLResponse:
                    Enter a DOI below to generate and download a FAIR evaluation file.</p>
 
                 <div class="input-container">
-                    <form action="/generate_dqv_file/" method="post" onsubmit="startLoading()">
-                        <!-- Label is now correctly above the text field -->
+                    <form action="/generate_dqv_file/" method="post" onsubmit="handleFormSubmit(event)">
                         <label for="doi">Enter DOI:</label>
                         <input type="text" id="doi" name="doi" value="10.5447/ipk/2017/2" required>
-                        <br>
+
+                        <!-- Hidden fields to send "false" when unchecked -->
+                        <input type="hidden" name="fes" value="false">
+                        <input type="hidden" name="fuji" value="false">
+
+                        <!-- Checkboxes for evaluation services -->
+                        <div class="checkbox-group">
+                            <div class="checkbox">
+                                <input type="checkbox" id="fes" name="fes" value="true" checked>
+                                <label for="fes">Use FES Evaluation</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" id="fuji" name="fuji" value="true" checked>
+                                <label for="fuji">Use FUJI Evaluation</label>
+                            </div>
+                        </div>
+
+                        <!-- Dropdown for output format, centered above button -->
+                        <label for="output_format">Select Output Format:</label>
+                        <select id="output_format" name="output_format">
+                            <option value="ttl">Turtle</option>
+                            <option value="jsonld">JSON-LD</option>
+                        </select>
+
+                        <!-- Button placed below dropdown -->
                         <input type="submit" class="btn" value="Generate and Download DQV File">
                     </form>
-                    <div id="loading">Estimated processing time: 30 seconds</div>
-                    <div id="loading-bar">
-                        <div id="loading-bar-progress"></div>
+
+                    <!-- Spinner for loading -->
+                    <div class="spinner-container">
+                        <div id="spinner" class="spinner"></div>
                     </div>
-                    <div id="progress-text" class="progress-text" style="display: none;">Processing, please wait...</div>
                 </div>
 
                 <footer>

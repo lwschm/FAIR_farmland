@@ -291,54 +291,66 @@ async def run_fuji_evaluation(doi: str = Form("10.20387/bonares-q82e-t008-test")
 
 
 @app.post("/generate_dqv_file/")
-async def generate_dqv_file(doi: str = Form(...)):
+async def generate_dqv_file(doi: str = Form(...), fes: str = Form("true"), fuji: str = Form("true"), output_format: str = Form("ttl")):
     try:
+        # Convert the string values to booleans
+        fes = fes.lower() == "true"
+        fuji = fuji.lower() == "true"
+
         # Start time for evaluation
         start_time = datetime.now()
 
-        # Get the evaluation results from FES
-        fes_evaluation_result = fes_evaluate_to_list(doi)
-
-        if not fes_evaluation_result:
-            raise HTTPException(status_code=500, detail="Failed to get FES evaluation results")
-
-        # Try to get the FUJI evaluation result
+        # Placeholder for evaluation results
+        fes_evaluation_result = None
         fuji_evaluation_result = None
-        try:
-            fuji_evaluation_result = fuji_evaluate_to_list(doi)
-            if not fuji_evaluation_result:
-                fuji_evaluation_result = {}  # If FUJI fails, use an empty dict
-        except Exception as fuji_error:
-            print(f"FUJI evaluation failed or timed out: {fuji_error}")
-            # Proceed without FUJI if it fails
-            fuji_evaluation_result = {}
+
+        # Perform FES evaluation if fes is True
+        if fes:
+            try:
+                fes_evaluate_to_list(doi)
+            except Exception as fes_error:
+                raise HTTPException(status_code=500, detail="FES evaluation failed")
+
+        # Perform FUJI evaluation if fuji is True
+        if fuji:
+            try:
+                fuji_evaluation_result = fuji_evaluate_to_list(doi)
+            except Exception as fuji_error:
+                fuji_evaluation_result = {}
 
         # End time for evaluation
         end_time = datetime.now()
 
-        # Create the DQV representation graph, ensuring that None values are handled
-        graph = create_dqv_representation(doi, fes_evaluation_result or [], fuji_evaluation_result or {}, start_time,
-                                          end_time)
+        # Create the DQV representation graph
+        graph = create_dqv_representation(doi, fes_evaluation_result or [], fuji_evaluation_result or {}, start_time, end_time)
 
         if graph:
-            # Generate output files
+            # Generate output files based on the selected format
             output_dir = "DataQualityVocabulary/output/"
             if not os.path.exists(output_dir):
                 os.makedirs(output_dir)
 
-            ttl_file = f"{output_dir}output_{doi.replace('/', '_')}.ttl"
-            jsonld_file = f"{output_dir}output_{doi.replace('/', '_')}.jsonld"
+            if output_format == "ttl":
+                file_extension = "ttl"
+                mime_type = 'application/ttl'
+                file_path = f"{output_dir}output_{doi.replace('/', '_')}.{file_extension}"
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write(graph.serialize(format='turtle'))
 
-            with open(ttl_file, 'w', encoding='utf-8') as f:
-                f.write(graph.serialize(format='turtle'))
+            elif output_format == "jsonld":
+                file_extension = "jsonld"
+                mime_type = 'application/ld+json'
+                file_path = f"{output_dir}output_{doi.replace('/', '_')}.{file_extension}"
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write(graph.serialize(format='json-ld'))
 
-            with open(jsonld_file, 'w', encoding='utf-8') as f:
-                f.write(graph.serialize(format='json-ld'))
+            else:
+                raise HTTPException(status_code=400, detail="Invalid output format")
 
-            print(f"Output written to {ttl_file} and {jsonld_file}")
+            print(f"Output written to {file_path}")
 
-            # Return one of the files (e.g., Turtle file)
-            return FileResponse(ttl_file, filename=os.path.basename(ttl_file), media_type='application/ttl')
+            # Return the file with the correct filename and mime type
+            return FileResponse(file_path, filename=f"output_{doi.replace('/', '_')}.{file_extension}", media_type=mime_type)
 
         else:
             raise HTTPException(status_code=500, detail="Failed to create DQV representation")
