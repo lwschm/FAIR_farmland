@@ -58,7 +58,7 @@ def get_landing_page() -> HTMLResponse:
                     text-align: center;
                     text-decoration: none;
                     transition: background-color 0.3s ease;
-                    margin-top: 10px;  /* Adds spacing between dropdown and button */
+                    margin-top: 10px;
                 }
                 .btn:hover {
                     background-color: #4d7a37 !important;
@@ -72,11 +72,10 @@ def get_landing_page() -> HTMLResponse:
                     padding: 10px;
                     font-size: 1.2em;
                     width: 300px;
-                    border: 2px solid #007BFF;
+                    border: 2px solid #6A994E;
                     border-radius: 5px;
                     margin-bottom: 20px;
                 }
-                /* Form styling to vertically stack dropdown and button */
                 form {
                     display: flex;
                     flex-direction: column;
@@ -86,12 +85,12 @@ def get_landing_page() -> HTMLResponse:
                     padding: 10px;
                     font-size: 1.2em;
                     margin-bottom: 20px;
-                    border: 2px solid #007BFF;
+                    border: 2px solid #6A994E;
                     border-radius: 5px;
                     width: 300px;
                 }
                 input[type="submit"] {
-                    background-color: #007BFF;
+                    background-color: #6A994E;
                     color: white;
                     padding: 10px 20px;
                     font-size: 1.2em;
@@ -99,12 +98,11 @@ def get_landing_page() -> HTMLResponse:
                     border-radius: 5px;
                     cursor: pointer;
                     transition: background-color 0.3s ease;
-                    margin-top: 10px;  /* Spacing between dropdown and button */
+                    margin-top: 10px;
                 }
                 input[type="submit"]:hover {
-                    background-color: #0056b3;
+                    background-color: #4d7a37;
                 }
-                /* Centered label and checkboxes */
                 .input-container label {
                     display: block;
                     text-align: center;
@@ -136,75 +134,32 @@ def get_landing_page() -> HTMLResponse:
                     display: flex;
                     align-items: center;
                 }
-                /* Increased logo size */
                 .favicon-container img {
                     width: 200px;
                     height: auto;
                     margin-top: 20px;
                 }
-                /* Spinner styling */
                 .spinner-container {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     margin-top: 20px;
                 }
-
                 .spinner {
                     display: none;
                     border: 6px solid #f3f3f3;
                     border-radius: 50%;
-                    border-top: 6px solid #007BFF;
+                    border-top: 6px solid #6A994E;
                     width: 40px;
                     height: 40px;
                     animation: spin 2s linear infinite;
                 }
-
                 @keyframes spin {
                     0% { transform: rotate(0deg); }
                     100% { transform: rotate(360deg); }
                 }
             </style>
-            <script>
-                async function handleFormSubmit(event) {
-                    event.preventDefault();  // Prevent the default form submission
-
-                    const form = event.target;
-                    const formData = new FormData(form);
-
-                    // Show the spinner
-                    document.getElementById("spinner").style.display = "block";
-
-                    // Get the selected format
-                    const outputFormat = formData.get("output_format");
-
-                    // Fetch the file
-                    try {
-                        const response = await fetch(form.action, {
-                            method: "POST",
-                            body: formData
-                        });
-
-                        if (response.ok) {
-                            const blob = await response.blob();
-                            const downloadUrl = window.URL.createObjectURL(blob);
-                            const a = document.createElement('a');
-                            a.href = downloadUrl;
-                            a.download = `output.${outputFormat}`;  // Set the downloaded file name dynamically
-                            document.body.appendChild(a);
-                            a.click();
-                            a.remove();
-                        } else {
-                            alert("Error downloading file");
-                        }
-                    } catch (error) {
-                        alert("Error occurred during the request.");
-                    } finally {
-                        // Hide the spinner when the request is finished
-                        document.getElementById("spinner").style.display = "none";
-                    }
-                }
-            </script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         </head>
         <body>
              <!-- Top Menu -->
@@ -214,7 +169,6 @@ def get_landing_page() -> HTMLResponse:
                 <a href="/docs" target="_blank" rel="noopener noreferrer">API</a>
             </div>
             <div class="container">
-                <!-- Displaying the favicon at the top -->
                 <div class="favicon-container">
                     <img src="/static/favicon_1024.ico" alt="FAIR-ER Logo">
                 </div>
@@ -224,15 +178,11 @@ def get_landing_page() -> HTMLResponse:
                    Enter a DOI below to generate and download a FAIR evaluation file.</p>
 
                 <div class="input-container">
-                    <form action="/generate_dqv_file/" method="post" onsubmit="handleFormSubmit(event)">
+                    <form action="/generate_dqv_summary/" method="post" onsubmit="handleFormSubmit(event)">
                         <label for="doi">Enter DOI:</label>
                         <input type="text" id="doi" name="doi" value="10.5447/ipk/2017/2" required>
-
-                        <!-- Hidden fields to send "false" when unchecked -->
                         <input type="hidden" name="fes" value="false">
                         <input type="hidden" name="fuji" value="false">
-
-                        <!-- Checkboxes for evaluation services -->
                         <div class="checkbox-group">
                             <div class="checkbox">
                                 <input type="checkbox" id="fes" name="fes" value="true" checked>
@@ -243,28 +193,29 @@ def get_landing_page() -> HTMLResponse:
                                 <label for="fuji">Use FUJI Evaluation</label>
                             </div>
                         </div>
-
-                        <!-- Dropdown for output format, centered above button -->
                         <label for="output_format">Select Output Format:</label>
                         <select id="output_format" name="output_format">
                             <option value="ttl">Turtle</option>
                             <option value="jsonld">JSON-LD</option>
                         </select>
-
-                        <!-- Button placed below dropdown -->
                         <input type="submit" class="btn" value="Generate and Download DQV File">
                     </form>
-
-                    <!-- Spinner for loading -->
                     <div class="spinner-container">
                         <div id="spinner" class="spinner"></div>
                     </div>
                 </div>
 
+                <!-- Chart for displaying evaluation results -->
+                <div style="width: 50%; max-width: 600px; margin: 0 auto; height: 400px;">
+                    <canvas id="evaluationChart"></canvas>
+                </div>
+
+
                 <footer>
                     <p>&copy; 2024 FAIR-ER. All rights reserved.</p>
                 </footer>
             </div>
+            <script src="/static/scripts.js"></script>
         </body>
     </html>
     """)

@@ -1,21 +1,23 @@
 from fastapi import FastAPI, HTTPException, Form
-from fastapi.responses import HTMLResponse, FileResponse, StreamingResponse
+from fastapi.responses import HTMLResponse, FileResponse, StreamingResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from SPARQLWrapper import SPARQLWrapper, JSON
+
 from landing_page import get_landing_page
 from doi_to_dqv import create_dqv_representation, fes_evaluate_to_list, fuji_evaluate_to_list
+from rdf_utils import extract_scores_from_rdf
 
 from datetime import datetime
-import os
 from io import BytesIO
-
-app = FastAPI()
 
 FUSEKI_ENDPOINT = "http://fuseki:3030/FAIR_DQV/sparql"  # Ensure this matches your Fuseki dataset name
 
+# Temporary in-memory cache for RDF graphs
+rdf_cache = {}
+
+app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
-
 
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
@@ -337,37 +339,63 @@ async def generate_dqv_file(doi: str = Form(...), fes: str = Form("true"), fuji:
             end_time
         )
 
-        if graph:
-            # Generate output files in memory using a BytesIO buffer
-            buffer = BytesIO()
-            if output_format == "ttl":
-                graph.serialize(destination=buffer, format='turtle')  # Serialize to Turtle format
-                media_type = 'application/ttl'
-                file_extension = "ttl"
-            elif output_format == "jsonld":
-                graph.serialize(destination=buffer, format='json-ld')  # Serialize to JSON-LD format
-                media_type = 'application/ld+json'
-                file_extension = "jsonld"
-            else:
-                raise HTTPException(status_code=400, detail="Invalid output format")
+        # Store the graph in memory cache
+        rdf_cache[doi] = graph
 
-            buffer.seek(0)  # Move the pointer to the beginning of the buffer
-
-            # Return the buffer as a StreamingResponse
-            return StreamingResponse(
-                buffer,
-                media_type=media_type,
-                headers={"Content-Disposition": f"attachment; filename=output_{doi.replace('/', '_')}.{file_extension}"}
-            )
-
+        # Generate output files in memory using a BytesIO buffer
+        buffer = BytesIO()
+        if output_format == "ttl":
+            graph.serialize(destination=buffer, format='turtle')
+            media_type = 'application/ttl'
+            file_extension = "ttl"
+        elif output_format == "jsonld":
+            graph.serialize(destination=buffer, format='json-ld')
+            media_type = 'application/ld+json'
+            file_extension = "jsonld"
         else:
-            raise HTTPException(status_code=500, detail="Failed to create DQV representation")
+            raise HTTPException(status_code=400, detail="Invalid output format")
+
+        buffer.seek(0)
+
+        return StreamingResponse(
+            buffer,
+            media_type=media_type,
+            headers={"Content-Disposition": f"attachment; filename=output_{doi.replace('/', '_')}.{file_extension}"}
+        )
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.post("/generate_dqv_summary/")
+async def generate_dqv_summary(doi: str = Form(...)):
+    try:
+        print(f"Received request to generate DQV summary for DOI: {doi}")
+
+        # Retrieve the RDF graph from cache or generate it if not available
+        graph = rdf_cache.get(doi)
+        if not graph:
+            print(f"No RDF graph found for DOI: {doi}")
+            raise HTTPException(status_code=404, detail="RDF graph not found. Please generate the DQV file first.")
+
+        print("RDF graph successfully retrieved from cache.")
+
+        # Extract scores from the graph
+        summary_data = extract_scores_from_rdf(graph)
+        print(f"Extracted summary data: {summary_data}")
+
+        # Prepare the summary for JSON response
+        summary_data["doi"] = doi
+        print(f"Returning summary data: {summary_data}")
+        return JSONResponse(content=summary_data)
+
+    except Exception as e:
+        print(f"Error occurred while generating DQV summary for DOI: {doi} - {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("api:app", host="127.0.0.1", port=8081, reload=True)
+    uvicorn.run("api:app", host="127.0.0.1", port=8000, reload=True)
 
