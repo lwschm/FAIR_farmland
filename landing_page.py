@@ -154,6 +154,13 @@ def get_landing_page() -> HTMLResponse:
                     height: 40px;
                     animation: spin 2s linear infinite;
                 }
+                .chart-caption {
+                    text-align: center;
+                    font-size: 14px;
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                    color: #555;
+                }
                 @keyframes spin {
                     0% { transform: rotate(0deg); }
                     100% { transform: rotate(360deg); }
@@ -204,13 +211,11 @@ def get_landing_page() -> HTMLResponse:
                         <div id="spinner" class="spinner"></div>
                     </div>
                 </div>
-
                 <!-- Chart for displaying evaluation results -->
                 <div style="width: 50%; max-width: 600px; margin: 0 auto; height: 400px;">
                     <canvas id="evaluationChart"></canvas>
+                    <p class="chart-caption" style="margin-bottom: 20px;">Averages for each FAIR dimension</p>
                 </div>
-
-
                 <footer>
                     <p>&copy; 2024 FAIR-ER. All rights reserved.</p>
                 </footer>
