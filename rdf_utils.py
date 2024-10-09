@@ -1,6 +1,35 @@
 from rdflib import Graph, URIRef
 from collections import defaultdict
-from rdf_cache import FAIRAGRO, DQV, metrics_graph
+from rdf_cache import FAIRAGRO, metrics_graph
+import requests
+
+
+def validate_doi(doi: str) -> bool:
+    """
+    Validate the DOI using the doi.org proxy server.
+
+    Args:
+        doi (str): The DOI to validate.
+
+    Returns:
+        bool: True if the DOI resolves successfully, False otherwise.
+    """
+    # Construct the DOI URL using the proxy server
+    doi_url = f"https://doi.org/{doi}"
+    try:
+        # Send a HEAD request to check if the DOI resolves
+        response = requests.head(doi_url, allow_redirects=True, timeout=10)
+
+        # A status code in the 200 range indicates a valid DOI that resolves
+        if response.status_code == 200:
+            return True
+        else:
+            print(f"DOI {doi} did not resolve successfully. Status code: {response.status_code}")
+            return False
+    except requests.exceptions.RequestException as e:
+        print(f"Error occurred while validating DOI {doi}: {e}")
+        return False
+
 
 def extract_scores_from_rdf(graph: Graph) -> dict:
     # Initialize scores dictionaries for FES and FUJI
@@ -8,10 +37,6 @@ def extract_scores_from_rdf(graph: Graph) -> dict:
     fuji_scores = defaultdict(list)
 
     print("Starting extraction of scores from RDF...")
-
-    # Log the merged graph's content for debugging
-    print("Merged graph content:")
-    print(graph.serialize(format="turtle"))
 
     # Helper function to determine the dimension of a metric
     def get_dimension(metric_uri: URIRef) -> str:
@@ -58,8 +83,8 @@ def extract_scores_from_rdf(graph: Graph) -> dict:
                 fuji_scores[dimension].append(score_value)
 
     # Calculate the average score for each category for FES and FUJI and round to 2 decimal places
-    fes_averages = {k: round(sum(v) / len(v), 2) if v else 0.0 for k, v in fes_scores.items()}
-    fuji_averages = {k: round(sum(v) / len(v), 2) if v else 0.0 for k, v in fuji_scores.items()}
+    fes_averages = {k: sum(v) / len(v) if v else 0.0 for k, v in fes_scores.items()}
+    fuji_averages = {k: sum(v) / len(v) if v else 0.0 for k, v in fuji_scores.items()}
 
     print(f"Calculated FES averages: {fes_averages}")
     print(f"Calculated FUJI averages: {fuji_averages}")

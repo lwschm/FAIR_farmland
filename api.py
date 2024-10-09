@@ -5,7 +5,7 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 
 from landing_page import get_landing_page
 from doi_to_dqv import create_dqv_representation, fes_evaluate_to_list, fuji_evaluate_to_list
-from rdf_utils import extract_scores_from_rdf
+from rdf_utils import extract_scores_from_rdf, validate_doi
 
 from datetime import datetime
 from io import BytesIO
@@ -294,8 +294,14 @@ async def run_fuji_evaluation(doi: str = Form("10.20387/bonares-q82e-t008-test")
 
 
 @app.post("/generate_dqv_file/")
-async def generate_dqv_file(doi: str = Form(...), fes: str = Form("true"), fuji: str = Form("true"), output_format: str = Form("ttl")):
+async def generate_dqv_file(
+    doi: str = Form(...), fes: str = Form("true"), fuji: str = Form("true"), output_format: str = Form("ttl")
+):
     try:
+        # Validate the DOI before proceeding
+        if not validate_doi(doi):
+            raise HTTPException(status_code=404, detail=f"No information found for DOI: {doi}")
+
         # Convert the string values to booleans
         fes = fes.lower() == "true"
         fuji = fuji.lower() == "true"
@@ -363,6 +369,8 @@ async def generate_dqv_file(doi: str = Form(...), fes: str = Form("true"), fuji:
             headers={"Content-Disposition": f"attachment; filename=output_{doi.replace('/', '_')}.{file_extension}"}
         )
 
+    except HTTPException as http_exc:
+        raise http_exc  # Let the existing HTTPException be handled as is
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -372,27 +380,22 @@ async def generate_dqv_summary(doi: str = Form(...)):
     try:
         print(f"Received request to generate DQV summary for DOI: {doi}")
 
-        # Retrieve the RDF graph from cache or generate it if not available
+        # Retrieve the RDF graph from cache.
         graph = rdf_cache.get(doi)
         if not graph:
-            print(f"No RDF graph found for DOI: {doi}")
-            raise HTTPException(status_code=404, detail="RDF graph not found. Please generate the DQV file first.")
+            raise ValueError(
+                "The RDF graph for the given DOI could not be found. Please ensure the DOI is correct and try generating the DQV file first.")
 
-        print("RDF graph successfully retrieved from cache.")
-
-        # Extract scores from the graph
+        # Extract scores from the graph.
         summary_data = extract_scores_from_rdf(graph)
-        print(f"Extracted summary data: {summary_data}")
 
-        # Prepare the summary for JSON response
+        # Prepare and return the summary data.
         summary_data["doi"] = doi
-        print(f"Returning summary data: {summary_data}")
         return JSONResponse(content=summary_data)
-
+    except ValueError as ve:
+        raise HTTPException(status_code=404, detail=str(ve))
     except Exception as e:
-        print(f"Error occurred while generating DQV summary for DOI: {doi} - {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
-
+        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
 
 
 if __name__ == "__main__":

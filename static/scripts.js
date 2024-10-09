@@ -36,12 +36,13 @@ async function handleFormSubmit(event) {
                 console.log("Summary Data:", summaryData);  // Log for debugging
                 renderChart(summaryData);
             } else {
-                const errorMessage = await summaryResponse.text();
-                alert("Error fetching summary data: " + errorMessage);
+                const errorMessage = await summaryResponse.json();
+                alert("Error fetching summary data: " + errorMessage.detail);
             }
         } else {
-            const errorMessage = await response.text();
-            alert("Error downloading file: " + errorMessage);
+            // Extract and display the error message from the response
+            const errorData = await response.json();
+            alert("Error downloading file: " + (errorData.detail || "An unknown error occurred."));
         }
     } catch (error) {
         alert("Error occurred during the request: " + error.message);
@@ -51,7 +52,7 @@ async function handleFormSubmit(event) {
     }
 }
 
-function renderChart(data) {
+function renderChart(data = { fes: {}, fuji: {} }) {
     const ctx = document.getElementById('evaluationChart').getContext('2d');
 
     // Check if a chart instance exists and destroy it before creating a new one
@@ -88,17 +89,21 @@ function renderChart(data) {
             ]
         },
         options: {
-            maintainAspectRatio: false,  // Keeps the chart responsive
             scales: {
                 y: {
                     beginAtZero: true,
-                    min: 0.0,
-                    max: 1.0,
+                    min: 0,
+                    max: 1,
                     ticks: {
-                        stepSize: 0.2  // Adjust to display even steps like 0.0, 0.2, 0.4, etc.
+                        stepSize: 0.2
                     }
                 }
-            }
+            },
+            maintainAspectRatio: false
         }
     });
+}
+
+function initializeEmptyChart() {
+    renderChart();  // Call with default empty data
 }

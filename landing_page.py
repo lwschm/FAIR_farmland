@@ -216,6 +216,11 @@ def get_landing_page() -> HTMLResponse:
                 </footer>
             </div>
             <script src="/static/scripts.js"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    initializeEmptyChart();
+                });
+            </script>
         </body>
     </html>
     """)
