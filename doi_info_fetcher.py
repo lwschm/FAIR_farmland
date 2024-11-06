@@ -1,27 +1,38 @@
 import requests
 
 
-def get_datacite_doi_info(doi: str):
+def get_datacite_doi_info(doi: str) -> dict:
     url = f"https://api.datacite.org/dois/{doi}"
     response = requests.get(url)
 
     if response.status_code == 200:
         data = response.json()['data']['attributes']
         return {
-            "title": data.get("titles", [{"title": "No title found"}])[0]["title"],
-            "authors": ", ".join([creator["name"] for creator in data.get("creators", [])]),
-            "published_date": data.get("publicationYear", "No publication year found"),
-            "publisher": data.get("publisher", "No publisher found"),
-            "doi": data.get("doi", "No DOI found"),
-            "resource_type": data.get("types", {}).get("resourceTypeGeneral", "No resource type found"),
-            "description": data.get("descriptions", [{"description": "No description found"}])[0]["description"],
-            "subjects": ", ".join([subject["subject"] for subject in data.get("subjects", [])]),
-            "language": data.get("language", "No language found"),
-            "funding_references": ", ".join([funding["funderName"] for funding in data.get("fundingReferences", [])])
+            "title": data.get("titles", [{"title": "N/A"}])[0]["title"],
+            "authors": ", ".join([creator.get("name", "N/A") for creator in data.get("creators", [])]) or "N/A",
+            "published_date": data.get("publicationYear", "N/A"),
+            "publisher": data.get("publisher", "N/A"),
+            "doi": data.get("doi", "N/A"),
+            "resource_type": data.get("types", {}).get("resourceTypeGeneral", "N/A"),
+            "description": data.get("descriptions", [{"description": "N/A"}])[0]["description"],
+            "subjects": ", ".join([subject.get("subject", "N/A") for subject in data.get("subjects", [])]) or "N/A",
+            "language": data.get("language", "N/A"),
+            "funding_references": ", ".join([funding.get("funderName", "N/A") for funding in data.get("fundingReferences", [])]) or "N/A"
         }
     else:
-        print("No information found for DOI:", doi)
-        return None
+        print(f"No information found for DOI: {doi}. Returning default 'N/A' values.")
+        return {
+            "title": "N/A",
+            "authors": "N/A",
+            "published_date": "N/A",
+            "publisher": "N/A",
+            "doi": doi,  # Return the input DOI, so it is not completely lost
+            "resource_type": "N/A",
+            "description": "N/A",
+            "subjects": "N/A",
+            "language": "N/A",
+            "funding_references": "N/A"
+        }
 
 
 def print_doi_info(doi_info):

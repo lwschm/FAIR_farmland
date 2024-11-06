@@ -345,28 +345,33 @@ async def generate_dqv_file(
             end_time
         )
 
+        if not graph:
+            raise HTTPException(status_code=500, detail="Failed to generate DQV representation graph")
+
         # Store the graph in memory cache
         rdf_cache[doi] = graph
 
         # Generate output files in memory using a BytesIO buffer
         buffer = BytesIO()
-        if output_format == "ttl":
-            graph.serialize(destination=buffer, format='turtle')
-            media_type = 'application/ttl'
-            file_extension = "ttl"
-        elif output_format == "jsonld":
-            graph.serialize(destination=buffer, format='json-ld')
-            media_type = 'application/ld+json'
-            file_extension = "jsonld"
-        else:
-            raise HTTPException(status_code=400, detail="Invalid output format")
+        try:
+            media_type, file_extension = serialize_graph(graph, buffer, output_format)
+            print(f"File Extension: {file_extension}")
+        except HTTPException as e:
+            print(e.detail)
+            raise HTTPException(status_code=e.status_code, detail=e.detail)
 
+        # Set buffer position to the beginning
         buffer.seek(0)
+
+        # Return the serialized graph as a streaming response
+        headers = {
+            "Content-Disposition": f"attachment; filename=\"output_{doi.replace('/', '_')}.{file_extension}\""
+        }
 
         return StreamingResponse(
             buffer,
             media_type=media_type,
-            headers={"Content-Disposition": f"attachment; filename=output_{doi.replace('/', '_')}.{file_extension}"}
+            headers=headers
         )
 
     except HTTPException as http_exc:
@@ -396,6 +401,45 @@ async def generate_dqv_summary(doi: str = Form(...)):
         raise HTTPException(status_code=404, detail=str(ve))
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
+
+
+def serialize_graph(graph, buffer, output_format: str):
+    if output_format in ("ttl", "turtle", "turtle2"):
+        graph.serialize(destination=buffer, format='turtle')
+        media_type = 'application/ttl'
+        file_extension = "ttl"  # Always set to `.ttl` regardless of "turtle2"
+    elif output_format in ("jsonld", "json-ld"):
+        graph.serialize(destination=buffer, format='json-ld')
+        media_type = 'application/ld+json'
+        file_extension = "jsonld"
+    elif output_format in ("xml", "pretty-xml"):
+        graph.serialize(destination=buffer, format='pretty-xml')
+        media_type = 'application/rdf+xml'
+        file_extension = "xml"  # Always set to `.xml`
+    elif output_format in ("ntriples", "nt", "nt11"):
+        graph.serialize(destination=buffer, format='nt')
+        media_type = 'application/n-triples'
+        file_extension = "nt"
+    elif output_format == "n3":
+        graph.serialize(destination=buffer, format='n3')
+        media_type = 'text/n3'
+        file_extension = "n3"
+    elif output_format == "trig":
+        graph.serialize(destination=buffer, format='trig')
+        media_type = 'application/trig'
+        file_extension = "trig"
+    elif output_format == "trix":
+        graph.serialize(destination=buffer, format='trix')
+        media_type = 'application/trix'
+        file_extension = "trix"
+    elif output_format == "nquads":
+        graph.serialize(destination=buffer, format='nquads')
+        media_type = 'application/n-quads'
+        file_extension = "nq"
+    else:
+        raise HTTPException(status_code=400, detail="Invalid output format")
+
+    return media_type, file_extension
 
 
 if __name__ == "__main__":

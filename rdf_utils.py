@@ -3,32 +3,46 @@ from collections import defaultdict
 from rdf_cache import FAIRAGRO, metrics_graph
 import requests
 
+import re
+import requests
+
+import re
+import requests
+
 
 def validate_doi(doi: str) -> bool:
-    """
-    Validate the DOI using the doi.org proxy server.
+    doi_regex_primary = r'^10\.\d{4,9}/[-._;()/:A-Z0-9]+$'
+    doi_regex_secondary = r'\b(10\.[0-9]{4,}(?:\.[0-9]+)*/(?:(?!["&\'])\S)+)\b'
 
-    Args:
-        doi (str): The DOI to validate.
+    # Check if the DOI matches the primary regex pattern (case insensitive)
+    if re.match(doi_regex_primary, doi, re.IGNORECASE):
+        print(f"DOI {doi} matches the primary regex pattern. Returning True.")
+        return True
+    else:
+        print(f"DOI {doi} does not match the primary regex pattern. Checking against the secondary pattern...")
 
-    Returns:
-        bool: True if the DOI resolves successfully, False otherwise.
-    """
+    # Check if the DOI matches the secondary regex pattern (case insensitive)
+    if re.match(doi_regex_secondary, doi, re.IGNORECASE):
+        print(f"DOI {doi} matches the secondary regex pattern. Returning True.")
+        return True
+    else:
+        print(f"DOI {doi} does not match the secondary regex pattern. Attempting to resolve...")
+
     # Construct the DOI URL using the proxy server
     doi_url = f"https://doi.org/{doi}"
     try:
-        # Send a HEAD request to check if the DOI resolves
         response = requests.head(doi_url, allow_redirects=True, timeout=10)
 
-        # A status code in the 200 range indicates a valid DOI that resolves
+        # If the DOI resolves successfully, return True
         if response.status_code == 200:
+            print(f"DOI {doi} resolved successfully with status code 200. Returning True.")
             return True
         else:
-            print(f"DOI {doi} did not resolve successfully. Status code: {response.status_code}")
-            return False
+            print(f"DOI {doi} did not resolve successfully. Status code: {response.status_code}. Returning False.")
     except requests.exceptions.RequestException as e:
-        print(f"Error occurred while validating DOI {doi}: {e}")
-        return False
+        print(f"Error occurred while attempting to resolve DOI {doi}: {e}. Returning False.")
+
+    return False
 
 
 def extract_scores_from_rdf(graph: Graph) -> dict:

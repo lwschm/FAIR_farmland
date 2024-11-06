@@ -176,9 +176,11 @@ def get_landing_page() -> HTMLResponse:
                 <a href="/docs" target="_blank" rel="noopener noreferrer">API</a>
             </div>
             <div class="container">
+                <!--
                 <div class="favicon-container">
                     <img src="/static/favicon_1024.ico" alt="FAIR-ER Logo">
                 </div>
+                -->
                 <h1>Welcome to FAIR-ER</h1>
                 <p>FAIR-ER, The FAIR Evaluation Repository, provides powerful tools to evaluate and interact with datasets.
                    Use our API to retrieve dataset information, perform FAIR metrics evaluations, and assess the quality of resources using DOIs.
@@ -202,8 +204,18 @@ def get_landing_page() -> HTMLResponse:
                         </div>
                         <label for="output_format">Select Output Format:</label>
                         <select id="output_format" name="output_format">
-                            <option value="ttl">Turtle</option>
+                            <option value="ttl">Turtle (TTL)</option>
+                            <option value="turtle2">Turtle2 (with more spacing and linebreaks)</option>
                             <option value="jsonld">JSON-LD</option>
+                            <option value="xml">RDF/XML</option>
+                            <option value="pretty-xml">Pretty RDF/XML</option>
+                            <option value="ntriples">N-Triples</option>
+                            <option value="nt">N-Triples (short)</option>
+                            <option value="nt11">N-Triples (utf8 encoded)</option>
+                            <option value="n3">Notation-3 (N3)</option>
+                            <option value="trig">TriG (RDF triples with context)</option>
+                            <option value="trix">TriX (RDF/XML-like format for RDF quads)</option>
+                            <option value="nquads">N-Quads</option>
                         </select>
                         <input type="submit" class="btn" value="Generate and Download DQV File">
                     </form>

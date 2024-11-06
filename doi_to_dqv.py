@@ -1,5 +1,6 @@
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import DCAT, DCTERMS, RDF, XSD, PROV, RDFS
+from urllib.parse import quote
 from doi_info_fetcher import get_datacite_doi_info
 from FES_evaluation import fes_evaluate_to_list
 from FUJI_evaluation import fuji_evaluate_to_list
@@ -41,7 +42,13 @@ def create_dqv_representation(doi: str, fes_evaluation_result: list, fuji_evalua
     g.bind("fairagro", FAIRAGRO)
     g.bind("prov", PROV)
 
-    doi_slug = doi.replace('/', '-')
+    # URL-encode the DOI to make it safe for use in URLs and URIs
+    doi_encoded = quote(doi, safe='')
+
+    # Use the encoded DOI directly as a slug for constructing URIs
+    doi_slug = doi_encoded
+
+    # Use the encoded DOI slug for constructing URIs
     dataset_uri = FAIRAGRO[f"dataset-{doi_slug}"]
     distribution_uri = FAIRAGRO[f"distribution-{doi_slug}"]
     fes_service_uri = FAIRAGRO["FAIREvaluationServices"]
@@ -57,7 +64,7 @@ def create_dqv_representation(doi: str, fes_evaluation_result: list, fuji_evalua
     # Adding distribution information
     g.add((distribution_uri, RDF.type, DCAT.Distribution))
     g.add((distribution_uri, DCTERMS.title, Literal("DOI distribution of dataset")))
-    g.add((distribution_uri, DCAT.accessURL, URIRef(f"https://doi.org/{doi}")))
+    g.add((distribution_uri, DCAT.accessURL, URIRef(f"https://doi.org/{doi_encoded}")))
     g.add((distribution_uri, DCTERMS["format"], Literal(dataset_info["resource_type"])))
 
     if "byteSize" in dataset_info:
