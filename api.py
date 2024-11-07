@@ -9,6 +9,8 @@ from rdf_utils import extract_scores_from_rdf, validate_doi
 
 from datetime import datetime
 from io import BytesIO
+from urllib.parse import quote
+import tempfile
 
 FUSEKI_ENDPOINT = "http://fuseki:3030/FAIR_DQV/sparql"  # Ensure this matches your Fuseki dataset name
 
@@ -354,8 +356,7 @@ async def generate_dqv_file(
         # Generate output files in memory using a BytesIO buffer
         buffer = BytesIO()
         try:
-            media_type, file_extension = serialize_graph(graph, buffer, output_format)
-            print(f"File Extension: {file_extension}")
+            serialize_graph(graph, buffer, output_format)
         except HTTPException as e:
             print(e.detail)
             raise HTTPException(status_code=e.status_code, detail=e.detail)
@@ -363,14 +364,18 @@ async def generate_dqv_file(
         # Set buffer position to the beginning
         buffer.seek(0)
 
-        # Return the serialized graph as a streaming response
-        headers = {
-            "Content-Disposition": f"attachment; filename=\"output_{doi.replace('/', '_')}.{file_extension}\""
-        }
+        sanitized_doi = doi.replace('/', '_')
+        filename = f"output_{sanitized_doi}.{output_format}"
+        encoded_filename = quote(filename)
 
+        headers = {
+            "Content-Disposition": f'attachment; filename="{filename}"; filename*=UTF-8\'\'{encoded_filename}',
+            "X-Content-Type-Options": "nosniff"
+        }
+        print(f"headers: {headers}")
         return StreamingResponse(
             buffer,
-            media_type=media_type,
+            media_type="application/octet-stream",
             headers=headers
         )
 
@@ -404,42 +409,21 @@ async def generate_dqv_summary(doi: str = Form(...)):
 
 
 def serialize_graph(graph, buffer, output_format: str):
-    if output_format in ("ttl", "turtle", "turtle2"):
+    print(f"serialize_graph output_format: {output_format}")
+    if output_format in ("ttl", "turtle"):
         graph.serialize(destination=buffer, format='turtle')
-        media_type = 'application/ttl'
-        file_extension = "ttl"  # Always set to `.ttl` regardless of "turtle2"
     elif output_format in ("jsonld", "json-ld"):
         graph.serialize(destination=buffer, format='json-ld')
-        media_type = 'application/ld+json'
-        file_extension = "jsonld"
-    elif output_format in ("xml", "pretty-xml"):
+    elif output_format == "xml":
         graph.serialize(destination=buffer, format='pretty-xml')
-        media_type = 'application/rdf+xml'
-        file_extension = "xml"  # Always set to `.xml`
     elif output_format in ("ntriples", "nt", "nt11"):
         graph.serialize(destination=buffer, format='nt')
-        media_type = 'application/n-triples'
-        file_extension = "nt"
     elif output_format == "n3":
         graph.serialize(destination=buffer, format='n3')
-        media_type = 'text/n3'
-        file_extension = "n3"
     elif output_format == "trig":
         graph.serialize(destination=buffer, format='trig')
-        media_type = 'application/trig'
-        file_extension = "trig"
-    elif output_format == "trix":
-        graph.serialize(destination=buffer, format='trix')
-        media_type = 'application/trix'
-        file_extension = "trix"
-    elif output_format == "nquads":
-        graph.serialize(destination=buffer, format='nquads')
-        media_type = 'application/n-quads'
-        file_extension = "nq"
     else:
         raise HTTPException(status_code=400, detail="Invalid output format")
-
-    return media_type, file_extension
 
 
 if __name__ == "__main__":

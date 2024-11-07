@@ -204,18 +204,12 @@ def get_landing_page() -> HTMLResponse:
                         </div>
                         <label for="output_format">Select Output Format:</label>
                         <select id="output_format" name="output_format">
-                            <option value="ttl">Turtle (TTL)</option>
-                            <option value="turtle2">Turtle2 (with more spacing and linebreaks)</option>
-                            <option value="jsonld">JSON-LD</option>
-                            <option value="xml">RDF/XML</option>
-                            <option value="pretty-xml">Pretty RDF/XML</option>
-                            <option value="ntriples">N-Triples</option>
-                            <option value="nt">N-Triples (short)</option>
-                            <option value="nt11">N-Triples (utf8 encoded)</option>
-                            <option value="n3">Notation-3 (N3)</option>
-                            <option value="trig">TriG (RDF triples with context)</option>
-                            <option value="trix">TriX (RDF/XML-like format for RDF quads)</option>
-                            <option value="nquads">N-Quads</option>
+                            <option value="ttl">Turtle (.ttl)</option>
+                            <option value="jsonld">JSON-LD (.jsonld)</option>
+                            <option value="xml">RDF/XML (.xml)</option>
+                            <option value="n3">Notation3 (.n3)</option>
+                            <option value="nt">N-Triple (.nt)</option>
+                            <option value="trig">TriG (.trig, RDF triples with context)</option>
                         </select>
                         <input type="submit" class="btn" value="Generate and Download DQV File">
                     </form>
