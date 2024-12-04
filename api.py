@@ -6,6 +6,7 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 from landing_page import get_landing_page
 from doi_to_dqv import create_dqv_representation, fes_evaluate_to_list, fuji_evaluate_to_list
 from rdf_utils import extract_scores_from_rdf, validate_doi
+from result_analysis import analyze_graph_results
 
 from datetime import datetime
 from io import BytesIO
@@ -346,6 +347,8 @@ async def generate_dqv_file(
             start_time,
             end_time
         )
+
+        # low_quality_results = analyze_graph_results(graph)
 
         if not graph:
             raise HTTPException(status_code=500, detail="Failed to generate DQV representation graph")

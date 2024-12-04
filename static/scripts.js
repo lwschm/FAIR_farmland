@@ -107,3 +107,13 @@ function renderChart(data = { fes: {}, fuji: {} }) {
 function initializeEmptyChart() {
     renderChart();  // Call with default empty data
 }
+
+// New toggleSection function for foldable feedback
+function toggleSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section.style.display === "none" || section.style.display === "") {
+        section.style.display = "block";
+    } else {
+        section.style.display = "none";
+    }
+}
