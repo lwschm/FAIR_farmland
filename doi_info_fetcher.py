@@ -6,15 +6,16 @@ def get_datacite_doi_info(doi: str) -> dict:
     response = requests.get(url)
 
     if response.status_code == 200:
-        data = response.json()['data']['attributes']
+        data = response.json().get('data', {}).get('attributes', {})
         return {
-            "title": data.get("titles", [{"title": "N/A"}])[0]["title"],
+            "title": data.get("titles", [{"title": "N/A"}])[0].get("title", "N/A"),
             "authors": ", ".join([creator.get("name", "N/A") for creator in data.get("creators", [])]) or "N/A",
             "published_date": data.get("publicationYear", "N/A"),
             "publisher": data.get("publisher", "N/A"),
             "doi": data.get("doi", "N/A"),
             "resource_type": data.get("types", {}).get("resourceTypeGeneral", "N/A"),
-            "description": data.get("descriptions", [{"description": "N/A"}])[0]["description"],
+            "description": (data.get("descriptions", [{"description": "N/A"}])[0].get("description", "N/A")
+                            if data.get("descriptions") else "N/A"),
             "subjects": ", ".join([subject.get("subject", "N/A") for subject in data.get("subjects", [])]) or "N/A",
             "language": data.get("language", "N/A"),
             "funding_references": ", ".join([funding.get("funderName", "N/A") for funding in data.get("fundingReferences", [])]) or "N/A"

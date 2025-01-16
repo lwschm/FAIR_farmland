@@ -6,14 +6,15 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 from landing_page import get_landing_page
 from doi_to_dqv import create_dqv_representation, fes_evaluate_to_list, fuji_evaluate_to_list
 from rdf_utils import extract_scores_from_rdf, validate_doi
-from result_analysis import analyze_graph_results
+from sparql_queries import get_query, execute_query
 
 from datetime import datetime
 from io import BytesIO
 from urllib.parse import quote
-import tempfile
+from typing import Literal
 
-FUSEKI_ENDPOINT = "http://fuseki:3030/FAIR_DQV/sparql"  # Ensure this matches your Fuseki dataset name
+
+FUSEKI_ENDPOINT = "http://localhost:3030/BonaRes/sparql"  # Ensure this matches your Fuseki dataset name
 
 # Temporary in-memory cache for RDF graphs
 rdf_cache = {}
@@ -348,8 +349,6 @@ async def generate_dqv_file(
             end_time
         )
 
-        # low_quality_results = analyze_graph_results(graph)
-
         if not graph:
             raise HTTPException(status_code=500, detail="Failed to generate DQV representation graph")
 
@@ -427,6 +426,28 @@ def serialize_graph(graph, buffer, output_format: str):
         graph.serialize(destination=buffer, format='trig')
     else:
         raise HTTPException(status_code=400, detail="Invalid output format")
+
+
+@app.get("/query/")
+async def run_sparql_query(
+    query_name: Literal["fetch_values_below_one"] = "fetch_values_below_one",
+    dataset_key: Literal["bonares", "metrics"] = "bonares",
+):
+    """
+    Execute a predefined SPARQL query and return the results in JSON format.
+
+    :param query_name: The name of the query to execute, chosen from available options.
+    :param dataset_key: The key for the dataset endpoint, chosen from available options.
+    :return: The query results in JSON format.
+    """
+    try:
+        query = get_query(query_name, dataset_key)
+        results = execute_query(query, endpoint_key="metrics")
+        return {"query_name": query_name, "dataset_key": dataset_key, "results": results}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="An error occurred while processing the query.")
 
 
 if __name__ == "__main__":

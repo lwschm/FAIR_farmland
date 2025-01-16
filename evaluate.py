@@ -1,12 +1,14 @@
 import csv
 import os
 import re
-import datetime
+from datetime import datetime
 import FES_evaluation
 import FUJI_evaluation
 from requests.exceptions import ConnectTimeout
 import tkinter as tk
 from tkinter import filedialog
+
+from doi_to_dqv import create_dqv_representation
 
 cwd = os.getcwd()
 
@@ -117,7 +119,7 @@ def run_on_list_of_pids():
                     result.write(newline + "\n")
 
             # Save end time
-            end_time = datetime.datetime.now()
+            end_time = datetime.now()
 
             # Calculate total processing time
             processing_time = end_time - start_time
@@ -134,5 +136,74 @@ def run_on_list_of_pids():
             print(f"Average processing time per line: {formatted_time_per_line}.")
 
 
+def csv_list_to_dqv():
+    root = tk.Tk()
+    root.withdraw()  # Hide the root window
+
+    # File selection dialog
+    filepath_2 = filedialog.askopenfilename(title="Select a CSV file", initialdir=os.path.join(cwd, "input"))
+
+    # Open the CSV file
+    with open(filepath_2, "r", encoding="utf-8", newline="") as file:
+        reader = csv.reader(file, delimiter=",")
+        len_file = sum(1 for _ in file)  # Count lines in the file
+        print(f"len_file: {len_file}")
+        file.seek(0)  # Reset file pointer
+        
+        for index, line in enumerate(reader, start=1):
+            print(f"{index}: {line}")
+            current_time = datetime.now().strftime('%H:%M')  # Current hour and minute
+            start_time = datetime.now()
+            print(f"{current_time} - Processing line {index} of {len_file}:\n{line}")
+            print(f"type line: {type(line)}")
+            identifier = line[1]
+            print(f"found identifier: {identifier}")
+
+            if identifier:
+                try:
+                    fes_results = FES_evaluation.fes_evaluate_to_list(identifier)
+                    fes_success = True
+                except ConnectTimeout:
+                    fes_success = False
+                    print("FES Connection timed out while evaluating.")
+
+                try:
+                    fuji_results = FUJI_evaluation.fuji_evaluate_to_list(identifier)
+                    result_score_fuji = FUJI_evaluation.get_result_score()
+                    fuji_success = True
+                except ConnectTimeout:
+                    fuji_success = False
+                    print("FUJI Connection timed out while evaluating.")
+                else:
+                    print("Evaluation completed successfully.")
+
+                end_time = datetime.now()
+
+                # Check success for both FES and FUJI
+                if fuji_success and fes_success:
+                    # Sanitize the identifier for file name compatibility
+                    sanitized_identifier = re.sub(r"[^\w\-_.]", "_", identifier)
+                    # Create the DQV representation graph
+                    graph = create_dqv_representation(
+                        identifier,
+                        fes_results or [],
+                        fuji_results or {},
+                        start_time,
+                        end_time
+                    )
+
+                    # Prepare output directory
+                    output_dir = os.path.join(cwd, "output")
+                    os.makedirs(output_dir, exist_ok=True)
+
+                    # Define Turtle file path
+                    turtle_file_path = os.path.join(output_dir, f"{sanitized_identifier}_dqv.ttl")
+
+                    # Write the graph to a Turtle file
+                    graph.serialize(destination=turtle_file_path, format="turtle")
+                    print(f"Graph written to {turtle_file_path}")
+
+
 if __name__ == "__main__":
-    run_on_list_of_pids()
+    # run_on_list_of_pids()
+    csv_list_to_dqv()

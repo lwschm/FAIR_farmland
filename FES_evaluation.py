@@ -64,7 +64,7 @@ def fes_evaluate_to_list(data_doi=None):
         data["resource"] = data_doi
     print(f"Running FES evaluation for {data}")
 
-    response = requests.post(url, json=data, headers=headers, verify=False)
+    response = requests.post(url, json=data, headers=headers, verify=False, timeout=120)
 
     if response.status_code == 200:
         print("Request successful!")

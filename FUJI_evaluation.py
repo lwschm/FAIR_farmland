@@ -91,7 +91,7 @@ def evaluate(data_doi=None):
     print(f"running fuji evaluation for {data}")
 
     try:
-        response = requests.post(url, json=data, headers=headers, auth=fuji_auth, timeout=10)
+        response = requests.post(url, json=data, headers=headers, auth=fuji_auth, timeout=30)
         response.raise_for_status()
     except ConnectTimeout:
         print(f"Request timed out when trying to connect to {url}")
