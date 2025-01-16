@@ -9,7 +9,7 @@ headers = {
     'Content-Type': 'application/json'
 }
 data_example = {
-    "executor": "Exec",
+    "executor": "FAIRagro FAIR Assessment Tool Development",
     "resource": "10.20387/bonares-gx1f-bh69",
     # "resource": "https://atlas.thuenen.de/api/v2/resources?page_size=200&format=json",
     "title": "Test_Eval"
