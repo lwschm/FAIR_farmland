@@ -86,10 +86,10 @@ def run_on_list_of_pids():
             result.write(headers + "\n")
 
             # Save start time
-            start_time = datetime.datetime.now()
+            start_time = datetime.now()
 
             for index, line in enumerate(reader, start=1):
-                current_time = datetime.datetime.now().strftime('%H:%M')  # Current hour and minute
+                current_time = datetime.now().strftime('%H:%M')  # Current hour and minute
                 print(f"{current_time} - Processing line {index} of {len_file}:\\n{line}")
                 identifier = line[1]
                 print(f"found identifier: {identifier}")
