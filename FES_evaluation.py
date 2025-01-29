@@ -15,6 +15,12 @@ data_example = {
     "title": "Test_Eval"
 }
 
+# Cached result for development
+fes_evaluation_result_example = [
+    '1', '1', '0', '1', '1', '0', '0', '0', '0', '1', '0', '1', '0', '1', '1',
+    '0', '0', '1', '0', '1', '1', '1'
+]
+
 bonares_input = "input/bonares_dois.csv"
 example_input = "input/simple_test.csv"
 
@@ -64,7 +70,7 @@ def fes_evaluate_to_list(data_doi=None):
         data["resource"] = data_doi
     print(f"Running FES evaluation for {data}")
 
-    response = requests.post(url, json=data, headers=headers, verify=False, timeout=120)
+    response = requests.post(url, json=data, headers=headers, verify=True, timeout=120)
 
     if response.status_code == 200:
         print("Request successful!")
@@ -76,11 +82,12 @@ def fes_evaluate_to_list(data_doi=None):
         score_matches = re.findall(r'Score: (\d+)', html_content)
 
         # Convert the scores to integers and calculate the average
-        total_score = sum(int(score) for score in score_matches)
-        average_score = total_score / len(score_matches) if score_matches else 0
+        # total_score = sum(int(score) for score in score_matches)
+        # average_score = total_score / len(score_matches) if score_matches else 0
 
         # Append the average score to the list and return
         # score_matches.append(str(average_score))
+        print(f"fes_evaluate_to_list_result: {score_matches}")
         return score_matches
 
     else:

@@ -28,6 +28,22 @@ data_example = {
     "metric_version": "metrics_v0.5"
 }
 
+# Example FUJI evaluation results
+fuji_evaluation_result_example = {
+    'FsF-F1-01D-1': 1.0, 'FsF-F1-01D-2': 1.0, 'FsF-F1-02D-1': 1.0, 'FsF-F1-02D-2': 1.0,
+    'FsF-F2-01M-1': 0.5, 'FsF-F2-01M-2': 0.5, 'FsF-F2-01M-3': 0.5, 'FsF-F3-01M-1': 0.0,
+    'FsF-F3-01M-2': 0.0, 'FsF-F4-01M-1': 1.0, 'FsF-F4-01M-2': 1.0,
+    'FsF-A1-01M-1': 0.0, 'FsF-A1-01M-2': 0.0, 'FsF-A1-01M-3': 0.0, 'FsF-A1-02M-1': 1.0,
+    'FsF-A1-03D-1': 0.0, 'FsF-I1-01M-1': 0.5, 'FsF-I1-01M-2': 0.5, 'FsF-I2-01M-1': 0.0,
+    'FsF-I2-01M-2': 0.0, 'FsF-I3-01M-1': 1.0, 'FsF-I3-01M-2': 1.0,
+    'FsF-R1-01MD-1': 0.25, 'FsF-R1-01MD-1a': 0.25, 'FsF-R1-01MD-1b': 0.25,
+    'FsF-R1-01MD-2': 0.25, 'FsF-R1-01MD-2a': 0.25, 'FsF-R1-01MD-2b': 0.25,
+    'FsF-R1-01MD-3': 0.25, 'FsF-R1-01MD-4': 0.25, 'FsF-R1.1-01M-1': 1.0,
+    'FsF-R1.1-01M-2': 1.0, 'FsF-R1.2-01M-1': 0.5, 'FsF-R1.2-01M-2': 0.5,
+    'FsF-R1.3-01M-1': 1.0, 'FsF-R1.3-01M-2': 1.0, 'FsF-R1.3-01M-3': 1.0,
+    'FsF-R1.3-02D-1': 0.0, 'FsF-R1.3-02D-1a': 0.0, 'FsF-R1.3-02D-1b': 0.0, 'FsF-R1.3-02D-1c': 0.0
+}
+
 
 def get_result_score(name_of_fuji_result_json: str = "fuji_result.json") -> Dict[str, float]:
     with open(name_of_fuji_result_json, "r", encoding="utf-8") as file:
@@ -138,13 +154,22 @@ def fuji_evaluate_to_list(data_doi=None) -> Dict[str, float]:
         return None
 
 
+def example_fuji_results() -> Any:
+    file_path = "output/examples/FUJI_10.20387_bonares-1ttx-ng98.json"  # Replace with your actual file path
+    with open(file_path, 'r', encoding='utf-8') as file:
+        parsed_response = json.load(file)
+    return map_json_to_metrics(parsed_response)
+
+
 if __name__ == "__main__":
-    evaluate("10.20387/bonares-q82e-t008-test")
-    print(get_result_score())
+    # evaluate("10.20387/bonares-q82e-t008-test")
+    # print(get_result_score())
+    #
+    # with open('fuji_result.json', 'r', encoding='utf-8') as f:
+    #     json_data = json.load(f)
+    #
+    # mapped_metrics = map_json_to_metrics(json_data)
+    # for metric, score in mapped_metrics.items():
+    #     print(f"{metric}: {score}")
 
-    with open('fuji_result.json', 'r', encoding='utf-8') as f:
-        json_data = json.load(f)
-
-    mapped_metrics = map_json_to_metrics(json_data)
-    for metric, score in mapped_metrics.items():
-        print(f"{metric}: {score}")
+    print(example_fuji_results())

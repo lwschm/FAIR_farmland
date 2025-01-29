@@ -1,11 +1,6 @@
 from rdflib import Graph, URIRef
 from collections import defaultdict
 from rdf_cache import FAIRAGRO, metrics_graph
-import requests
-
-import re
-import requests
-
 import re
 import requests
 
