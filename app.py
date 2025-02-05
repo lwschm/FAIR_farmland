@@ -31,6 +31,8 @@ if "dqv_representation" not in st.session_state:
     st.session_state["dqv_representation"] = None
 if "show_rdf" not in st.session_state:
     st.session_state["show_rdf"] = False
+if "bar_chart" not in st.session_state:
+    st.session_state["bar_chart"] = None
 
 # Generate FAIR Evaluation button
 if st.button("Generate FAIR Evaluation"):
@@ -112,9 +114,18 @@ if st.button("Generate FAIR Evaluation"):
     else:
         st.warning("Please enter a DOI.")
 
+# Reset button to clear session state
+if st.button("Reset Visualization and Chart"):
+    st.session_state["dqv_representation"] = None
+    st.session_state["bar_chart"] = None
+    st.session_state["show_rdf"] = False
+    st.success("Visualization and chart reset successfully.")
+
 # Always display the grouped bar chart
-if "bar_chart" in st.session_state:
+if st.session_state["bar_chart"] and isinstance(st.session_state["bar_chart"], go.Figure):
     st.plotly_chart(st.session_state["bar_chart"])
+else:
+    st.warning("No valid chart available.")
 
 # Button to toggle RDF graph visualization
 if st.session_state["dqv_representation"] is not None:
@@ -136,3 +147,44 @@ if st.session_state["dqv_representation"] is not None:
         net.save_graph("rdf_graph.html")
         st.subheader("RDF Graph Visualization")
         components.html(open("rdf_graph.html", "r").read(), height=500)
+
+# Initialize download format selection in session state
+if "download_format" not in st.session_state:
+    st.session_state["download_format"] = "Turtle"
+
+# Dropdown menu for format selection (always shown if the graph is available)
+if st.session_state["dqv_representation"]:
+    download_format = st.selectbox(
+        "Select the format to download the RDF representation:",
+        ["Turtle", "XML", "N-Triples", "JSON-LD"],
+        index=0
+    )
+
+    # Save the selected format in session state
+    st.session_state["download_format"] = download_format
+
+    # Define a mapping for formats and file extensions
+    format_mapping = {
+        "Turtle": ("turtle", "ttl"),
+        "XML": ("xml", "xml"),
+        "N-Triples": ("nt", "nt"),
+        "JSON-LD": ("json-ld", "jsonld")
+    }
+
+    # Display a single download button
+    selected_format, file_extension = format_mapping[st.session_state["download_format"]]
+    rdf_graph = st.session_state["dqv_representation"]
+
+    # Serialize the graph to the selected format
+    try:
+        rdf_data = rdf_graph.serialize(format=selected_format)
+
+        # Provide the download button
+        st.download_button(
+            label="Download RDF Graph",
+            data=rdf_data,
+            file_name=f"rdf_graph.{file_extension}",
+            mime="text/plain"
+        )
+    except Exception as e:
+        st.error(f"Failed to serialize RDF graph: {e}")
