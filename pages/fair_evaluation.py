@@ -26,6 +26,10 @@ if development_mode and not data_doi:
     st.warning("Using default DOI for development mode.")
     data_doi = "10.1000/xyz123"
 
+# Checkboxes to include FES and FUJI evaluations
+include_fes = st.checkbox("Include FES Evaluation", value=True)
+include_fuji = st.checkbox("Include FUJI Evaluation", value=True)
+
 # Initialize session state for RDF representation and visualization toggle
 if "dqv_representation" not in st.session_state:
     st.session_state["dqv_representation"] = None
@@ -39,19 +43,22 @@ if st.button("Generate FAIR Evaluation"):
     if data_doi or development_mode:
         if development_mode:
             st.warning("Using cached result for development.")
-            fes_evaluation_result_used = fes_evaluation_result
+            fes_evaluation_result_used = fes_evaluation_result if include_fes else None
+            fuji_evaluation_result_used = fuji_evaluation_result if include_fuji else None
         else:
-            fes_evaluation_result_used = fes_evaluate_to_list(data_doi)
+            fes_evaluation_result_used = fes_evaluate_to_list(data_doi) if include_fes else None
+            fuji_evaluation_result_used = fuji_evaluation_result  # Assume FUJI is fetched elsewhere if needed
 
-        if fes_evaluation_result_used:
+        if fes_evaluation_result_used or fuji_evaluation_result_used:
             start_time = datetime.now()
             end_time = datetime.now()
 
             try:
+                # Pass empty dictionaries if results are not available
                 dqv_representation = create_dqv_representation(
                     doi=data_doi,
-                    fes_evaluation_result=fes_evaluation_result_used,
-                    fuji_evaluation_result=fuji_evaluation_result,
+                    fes_evaluation_result=fes_evaluation_result_used or {},
+                    fuji_evaluation_result=fuji_evaluation_result_used or {},
                     start_time=start_time,
                     end_time=end_time,
                 )
@@ -61,8 +68,8 @@ if st.button("Generate FAIR Evaluation"):
 
                 scores_by_metric = extract_scores_from_rdf(dqv_representation)
 
-                fes_scores = scores_by_metric.get("fes", {})
-                fuji_scores = scores_by_metric.get("fuji", {})
+                fes_scores = scores_by_metric.get("fes", {}) if include_fes else {}
+                fuji_scores = scores_by_metric.get("fuji", {}) if include_fuji else {}
 
                 dimensions = ["Findability", "Accessibility", "Interoperability", "Reusability"]
 
@@ -71,29 +78,31 @@ if st.button("Generate FAIR Evaluation"):
                     fes_scores.get("accessibility_score", 0),
                     fes_scores.get("interoperability_score", 0),
                     fes_scores.get("reusability_score", 0),
-                ]
+                ] if include_fes else [0, 0, 0, 0]
 
                 fuji_values = [
                     fuji_scores.get("findability_score", 0),
                     fuji_scores.get("accessibility_score", 0),
                     fuji_scores.get("interoperability_score", 0),
                     fuji_scores.get("reusability_score", 0),
-                ]
+                ] if include_fuji else [0, 0, 0, 0]
 
                 # Create a grouped bar chart with Plotly
                 fig = go.Figure()
-                fig.add_trace(go.Bar(
-                    x=dimensions,
-                    y=fes_values,
-                    name="FES",
-                    marker={"color": "skyblue"}  # Use marker dictionary for color
-                ))
-                fig.add_trace(go.Bar(
-                    x=dimensions,
-                    y=fuji_values,
-                    name="FUJI",
-                    marker={"color": "orange"}  # Use marker dictionary for color
-                ))
+                if include_fes:
+                    fig.add_trace(go.Bar(
+                        x=dimensions,
+                        y=fes_values,
+                        name="FES",
+                        marker={"color": "skyblue"}  # Use marker dictionary for color
+                    ))
+                if include_fuji:
+                    fig.add_trace(go.Bar(
+                        x=dimensions,
+                        y=fuji_values,
+                        name="FUJI",
+                        marker={"color": "orange"}  # Use marker dictionary for color
+                    ))
 
                 # Update layout for grouped bars
                 fig.update_layout(
@@ -110,7 +119,7 @@ if st.button("Generate FAIR Evaluation"):
             except Exception as e:
                 st.error(f"Failed to process RDF representation: {e}")
         else:
-            st.error("No FES scores returned.")
+            st.error("No scores returned for the selected evaluations.")
     else:
         st.warning("Please enter a DOI.")
 
