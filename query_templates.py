@@ -3,6 +3,7 @@
 FAIR_QUERIES = {
     "Basic Query": """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX fairagro: <https://fairagro.net/ontology#>
 
     SELECT * WHERE {
       ?sub ?pred ?obj .
@@ -11,6 +12,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
     "Dimensions and Definitions": """PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX fairagro: <https://fairagro.net/ontology#>
 
     SELECT ?dimension ?definition WHERE {
       ?dimension a dqv:Dimension .
@@ -20,6 +22,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
  "Findability Metrics": """PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX fairagro: <https://fairagro.net/ontology#>
 
     SELECT ?metric ?label ?definition WHERE {
       ?metric a dqv:Metric ;
@@ -31,6 +34,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
     "Accessibility Metrics": """PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX fairagro: <https://fairagro.net/ontology#>
 
     SELECT ?metric ?label ?definition WHERE {
       ?metric a dqv:Metric ;
@@ -42,6 +46,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
     "Interoperability Metrics": """PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX fairagro: <https://fairagro.net/ontology#>
 
     SELECT ?metric ?label ?definition WHERE {
       ?metric a dqv:Metric ;
@@ -53,6 +58,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
     "Reusability Metrics": """PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX fairagro: <https://fairagro.net/ontology#>
 
     SELECT ?metric ?label ?definition WHERE {
       ?metric a dqv:Metric ;
@@ -64,6 +70,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 "Fair is Fair (FUJI) Metrics": """PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX fairagro: <https://fairagro.net/ontology#>
 
     SELECT ?metric ?label ?dimension ?definition WHERE {
       ?metric a dqv:Metric ;
@@ -76,6 +83,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
     "Fair Evaluation Service (FES) Metrics": """PREFIX dqv: <http://www.w3.org/ns/dqv#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX fairagro: <https://fairagro.net/ontology#>
 
     SELECT ?metric ?label ?dimension ?definition WHERE {
       ?metric a dqv:Metric ;
@@ -90,6 +98,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 BONARES_QUERIES = {
     "Basic BonaRes Query": """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX fairagro: <https://fairagro.net/ontology#>
 
     SELECT ?subject ?predicate ?object WHERE {
       ?subject ?predicate ?object .
@@ -99,8 +108,8 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     "Explore BonaRes Datasets": """PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX dqv: <http://www.w3.org/ns/dqv#>
-PREFIX fairagro: <https://fairagro.net/ontology#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX fairagro: <https://fairagro.net/ontology#>
 
     SELECT ?dataset ?title ?distribution ?metric ?metric_name ?value ?computedBy WHERE {
       ?dataset a dcat:Dataset ;

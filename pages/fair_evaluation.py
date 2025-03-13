@@ -197,3 +197,6 @@ if st.session_state["dqv_representation"]:
         )
     except Exception as e:
         st.error(f"Failed to serialize RDF graph: {e}")
+
+# Footer
+st.markdown("---")
