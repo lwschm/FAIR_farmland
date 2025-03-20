@@ -2,11 +2,16 @@ import streamlit as st
 import pandas as pd
 from SPARQLWrapper import SPARQLWrapper, JSON
 from query_templates import FAIR_QUERIES, BONARES_QUERIES  # Import query templates
+from dotenv import load_dotenv
+import os
 
-# Define available SPARQL endpoints
+load_dotenv()
+
+fuseki_base_url = os.getenv("FUSEKI_BASE_URL")
+
 endpoints = {
-    "FAIR": "http://127.0.0.1:3030/FAIR/sparql",
-    "BonaRes": "http://127.0.0.1:3030/bonares/sparql"
+    "FAIR_Metrics": f"{fuseki_base_url}/FAIR_Metrics/sparql",
+    "BonaRes": f"{fuseki_base_url}/bonares/sparql"
 }
 
 # ✅ Dropdown for selecting the endpoint

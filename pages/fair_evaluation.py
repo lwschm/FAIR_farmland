@@ -6,7 +6,7 @@ from doi_to_dqv import create_dqv_representation  # Function to generate RDF rep
 from rdf_utils import extract_scores_from_rdf  # Utility to extract scores from RDF
 from pyvis.network import Network  # For RDF graph visualization
 import streamlit.components.v1 as components  # To embed HTML in Streamlit
-from FUJI_evaluation import fuji_evaluation_result_example  # Cached FUJI evaluation results
+from FUJI_evaluation import fuji_evaluation_result_example, fuji_evaluate_to_list  # Cached FUJI evaluation results
 
 # Example FES and FUJI evaluation results
 fes_evaluation_result = fes_evaluation_result_example
@@ -46,8 +46,25 @@ if st.button("Generate FAIR Evaluation"):
             fes_evaluation_result_used = fes_evaluation_result if include_fes else None
             fuji_evaluation_result_used = fuji_evaluation_result if include_fuji else None
         else:
-            fes_evaluation_result_used = fes_evaluate_to_list(data_doi) if include_fes else None
-            fuji_evaluation_result_used = fuji_evaluation_result  # Assume FUJI is fetched elsewhere if needed
+            # Handle FES evaluation errors
+            if include_fes:
+                try:
+                    fes_evaluation_result_used = fes_evaluate_to_list(data_doi)
+                except RuntimeError as e:
+                    st.error(f"FES evaluation failed: {e}")
+                    fes_evaluation_result_used = None
+            else:
+                fes_evaluation_result_used = None
+
+            # Handle FUJI evaluation errors
+            if include_fuji:
+                try:
+                    fuji_evaluation_result_used = fuji_evaluate_to_list(data_doi)
+                except RuntimeError as e:
+                    st.error(f"FUJI evaluation failed: {e}")
+                    fuji_evaluation_result_used = None
+            else:
+                fuji_evaluation_result_used = None
 
         if fes_evaluation_result_used or fuji_evaluation_result_used:
             start_time = datetime.now()

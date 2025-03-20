@@ -1,4 +1,6 @@
-fastapi
-uvicorn
-requests
+streamlit
+plotly
+rdflib
+python-dotenv
 SPARQLWrapper
+pyvis

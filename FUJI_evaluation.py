@@ -13,12 +13,14 @@ USERNAME = os.getenv("fuji_username")
 PASSWORD = os.getenv("fuji_password")
 fuji_auth = (USERNAME, PASSWORD)
 
-# FUJI URL
-url = 'http://192.168.220.71:1071/fuji/api/v1/evaluate'
+FUJI_URL = os.getenv("fuji_url")
+if not FUJI_URL:
+    raise RuntimeError("FUJI_URL is not set in .env file")
 headers = {
     'accept': '*/*',
     'Content-Type': 'application/json'
 }
+
 data_example = {
     "object_identifier": "DOI: 10.20387/bonares-zyd4-w9c2",
     "test_debug": True,
@@ -107,10 +109,10 @@ def evaluate(data_doi=None):
     print(f"running fuji evaluation for {data}")
 
     try:
-        response = requests.post(url, json=data, headers=headers, auth=fuji_auth, timeout=30)
+        response = requests.post(FUJI_URL, json=data, headers=headers, auth=fuji_auth, timeout=30)
         response.raise_for_status()
     except ConnectTimeout:
-        print(f"Request timed out when trying to connect to {url}")
+        print(f"Request timed out when trying to connect to {FUJI_URL}")
         return
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
@@ -135,14 +137,14 @@ def fuji_evaluate_to_list(data_doi=None) -> Dict[str, float]:
     print(f"Running F-UJI evaluation for {data}")
 
     try:
-        response = requests.post(url, json=data, headers=headers, auth=fuji_auth, timeout=30)
+        response = requests.post(FUJI_URL, json=data, headers=headers, auth=fuji_auth, timeout=10)
         response.raise_for_status()
     except ConnectTimeout:
-        print(f"Request timed out when trying to connect to {url}")
-        return None
+        print(f"Request timed out when trying to connect to {FUJI_URL}")  # Debugging
+        raise RuntimeError("FUJI API is unreachable (timeout).")
     except requests.exceptions.RequestException as e:
-        print(f"An error occurred: {e}")
-        return None
+        print(f"An error occurred: {e}")  # Debugging
+        raise RuntimeError(f"FUJI API request failed: {e}")
 
     if response.status_code == 200:
         print("Request successful!")
@@ -150,8 +152,7 @@ def fuji_evaluate_to_list(data_doi=None) -> Dict[str, float]:
         return map_json_to_metrics(parsed_response)
     else:
         print(f"Request failed with status code {response.status_code}")
-        print(response.text)
-        return None
+        raise RuntimeError(f"FUJI API request failed with status {response.status_code}")
 
 
 def example_fuji_results() -> Any:

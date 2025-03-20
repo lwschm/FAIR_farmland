@@ -20,10 +20,10 @@ SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # Read the metrics and checkers Turtle files into separate graphs
 metrics_graph = Graph()
-metrics_graph.parse("DataQualityVocabulary/fair_data_quality_metrics.ttl", format='turtle')
+metrics_graph.parse("DataQualityVocabulary/FAIR_data_quality_metrics.ttl", format='turtle')
 
 checkers_graph = Graph()
-checkers_graph.parse("DataQualityVocabulary/fair_quality_services.ttl", format='turtle')
+checkers_graph.parse("DataQualityVocabulary/FAIR_quality_services.ttl", format='turtle')
 
 
 def create_dqv_representation(doi: str, fes_evaluation_result: list, fuji_evaluation_result: dict, start_time: datetime,

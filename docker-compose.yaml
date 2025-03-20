@@ -10,10 +10,10 @@ services:
     networks:
       - mynetwork
 
-  fastapi:
+  fair_er:
     build: .
     ports:
-      - "8000:8000"
+      - "8501:8501"
     depends_on:
       - fuseki
     volumes:
