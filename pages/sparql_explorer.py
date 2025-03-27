@@ -47,9 +47,6 @@ if "query_results" not in st.session_state:
 if "page_number" not in st.session_state:
     st.session_state.page_number = 1
 
-# Placeholder for displaying query results
-results_placeholder = st.empty()
-
 # Function to execute SPARQL queries
 def execute_sparql_query(query: str) -> pd.DataFrame:
     sparql = SPARQLWrapper(SPARQL_ENDPOINT)
@@ -63,8 +60,14 @@ def execute_sparql_query(query: str) -> pd.DataFrame:
     ]
     return pd.DataFrame(rows, columns=cols)
 
-# Execute query button
-if st.button("Execute Query"):
+# Execute Query button placed immediately after the query input
+execute_query = st.button("Execute Query")
+
+# Placeholder for displaying query results
+results_placeholder = st.empty()
+
+# Execute the query if the button is clicked
+if execute_query:
     if user_query.strip():
         try:
             # Run the query and store results in session state
