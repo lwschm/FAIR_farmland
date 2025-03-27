@@ -18,7 +18,7 @@ endpoints = {
 selected_endpoint = st.selectbox("Select SPARQL Endpoint:", list(endpoints.keys()))
 
 # ✅ Load correct query templates based on the selected endpoint
-template_queries = FAIR_QUERIES if selected_endpoint == "FAIR" else BONARES_QUERIES
+template_queries = FAIR_QUERIES if selected_endpoint == "FAIR_Metrics" else BONARES_QUERIES
 
 # Use the selected endpoint for queries
 SPARQL_ENDPOINT = endpoints[selected_endpoint]
