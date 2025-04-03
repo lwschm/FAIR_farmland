@@ -9,6 +9,8 @@ services:
       - .env
     networks:
       - mynetwork
+    volumes:
+      - ./fuseki-data:/fuseki
 
   fair_er:
     build: .
