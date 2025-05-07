@@ -1,6 +1,7 @@
 .idea/
 .env
 .venv/
+static/
 geckodriver.exe
 __pycache__/
 *.xlsx
