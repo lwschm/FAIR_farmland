@@ -1,6 +1,0 @@
-streamlit
-plotly
-rdflib
-python-dotenv
-SPARQLWrapper
-pyvis

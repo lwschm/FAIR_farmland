@@ -1,5 +1,0 @@
-https://maps.bonares.de/finder/resources/googleds/sitemap.xml
-https://doi.ipk-gatersleben.de/sitemap.xml
-https://www.openagrar.de/servlets/solr/select?core=main&q=category.top%3A%22mir_genres%3Aresearch_data%22+AND+objectType%3Amods+AND+category.top%3A%22state%3Apublished%22&rows=300&fl=id%2Cmods.identifier&wt=json&XSL.Style=xml
-https://frl.publisso.de/find?q=contentType:researchData&from=0&until=200&format=json
-https://atlas.thuenen.de/api/v2/resources?page_size=200&format=json

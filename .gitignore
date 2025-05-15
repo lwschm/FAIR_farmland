@@ -2,6 +2,7 @@
 .env
 .venv/
 static/
+*/venv/
 geckodriver.exe
 __pycache__/
 *.xlsx
@@ -13,3 +14,4 @@ wilkinson_result.html
 input/.~lock.bonares_dois.csv\#
 *.csv#
 wilkinson_result.html
+secrets.toml
