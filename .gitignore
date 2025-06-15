@@ -7,7 +7,7 @@ static/
 *.csv
 *.log
 *.pdf
-*.md
+
 */pdf_papers/
 */md_papers/
 geckodriver.exe
@@ -24,3 +24,4 @@ wilkinson_result.html
 secrets.toml
 */venv_py311/
 ./venv/
+/data/input/
