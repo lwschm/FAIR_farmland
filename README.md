@@ -289,17 +289,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Built upon concepts from the FAIR Evaluation Repository (FAIR-ER) project
+- Built upon concepts from the FAIR Evaluation Repository
 - Uses OpenAI's GPT-4 for intelligent metadata extraction
 - Streamlit for the web interface
 - The scientific community for farmland data research
 
-## 📞 Contact
 
-- **Project Lead**: FAIR Farmland Research Team
-- **Email**: contact@fair-farmland.org
-- **Issues**: [GitHub Issues](https://github.com/yourusername/FAIR_farmland/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/FAIR_farmland/discussions)
 
 ---
 
