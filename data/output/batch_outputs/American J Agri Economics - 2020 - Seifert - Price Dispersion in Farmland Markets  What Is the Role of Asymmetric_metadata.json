@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "authors": [
+      "Stefan Seifert",
+      "Christoph Kahle",
+      "Silke Hüttel"
+    ],
+    "journal": "American Journal of Agricultural Economics",
+    "title": "Price Dispersion in Farmland Markets: What is the Role of Asymmetric Information?",
+    "doi": "10.1111/ajae.12153",
+    "year": 2020,
+    "publisher": "Wiley Periodicals LLC on behalf of Agricultural & Applied Economics Association",
+    "language": "English",
+    "keywords": [
+      "Farmland markets",
+      "hedonic pricing",
+      "information deficiency",
+      "two-tier frontier"
+    ],
+    "license": "Creative Commons Attribution License"
+  },
+  "data_sources": [
+    {
+      "source_name": "Committee of Land Valuation Experts of Saxony-Anhalt",
+      "description": "The dataset consists of 12,134 land market transactions for arable land in Saxony-Anhalt from 2014 to 2017. It includes transaction details such as contract date, price, lot characteristics (location, size, soil quality index), and anonymous agent-type information. The data was used to analyze the role of asymmetric information in farmland price formation, focusing on the effects of buyer and seller characteristics on price dispersion.",
+      "country": "Germany",
+      "region": "Saxony-Anhalt",
+      "earliest_year": 2014,
+      "latest_year": 2017,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "Plot level",
+      "accessibility": "Restricted",
+      "access_conditions": "Provided by the Committee of Land Valuation Experts of Saxony-Anhalt",
+      "number_of_observations": 10778,
+      "url": "",
+      "data_format": "Not specified",
+      "identifier_type": "Not specified",
+      "persistent_identifier": false,
+      "data_license": "Not specified",
+      "metadata_standard": "Not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    }
+  ],
+  "assessment": {
+    "findability": 3,
+    "findability_reason": "The dataset is mentioned in the publication but lacks a direct link or DOI for easy access.",
+    "accessibility": 2,
+    "accessibility_reason": "The data is provided by a specific committee and may require permission to access.",
+    "interoperability": 1,
+    "interoperability_reason": "The data format and standards are not specified, limiting interoperability.",
+    "reusability": 2,
+    "reusability_reason": "The dataset is specific to the study and may have limited reusability without additional context or access permissions."
+  },
+  "processing_info": {
+    "filename": "American J Agri Economics - 2020 - Seifert - Price Dispersion in Farmland Markets  What Is the Role of Asymmetric.pdf",
+    "markdown_file": "01_mdpapers/American J Agri Economics - 2020 - Seifert - Price Dispersion in Farmland Markets  What Is the Role of Asymmetric.md",
+    "processed_at": "2025-06-14T18:13:30.567613",
+    "file_size": 6453921,
+    "markdown_length": 106150
+  }
+}

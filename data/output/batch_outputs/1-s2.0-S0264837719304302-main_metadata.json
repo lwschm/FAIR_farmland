@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "authors": [
+      "Matthias Ritter",
+      "Silke Hüttel",
+      "Martin Odening",
+      "Stefan Seifert"
+    ],
+    "journal": "Land Use Policy",
+    "title": "Revisiting the relationship between land price and parcel size in agriculture",
+    "doi": "10.1016/j.landusepol.2020.104771",
+    "year": 2020
+  },
+  "data_sources": [
+    {
+      "source_name": "Committee of Land Valuation Experts (Gutachterausschuss für Grundstückswerte in Sachsen-Anhalt)",
+      "description": "The dataset includes all agricultural land transactions in Saxony-Anhalt, Germany, from 1994 to 2017. It contains information on the price, size, soil quality, location, and type (arable land or grassland) of the transacted plot. Since 2011, information about the buyer (farmer or non-farmer) is also available. The dataset was used to analyze the relationship between land price and parcel size using a nonparametric locally weighted scatterplot smoothing (LOWESS) estimator and a hedonic land price model.",
+      "country": "Germany",
+      "region": "Saxony-Anhalt",
+      "earliest_year": 1994,
+      "latest_year": 2017,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "plot level",
+      "accessibility": "restricted",
+      "access_conditions": "provided by the Committee of Land Valuation Experts",
+      "number_of_observations": 82650,
+      "url": "",
+      "data_format": "not specified",
+      "identifier_type": "not specified",
+      "persistent_identifier": false,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    }
+  ],
+  "assessment": {
+    "findability": 3,
+    "findability_reason": "The dataset is mentioned in the publication but lacks a direct link or detailed access information.",
+    "accessibility": 2,
+    "accessibility_reason": "Access is restricted and provided by a specific committee, with no public access details provided.",
+    "interoperability": 2,
+    "interoperability_reason": "The data format and standards are not specified, limiting interoperability.",
+    "reusability": 2,
+    "reusability_reason": "The dataset is comprehensive but lacks detailed metadata and access conditions, limiting its reusability."
+  },
+  "processing_info": {
+    "filename": "1-s2.0-S0264837719304302-main.pdf",
+    "markdown_file": "01_mdpapers/1-s2.0-S0264837719304302-main.md",
+    "processed_at": "2025-06-14T18:12:36.691823",
+    "file_size": 2660098,
+    "markdown_length": 58856
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "authors": [
+      "Luise Meissner",
+      "Oliver Musshoff"
+    ],
+    "journal": "Q Open",
+    "title": "Revisiting the relationship between farmland prices and soil quality",
+    "doi": "10.1093/qopen/qoac017",
+    "year": 2022,
+    "publisher": "Oxford University in association with European Agricultural and Applied Economics Publications Foundation",
+    "language": "English",
+    "keywords": [
+      "Soil quality index",
+      "Agricultural land market",
+      "Farmland prices",
+      "FMOLS",
+      "DOLS"
+    ],
+    "license": "Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/)"
+  },
+  "data_sources": [
+    {
+      "source_name": "GENESIS-Database of the German Bundesamt für Statistik",
+      "description": "The dataset contains aggregated farmland price time series from 1991 to 2020 within Germany. Prices are aggregated within soil quality intervals and parcel size intervals, treated as panel units. The dataset has a balanced panel structure with 145 observations and 870 price data points in total. The number of recorded transactions used to aggregate the farmland prices were collected manually from the Statistische Jahrbücher in Germany from 1991 to 2020. The minimum number of transactions recorded per SQI interval is 3,929, and the maximum is 15,819. The dataset helps maintain soil quality constant within the defined interval while depicting the farmland price development over time. Other variables are not available due to the levels of data aggregation, and regional prices are not captured.",
+      "country": "Germany",
+      "region": "National",
+      "earliest_year": 1991,
+      "latest_year": 2020,
+      "transaction_types": [
+        "farmland purchase prices"
+      ],
+      "spatial_resolution": "National",
+      "accessibility": "Publicly available",
+      "access_conditions": "Free access",
+      "number_of_observations": 145,
+      "url": "https://www-genesis.destatis.de/genesis/online?operation=statistic&levelindex=0&levelid=1628931297012&code=61521#abreadcrumb",
+      "data_format": "Time series",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "Not specified",
+      "metadata_standard": "Not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    }
+  ],
+  "assessment": {
+    "findability": 5,
+    "findability_reason": "The dataset is publicly available and easily accessible through the GENESIS database of the Statistical Office of Germany.",
+    "accessibility": 5,
+    "accessibility_reason": "The dataset is freely accessible without any restrictions.",
+    "interoperability": 3,
+    "interoperability_reason": "The dataset is in a time series format, which is standard but lacks detailed metadata and semantic vocabularies.",
+    "reusability": 4,
+    "reusability_reason": "The dataset is comprehensive for the study's purpose but lacks additional variables that could enhance its applicability for other research contexts."
+  },
+  "processing_info": {
+    "filename": "qoac017.pdf",
+    "markdown_file": "01_mdpapers/qoac017.md",
+    "processed_at": "2025-06-14T18:13:06.259984",
+    "file_size": 891990,
+    "markdown_length": 56986
+  }
+}

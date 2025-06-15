@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "authors": [
+      "Henning Schaak",
+      "Oliver Musshoff"
+    ],
+    "journal": "European Review of Agricultural Economics",
+    "title": "The distribution of the rent–price relationship of agricultural land in Germany",
+    "doi": "https://doi.org/10.1093/erae/jbab052",
+    "year": 2022,
+    "publisher": "Oxford University Press",
+    "language": "English",
+    "keywords": [
+      "agricultural land market",
+      "GAMLSS",
+      "heterogeneity",
+      "spatial statistics"
+    ],
+    "license": "Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/)"
+  },
+  "data_sources": [
+    {
+      "source_name": "German Agricultural Census 2010",
+      "description": "The German Agricultural Census 2010 provides comprehensive information on all farms in Germany, including data on the rent paid by farmers. This dataset was used to calculate local averages of land rents and prices for the study.",
+      "country": "Germany",
+      "region": "Lower Saxony",
+      "earliest_year": 2010,
+      "latest_year": 2010,
+      "transaction_types": [
+        "rent"
+      ],
+      "spatial_resolution": "District level",
+      "accessibility": "Public",
+      "access_conditions": "Available through the Federal Statistical Office",
+      "number_of_observations": 2794,
+      "url": "https://www.destatis.de/EN/Home/_node.html",
+      "data_format": "Tabular",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "Data licence Germany – attribution – Version 2.0",
+      "metadata_standard": "None",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    },
+    {
+      "source_name": "OGA Lower Saxony",
+      "description": "The OGA Lower Saxony dataset consists of plot-level data for all agricultural land sales in Lower Saxony during the period from the second quarter of 2007 to the first quarter of 2010. This data was originally collected for the purposes of the German Federal Building Code and was used to calculate local averages of land sales prices.",
+      "country": "Germany",
+      "region": "Lower Saxony",
+      "earliest_year": 2007,
+      "latest_year": 2010,
+      "transaction_types": [
+        "sale"
+      ],
+      "spatial_resolution": "Plot level",
+      "accessibility": "Restricted",
+      "access_conditions": "Available through the OGA Lower Saxony",
+      "number_of_observations": 2794,
+      "url": "https://www.oga.niedersachsen.de/startseite/",
+      "data_format": "Tabular",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "None",
+      "metadata_standard": "None",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    },
+    {
+      "source_name": "Regional Statistical Database of the Federal Statistical Office and Statistical Offices of the Länder",
+      "description": "This database provides general economic indicators for the analysis, which were used to complement the farmland data in the study.",
+      "country": "Germany",
+      "region": "Lower Saxony",
+      "earliest_year": 2007,
+      "latest_year": 2010,
+      "transaction_types": [],
+      "spatial_resolution": "District level",
+      "accessibility": "Public",
+      "access_conditions": "Available through the Federal Statistical Office",
+      "number_of_observations": 46,
+      "url": "https://www.regionalstatistik.de",
+      "data_format": "Tabular",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "Data licence Germany – attribution – Version 2.0",
+      "metadata_standard": "None",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    }
+  ],
+  "assessment": {
+    "findability": 4,
+    "findability_reason": "Data sources are well-documented and accessible through official statistical offices.",
+    "accessibility": 3,
+    "accessibility_reason": "Some datasets are publicly accessible, while others have restricted access.",
+    "interoperability": 2,
+    "interoperability_reason": "Data formats are standard but lack structured metadata and semantic vocabularies.",
+    "reusability": 3,
+    "reusability_reason": "Data is reusable with proper attribution, but some datasets have restricted access and lack persistent identifiers."
+  },
+  "processing_info": {
+    "filename": "jbab052.pdf",
+    "markdown_file": "01_mdpapers/jbab052.md",
+    "processed_at": "2025-06-14T18:14:06.094395",
+    "file_size": 375330,
+    "markdown_length": 71701
+  }
+}

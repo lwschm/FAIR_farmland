@@ -1,0 +1,30 @@
+{
+  "summary": {
+    "findability": {
+      "mean": 3.1818181818181817,
+      "min": 2,
+      "max": 5,
+      "count": 22
+    },
+    "accessibility": {
+      "mean": 2.227272727272727,
+      "min": 1,
+      "max": 5,
+      "count": 22
+    },
+    "interoperability": {
+      "mean": 2.090909090909091,
+      "min": 1,
+      "max": 3,
+      "count": 22
+    },
+    "reusability": {
+      "mean": 2.272727272727273,
+      "min": 1,
+      "max": 4,
+      "count": 22
+    }
+  },
+  "generated_at": "2025-06-14T18:14:29.929362",
+  "total_papers": 22
+}

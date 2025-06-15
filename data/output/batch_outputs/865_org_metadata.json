@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "authors": [
+      "Henning Schaak",
+      "Oliver Mußhoff"
+    ],
+    "journal": "German Journal of Agricultural Economics (GJAE)",
+    "title": "Public Preferences for Pasture Landscapes and the Role of Scale Heterogeneity",
+    "doi": "10.30430/70.2021.3.182-191",
+    "year": 2021,
+    "publisher": "German Journal of Agricultural Economics",
+    "language": "English",
+    "keywords": [
+      "discrete choice experiment",
+      "public landscape preferences",
+      "livestock",
+      "Mixed Multinomial Logit Model",
+      "Generalized Multinomial Mixed Logit Model"
+    ],
+    "license": "Not specified"
+  },
+  "data_sources": [
+    {
+      "source_name": "Study by Schaak and Musshoff (2020)",
+      "description": "The study revisits public preferences for pasture landscapes in Germany, focusing on the presence of livestock in the landscape. It uses a Discrete Choice Experiment (DCE) to assess preferences for different landscape attributes, including the presence and number of dairy livestock, structuredness of the pasture, point landscape elements, linear landscape elements, and cost per household per year. The DCE was part of an online survey conducted in Germany with 475 participants, of which 449 were included in the study sample. The survey ensured representativeness concerning age, household income, federal state of residence, and size of the place of residence. The data was collected by an online-sampling company in September and October of 2017.",
+      "country": "Germany",
+      "region": "Not specified",
+      "earliest_year": 2017,
+      "latest_year": 2017,
+      "transaction_types": [
+        "Discrete Choice Experiment"
+      ],
+      "spatial_resolution": "Not specified",
+      "accessibility": "Not specified",
+      "access_conditions": "Not specified",
+      "number_of_observations": 449,
+      "url": "Not specified",
+      "data_format": "Not specified",
+      "identifier_type": "Not specified",
+      "persistent_identifier": false,
+      "data_license": "Not specified",
+      "metadata_standard": "Not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    }
+  ],
+  "assessment": {
+    "findability": 3,
+    "findability_reason": "The DOI is provided, which aids in locating the publication, but specific details about data accessibility are not mentioned.",
+    "accessibility": 2,
+    "accessibility_reason": "The publication does not specify how to access the data used in the study.",
+    "interoperability": 2,
+    "interoperability_reason": "There is no mention of data formats or standards that would facilitate interoperability.",
+    "reusability": 2,
+    "reusability_reason": "The data description lacks details on licensing and access conditions, limiting reusability."
+  },
+  "processing_info": {
+    "filename": "865_org.pdf",
+    "markdown_file": "01_mdpapers/865_org.md",
+    "processed_at": "2025-06-14T18:14:23.297227",
+    "file_size": 1322904,
+    "markdown_length": 43733
+  }
+}

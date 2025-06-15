@@ -1,0 +1,70 @@
+{
+  "metadata": {
+    "authors": [
+      "Franziska Appel",
+      "Alfons Balmann"
+    ],
+    "journal": "Journal of Agricultural Economics",
+    "title": "Predator or prey? Effects of farm growth on neighbouring farms",
+    "doi": "10.1111/1477-9552.12503",
+    "year": 2023,
+    "publisher": "John Wiley & Sons Ltd on behalf of Agricultural Economics Society",
+    "language": "English",
+    "keywords": [
+      "agent-based participatory experiments",
+      "behavioural experiments",
+      "business management game",
+      "farm growth",
+      "farm size",
+      "Germany",
+      "path dependency",
+      "spatial interaction",
+      "structural change"
+    ],
+    "license": "Creative Commons Attribution-NonCommercial License"
+  },
+  "data_sources": [
+    {
+      "source_name": "FarmAgriPoliS Experiments",
+      "description": "The study uses data from experiments conducted with the business game FarmAgriPoliS, which is based on the AgriPoliS model. This model simulates farms, regional farm populations, and structures, focusing on strategic decisions like farm exit or continuation, investments, and land rentals. The experiments involved 49 students managing pre-specified farms in a simulated environment representing the Altmark region in Germany. The dataset includes 143 experiments across nine scenarios, with data on farm investments, land rentals, farm sizes, financial results, and rents paid.",
+      "country": "Germany",
+      "region": "Altmark",
+      "earliest_year": 2014,
+      "latest_year": 2015,
+      "transaction_types": [
+        "land rentals"
+      ],
+      "spatial_resolution": "Local (within a simulated region)",
+      "accessibility": "Restricted",
+      "access_conditions": "Data was collected during controlled experiments and is not publicly available.",
+      "number_of_observations": 143,
+      "url": "",
+      "data_format": "Experimental data",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "Not specified",
+      "metadata_standard": "None",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    }
+  ],
+  "assessment": {
+    "findability": 2,
+    "findability_reason": "The data is not publicly available and was collected during controlled experiments.",
+    "accessibility": 1,
+    "accessibility_reason": "Data is restricted to the researchers and not available for public access.",
+    "interoperability": 2,
+    "interoperability_reason": "Data is specific to the experimental setup and not designed for interoperability.",
+    "reusability": 1,
+    "reusability_reason": "Data is not reusable outside the context of the original experiments due to its specific nature and access restrictions."
+  },
+  "processing_info": {
+    "filename": "J Agricultural Economics - 2022 - Appel - Predator or prey  Effects of farm growth on neighbouring farms.pdf",
+    "markdown_file": "01_mdpapers/J Agricultural Economics - 2022 - Appel - Predator or prey  Effects of farm growth on neighbouring farms.md",
+    "processed_at": "2025-06-14T18:13:17.579270",
+    "file_size": 1693224,
+    "markdown_length": 85758
+  }
+}

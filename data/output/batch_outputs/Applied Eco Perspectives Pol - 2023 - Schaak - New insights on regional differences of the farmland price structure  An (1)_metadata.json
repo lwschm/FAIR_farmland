@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "authors": [
+      "Henning Schaak",
+      "Luise Meissner",
+      "Oliver Musshoff"
+    ],
+    "journal": "Applied Economic Perspectives and Policy",
+    "title": "New insights on regional differences of the farmland price structure: An extended replication study on the parcel size–price relationship",
+    "doi": "10.1002/aepp.13366",
+    "year": 2023,
+    "publisher": "Wiley Periodicals LLC on behalf of Agricultural & Applied Economics Association",
+    "language": "English",
+    "keywords": [
+      "agricultural land",
+      "farmland price",
+      "parcel size",
+      "replication study"
+    ],
+    "license": "Creative Commons Attribution License"
+  },
+  "data_sources": [
+    {
+      "source_name": "Land Transaction Data from Saxony-Anhalt",
+      "description": "The dataset used by RHOS for the original study, covering land transactions in Saxony-Anhalt from 1994 to 2017. It includes information on price, plot size, soil quality, and buyer type. The data was used to study the size–price relationship of farmland using a nonparametric smoothing estimator and a hedonic land price model.",
+      "country": "Germany",
+      "region": "Saxony-Anhalt",
+      "earliest_year": 1994,
+      "latest_year": 2017,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "parcel level",
+      "accessibility": "restricted",
+      "access_conditions": "Data confidentiality agreements required for access",
+      "number_of_observations": 82504,
+      "url": "",
+      "data_format": "not specified",
+      "identifier_type": "not specified",
+      "persistent_identifier": false,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    },
+    {
+      "source_name": "Land Transaction Data from Brandenburg",
+      "description": "The dataset includes land transactions in Brandenburg from 2005 to 2015, enriched with BVVG sales data. It contains information on price, plot size, soil quality, and buyer type. The data was used to compare the size–price relationship across different German federal states.",
+      "country": "Germany",
+      "region": "Brandenburg",
+      "earliest_year": 2005,
+      "latest_year": 2015,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "parcel level",
+      "accessibility": "restricted",
+      "access_conditions": "Data confidentiality agreements required for access",
+      "number_of_observations": 30344,
+      "url": "",
+      "data_format": "not specified",
+      "identifier_type": "not specified",
+      "persistent_identifier": false,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    },
+    {
+      "source_name": "Land Transaction Data from Lower Saxony",
+      "description": "The dataset includes land transactions in Lower Saxony from 2005 to 2015. It contains information on price, plot size, soil quality, and buyer type. The data was used to compare the size–price relationship across different German federal states.",
+      "country": "Germany",
+      "region": "Lower Saxony",
+      "earliest_year": 2005,
+      "latest_year": 2015,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "parcel level",
+      "accessibility": "restricted",
+      "access_conditions": "Data confidentiality agreements required for access",
+      "number_of_observations": 40366,
+      "url": "",
+      "data_format": "not specified",
+      "identifier_type": "not specified",
+      "persistent_identifier": false,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    }
+  ],
+  "assessment": {
+    "findability": 3,
+    "findability_reason": "The datasets are mentioned in the publication but specific access details are not provided.",
+    "accessibility": 2,
+    "accessibility_reason": "Access is restricted and requires data confidentiality agreements.",
+    "interoperability": 2,
+    "interoperability_reason": "Data format and metadata standards are not specified, limiting interoperability.",
+    "reusability": 2,
+    "reusability_reason": "Data is not openly accessible and lacks detailed metadata, limiting reusability."
+  },
+  "processing_info": {
+    "filename": "Applied Eco Perspectives Pol - 2023 - Schaak - New insights on regional differences of the farmland price structure  An (1).pdf",
+    "markdown_file": "01_mdpapers/Applied Eco Perspectives Pol - 2023 - Schaak - New insights on regional differences of the farmland price structure  An (1).md",
+    "processed_at": "2025-06-14T18:13:49.095137",
+    "file_size": 2700709,
+    "markdown_length": 76885
+  }
+}

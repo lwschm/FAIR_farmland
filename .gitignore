@@ -1,8 +1,15 @@
 .idea/
 .env
 .venv/
+venv_py311/
 static/
 */venv/
+*.csv
+*.log
+*.pdf
+*.md
+*/pdf_papers/
+*/md_papers/
 geckodriver.exe
 __pycache__/
 *.xlsx
@@ -15,3 +22,5 @@ input/.~lock.bonares_dois.csv\#
 *.csv#
 wilkinson_result.html
 secrets.toml
+*/venv_py311/
+./venv/

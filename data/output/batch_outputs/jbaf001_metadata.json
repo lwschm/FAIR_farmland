@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "authors": [
+      "Marlene Kionka",
+      "Todd Kuethe",
+      "Oliver Mußhoff",
+      "Matthias Ritter",
+      "Martin Odening"
+    ],
+    "journal": "European Review of Agricultural Economics",
+    "title": "Experimental evidence of bargaining power in agricultural land markets",
+    "doi": "https://doi.org/10.1093/erae/jbaf001",
+    "year": 2025,
+    "publisher": "Oxford University Press",
+    "language": "English",
+    "keywords": [
+      "agricultural land market",
+      "bargaining power",
+      "structural estimation",
+      "stochastic ultimatum game",
+      "economic experiments"
+    ],
+    "license": "All rights reserved"
+  },
+  "data_sources": [
+    {
+      "source_name": "Economic Experiment Data",
+      "description": "The study conducted an economic experiment to simulate bargaining processes in the land rental market. Participants, who were either tenants or landowners, were asked to negotiate rental rates for hypothetical parcels of land. The experiment aimed to derive reservation utilities of both parties, reflecting their outside options and bargaining power. The data collected included rental rate offers and acceptance thresholds, with participants incentivized through vouchers based on negotiation outcomes.",
+      "country": "Germany",
+      "region": "Various federal states",
+      "earliest_year": 2022,
+      "latest_year": 2022,
+      "transaction_types": [
+        "rental agreements"
+      ],
+      "spatial_resolution": "Local",
+      "accessibility": "Restricted",
+      "access_conditions": "Data collected through a controlled experiment, not publicly accessible",
+      "number_of_observations": 5264,
+      "url": "",
+      "data_format": "Survey data",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "Not specified",
+      "metadata_standard": "None",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    }
+  ],
+  "assessment": {
+    "findability": 2,
+    "findability_reason": "The data is not publicly accessible and was collected specifically for the study.",
+    "accessibility": 1,
+    "accessibility_reason": "Data is restricted and not available for public access.",
+    "interoperability": 1,
+    "interoperability_reason": "Data format and structure are not specified for interoperability.",
+    "reusability": 1,
+    "reusability_reason": "Data is not reusable due to access restrictions and lack of public availability."
+  },
+  "processing_info": {
+    "filename": "jbaf001.pdf",
+    "markdown_file": "01_mdpapers/jbaf001.md",
+    "processed_at": "2025-06-14T18:12:18.772792",
+    "file_size": 3908857,
+    "markdown_length": 127567
+  }
+}

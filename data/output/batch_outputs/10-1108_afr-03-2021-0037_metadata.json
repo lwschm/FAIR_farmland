@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "authors": [
+      "Marlene Kionka",
+      "Martin Odening",
+      "Jana Plogmann",
+      "Matthias Ritter"
+    ],
+    "journal": "Agricultural Finance Review",
+    "title": "Measuring liquidity in agricultural land markets",
+    "doi": "10.1108/AFR-03-2021-0037",
+    "year": 2022,
+    "publisher": "Emerald Publishing Limited",
+    "language": "English",
+    "keywords": [
+      "Agricultural land markets",
+      "Liquidity indicators",
+      "Panel vector autoregressive model",
+      "Granger causality"
+    ],
+    "license": "© Emerald Publishing Limited"
+  },
+  "data_sources": [
+    {
+      "source_name": "Oberer Gutachterausschuss für Grundstückswerte in Niedersachsen",
+      "description": "The dataset consists of nearly all sale transactions of arable land in Lower Saxony between 1990 and 2018. It includes 72,547 sale transactions with details such as price, sold area, seller information, date of transaction, and allocation of the plot to a county. The data is used to analyze the spatial and temporal variability of land market liquidity in Lower Saxony, focusing on volume-based and time-based measures.",
+      "country": "Germany",
+      "region": "Lower Saxony",
+      "earliest_year": 1990,
+      "latest_year": 2018,
+      "transaction_types": [
+        "sale"
+      ],
+      "spatial_resolution": "county and municipality level",
+      "accessibility": "restricted",
+      "access_conditions": "provided by the committee of land valuation experts in Lower Saxony",
+      "number_of_observations": 72547,
+      "url": "https://www.forland.hu-berlin.de",
+      "data_format": "transaction records",
+      "identifier_type": "transaction ID",
+      "persistent_identifier": true,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": true,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    }
+  ],
+  "assessment": {
+    "findability": 4,
+    "findability_reason": "The data is well-documented and referenced in the publication, but access is restricted to specific entities.",
+    "accessibility": 2,
+    "accessibility_reason": "Data is not publicly accessible and requires permission from the committee of land valuation experts in Lower Saxony.",
+    "interoperability": 3,
+    "interoperability_reason": "Data is structured and likely follows standard transaction record formats, but specific metadata standards are not mentioned.",
+    "reusability": 3,
+    "reusability_reason": "Data is comprehensive and detailed, but reusability is limited by access restrictions and unspecified licensing conditions."
+  },
+  "processing_info": {
+    "filename": "10-1108_afr-03-2021-0037.pdf",
+    "markdown_file": "01_mdpapers/10-1108_afr-03-2021-0037.md",
+    "processed_at": "2025-06-14T18:12:31.618664",
+    "file_size": 2828926,
+    "markdown_length": 73328
+  }
+}

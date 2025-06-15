@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "authors": [
+      "Jana Plogmann",
+      "Oliver Mußhoff",
+      "Martin Odening",
+      "Matthias Ritter"
+    ],
+    "journal": "German Journal of Agricultural Economics (GJAE)",
+    "title": "What Moves the German Land Market? A Decomposition of the Land Rent-Price Ratio",
+    "doi": "",
+    "year": 2020
+  },
+  "data_sources": [
+    {
+      "source_name": "Statistisches Jahrbuch 1976-2017",
+      "description": "Land price data from 1975-2016 were extracted from the Statistisches Jahrbuch published by the Statistisches Bundesamt. Prices refer to agricultural land including arable land and grassland. Nominal agricultural land sales prices are available on country and federal state level on an annual basis. Land rental prices are also available at country and federal state level, but only for every second (1975-2007) or third year (after 2007) due to the frequency of the underlying Agricultural census. To conduct an analysis on a yearly basis, rental prices were linearly interpolated. The rental price data reflect prices of running contracts, i.e., they reflect the average of the rent paid for agricultural land during a contract period of several years. Rental price data for newly concluded contracts would have been more suitable for the analysis since they reflect the most recent information about expected productivity of land, but unfortunately, these data are not available for the desired time period. This implies that rental prices in the analysis appear more sluggish than they actually are. To conduct the analysis for Western Germany as a whole, federal state data on land sales and rental prices were used and averaged using the agricultural area of every federal state as weights. Nominal prices were converted into real prices by measuring inflation with the Consumer Price Index (CPI) for Germany published by Statistisches Bundesamt.",
+      "country": "Germany",
+      "region": "Western Germany",
+      "earliest_year": 1975,
+      "latest_year": 2016,
+      "transaction_types": [
+        "sales",
+        "rentals"
+      ],
+      "spatial_resolution": "country and federal state level",
+      "accessibility": "public",
+      "access_conditions": "available online",
+      "number_of_observations": null,
+      "url": "https://www.destatis.de/DE/Publikationen/StatistischesJahrbuch/StatistischesJahrbuch.html",
+      "data_format": "annual data",
+      "identifier_type": "none",
+      "persistent_identifier": false,
+      "data_license": "unknown",
+      "metadata_standard": "none",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": []
+    }
+  ],
+  "assessment": {
+    "findability": 5,
+    "findability_reason": "The data is publicly available and can be accessed online through the Statistisches Bundesamt website.",
+    "accessibility": 5,
+    "accessibility_reason": "The data is freely accessible without any restrictions.",
+    "interoperability": 3,
+    "interoperability_reason": "The data is available in a standard format but may require additional processing for integration with other datasets.",
+    "reusability": 4,
+    "reusability_reason": "The data is reusable for similar analyses, although the interpolation of rental prices may affect its applicability for certain studies."
+  },
+  "processing_info": {
+    "filename": "810_org.pdf",
+    "markdown_file": "01_mdpapers/810_org.md",
+    "processed_at": "2025-06-14T18:13:37.721970",
+    "file_size": 522224,
+    "markdown_length": 67758
+  }
+}
