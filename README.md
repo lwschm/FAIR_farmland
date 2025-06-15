@@ -280,7 +280,7 @@ analyzer_obj.run_complete_analysis()
 ### Getting Help
 
 - Check the [documentation](docs/) for detailed guides
-- Review [existing issues](https://github.com/yourusername/FAIR_farmland/issues)
+- Review [existing issues](https://github.com/lwschm/FAIR_farmland/issues)
 - Create a new issue with detailed error information
 
 ## 📄 License
