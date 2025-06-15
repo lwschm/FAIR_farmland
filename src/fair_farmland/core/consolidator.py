@@ -45,6 +45,33 @@ class DataSourceConsolidator:
         self.deduplicated_sources = []
         self.duplicate_groups = []
         
+        # Data format standardization mapping
+        self.data_format_mapping = {
+            'csv': 'CSV', 'CSV': 'CSV', 'json': 'JSON', 'JSON': 'JSON',
+            'xml': 'XML', 'XML': 'XML', 'excel': 'Excel', 'Excel': 'Excel',
+            'xls': 'Excel', 'xlsx': 'Excel', 'pdf': 'PDF', 'PDF': 'PDF',
+            'shapefile': 'Shapefile', 'Shapefile': 'Shapefile', 'shp': 'Shapefile',
+            'database': 'Database', 'Database': 'Database', 'db': 'Database'
+        }
+        
+        # Spatial resolution standardization mapping
+        self.spatial_resolution_mapping = {
+            'plot level': 'Plot Level', 'Plot level': 'Plot Level',
+            'plot-level': 'Plot Level', 'Plot-level': 'Plot Level',
+            'parcel level': 'Plot Level', 'Parcel level': 'Plot Level',
+            'municipality level': 'Municipality Level', 'Municipality level': 'Municipality Level',
+            'county level': 'County Level', 'County level': 'County Level',
+            'county and municipality level': 'County Level',
+            'district level': 'District Level', 'District level': 'District Level',
+            'national': 'National', 'National': 'National',
+            'local': 'Local', 'Local': 'Local',
+            'local (within a simulated region)': 'Local',
+            'land value zones': 'Zone Level', 'Land value zones': 'Zone Level',
+            'plot-specific': 'Plot Level', 'Plot-specific': 'Plot Level',
+            'n/a': 'Not Specified', 'N/A': 'Not Specified',
+            'not specified': 'Not Specified', 'Not specified': 'Not Specified'
+        }
+        
     def load_data_sources(self):
         """Load data sources from the summary JSON file"""
         if not self.input_file.exists():
@@ -54,9 +81,103 @@ class DataSourceConsolidator:
             data = json.load(f)
             
         self.original_sources = data.get('sources', [])
+        
+        # Standardize data categories before processing
+        self.original_sources = self._standardize_data_sources(self.original_sources)
+        
         logger.info(f"Loaded {len(self.original_sources)} data sources for analysis")
         
         return self.original_sources
+    
+    def _standardize_data_sources(self, sources):
+        """Standardize data source categories for consistency"""
+        # Accessibility standardization mapping
+        accessibility_mapping = {
+            # Public variants
+            'public': 'Public',
+            'Public': 'Public',
+            'publicly available': 'Public',
+            'Publicly available': 'Public',
+            'publicly_available': 'Public',
+            'open': 'Public',
+            'Open': 'Public',
+            
+            # Restricted variants
+            'restricted': 'Restricted',
+            'Restricted': 'Restricted',
+            'limited': 'Restricted',
+            'Limited': 'Restricted',
+            
+            # Confidential variants
+            'confidential': 'Confidential',
+            'Confidential': 'Confidential',
+            'private': 'Confidential',
+            'Private': 'Confidential',
+            
+            # Mixed categories
+            'confidential and restricted': 'Confidential and Restricted',
+            'Confidential and Restricted': 'Confidential and Restricted',
+            'restricted and confidential': 'Confidential and Restricted',
+            'Restricted and Confidential': 'Confidential and Restricted',
+            
+            # Not specified variants
+            'not specified': 'Not Specified',
+            'Not specified': 'Not Specified',
+            'Not Specified': 'Not Specified',
+            'unknown': 'Not Specified',
+            'Unknown': 'Not Specified',
+            '': 'Not Specified',
+            'N/A': 'Not Specified',
+            'n/a': 'Not Specified'
+        }
+        
+        # Country standardization mapping
+        country_mapping = {
+            'usa': 'United States',
+            'USA': 'United States',
+            'us': 'United States',
+            'US': 'United States',
+            'united states': 'United States',
+            'United states': 'United States',
+            'uk': 'United Kingdom',
+            'UK': 'United Kingdom',
+            'united kingdom': 'United Kingdom',
+            'United kingdom': 'United Kingdom'
+        }
+        
+        for source in sources:
+            # Standardize accessibility
+            if 'accessibility' in source:
+                original_accessibility = source['accessibility']
+                if original_accessibility in accessibility_mapping:
+                    source['accessibility'] = accessibility_mapping[original_accessibility]
+                elif not original_accessibility or str(original_accessibility).strip() == '':
+                    source['accessibility'] = 'Not Specified'
+            
+            # Standardize data format
+            if 'data_format' in source:
+                original_format = source['data_format']
+                if original_format in self.data_format_mapping:
+                    source['data_format'] = self.data_format_mapping[original_format]
+                elif not original_format or str(original_format).strip() == '':
+                    source['data_format'] = 'Not Specified'
+            
+            # Standardize country
+            if 'country' in source:
+                original_country = source['country']
+                if original_country in country_mapping:
+                    source['country'] = country_mapping[original_country]
+            
+            # Standardize spatial resolution
+            if 'spatial_resolution' in source:
+                original_spatial_resolution = source['spatial_resolution']
+                if original_spatial_resolution in self.spatial_resolution_mapping:
+                    source['spatial_resolution'] = self.spatial_resolution_mapping[original_spatial_resolution]
+                elif not original_spatial_resolution or str(original_spatial_resolution).strip() == '':
+                    source['spatial_resolution'] = 'Not Specified'
+        
+        logger.info(f"Standardized categories for {len(sources)} data sources")
+        return sources
     
     def identify_duplicates_with_openai(self, batch_size=10):
         """Use OpenAI to identify duplicate data sources in batches"""

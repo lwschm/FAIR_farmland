@@ -440,6 +440,9 @@ Do not consider the data which includes non-farmland data like weather data or o
                 source_info["paper_filename"] = result.get("processing_info", {}).get("filename", "unknown")
                 all_sources.append(source_info)
         
+        # Standardize the data sources
+        all_sources = self._standardize_data_sources(all_sources)
+        
         # Save data sources summary
         sources_file = self.output_directory / "data_sources_summary.json"
         with open(sources_file, 'w', encoding='utf-8') as f:
@@ -455,6 +458,158 @@ Do not consider the data which includes non-farmland data like weather data or o
             sources_csv = self.output_directory / "data_sources.csv"
             sources_df.to_csv(sources_csv, index=False)
             logger.info(f"Data sources summary saved to {sources_file} and {sources_csv}")
+    
+    def _standardize_data_sources(self, sources):
+        """Standardize data source categories for consistency"""
+        # Accessibility standardization mapping
+        accessibility_mapping = {
+            # Public variants
+            'public': 'Public',
+            'Public': 'Public',
+            'publicly available': 'Public',
+            'Publicly available': 'Public',
+            'publicly_available': 'Public',
+            'open': 'Public',
+            'Open': 'Public',
+            
+            # Restricted variants
+            'restricted': 'Restricted',
+            'Restricted': 'Restricted',
+            'limited': 'Restricted',
+            'Limited': 'Restricted',
+            
+            # Confidential variants
+            'confidential': 'Confidential',
+            'Confidential': 'Confidential',
+            'private': 'Confidential',
+            'Private': 'Confidential',
+            
+            # Mixed categories
+            'confidential and restricted': 'Confidential and Restricted',
+            'Confidential and Restricted': 'Confidential and Restricted',
+            'restricted and confidential': 'Confidential and Restricted',
+            'Restricted and Confidential': 'Confidential and Restricted',
+            
+            # Not specified variants
+            'not specified': 'Not Specified',
+            'Not specified': 'Not Specified',
+            'Not Specified': 'Not Specified',
+            'unknown': 'Not Specified',
+            'Unknown': 'Not Specified',
+            '': 'Not Specified',
+            'N/A': 'Not Specified',
+            'n/a': 'Not Specified'
+        }
+        
+        # Data format standardization mapping
+        format_mapping = {
+            'csv': 'CSV',
+            'CSV': 'CSV',
+            'json': 'JSON',
+            'JSON': 'JSON',
+            'xml': 'XML',
+            'XML': 'XML',
+            'excel': 'Excel',
+            'Excel': 'Excel',
+            'xls': 'Excel',
+            'xlsx': 'Excel',
+            'pdf': 'PDF',
+            'PDF': 'PDF',
+            'shapefile': 'Shapefile',
+            'Shapefile': 'Shapefile',
+            'shp': 'Shapefile',
+            'database': 'Database',
+            'Database': 'Database',
+            'db': 'Database',
+            'sql': 'Database',
+            'SQL': 'Database'
+        }
+        
+        # Country standardization mapping
+        country_mapping = {
+            'usa': 'United States',
+            'USA': 'United States',
+            'us': 'United States',
+            'US': 'United States',
+            'united states': 'United States',
+            'United states': 'United States',
+            'uk': 'United Kingdom',
+            'UK': 'United Kingdom',
+            'united kingdom': 'United Kingdom',
+            'United kingdom': 'United Kingdom'
+        }
+        
+        for source in sources:
+            # Standardize accessibility
+            if 'accessibility' in source:
+                original_accessibility = source['accessibility']
+                if original_accessibility in accessibility_mapping:
+                    source['accessibility'] = accessibility_mapping[original_accessibility]
+                elif not original_accessibility or original_accessibility.strip() == '':
+                    source['accessibility'] = 'Not Specified'
+            
+            # Standardize data format
+            if 'data_format' in source:
+                original_format = source['data_format']
+                if original_format in format_mapping:
+                    source['data_format'] = format_mapping[original_format]
+                elif not original_format or original_format.strip() == '':
+                    source['data_format'] = 'Not Specified'
+            
+            # Standardize country
+            if 'country' in source:
+                original_country = source['country']
+                if original_country in country_mapping:
+                    source['country'] = country_mapping[original_country]
+            
+            # Standardize spatial resolution
+            if 'spatial_resolution' in source:
+                original_spatial_resolution = source['spatial_resolution']
+                if original_spatial_resolution in self.spatial_resolution_mapping:
+                    source['spatial_resolution'] = self.spatial_resolution_mapping[original_spatial_resolution]
+                elif not original_spatial_resolution or original_spatial_resolution.strip() == '':
+                    source['spatial_resolution'] = 'Not Specified'
+        
+        logger.info(f"Standardized {len(sources)} data sources")
+        return sources
+
+    def standardize_data(self, record):
+        """Standardize data fields using the standardization utility."""
+        try:
+            from ..utils.data_standardization import (
+                standardize_accessibility, 
+                standardize_data_format, 
+                standardize_country,
+                standardize_spatial_resolution
+            )
+            
+            # Apply standardizations
+            if 'accessibility' in record:
+                record['accessibility'] = standardize_accessibility(record['accessibility'])
+            
+            if 'spatial_resolution' in record:
+                record['spatial_resolution'] = standardize_spatial_resolution(record['spatial_resolution'])
+                
+            if 'data_format' in record:
+                record['data_format'] = standardize_data_format(record['data_format'])
+                
+            if 'country' in record:
+                record['country'] = standardize_country(record['country'])
+                
+        except ImportError:
+            print("Warning: Could not import standardization functions")
+            # Fallback standardization for critical fields
+            if 'accessibility' in record and record['accessibility']:
+                # Basic accessibility standardization
+                accessibility_map = {
+                    'public': 'Public', 'Public': 'Public', 'publicly available': 'Public',
+                    'restricted': 'Restricted', 'Restricted': 'Restricted',
+                    'confidential': 'Confidential', 'Confidential': 'Confidential',
+                    'private': 'Confidential'
+                }
+                record['accessibility'] = accessibility_map.get(record['accessibility'], record['accessibility'])
+                
+        return record
 
 def main():
     """Main execution function"""

@@ -1,0 +1,34 @@
+FARMLAND DATA SOURCES: DETAILED STATISTICS REPORT
+============================================================
+
+Generated on: 2025-06-14 21:52:12
+
+Total Data Sources: 27
+Countries Covered: 1
+Regions Covered: 11
+Temporal Span: 1975 - 2022
+Total Observations: 425,631
+Average Time Span: 11.4 years
+Most Common Accessibility: Restricted
+Data Completeness (URLs): 96.3%
+
+TOP REGIONS BY DATA SOURCES:
+  Brandenburg: 7 sources
+  Lower Saxony: 6 sources
+  Eastern Germany: 4 sources
+  Saxony-Anhalt: 2 sources
+  North Rhine-Westphalia: 2 sources
+
+TOP DATA FORMATS:
+  not specified: 6 sources
+  Not specified: 5 sources
+  Tabular: 3 sources
+  N/A: 3 sources
+  transaction records: 2 sources
+
+ACCESSIBILITY DISTRIBUTION:
+  Restricted: 17 sources
+  Public: 7 sources
+  Confidential and Restricted: 1 sources
+  Confidential: 1 sources
+  Not Specified: 1 sources

@@ -1,0 +1,1223 @@
+{
+  "metadata": {
+    "created_at": "2025-06-14T18:25:29.487299",
+    "original_sources_count": 31,
+    "consolidated_sources_count": 27,
+    "duplicate_groups_found": 4,
+    "deduplication_savings": 4,
+    "spatial_resolution_standardized": true,
+    "spatial_resolution_categories": [
+      "County Level",
+      "Multi-Level",
+      "Local",
+      "Plot Level",
+      "Municipality Level",
+      "National",
+      "country and federal state level",
+      "District Level",
+      "Zone Level",
+      "Not Specified"
+    ]
+  },
+  "sources": [
+    {
+      "source_name": "Committee of Land Valuation Experts in Lower Saxony (Oberer Gutachterausschuss für Grundstückswerte in Niedersachsen, OGA)",
+      "description": "The dataset consists of nearly all sale transactions of arable land in Lower Saxony between 1990 and 2018. It includes 72,547 sale transactions with details such as price, sold area, seller and buyer information, date of transaction, and allocation of the plot to a county. The data is used to analyze the spatial and temporal variability of land market liquidity in Lower Saxony, focusing on volume-based and time-based measures. The study also derived the volume duration, which is the number of days until a specific percentage of land per county was sold, focusing on 1% volume duration with robustness checks for 0.5% and 1.5%.",
+      "country": "Germany",
+      "region": "Lower Saxony",
+      "earliest_year": 1990,
+      "latest_year": 2018,
+      "transaction_types": [
+        "sale"
+      ],
+      "spatial_resolution": "County Level",
+      "accessibility": "restricted",
+      "access_conditions": "provided by the Committee of Land Valuation Experts in Lower Saxony",
+      "number_of_observations": 72547,
+      "url": "https://www.forland.hu-berlin.de",
+      "data_format": "transaction records",
+      "identifier_type": "transaction ID",
+      "persistent_identifier": true,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": true,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_titles": [
+        "Measuring liquidity in agricultural land markets",
+        "Farmland sales under returns and price uncertainty"
+      ],
+      "consolidation_info": {
+        "original_count": 2,
+        "source_papers": [
+          "Farmland sales under returns and price uncertainty",
+          "Measuring liquidity in agricultural land markets"
+        ],
+        "consolidated_at": "2025-06-14T18:25:21.579596"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Committee of Land Valuation Experts in Saxony-Anhalt and Lower Saxony",
+      "description": "The dataset includes agricultural land transactions in Saxony-Anhalt and Lower Saxony, Germany, from 1994 to 2017. It contains information on the price, size, soil quality, location, and type (arable land or grassland) of the transacted plot. Since 2011, information about the buyer (farmer or non-farmer) is also available. The dataset was used to analyze the relationship between land price and parcel size using a nonparametric locally weighted scatterplot smoothing (LOWESS) estimator and a hedonic land price model, as well as the spatial integration of land markets across the former East and West Germany border.",
+      "country": "Germany",
+      "region": "Saxony-Anhalt and Lower Saxony",
+      "earliest_year": 1994,
+      "latest_year": 2017,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "Multi-Level",
+      "accessibility": "restricted",
+      "access_conditions": "Data provided by the Committee of Land Valuation Experts in Saxony-Anhalt and Lower Saxony",
+      "number_of_observations": 82672,
+      "url": "",
+      "data_format": "not specified",
+      "identifier_type": "not specified",
+      "persistent_identifier": false,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_titles": [
+        "Revisiting the relationship between land price and parcel size in agriculture",
+        "Land price diffusion across borders – the case of Germany"
+      ],
+      "paper_filenames": [
+        "1-s2.0-S0264837719304302-main.pdf",
+        "Land price diffusion across borders   the case of Germany.pdf"
+      ],
+      "consolidation_info": {
+        "original_count": 2,
+        "source_papers": [
+          "Revisiting the relationship between land price and parcel size in agriculture",
+          "Land price diffusion across borders – the case of Germany"
+        ],
+        "consolidated_at": "2025-06-14T18:25:24.968245"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Comprehensive Farmland Data Sources for Germany (2017-2022)",
+      "description": "This dataset combines multiple sources to provide a comprehensive view of farmland data in Germany. It includes remote sensing-based crop-type maps used to quantify woody features with a spatial resolution of 10 m, covering the years 2017 to 2019 in Brandenburg. Additionally, it incorporates data from the Common Breeding Bird Monitoring Scheme of Germany (CBBS), which assesses avian biodiversity through annual surveys on up to 1800 plots across Germany, filtered for approximately 200 survey plots in Brandenburg for the same years. Furthermore, it includes data from an economic experiment conducted in 2022 to simulate bargaining processes in the land rental market across various federal states in Germany, capturing rental rate offers and acceptance thresholds.",
+      "country": "Germany",
+      "region": "Brandenburg, Various federal states",
+      "earliest_year": 2017,
+      "latest_year": 2022,
+      "transaction_types": [
+        "woody features",
+        "avian biodiversity",
+        "rental agreements"
+      ],
+      "spatial_resolution": "Local",
+      "accessibility": "Confidential and Restricted",
+      "access_conditions": "Not publicly available; Data collected through a controlled experiment, not publicly accessible",
+      "number_of_observations": 5264,
+      "url": "",
+      "data_format": "Spatial data, Survey data",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "Confidential, Not specified",
+      "metadata_standard": "None",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": [
+        "Multi-objective spatial optimization to balance trade-offs between farmland bird diversity and potential agricultural net returns",
+        "Experimental evidence of bargaining power in agricultural land markets"
+      ],
+      "paper_filename": [
+        "1-s2.0-S0167880922004650-main.pdf",
+        "jbaf001.pdf"
+      ],
+      "consolidation_info": {
+        "original_count": 3,
+        "source_papers": [
+          "Multi-objective spatial optimization to balance trade-offs between farmland bird diversity and potential agricultural net returns",
+          "Experimental evidence of bargaining power in agricultural land markets"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.486974"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "EU Integrated Administration and Control System (IACS)",
+      "description": "Plot-level data on agricultural parameters for the years 2017, 2018, and 2019. Used to derive cropland area, field sizes, crops grown, average distances of all fields of a farm relative to each other, and whether a farm was managed for organic or conventional agriculture.",
+      "country": "Germany",
+      "region": "Brandenburg",
+      "earliest_year": 2017,
+      "latest_year": 2019,
+      "transaction_types": [
+        "cropland area",
+        "field sizes",
+        "crops grown",
+        "organic or conventional agriculture"
+      ],
+      "spatial_resolution": "Plot Level",
+      "accessibility": "Confidential",
+      "access_conditions": "Not publicly available",
+      "number_of_observations": 10400,
+      "url": "",
+      "data_format": "Spatial vector data",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "Confidential",
+      "metadata_standard": "None",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Multi-objective spatial optimization to balance trade-offs between farmland bird diversity and potential agricultural net returns",
+      "paper_filename": "1-s2.0-S0167880922004650-main.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Multi-objective spatial optimization to balance trade-offs between farmland bird diversity and potential agricultural net returns"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.486984",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Integrated Administrative Control System (IACS)",
+      "description": "The study uses data from the Integrated Administrative Control System (IACS) for Brandenburg, Germany, covering the years 2005 to 2017. This dataset includes all plots registered to receive European subsidies, based on a geo-referenced land parcel identification system. Each plot is associated with a farm registration number, indicating the farm operating the plot, regardless of the farmstead's location or whether the land is owned or rented. The dataset allows for a precise and spatially explicit analysis of farm activities, enabling the tracking of farm size development over time and the measurement of agricultural land concentration. The data shows that about half of the land transactions occur beyond municipality borders, highlighting the importance of defining the relevant market. The dataset reports a decrease in total agricultural area and the number of farms, alongside an increase in average farm size. It also records changes in farm registration numbers, indicating land transactions. The IACS data is used to derive concentration indicators and assess the impact of land market competition on farm expansion behavior.",
+      "country": "Germany",
+      "region": "Brandenburg",
+      "earliest_year": 2005,
+      "latest_year": 2017,
+      "transaction_types": [
+        "land transactions"
+      ],
+      "spatial_resolution": "Plot Level",
+      "accessibility": "restricted",
+      "access_conditions": "access granted by the Ministry for Agriculture, Environment and Climate Protection (MLUK) Brandenburg",
+      "number_of_observations": 5248,
+      "data_format": "geo-referenced",
+      "identifier_type": "farm registration number",
+      "persistent_identifier": false,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Farm growth and land concentration",
+      "paper_filename": "1-s2.0-S0264837722000631-main.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Farm growth and land concentration"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.486992",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "BVVG Farmland Auction Data",
+      "description": "The study uses a dataset of 9,754 first-price sealed-bid farmland privatisation auctions conducted in eastern Germany between 2007 and 2020. The data includes information on all bids and the auctioned goods, such as location, lot size, lot type (shares of arable, grassland, and other land), lot composition (number of parcels), and soil quality. Additionally, local experts' appraisals, which remain private to the auctioneer, are used to account for unobserved heterogeneity. These appraisals are based on publicly available results of transactions and auctions of similar lots in the same region during the 12 months prior to the auction. The dataset is used to test the presence of common values in bidders' valuations and the potential for a winner's curse in farmland auctions.",
+      "country": "Germany",
+      "region": "Eastern Germany",
+      "earliest_year": 2007,
+      "latest_year": 2020,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "Municipality Level",
+      "accessibility": "Restricted",
+      "access_conditions": "Data provided by BVVG and not publicly available",
+      "number_of_observations": 9754,
+      "url": "",
+      "data_format": "Not specified",
+      "identifier_type": "Not specified",
+      "persistent_identifier": false,
+      "data_license": "Not specified",
+      "metadata_standard": "Not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Is there a risk of a winner’s curse in farmland auctions?",
+      "paper_filename": "jbad002.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Is there a risk of a winner’s curse in farmland auctions?"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.486997",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "GENESIS-Database of the German Bundesamt für Statistik",
+      "description": "The dataset contains aggregated farmland price time series from 1991 to 2020 within Germany. Prices are aggregated within soil quality intervals and parcel size intervals, treated as panel units. The dataset has a balanced panel structure with 145 observations and 870 price data points in total. The number of recorded transactions used to aggregate the farmland prices were collected manually from the Statistische Jahrbücher in Germany from 1991 to 2020. The minimum number of transactions recorded per SQI interval is 3,929, and the maximum is 15,819. The dataset helps maintain soil quality constant within the defined interval while depicting the farmland price development over time. Other variables are not available due to the levels of data aggregation, and regional prices are not captured.",
+      "country": "Germany",
+      "region": "National",
+      "earliest_year": 1991,
+      "latest_year": 2020,
+      "transaction_types": [
+        "farmland purchase prices"
+      ],
+      "spatial_resolution": "National",
+      "accessibility": "Publicly available",
+      "access_conditions": "Free access",
+      "number_of_observations": 145,
+      "url": "https://www-genesis.destatis.de/genesis/online?operation=statistic&levelindex=0&levelid=1628931297012&code=61521#abreadcrumb",
+      "data_format": "Time series",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "Not specified",
+      "metadata_standard": "Not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Revisiting the relationship between farmland prices and soil quality",
+      "paper_filename": "qoac017.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Revisiting the relationship between farmland prices and soil quality"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.486999",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Land Sales Transaction Data",
+      "description": "The study uses land sales transaction data from local committees of land valuation experts in Brandenburg, Germany, covering the years 2007 to 2018. This dataset includes transaction prices, lot sizes, soil quality, type of land use (arable land or grassland), and anonymized information about buyer and seller types. The data is used to analyze the relationship between land use concentration and farmland prices, revealing a negative relationship that suggests market power on the buyer side.",
+      "country": "Germany",
+      "region": "Brandenburg",
+      "earliest_year": 2007,
+      "latest_year": 2018,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "Municipality Level",
+      "accessibility": "Restricted",
+      "access_conditions": "Data is available from local committees of land valuation experts, but access may be restricted due to privacy concerns.",
+      "number_of_observations": 31287,
+      "url": "Not provided",
+      "data_format": "Not specified",
+      "identifier_type": "Not specified",
+      "persistent_identifier": false,
+      "data_license": "Not specified",
+      "metadata_standard": "Not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Market Power in Agricultural Land Markets: Concepts and Empirical Challenges",
+      "paper_filename": "GJAE_0117.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Market Power in Agricultural Land Markets: Concepts and Empirical Challenges"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487000",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "FarmAgriPoliS Experiments",
+      "description": "The study uses data from experiments conducted with the business game FarmAgriPoliS, which is based on the AgriPoliS model. This model simulates farms, regional farm populations, and structures, focusing on strategic decisions like farm exit or continuation, investments, and land rentals. The experiments involved 49 students managing pre-specified farms in a simulated environment representing the Altmark region in Germany. The dataset includes 143 experiments across nine scenarios, with data on farm investments, land rentals, farm sizes, financial results, and rents paid.",
+      "country": "Germany",
+      "region": "Altmark",
+      "earliest_year": 2014,
+      "latest_year": 2015,
+      "transaction_types": [
+        "land rentals"
+      ],
+      "spatial_resolution": "Local",
+      "accessibility": "Restricted",
+      "access_conditions": "Data was collected during controlled experiments and is not publicly available.",
+      "number_of_observations": 143,
+      "url": "",
+      "data_format": "Experimental data",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "Not specified",
+      "metadata_standard": "None",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Predator or prey? Effects of farm growth on neighbouring farms",
+      "paper_filename": "J Agricultural Economics - 2022 - Appel - Predator or prey  Effects of farm growth on neighbouring farms.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Predator or prey? Effects of farm growth on neighbouring farms"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487005",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Committee of Land Valuation Experts of Saxony-Anhalt",
+      "description": "The dataset consists of 12,134 land market transactions for arable land in Saxony-Anhalt from 2014 to 2017. It includes transaction details such as contract date, price, lot characteristics (location, size, soil quality index), and anonymous agent-type information. The data was used to analyze the role of asymmetric information in farmland price formation, focusing on the effects of buyer and seller characteristics on price dispersion.",
+      "country": "Germany",
+      "region": "Saxony-Anhalt",
+      "earliest_year": 2014,
+      "latest_year": 2017,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "Plot Level",
+      "accessibility": "Restricted",
+      "access_conditions": "Provided by the Committee of Land Valuation Experts of Saxony-Anhalt",
+      "number_of_observations": 10778,
+      "url": "",
+      "data_format": "Not specified",
+      "identifier_type": "Not specified",
+      "persistent_identifier": false,
+      "data_license": "Not specified",
+      "metadata_standard": "Not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Price Dispersion in Farmland Markets: What is the Role of Asymmetric Information?",
+      "paper_filename": "American J Agri Economics - 2020 - Seifert - Price Dispersion in Farmland Markets  What Is the Role of Asymmetric.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Price Dispersion in Farmland Markets: What is the Role of Asymmetric Information?"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487006",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Statistisches Jahrbuch 1976-2017",
+      "description": "Land price data from 1975-2016 were extracted from the Statistisches Jahrbuch published by the Statistisches Bundesamt. Prices refer to agricultural land including arable land and grassland. Nominal agricultural land sales prices are available on country and federal state level on an annual basis. Land rental prices are also available at country and federal state level, but only for every second (1975-2007) or third year (after 2007) due to the frequency of the underlying Agricultural census. To conduct an analysis on a yearly basis, rental prices were linearly interpolated. The rental price data reflect prices of running contracts, i.e., they reflect the average of the rent paid for agricultural land during a contract period of several years. Rental price data for newly concluded contracts would have been more suitable for the analysis since they reflect the most recent information about expected productivity of land, but unfortunately, these data are not available for the desired time period. This implies that rental prices in the analysis appear more sluggish than they actually are. To conduct the analysis for Western Germany as a whole, federal state data on land sales and rental prices were used and averaged using the agricultural area of every federal state as weights. Nominal prices were converted into real prices by measuring inflation with the Consumer Price Index (CPI) for Germany published by Statistisches Bundesamt.",
+      "country": "Germany",
+      "region": "Western Germany",
+      "earliest_year": 1975,
+      "latest_year": 2016,
+      "transaction_types": [
+        "sales",
+        "rentals"
+      ],
+      "spatial_resolution": "country and federal state level",
+      "accessibility": "public",
+      "access_conditions": "available online",
+      "number_of_observations": null,
+      "url": "https://www.destatis.de/DE/Publikationen/StatistischesJahrbuch/StatistischesJahrbuch.html",
+      "data_format": "annual data",
+      "identifier_type": "none",
+      "persistent_identifier": false,
+      "data_license": "unknown",
+      "metadata_standard": "none",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "What Moves the German Land Market? A Decomposition of the Land Rent-Price Ratio",
+      "paper_filename": "810_org.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "What Moves the German Land Market? A Decomposition of the Land Rent-Price Ratio"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487007",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "BVVG (Bodenverwertungs- und -verwaltungs GmbH)",
+      "description": "The dataset consists of over 12,000 first-price-sealed-bid auctions of agricultural land conducted by BVVG in Eastern Germany between 2005 and 2019. The data includes information on the winning bid, the total number of bidders, the exact date of the auction, the location, plot-specific land characteristics including a soil quality index, the lot size, the number of land parcels, and the type of use (arable land versus pasture), as well as the type of tender (open versus restricted). The data was used to analyze the effectiveness of restricted tendering procedures in allowing structurally disadvantaged groups to purchase agricultural land at lower prices. The study found that restricted tendering did not achieve its intended purpose of lowering purchase prices, although it did reduce the number of bidders.",
+      "country": "Germany",
+      "region": "Eastern Germany",
+      "earliest_year": 2005,
+      "latest_year": 2019,
+      "transaction_types": [
+        "auction"
+      ],
+      "spatial_resolution": "Plot Level",
+      "accessibility": "restricted",
+      "access_conditions": "provided by BVVG",
+      "number_of_observations": 12875,
+      "url": "https://bvvg.de",
+      "data_format": "not specified",
+      "identifier_type": "not specified",
+      "persistent_identifier": false,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "On the effectiveness of restricted tendering as a form of policy intervention on agricultural land markets",
+      "paper_filename": "1-s2.0-S0264837721000661-main.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "On the effectiveness of restricted tendering as a form of policy intervention on agricultural land markets"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487008",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Land Transaction Data from Saxony-Anhalt",
+      "description": "The dataset used by RHOS for the original study, covering land transactions in Saxony-Anhalt from 1994 to 2017. It includes information on price, plot size, soil quality, and buyer type. The data was used to study the size–price relationship of farmland using a nonparametric smoothing estimator and a hedonic land price model.",
+      "country": "Germany",
+      "region": "Saxony-Anhalt",
+      "earliest_year": 1994,
+      "latest_year": 2017,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "Plot Level",
+      "accessibility": "restricted",
+      "access_conditions": "Data confidentiality agreements required for access",
+      "number_of_observations": 82504,
+      "url": "",
+      "data_format": "not specified",
+      "identifier_type": "not specified",
+      "persistent_identifier": false,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "New insights on regional differences of the farmland price structure: An extended replication study on the parcel size–price relationship",
+      "paper_filename": "Applied Eco Perspectives Pol - 2023 - Schaak - New insights on regional differences of the farmland price structure  An (1).pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "New insights on regional differences of the farmland price structure: An extended replication study on the parcel size–price relationship"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487010",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Land Transaction Data from Brandenburg",
+      "description": "The dataset includes land transactions in Brandenburg from 2005 to 2015, enriched with BVVG sales data. It contains information on price, plot size, soil quality, and buyer type. The data was used to compare the size–price relationship across different German federal states.",
+      "country": "Germany",
+      "region": "Brandenburg",
+      "earliest_year": 2005,
+      "latest_year": 2015,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "Plot Level",
+      "accessibility": "restricted",
+      "access_conditions": "Data confidentiality agreements required for access",
+      "number_of_observations": 30344,
+      "url": "",
+      "data_format": "not specified",
+      "identifier_type": "not specified",
+      "persistent_identifier": false,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "New insights on regional differences of the farmland price structure: An extended replication study on the parcel size–price relationship",
+      "paper_filename": "Applied Eco Perspectives Pol - 2023 - Schaak - New insights on regional differences of the farmland price structure  An (1).pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "New insights on regional differences of the farmland price structure: An extended replication study on the parcel size–price relationship"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487011",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Land Transaction Data from Lower Saxony",
+      "description": "The dataset includes land transactions in Lower Saxony from 2005 to 2015. It contains information on price, plot size, soil quality, and buyer type. The data was used to compare the size–price relationship across different German federal states.",
+      "country": "Germany",
+      "region": "Lower Saxony",
+      "earliest_year": 2005,
+      "latest_year": 2015,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "Plot Level",
+      "accessibility": "restricted",
+      "access_conditions": "Data confidentiality agreements required for access",
+      "number_of_observations": 40366,
+      "url": "",
+      "data_format": "not specified",
+      "identifier_type": "not specified",
+      "persistent_identifier": false,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "New insights on regional differences of the farmland price structure: An extended replication study on the parcel size–price relationship",
+      "paper_filename": "Applied Eco Perspectives Pol - 2023 - Schaak - New insights on regional differences of the farmland price structure  An (1).pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "New insights on regional differences of the farmland price structure: An extended replication study on the parcel size–price relationship"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487012",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "BVVG land auction data",
+      "description": "The dataset includes information on arable land auctions conducted by the BVVG in eastern German states from 2005 to 2019. It contains details on auction packages (lots), which may include one or more plots, and for each sale transaction, the date, number of bidders, and all bids are recorded. Additionally, information on plot size, number of plots, and soil quality is provided. The dataset was used to analyze the potential for increasing revenues through optimal reserve prices in land auctions.",
+      "country": "Germany",
+      "region": "Eastern Germany",
+      "earliest_year": 2005,
+      "latest_year": 2019,
+      "transaction_types": [
+        "Auction sales"
+      ],
+      "spatial_resolution": "Plot Level",
+      "accessibility": "Restricted",
+      "access_conditions": "Data collected by BVVG, not publicly available",
+      "number_of_observations": 4746,
+      "url": "https://www.bvvg.de/wp-content/uploads/2021/06/Zahlen_und_Fakten_2020.pdf",
+      "data_format": "Not specified",
+      "identifier_type": "Not specified",
+      "persistent_identifier": false,
+      "data_license": "Not specified",
+      "metadata_standard": "Not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Optimal reserve prices for land auctions in Eastern Germany",
+      "paper_filename": "Optimal reserve prices for land auctions in Eastern Germany.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Optimal reserve prices for land auctions in Eastern Germany"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487013",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Bodenverwertungs- und -verwaltungs GmbH (BVVG)",
+      "description": "The dataset includes all BVVG auctions from January 3, 2007, to July 17, 2015, covering all Eastern Federal States of Germany. It contains information on winning bids, total number of bidders, auction dates, locations, plot-specific land characteristics (including a soil quality index), lot size, number of parcels, and type of usage. It also includes bidder characteristics such as legal status, former tenant status, and foreign involvement.",
+      "country": "Germany",
+      "region": "Eastern Germany",
+      "earliest_year": 2007,
+      "latest_year": 2015,
+      "transaction_types": [
+        "land auctions"
+      ],
+      "spatial_resolution": "Plot Level",
+      "accessibility": "restricted",
+      "access_conditions": "data provided by BVVG",
+      "number_of_observations": 9684,
+      "url": "",
+      "data_format": "not specified",
+      "identifier_type": "not specified",
+      "persistent_identifier": false,
+      "data_license": "not specified",
+      "metadata_standard": "not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Farmland values and bidder behaviour in first-price land auctions",
+      "paper_filename": "jbz025.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Farmland values and bidder behaviour in first-price land auctions"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487014",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "German Agricultural Census 2010",
+      "description": "The German Agricultural Census 2010 provides comprehensive information on all farms in Germany, including data on the rent paid by farmers. This dataset was used to calculate local averages of land rents and prices for the study.",
+      "country": "Germany",
+      "region": "Lower Saxony",
+      "earliest_year": 2010,
+      "latest_year": 2010,
+      "transaction_types": [
+        "rent"
+      ],
+      "spatial_resolution": "District Level",
+      "accessibility": "Public",
+      "access_conditions": "Available through the Federal Statistical Office",
+      "number_of_observations": 2794,
+      "url": "https://www.destatis.de/EN/Home/_node.html",
+      "data_format": "Tabular",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "Data licence Germany – attribution – Version 2.0",
+      "metadata_standard": "None",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "The distribution of the rent–price relationship of agricultural land in Germany",
+      "paper_filename": "jbab052.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "The distribution of the rent–price relationship of agricultural land in Germany"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487016",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "OGA Lower Saxony",
+      "description": "The OGA Lower Saxony dataset consists of plot-level data for all agricultural land sales in Lower Saxony during the period from the second quarter of 2007 to the first quarter of 2010. This data was originally collected for the purposes of the German Federal Building Code and was used to calculate local averages of land sales prices.",
+      "country": "Germany",
+      "region": "Lower Saxony",
+      "earliest_year": 2007,
+      "latest_year": 2010,
+      "transaction_types": [
+        "sale"
+      ],
+      "spatial_resolution": "Plot Level",
+      "accessibility": "Restricted",
+      "access_conditions": "Available through the OGA Lower Saxony",
+      "number_of_observations": 2794,
+      "url": "https://www.oga.niedersachsen.de/startseite/",
+      "data_format": "Tabular",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "None",
+      "metadata_standard": "None",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "The distribution of the rent–price relationship of agricultural land in Germany",
+      "paper_filename": "jbab052.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "The distribution of the rent–price relationship of agricultural land in Germany"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487023",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Regional Statistical Database of the Federal Statistical Office and Statistical Offices of the Länder",
+      "description": "This database provides general economic indicators for the analysis, which were used to complement the farmland data in the study.",
+      "country": "Germany",
+      "region": "Lower Saxony",
+      "earliest_year": 2007,
+      "latest_year": 2010,
+      "transaction_types": [],
+      "spatial_resolution": "District Level",
+      "accessibility": "Public",
+      "access_conditions": "Available through the Federal Statistical Office",
+      "number_of_observations": 46,
+      "url": "https://www.regionalstatistik.de",
+      "data_format": "Tabular",
+      "identifier_type": "None",
+      "persistent_identifier": false,
+      "data_license": "Data licence Germany – attribution – Version 2.0",
+      "metadata_standard": "None",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "The distribution of the rent–price relationship of agricultural land in Germany",
+      "paper_filename": "jbab052.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "The distribution of the rent–price relationship of agricultural land in Germany"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487025",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Committee of Evaluation Experts in Lower Saxony (Oberer Gutachterausschuss für Grundstückswerte in Niedersachsen)",
+      "description": "The dataset consists of records of individual land sale transactions for arable land in Lower Saxony, Germany, from January 1985 to December 2015. It includes the price of each sold lot, soil quality as a yield index, and the size of the lot in square meters. This data was used to build a balanced panel of quarterly average county prices, adjusted for soil quality and plot size using a hedonic regression model.",
+      "country": "Germany",
+      "region": "Lower Saxony",
+      "earliest_year": 1985,
+      "latest_year": 2015,
+      "transaction_types": [
+        "sales"
+      ],
+      "spatial_resolution": "County Level",
+      "accessibility": "restricted",
+      "access_conditions": "Data provided by the committee of evaluation experts in Lower Saxony",
+      "number_of_observations": 4588,
+      "url": "www.gag.niedersachsen.de/gutachterausschuesse/",
+      "data_format": "transaction records",
+      "identifier_type": "none",
+      "persistent_identifier": false,
+      "data_license": "not specified",
+      "metadata_standard": "none",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "The Spatial and Temporal Diffusion of Agricultural Land Prices",
+      "paper_filename": "108.full.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "The Spatial and Temporal Diffusion of Agricultural Land Prices"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487026",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Integrated Administration and Control System (IACS)",
+      "description": "The study used spatially explicit land cover data from the Integrated Administration and Control System (IACS) to describe landscape composition and configuration. The data was used to define four ecosystem function indicators: the Shannon diversity index, edge density, and shares of grassland and ecological focus areas. The IACS data provided spatially explicit information at the plot level of registered plots above the minimum eligible size of 0.3 ha, including location, shape, land use, crop choice, and ecological focus areas.",
+      "country": "Germany",
+      "region": "North Rhine-Westphalia",
+      "earliest_year": 2019,
+      "latest_year": 2019,
+      "transaction_types": [
+        "land use",
+        "crop choice",
+        "ecological focus areas"
+      ],
+      "spatial_resolution": "Plot Level",
+      "accessibility": "Publicly available",
+      "access_conditions": "Available through the EU’s Common Agricultural Policy (CAP)",
+      "number_of_observations": 1531,
+      "url": "https://doi.org/10.25625/VAVBP9",
+      "data_format": "Spatially explicit data",
+      "identifier_type": "Plot level identifiers",
+      "persistent_identifier": true,
+      "data_license": "Not specified",
+      "metadata_standard": "Not specified",
+      "structured_metadata": true,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Eco-efficiency in the agricultural landscape of North Rhine-Westphalia, Germany",
+      "paper_filename": "1-s2.0-S0308521X24002129-main.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Eco-efficiency in the agricultural landscape of North Rhine-Westphalia, Germany"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487027",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Standardized farmland values",
+      "description": "Standardized farmland values were used to indicate the economic output of the landscape. These values are provided by local land valuation expert committees and refer to a standardized lot reflecting local characteristics such as soil quality and lot sizes. The values are based on land transactions in the same land value zone in the two years prior to the reporting year, adjusted for local average conditions and a rectangular shape.",
+      "country": "Germany",
+      "region": "North Rhine-Westphalia",
+      "earliest_year": 2022,
+      "latest_year": 2022,
+      "transaction_types": [
+        "land transactions"
+      ],
+      "spatial_resolution": "Zone Level",
+      "accessibility": "Publicly available",
+      "access_conditions": "Available through local land valuation expert committees",
+      "number_of_observations": 4527,
+      "url": "https://www.boris.nrw.de",
+      "data_format": "Standardized values",
+      "identifier_type": "Land value zone identifiers",
+      "persistent_identifier": true,
+      "data_license": "Not specified",
+      "metadata_standard": "Not specified",
+      "structured_metadata": true,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Eco-efficiency in the agricultural landscape of North Rhine-Westphalia, Germany",
+      "paper_filename": "1-s2.0-S0308521X24002129-main.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Eco-efficiency in the agricultural landscape of North Rhine-Westphalia, Germany"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487028",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Study by Schaak and Musshoff (2020)",
+      "description": "The study revisits public preferences for pasture landscapes in Germany, focusing on the presence of livestock in the landscape. It uses a Discrete Choice Experiment (DCE) to assess preferences for different landscape attributes, including the presence and number of dairy livestock, structuredness of the pasture, point landscape elements, linear landscape elements, and cost per household per year. The DCE was part of an online survey conducted in Germany with 475 participants, of which 449 were included in the study sample. The survey ensured representativeness concerning age, household income, federal state of residence, and size of the place of residence. The data was collected by an online-sampling company in September and October of 2017.",
+      "country": "Germany",
+      "region": "Not specified",
+      "earliest_year": 2017,
+      "latest_year": 2017,
+      "transaction_types": [
+        "Discrete Choice Experiment"
+      ],
+      "spatial_resolution": "Not Specified",
+      "accessibility": "Not specified",
+      "access_conditions": "Not specified",
+      "number_of_observations": 449,
+      "url": "Not specified",
+      "data_format": "Not specified",
+      "identifier_type": "Not specified",
+      "persistent_identifier": false,
+      "data_license": "Not specified",
+      "metadata_standard": "Not specified",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Public Preferences for Pasture Landscapes and the Role of Scale Heterogeneity",
+      "paper_filename": "865_org.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Public Preferences for Pasture Landscapes and the Role of Scale Heterogeneity"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487029",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Statistical Office Berlin-Brandenburg",
+      "description": "The dataset represents the annual area of land use divided into six categories for the period from 1995 to 2020. It was used to derive the amount of annual land use change and potential land use conflicts that accompany the loss of agricultural area.",
+      "country": "Germany",
+      "region": "Brandenburg",
+      "earliest_year": 1995,
+      "latest_year": 2020,
+      "transaction_types": [
+        "land use change"
+      ],
+      "spatial_resolution": "Not Specified",
+      "accessibility": "Public",
+      "access_conditions": "Free download",
+      "number_of_observations": 26,
+      "url": "https://www.statistik-berlin-brandenburg.de",
+      "data_format": "N/A",
+      "identifier_type": "N/A",
+      "persistent_identifier": false,
+      "data_license": "N/A",
+      "metadata_standard": "N/A",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Land Use Conflicts and Synergies on Agricultural Land in Brandenburg, Germany",
+      "paper_filename": "sustainability-15-04546.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Land Use Conflicts and Synergies on Agricultural Land in Brandenburg, Germany"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487030",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Online Survey with Farmers",
+      "description": "An online survey conducted with farmers to identify land use conflicts they faced and land use systems they are targeting to establish synergies. Conducted from March 20, 2021, to May 20, 2021, with 178 participants, of which 118 responses were analyzed.",
+      "country": "Germany",
+      "region": "Brandenburg",
+      "earliest_year": 2021,
+      "latest_year": 2021,
+      "transaction_types": [
+        "survey responses"
+      ],
+      "spatial_resolution": "Not Specified",
+      "accessibility": "Restricted",
+      "access_conditions": "N/A",
+      "number_of_observations": 118,
+      "url": "N/A",
+      "data_format": "N/A",
+      "identifier_type": "N/A",
+      "persistent_identifier": false,
+      "data_license": "N/A",
+      "metadata_standard": "N/A",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Land Use Conflicts and Synergies on Agricultural Land in Brandenburg, Germany",
+      "paper_filename": "sustainability-15-04546.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Land Use Conflicts and Synergies on Agricultural Land in Brandenburg, Germany"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487031",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    },
+    {
+      "source_name": "Integrated Administration and Control System (IACS) Data",
+      "description": "IACS data from 2020 used to identify areas set aside under greening or agri-environmental and climate measures, and to localize conflict areas between agricultural production and environmental protection.",
+      "country": "Germany",
+      "region": "Brandenburg",
+      "earliest_year": 2020,
+      "latest_year": 2020,
+      "transaction_types": [
+        "land use data"
+      ],
+      "spatial_resolution": "Plot Level",
+      "accessibility": "Restricted",
+      "access_conditions": "N/A",
+      "number_of_observations": 1,
+      "url": "N/A",
+      "data_format": "N/A",
+      "identifier_type": "N/A",
+      "persistent_identifier": false,
+      "data_license": "N/A",
+      "metadata_standard": "N/A",
+      "structured_metadata": false,
+      "semantic_vocabularies": [],
+      "provenance_included": false,
+      "linked_entities": [],
+      "paper_title": "Land Use Conflicts and Synergies on Agricultural Land in Brandenburg, Germany",
+      "paper_filename": "sustainability-15-04546.pdf",
+      "consolidation_info": {
+        "original_count": 1,
+        "source_papers": [
+          "Land Use Conflicts and Synergies on Agricultural Land in Brandenburg, Germany"
+        ],
+        "consolidated_at": "2025-06-14T18:25:29.487032",
+        "status": "unique"
+      },
+      "fair_assessment": {
+        "findability_score": 0,
+        "accessibility_score": 0,
+        "interoperability_score": 0,
+        "reusability_score": 0,
+        "overall_fair_score": 0,
+        "fair_grade": "F"
+      }
+    }
+  ],
+  "duplicate_groups": [
+    [
+      5,
+      8
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      1,
+      2,
+      3
+    ]
+  ]
+}

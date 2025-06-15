@@ -3,8 +3,8 @@ import os
 import json
 from pathlib import Path
 import tempfile
-from pdf_processor import pdf_to_markdown
-from metadata_extractor import extract_metadata
+from .pdf_processor import pdf_to_markdown
+from .metadata_extractor import extract_metadata
 
 # Page configuration
 st.set_page_config(

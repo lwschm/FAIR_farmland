@@ -66,9 +66,145 @@ class FarmlandDataAnalyzer:
             self.csv_data = pd.read_csv(self.csv_file_path)
             if self.data is None:
                 self.data = self.csv_data
+        
+        # Standardize data categories
+        self._standardize_data_categories()
                 
         print(f"Loaded {len(self.data)} data sources for analysis")
         return self.data
+    
+    def _standardize_data_categories(self):
+        """Standardize data categories for consistent analysis."""
+        # Import standardization functions
+        try:
+            from ..utils.data_standardization import (
+                standardize_accessibility, 
+                standardize_data_format, 
+                standardize_country,
+                standardize_spatial_resolution
+            )
+        except ImportError:
+            # Fallback to inline definitions if import fails
+            print("Warning: Could not import standardization functions, using inline definitions")
+            
+        # Standardize accessibility categories
+        if 'accessibility' in self.data.columns:
+            try:
+                self.data['accessibility'] = self.data['accessibility'].apply(standardize_accessibility)
+                print(f"Standardized accessibility categories: {sorted(self.data['accessibility'].unique())}")
+            except:
+                # Fallback to old method
+                accessibility_mapping = {
+                    # Public variants
+                    'public': 'Public',
+                    'Public': 'Public',
+                    'publicly available': 'Public',
+                    'Publicly available': 'Public',
+                    'publicly_available': 'Public',
+                    'open': 'Public',
+                    'Open': 'Public',
+                    
+                    # Restricted variants
+                    'restricted': 'Restricted',
+                    'Restricted': 'Restricted',
+                    'limited': 'Restricted',
+                    'Limited': 'Restricted',
+                    
+                    # Confidential variants
+                    'confidential': 'Confidential',
+                    'Confidential': 'Confidential',
+                    'private': 'Confidential',
+                    'Private': 'Confidential',
+                    
+                    # Mixed categories
+                    'confidential and restricted': 'Confidential and Restricted',
+                    'Confidential and Restricted': 'Confidential and Restricted',
+                    'restricted and confidential': 'Confidential and Restricted',
+                    'Restricted and Confidential': 'Confidential and Restricted',
+                    
+                    # Not specified variants
+                    'not specified': 'Not Specified',
+                    'Not specified': 'Not Specified',
+                    'Not Specified': 'Not Specified',
+                    'unknown': 'Not Specified',
+                    'Unknown': 'Not Specified',
+                    '': 'Not Specified',
+                    'N/A': 'Not Specified',
+                    'n/a': 'Not Specified'
+                }
+                
+                self.data['accessibility'] = self.data['accessibility'].fillna('Not Specified')
+                self.data['accessibility'] = self.data['accessibility'].map(
+                    lambda x: accessibility_mapping.get(x, x) if pd.notna(x) else 'Not Specified'
+                )
+                print(f"Standardized accessibility categories: {sorted(self.data['accessibility'].unique())}")
+        
+        # Standardize spatial resolution categories
+        if 'spatial_resolution' in self.data.columns:
+            try:
+                self.data['spatial_resolution'] = self.data['spatial_resolution'].apply(standardize_spatial_resolution)
+                print(f"Standardized spatial resolution categories: {sorted(self.data['spatial_resolution'].unique())}")
+            except:
+                print("Warning: Could not apply spatial resolution standardization")
+        
+        # Standardize data format categories
+        if 'data_format' in self.data.columns:
+            try:
+                self.data['data_format'] = self.data['data_format'].apply(standardize_data_format)
+                print(f"Standardized data format categories: {sorted(self.data['data_format'].unique())}")
+            except:
+                # Fallback to old method
+                format_mapping = {
+                    'csv': 'CSV',
+                    'CSV': 'CSV',
+                    'json': 'JSON',
+                    'JSON': 'JSON',
+                    'xml': 'XML',
+                    'XML': 'XML',
+                    'excel': 'Excel',
+                    'Excel': 'Excel',
+                    'xls': 'Excel',
+                    'xlsx': 'Excel',
+                    'pdf': 'PDF',
+                    'PDF': 'PDF',
+                    'shapefile': 'Shapefile',
+                    'Shapefile': 'Shapefile',
+                    'shp': 'Shapefile',
+                    'database': 'Database',
+                    'Database': 'Database',
+                    'db': 'Database',
+                    'sql': 'Database',
+                    'SQL': 'Database'
+                }
+                
+                self.data['data_format'] = self.data['data_format'].fillna('Not Specified')
+                self.data['data_format'] = self.data['data_format'].map(
+                    lambda x: format_mapping.get(x, x) if pd.notna(x) else 'Not Specified'
+                )
+        
+        # Standardize country names
+        if 'country' in self.data.columns:
+            try:
+                self.data['country'] = self.data['country'].apply(standardize_country)
+                print(f"Standardized country names: {sorted(self.data['country'].unique())}")
+            except:
+                # Fallback to old method
+                country_mapping = {
+                    'usa': 'United States',
+                    'USA': 'United States',
+                    'us': 'United States',
+                    'US': 'United States',
+                    'united states': 'United States',
+                    'United states': 'United States',
+                    'uk': 'United Kingdom',
+                    'UK': 'United Kingdom',
+                    'united kingdom': 'United Kingdom',
+                    'United kingdom': 'United Kingdom'
+                }
+                
+                self.data['country'] = self.data['country'].map(
+                    lambda x: country_mapping.get(x, x) if pd.notna(x) else x
+                )
     
     def print_basic_statistics(self):
         """Print basic descriptive statistics."""
@@ -210,59 +346,63 @@ class FarmlandDataAnalyzer:
             axes[0, 0].set_xlabel('FAIR Grade')
             axes[0, 0].set_ylabel('Number of Data Sources')
         
-        # 2. Individual FAIR Scores Distribution
-        fair_scores = ['findability_score', 'accessibility_score', 'interoperability_score', 'reusability_score']
-        for i, score in enumerate(fair_scores):
-            score_dist = self.data[score].value_counts().sort_index()
-            axes[0, 1].bar([f"{score.split('_')[0].title()}\n{x}" for x in score_dist.index], 
-                          score_dist.values, alpha=0.7, 
-                          label=score.split('_')[0].title())
-        axes[0, 1].set_title('Individual FAIR Scores Distribution')
-        axes[0, 1].set_ylabel('Number of Data Sources')
-        axes[0, 1].legend()
+            # 2. Individual FAIR Scores Distribution
+            fair_scores = ['findability_score', 'accessibility_score', 'interoperability_score', 'reusability_score']
+            for i, score in enumerate(fair_scores):
+                score_dist = self.data[score].value_counts().sort_index()
+                axes[0, 1].bar([f"{score.split('_')[0].title()}\n{x}" for x in score_dist.index], 
+                              score_dist.values, alpha=0.7, 
+                              label=score.split('_')[0].title())
+            axes[0, 1].set_title('Individual FAIR Scores Distribution')
+            axes[0, 1].set_ylabel('Number of Data Sources')
+            axes[0, 1].legend()
         
-        # 3. Overall FAIR Score Distribution
-        axes[0, 2].hist(self.data['overall_fair_score'], bins=10, alpha=0.7, color='purple', edgecolor='black')
-        axes[0, 2].set_title('Overall FAIR Score Distribution')
-        axes[0, 2].set_xlabel('Overall FAIR Score')
-        axes[0, 2].set_ylabel('Number of Data Sources')
+            # 3. Overall FAIR Score Distribution
+            axes[0, 2].hist(self.data['overall_fair_score'], bins=10, alpha=0.7, color='purple', edgecolor='black')
+            axes[0, 2].set_title('Overall FAIR Score Distribution')
+            axes[0, 2].set_xlabel('Overall FAIR Score')
+            axes[0, 2].set_ylabel('Number of Data Sources')
         
-        # 4. FAIR Scores Correlation Heatmap
-        fair_cols = ['findability_score', 'accessibility_score', 'interoperability_score', 'reusability_score']
-        correlation_matrix = self.data[fair_cols].corr()
-        im = axes[1, 0].imshow(correlation_matrix, cmap='coolwarm', aspect='auto')
-        axes[1, 0].set_xticks(range(len(fair_cols)))
-        axes[1, 0].set_yticks(range(len(fair_cols)))
-        axes[1, 0].set_xticklabels([col.split('_')[0].title() for col in fair_cols])
-        axes[1, 0].set_yticklabels([col.split('_')[0].title() for col in fair_cols])
-        axes[1, 0].set_title('FAIR Scores Correlation Matrix')
-        plt.colorbar(im, ax=axes[1, 0])
+            # 4. FAIR Scores Correlation Heatmap
+            fair_cols = ['findability_score', 'accessibility_score', 'interoperability_score', 'reusability_score']
+            correlation_matrix = self.data[fair_cols].corr()
+            im = axes[1, 0].imshow(correlation_matrix, cmap='coolwarm', aspect='auto')
+            axes[1, 0].set_xticks(range(len(fair_cols)))
+            axes[1, 0].set_yticks(range(len(fair_cols)))
+            axes[1, 0].set_xticklabels([col.split('_')[0].title() for col in fair_cols])
+            axes[1, 0].set_yticklabels([col.split('_')[0].title() for col in fair_cols])
+            axes[1, 0].set_title('FAIR Scores Correlation Matrix')
+            plt.colorbar(im, ax=axes[1, 0])
         
-        # 5. FAIR Grade by Accessibility
-        accessibility_fair = pd.crosstab(self.data['accessibility'], self.data['fair_grade'])
-        accessibility_fair.plot(kind='bar', ax=axes[1, 1], stacked=True)
-        axes[1, 1].set_title('FAIR Grade by Accessibility Type')
-        axes[1, 1].set_xlabel('Accessibility')
-        axes[1, 1].set_ylabel('Number of Data Sources')
-        axes[1, 1].legend(title='FAIR Grade')
-        axes[1, 1].tick_params(axis='x', rotation=45)
+            # 5. FAIR Grade by Accessibility
+            accessibility_fair = pd.crosstab(self.data['accessibility'], self.data['fair_grade'])
+            accessibility_fair.plot(kind='bar', ax=axes[1, 1], stacked=True)
+            axes[1, 1].set_title('FAIR Grade by Accessibility Type')
+            axes[1, 1].set_xlabel('Accessibility')
+            axes[1, 1].set_ylabel('Number of Data Sources')
+            axes[1, 1].legend(title='FAIR Grade')
+            axes[1, 1].tick_params(axis='x', rotation=45)
         
-        # 6. FAIR Score by Number of Observations
-        axes[1, 2].scatter(self.data['number_of_observations'], self.data['overall_fair_score'], 
-                          alpha=0.6, s=50, color='green')
-        axes[1, 2].set_title('FAIR Score vs Number of Observations')
-        axes[1, 2].set_xlabel('Number of Observations (log scale)')
-        axes[1, 2].set_ylabel('Overall FAIR Score')
-        axes[1, 2].set_xscale('log')
+            # 6. FAIR Score by Number of Observations
+            axes[1, 2].scatter(self.data['number_of_observations'], self.data['overall_fair_score'], 
+                              alpha=0.6, s=50, color='green')
+            axes[1, 2].set_title('FAIR Score vs Number of Observations')
+            axes[1, 2].set_xlabel('Number of Observations (log scale)')
+            axes[1, 2].set_ylabel('Overall FAIR Score')
+            axes[1, 2].set_xscale('log')
         
-        plt.tight_layout()
-        plt.savefig(self.output_dir / 'fair_analysis.png', dpi=300, bbox_inches='tight')
-        plt.close()
+            plt.tight_layout()
+            plt.savefig(self.output_dir / 'fair_analysis.png', dpi=300, bbox_inches='tight')
+            plt.close()
         
-        print(f"FAIR Assessment Statistics:")
-        print(f"  Average FAIR Score: {self.data['overall_fair_score'].mean():.2f}")
-        print(f"  Most common FAIR Grade: {fair_grades.index[0]} ({fair_grades.iloc[0]} sources)")
-        print(f"  Grade distribution: {dict(fair_grades)}")
+            print(f"FAIR Assessment Statistics:")
+            print(f"  Average FAIR Score: {self.data['overall_fair_score'].mean():.2f}")
+            print(f"  Most common FAIR Grade: {fair_grades.index[0]} ({fair_grades.iloc[0]} sources)")
+            print(f"  Grade distribution: {dict(fair_grades)}")
+            
+        except Exception as e:
+            print(f"Error in FAIR assessment analysis: {e}")
+            print("Skipping FAIR analysis visualizations")
         
     def analyze_data_characteristics(self):
         """Analyze data characteristics and quality metrics."""
@@ -399,10 +539,14 @@ class FarmlandDataAnalyzer:
             'Total Observations': f"{self.data['number_of_observations'].sum():,.0f}",
             'Average Time Span': f"{self.data['time_span'].mean():.1f} years",
             'Most Common Accessibility': self.data['accessibility'].mode().iloc[0],
-            'Average FAIR Score': f"{self.data['overall_fair_score'].mean():.2f}",
-            'Most Common FAIR Grade': self.data['fair_grade'].mode().iloc[0],
             'Data Completeness (URLs)': f"{(self.data['url'].notna().sum() / len(self.data) * 100):.1f}%"
         }
+        
+        # Add FAIR scores if available
+        if 'overall_fair_score' in self.data.columns:
+            summary_stats['Average FAIR Score'] = f"{self.data['overall_fair_score'].mean():.2f}"
+        if 'fair_grade' in self.data.columns:
+            summary_stats['Most Common FAIR Grade'] = self.data['fair_grade'].mode().iloc[0]
         
         # Create summary visualization
         fig, ax = plt.subplots(figsize=(12, 8))
@@ -446,6 +590,11 @@ class FarmlandDataAnalyzer:
             top_formats = self.data['data_format'].value_counts().head(5)
             for format_type, count in top_formats.items():
                 f.write(f"  {format_type}: {count} sources\n")
+            
+            f.write("\nACCESSIBILITY DISTRIBUTION:\n")
+            accessibility_dist = self.data['accessibility'].value_counts()
+            for access_type, count in accessibility_dist.items():
+                f.write(f"  {access_type}: {count} sources\n")
         
         print(f"Summary report saved to: {self.output_dir}")
         return summary_stats
@@ -479,7 +628,7 @@ class FarmlandDataAnalyzer:
 def main():
     """Main function to run the farmland data analysis."""
     # Find the most recent consolidated files
-    consolidated_dir = Path("consolidated_outputs")
+    consolidated_dir = Path("data/output/consolidated_outputs")
     
     # Find JSON and CSV files
     json_files = list(consolidated_dir.glob("*farmland_sources*.json"))
@@ -502,6 +651,8 @@ def main():
     
     # Create analyzer and run analysis
     analyzer = FarmlandDataAnalyzer(json_file_path=json_file, csv_file_path=csv_file)
+    analyzer.output_dir = Path("data/output/analysis_outputs")
+    analyzer.output_dir.mkdir(exist_ok=True)
     summary_stats = analyzer.run_complete_analysis()
     
     return analyzer, summary_stats
