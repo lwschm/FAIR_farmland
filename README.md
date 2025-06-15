@@ -157,7 +157,7 @@ The toolkit generates comprehensive analysis including:
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/FAIR_farmland.git
+git clone https://github.com/lwschm/FAIR_farmland.git
 cd FAIR_farmland
 
 # Create virtual environment
