@@ -1,287 +1,265 @@
-# FAIR Farmland Data Analysis Toolkit
+# 🌾 FAIR Farmland Metadata Extraction Tool
 
 [![Python](https://img.shields.io/badge/python-v3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-A comprehensive toolkit for extracting, analyzing, and assessing farmland data from scientific publications according to FAIR (Findable, Accessible, Interoperable, Reusable) principles.
+A streamlined tool for extracting farmland research metadata from PDF and markdown files using OpenAI Responses API and generating Schema.org-compliant JSON-LD metadata.
 
-## 🌾 Overview
+## 🎯 What it does
 
-This toolkit helps researchers and data managers:
-- **Extract** structured metadata from scientific publications about farmland data
-- **Consolidate** and deduplicate farmland data sources across publications
-- **Analyze** data patterns, geographic coverage, and temporal trends
-- **Assess** FAIRness of farmland data sources
-- **Generate** comprehensive reports and visualizations
+This tool helps researchers **extract structured metadata** from farmland research papers and generate **Schema.org-compliant JSON-LD files** ready for:
+
+- 🌐 **Web indexing** (Google Dataset Search, etc.)
+- 📚 **Repository submission** (BonaRes, DataCite, etc.)
+- 🔍 **Enhanced discoverability** through search engines
+- ⭐ **FAIR principles compliance** assessment
+
+## ✨ Key Features
+
+- **🤖 AI-Powered Extraction**: Uses OpenAI Responses API with structured outputs
+- **📄 Multi-Format Support**: Handles both PDF and markdown files intelligently
+- **🌐 Schema.org Compliant**: Generates JSON-LD metadata ready for web indexing
+- **⭐ FAIR Assessment**: Evaluates datasets against FAIR principles
+- **🚀 One-Command Processing**: Simple command-line interface
+- **📊 Batch Processing**: Process entire directories of research papers
 
 ## 🚀 Quick Start
 
-### Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/FAIR_farmland.git
-   cd FAIR_farmland
-   ```
-
-2. **Install the package:**
-   ```bash
-   pip install -e .
-   ```
-   
-   Or install from requirements:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Set up configuration:**
-   ```bash
-   cp config/batch_processing.env .env
-   # Edit .env and add your OpenAI API key
-   ```
-
-### Basic Usage
-
-1. **Add PDF papers** to `data/input/pdf_papers/`
-
-2. **Run batch processing:**
-   ```bash
-   python scripts/run_batch_processor.py
-   ```
-
-3. **Consolidate data sources:**
-   ```bash
-   python scripts/run_consolidation.py
-   ```
-
-4. **Generate analysis:**
-   ```bash
-   python scripts/run_analysis.py
-   ```
-
-5. **Launch web interface:**
-   ```bash
-   fair-farmland-webapp
-   # or
-   streamlit run src/fair_farmland/web_app/main.py
-   ```
-
-## 📁 Project Structure
-
-```
-FAIR_farmland/
-├── src/fair_farmland/           # Main package
-│   ├── core/                    # Core processing modules
-│   │   ├── batch_processor.py   # PDF processing and metadata extraction
-│   │   ├── consolidator.py      # Data source consolidation
-│   │   └── analyzer.py          # Data analysis (moved to analysis/)
-│   ├── analysis/                # Analysis and visualization
-│   │   └── analyzer.py          # Comprehensive data analysis
-│   ├── web_app/                 # Streamlit web application
-│   │   ├── main.py              # Main Streamlit app
-│   │   ├── pdf_processor.py     # PDF processing utilities
-│   │   └── metadata_extractor.py # Metadata extraction
-│   └── utils/                   # Utility functions
-├── data/                        # Data directories
-│   ├── input/                   # Input data
-│   │   ├── pdf_papers/          # PDF publications
-│   │   ├── md_papers/           # Converted markdown files
-│   │   └── DataQualityVocabulary/ # Vocabulary data
-│   └── output/                  # Generated outputs
-│       ├── analysis_outputs/    # Analysis results
-│       ├── batch_outputs/       # Batch processing results
-│       └── consolidated_outputs/ # Consolidated data
-├── scripts/                     # Executable scripts
-│   ├── run_batch_processor.py   # Run batch processing
-│   ├── run_consolidation.py     # Run consolidation
-│   ├── run_analysis.py          # Run analysis
-│   └── simple_analysis.py       # Simple analysis script
-├── config/                      # Configuration files
-│   ├── batch_processing.env     # Environment template
-│   ├── requirements_batch.txt   # Batch processing requirements
-│   └── web_app_requirements.txt # Web app requirements
-├── docs/                        # Documentation
-│   ├── technical_appendix.md    # Technical details
-│   ├── farmland_data_extraction_process.md
-│   ├── CONSOLIDATION_README.md  # Consolidation guide
-│   └── BATCH_PROCESSING_README.md # Batch processing guide
-├── examples/                    # Example usage
-├── tests/                       # Test suite
-├── requirements.txt             # Main requirements
-├── setup.py                     # Package setup
-├── .gitignore                   # Git ignore rules
-└── README.md                    # This file
-```
-
-## 🔧 Features
-
-### 1. Batch PDF Processing
-- **PDF to Markdown Conversion**: Using MarkItDown for accurate text extraction
-- **Metadata Extraction**: AI-powered extraction using OpenAI GPT-4
-- **FAIR Assessment**: Automated evaluation of data source FAIRness
-- **Structured Output**: JSON and CSV formats for further processing
-
-### 2. Data Consolidation
-- **Duplicate Detection**: AI-powered identification of overlapping data sources
-- **Smart Merging**: Consolidates duplicate entries while preserving information
-- **Enhanced Metadata**: Enriched metadata with consolidation information
-- **Quality Metrics**: Improved FAIR scores through consolidation
-
-### 3. Comprehensive Analysis
-- **Temporal Analysis**: Data coverage over time
-- **Geographic Analysis**: Regional distribution patterns
-- **FAIR Assessment Visualization**: Data quality metrics
-- **Research Impact**: Analysis of contributing publications
-- **Export Options**: Multiple output formats
-
-### 4. Web Interface
-- **Interactive Processing**: Upload and process PDFs via web interface
-- **Real-time Feedback**: Progress tracking and error handling
-- **Visual Results**: Expandable data source views
-- **Export Functionality**: Download results in JSON format
-
-## 📊 Analysis Outputs
-
-The toolkit generates comprehensive analysis including:
-
-- **Temporal Coverage Analysis**: Distribution of data start/end years, time spans
-- **Geographic Coverage Analysis**: Country and region distributions
-- **FAIR Assessment Analysis**: Detailed FAIRness scoring and grading
-- **Data Characteristics Analysis**: Format, accessibility, and license patterns
-- **Research Papers Analysis**: Contributing publications and impact metrics
-
-## 🛠️ Development
-
-### Setting up Development Environment
+### 1. Installation
 
 ```bash
-# Clone repository
-git clone https://github.com/lwschm/FAIR_farmland.git
+# Clone the repository
+git clone https://github.com/yourusername/FAIR_farmland.git
 cd FAIR_farmland
 
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install in development mode
-pip install -e ".[dev]"
-
-# Run tests
-pytest tests/
-
-# Format code
-black src/
-flake8 src/
+# Install dependencies
+pip install -r requirements.txt
 ```
 
-### Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass
-6. Format code with black
-7. Commit changes (`git commit -m 'Add amazing feature'`)
-8. Push to branch (`git push origin feature/amazing-feature`)
-9. Open a Pull Request
-
-## 📋 Requirements
-
-- **Python**: 3.8+
-- **OpenAI API Key**: Required for metadata extraction and consolidation
-- **Dependencies**: See `requirements.txt` for full list
-
-### Key Dependencies
-- `pandas`: Data manipulation and analysis
-- `openai`: AI-powered metadata extraction
-- `streamlit`: Web interface
-- `matplotlib/seaborn`: Data visualization
-- `markitdown`: PDF to markdown conversion
-
-## 🔑 Configuration
-
-### Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-# OpenAI Configuration
-openaikey=your_openai_api_key_here
-
-# Optional: Custom paths
-PDF_INPUT_DIR=data/input/pdf_papers
-OUTPUT_DIR=data/output
-```
-
-### Processing Configuration
-
-Adjust processing parameters in the respective modules:
-- **Batch size**: Number of sources processed simultaneously
-- **Temperature**: AI model creativity (0.1 for consistent results)
-- **Token limits**: Maximum tokens per API call
-
-## 📈 Usage Examples
-
-### Command Line Interface
+### 2. Set up OpenAI API Key
 
 ```bash
-# Process all PDFs in input directory
-fair-farmland-batch
+# Option 1: Environment variable
+export OPENAI_API_KEY='your_key_here'
 
-# Consolidate extracted data sources
-fair-farmland-consolidate
-
-# Generate comprehensive analysis
-fair-farmland-analyze
-
-# Launch web application
-fair-farmland-webapp
+# Option 2: Create .env file
+echo 'OPENAI_API_KEY=your_key_here' > .env
 ```
 
-### Python API
+### 3. Run the Tool
 
-```python
-from fair_farmland.core import batch_processor, consolidator
-from fair_farmland.analysis import analyzer
+```bash
+# Process a directory of papers
+python run_farmland_extraction.py path/to/your/papers/
 
-# Process PDFs
-processor = batch_processor.BatchPDFProcessor()
-results = processor.process_all_pdfs()
+# Specify custom output directory
+python run_farmland_extraction.py path/to/papers/ path/to/output/
 
-# Consolidate sources
-consolidator_obj = consolidator.DataSourceConsolidator()
-consolidated = consolidator_obj.run_consolidation()
-
-# Analyze results
-analyzer_obj = analyzer.FarmlandDataAnalyzer()
-analyzer_obj.run_complete_analysis()
+# Enable verbose logging
+python run_farmland_extraction.py path/to/papers/ -v
 ```
+
+## 📖 Usage Examples
+
+### Process PDF Files
+```bash
+# Your directory contains PDF files
+ls papers/
+# farm_study_2023.pdf
+# land_prices_germany.pdf
+# agricultural_analysis.pdf
+
+python run_farmland_extraction.py papers/
+```
+
+### Process Markdown Files
+```bash
+# Your directory contains markdown files (no conversion needed)
+ls documents/
+# research_paper_1.md
+# dataset_description.md
+# farmland_study.markdown
+
+python run_farmland_extraction.py documents/
+```
+
+### Mixed File Types
+```bash
+# Directory with both PDFs and markdown files
+ls research_data/
+# study1.pdf
+# dataset_info.md
+# analysis.pdf
+# methodology.markdown
+
+python run_farmland_extraction.py research_data/ results/
+```
+
+## 📁 Output Structure
+
+After processing, you'll get:
+
+```
+output_20241214_143022/
+├── study1_schema.json              # Schema.org JSON-LD for study1.pdf
+├── dataset_info_schema.json        # Schema.org JSON-LD for dataset_info.md
+├── analysis_schema.json            # Schema.org JSON-LD for analysis.pdf
+└── processing_summary.json         # Processing summary and statistics
+```
+
+### Example Schema.org Output
+
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Farmland Market Analysis in Saxony-Anhalt, 2014-2017",
+  "author": [
+    {"type": "Person", "name": "Dr. Anna Müller"},
+    {"type": "Person", "name": "Jonas Schmidt"}
+  ],
+  "datePublished": "2025-03-01",
+  "keywords": ["farmland sale", "land transaction", "Germany"],
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Farmland Sales Transactions – Saxony-Anhalt (2014-2017)",
+      "description": "Dataset of 150 farmland sale transactions...",
+      "spatialCoverage": {
+        "type": "Place",
+        "name": "Saxony-Anhalt, DE",
+        "geo": {"type": "GeoShape", "box": "50.7 10.9 53.1 13.1"}
+      },
+      "temporalCoverage": "2014-01/2017-12",
+      "variableMeasured": [
+        {
+          "type": "PropertyValue",
+          "name": "Sale Price",
+          "unitText": "EUR",
+          "description": "Sale price in Euros"
+        }
+      ]
+    }
+  ]
+}
+```
+
+## 🛠️ How It Works
+
+1. **📄 File Detection**: Automatically identifies PDF and markdown files
+2. **🔄 Smart Processing**: 
+   - PDFs → Convert to markdown using MarkItDown
+   - Markdown → Process directly (no conversion)
+3. **🤖 AI Extraction**: Uses OpenAI Responses API to extract metadata
+4. **🌐 Schema.org Generation**: Creates JSON-LD metadata following Schema.org standards
+5. **⭐ FAIR Assessment**: Evaluates datasets against FAIR principles
+6. **💾 Clean Output**: Saves well-formatted JSON files ready for use
+
+## 🔧 Command Line Options
+
+```bash
+python run_farmland_extraction.py --help
+```
+
+### Arguments
+- `input_directory`: Directory containing PDF/markdown files (required)
+- `output_directory`: Output directory for JSON files (optional, auto-generated if not specified)
+
+### Options
+- `-v, --verbose`: Enable detailed logging
+- `-h, --help`: Show help message
+
+## 📊 Processing Statistics
+
+After completion, you'll see a summary like:
+
+```
+🎉 FARMLAND METADATA EXTRACTION COMPLETE
+============================================================
+📊 Processing Results:
+   Total files: 5
+   ✅ Successful: 4
+   ❌ Failed: 1
+   📄 PDFs converted: 3
+   📝 Markdowns processed: 1
+
+📈 Extraction Statistics:
+   🌾 Total datasets found: 7
+   🎯 Average confidence: 0.89
+   ⏱️  Processing time: 45.3 seconds
+
+✅ Successfully generated Schema.org-compliant metadata!
+   Ready for web indexing and repository submission
+```
+
+## 🎓 What Gets Extracted
+
+The tool identifies and extracts:
+
+### 📖 Publication Metadata
+- Title, authors, publication date
+- Publisher, DOI, keywords
+- License information
+
+### 🗂️ Dataset Information
+- Dataset names and descriptions
+- Spatial coverage (geographic regions)
+- Temporal coverage (time periods)
+- Variable descriptions (data columns)
+- Access conditions and licenses
+
+### 📊 Specific to Farmland Data
+- Transaction types (sales, leases, etc.)
+- Land use classifications
+- Geographic coverage (states, regions)
+- Price information and units
+- Buyer/seller categories
+
+## 🔑 Requirements
+
+- **Python 3.11+**
+- **OpenAI API Key** (GPT-4 access recommended)
+- **Internet connection** for AI processing
+
+### Key Dependencies
+- `openai` - OpenAI Responses API
+- `markitdown` - PDF to markdown conversion
+- `pydantic` - Data validation
+- Standard libraries: `pathlib`, `json`, `argparse`
 
 ## 🆘 Troubleshooting
 
 ### Common Issues
 
-1. **OpenAI API Key Error**
-   - Ensure your API key is set in `.env`
-   - Check API key validity and credits
+**❌ "OpenAI API key not found"**
+```bash
+# Set the environment variable
+export OPENAI_API_KEY='your_key_here'
+# or create a .env file
+echo 'OPENAI_API_KEY=your_key_here' > .env
+```
 
-2. **PDF Processing Failures**
-   - Verify PDF files are not corrupted
-   - Check file permissions
-   - Ensure sufficient disk space
+**❌ "No PDF or markdown files found"**
+- Check your input directory path
+- Ensure files have correct extensions: `.pdf`, `.md`, `.markdown`
 
-3. **Memory Issues**
-   - Reduce batch size for large datasets
-   - Close unnecessary applications
-   - Consider processing in smaller chunks
+**❌ PDF conversion fails**
+- Verify PDF files are not corrupted or password-protected
+- Check file permissions
+- Some complex PDFs may not convert properly
 
-### Getting Help
+**❌ AI extraction fails**
+- Check your OpenAI API key and credits
+- Ensure you have access to GPT-4
+- Very long documents may hit token limits
 
-- Check the [documentation](docs/) for detailed guides
-- Review [existing issues](https://github.com/lwschm/FAIR_farmland/issues)
-- Create a new issue with detailed error information
+## 📈 Next Steps After Processing
+
+1. **🔍 Review Output**: Check generated JSON-LD files
+2. **✅ Validate**: Use Schema.org validation tools if needed
+3. **📤 Submit**: Upload to research data repositories
+4. **🌐 Index**: Make discoverable through search engines
+5. **📊 Analyze**: Use metadata for research synthesis
 
 ## 📄 License
 
@@ -289,13 +267,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Built upon concepts from the FAIR Evaluation Repository
-- Uses OpenAI's GPT-4 for intelligent metadata extraction
-- Streamlit for the web interface
-- The scientific community for farmland data research
-
-
+- OpenAI for the Responses API with structured outputs
+- Schema.org for the metadata vocabulary
+- MarkItDown for PDF processing capabilities
+- FAIR principles community for data management standards
 
 ---
 
-**Made with 🌾 for better farmland data management** 
+**🌾 Making farmland data FAIR, one paper at a time!** 

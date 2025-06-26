@@ -9,8 +9,6 @@ __version__ = "1.0.0"
 __author__ = "FAIR Farmland Research Team"
 __description__ = "Toolkit for FAIR farmland data analysis and metadata extraction"
 
-from .core import batch_processor, consolidator
-from .analysis import analyzer
-from .web_app import main as web_app
+from .core import ai_metadata_extractor, simple_processor
 
-__all__ = ["batch_processor", "consolidator", "analyzer", "web_app"] 
+__all__ = ["ai_metadata_extractor", "simple_processor"] 

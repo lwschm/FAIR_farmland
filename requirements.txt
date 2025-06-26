@@ -8,7 +8,7 @@ tqdm>=4.64.0
 # PDF processing and AI
 markitdown>=0.0.1
 markitdown[pdf]>=0.0.1
-openai>=1.0.0
+openai>=1.50.0
 
 # Data visualization and analysis  
 matplotlib>=3.6.0
@@ -23,4 +23,11 @@ loguru>=0.7.0
 # Optional: Development dependencies
 # pytest>=7.0.0
 # black>=23.0.0
-# flake8>=6.0.0 
+# flake8>=6.0.0
+
+# OpenAI API for structured outputs (enhanced AI workflow)
+pydantic>=2.0.0,<3.0.0
+
+# Additional dependencies for enhanced metadata schema
+jsonschema>=4.0.0
+rdflib>=6.0.0  # For RDF/JSON-LD processing (optional) 

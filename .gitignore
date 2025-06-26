@@ -24,4 +24,6 @@ wilkinson_result.html
 secrets.toml
 */venv_py311/
 ./venv/
-/data/input/
+/data/input/md_papers/*.md
+
+*.pdf
