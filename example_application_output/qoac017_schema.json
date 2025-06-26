@@ -1,0 +1,119 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Revisiting the relationship between farmland prices and soil quality",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Luise Meissner",
+      "affiliation": "Department of Agricultural Economics and Rural Development, University of Goettingen",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Oliver Musshoff",
+      "affiliation": "Department of Agricultural Economics and Rural Development, University of Goettingen",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2022-06-25",
+  "publication_year": "2022",
+  "publisher": {
+    "type": "Organization",
+    "name": "Oxford University in association with European Agricultural and Applied Economics Publications Foundation"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Q Open",
+    "issn": "",
+    "publisher": {
+      "type": "Organization",
+      "name": "Oxford University in association with European Agricultural and Applied Economics Publications Foundation"
+    }
+  },
+  "publication_volume": "2",
+  "publication_issue": "",
+  "page_start": "1",
+  "page_end": "15",
+  "pagination": "1-15",
+  "identifier": "10.1093/qopen/qoac017",
+  "doi": "10.1093/qopen/qoac017",
+  "pmid": "",
+  "abstract": "This paper aims to examine the relationship between soil quality and farmland prices over time. Soil quality is often used as an explanatory variable for farmland prices in hedonic price models. However, the agricultural land market has shown an enormous price increase over the last decade. Therefore, revisiting the relationship between soil quality and farmland prices over time is of high relevance. This study aims to analyze farmland price time series in Germany. The series are aggregated within soil quality intervals and within parcel size intervals, treated as panel units. The fully modified ordinary least squares (FMOLS) panel group mean and the dynamic ordinary least squares (DOLS) panel group mean estimators are applied within a cointegration regression approach to estimate the relation of the time series. We found that soil quality causes a relative farmland price difference within an identified long-run relationship.",
+  "keywords": [
+    "Soil quality index",
+    "Agricultural land market",
+    "Farmland prices",
+    "FMOLS",
+    "DOLS"
+  ],
+  "subject": [
+    "Q15",
+    "Q11",
+    "C23"
+  ],
+  "in_language": "en",
+  "license": "Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/)",
+  "url": "https://doi.org/10.1093/qopen/qoac017",
+  "is_accessible_for_free": true,
+  "citation": "Meissner, L., & Musshoff, O. (2022). Revisiting the relationship between farmland prices and soil quality. Q Open, 2, 1-15. https://doi.org/10.1093/qopen/qoac017",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "German Farmland Price Time Series",
+      "description": "Aggregated farmland price time series from 1991 to 2020 within Germany, aggregated within soil quality intervals and parcel size intervals.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Germany",
+        "address_country": "DE"
+      },
+      "temporal_coverage": "1991/2020",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "farmland_price",
+          "name": "Farmland Price",
+          "description": "Average price of farmland within specified intervals.",
+          "unit_text": "Euro"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "soil_quality_index_(sqi)",
+          "name": "Soil Quality Index (SQI)",
+          "description": "Index measuring soil quality from 1 to 120.",
+          "unit_text": "Index"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "parcel_size",
+          "name": "Parcel Size",
+          "description": "Size of the land parcel.",
+          "unit_text": "Hectares"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "",
+      "conditions_of_access": "Available in the GENESIS database of the Statistical Office of Germany",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "German Research Foundation (DFG) through Research Unit 2569 'Agricultural Land Markets—Efficiency and Regulation.'",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying and compiling all relevant metadata from the provided scholarly article text. The focus was on farmland-related datasets, ensuring that all bibliographic details were captured accurately. The article's metadata was extracted based on standard academic citation practices, and the dataset information was detailed according to Schema.org standards. The extraction confidence is high due to the structured nature of the provided content, which allowed for precise identification of key elements such as authors, publication details, and dataset descriptions.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:39:09.094843",
+      "Model: gpt-4o",
+      "Content length: 56986 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:39:09.095142",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

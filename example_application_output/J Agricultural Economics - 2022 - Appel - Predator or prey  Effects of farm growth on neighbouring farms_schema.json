@@ -1,0 +1,122 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Predator or prey? Effects of farm growth on neighbouring farms",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Franziska Appel",
+      "affiliation": "Leibniz Institute of Agricultural Development in Transition Economies, Halle, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Alfons Balmann",
+      "affiliation": "Leibniz Institute of Agricultural Development in Transition Economies, Halle, Germany",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2023-01-01",
+  "publication_year": "2023",
+  "publisher": {
+    "type": "Organization",
+    "name": "John Wiley & Sons Ltd on behalf of Agricultural Economics Society"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Journal of Agricultural Economics",
+    "issn": "1477-9552",
+    "publisher": {
+      "type": "Organization",
+      "name": "John Wiley & Sons Ltd on behalf of Agricultural Economics Society"
+    }
+  },
+  "publication_volume": "74",
+  "publication_issue": "1",
+  "page_start": "214",
+  "page_end": "236",
+  "pagination": "214-236",
+  "identifier": "10.1111/1477-9552.12503",
+  "doi": "10.1111/1477-9552.12503",
+  "pmid": "",
+  "abstract": "We provide explorative insights on how farms which manage strong and successful growth affect farms in their neighbourhoods through spatial competition for land. The study is based on an exploratory analysis of repeated framed experiments within the business game FarmAgriPoliS. In particular, we analyse the spatial influences of different behavioural clusters of farm managers.",
+  "keywords": [
+    "agent-based participatory experiments",
+    "behavioural experiments",
+    "business management game",
+    "farm growth",
+    "farm size",
+    "Germany",
+    "path dependency",
+    "spatial interaction",
+    "structural change"
+  ],
+  "subject": [
+    "Agricultural Economics",
+    "Spatial Economics"
+  ],
+  "in_language": "en",
+  "license": "Creative Commons Attribution-NonCommercial License",
+  "url": "https://onlinelibrary.wiley.com/doi/10.1111/1477-9552.12503",
+  "is_accessible_for_free": true,
+  "citation": "Appel, F., & Balmann, A. (2023). Predator or prey? Effects of farm growth on neighbouring farms. Journal of Agricultural Economics, 74(1), 214-236. https://doi.org/10.1111/1477-9552.12503",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "FarmAgriPoliS Experiments",
+      "description": "Exploratory analysis of repeated framed experiments within the business game FarmAgriPoliS, focusing on spatial competition for land and farm growth.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Germany",
+        "address_country": "DE"
+      },
+      "temporal_coverage": "",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "farm_size",
+          "name": "Farm Size",
+          "description": "Size of the farm in hectares",
+          "unit_text": "hectares"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "farm_growth",
+          "name": "Farm Growth",
+          "description": "Growth rate of the farm",
+          "unit_text": "percentage"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "land_rental_prices",
+          "name": "Land Rental Prices",
+          "description": "Prices for renting agricultural land",
+          "unit_text": "euros per hectare"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "Creative Commons Attribution-NonCommercial License",
+      "conditions_of_access": "Open access under Creative Commons Attribution-NonCommercial License",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "Deutsche Forschungsgemeinschaft, Grant/Award Number: FOR 2569; Research Foundation",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information related to farmland research. The article's metadata was extracted based on standard scholarly publication fields, while dataset details were identified from the content description, focusing on farmland-related data. The confidence in extraction is high due to the clear presentation of information in the text.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:36:45.543622",
+      "Model: gpt-4o",
+      "Content length: 85758 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:36:45.544001",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

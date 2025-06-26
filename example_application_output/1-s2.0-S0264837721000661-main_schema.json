@@ -1,0 +1,138 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "On the effectiveness of restricted tendering as a form of policy intervention on agricultural land markets",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Cord-Friedrich von Hobe",
+      "affiliation": "Department of Agricultural Economics and Rural Development, Georg-August-Universität Göttingen",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Oliver Musshoff",
+      "affiliation": "Department of Agricultural Economics and Rural Development, Georg-August-Universität Göttingen",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2021-02-22",
+  "publication_year": "2021",
+  "publisher": {
+    "type": "Organization",
+    "name": "Elsevier"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Land Use Policy",
+    "issn": "0264-8377",
+    "publisher": {
+      "type": "Organization",
+      "name": "Elsevier"
+    }
+  },
+  "publication_volume": "103",
+  "publication_issue": "",
+  "page_start": "",
+  "page_end": "",
+  "pagination": "",
+  "identifier": "10.1016/j.landusepol.2021.105343",
+  "doi": "10.1016/j.landusepol.2021.105343",
+  "pmid": "",
+  "abstract": "The ongoing sharp rise in farmland prices in Europe has led to a discussion concerning the need for political intervention and stronger market regulation on agricultural land markets. In this context, restricted tendering for the privatization of agricultural land in post-communist countries is discussed and used as one form of political intervention. Only certain groups of bidders may participate in such tendering procedures in order to give them greater opportunities and to counteract effects such as land grabbing or structural change. Against this background this paper aims to answer the question, whether restricted tendering procedures allow structurally disadvantaged groups of bidders to buy at lower prices as is intended by the assessed policy intervention. A rich data set of over 12,000 first-price-sealed-bit auctions of agricultural land between 2005 and 2019 from Eastern Germany is analyzed using an auction theory individual private value framework and Propensity Score Matching. Results show that restricted tendering on agricultural land markets does not fulfill its intended purpose. Although the policy’s intermediate aim of considerably reducing the number of bidders is achieved, the ultimate goal of lower purchase prices is missed. On the contrary, the findings indicate that restricted tendering actually leads to higher purchase prices for comparable farmland plots.",
+  "keywords": [
+    "Agricultural land markets",
+    "Farmland auctions",
+    "Restricted tendering",
+    "Propensity score matching"
+  ],
+  "subject": [
+    "Land Use Policy",
+    "Agricultural Economics"
+  ],
+  "in_language": "en",
+  "license": "©2021 Elsevier Ltd. All rights reserved.",
+  "url": "https://doi.org/10.1016/j.landusepol.2021.105343",
+  "is_accessible_for_free": false,
+  "citation": "von Hobe, C.-F., & Musshoff, O. (2021). On the effectiveness of restricted tendering as a form of policy intervention on agricultural land markets. Land Use Policy, 103, 105343. https://doi.org/10.1016/j.landusepol.2021.105343",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Eastern Germany Agricultural Land Auctions Dataset",
+      "description": "A dataset of over 12,000 first-price-sealed-bid auctions of agricultural land between 2005 and 2019, used to analyze the effectiveness of restricted tendering procedures.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Eastern Germany",
+        "address_country": "DE"
+      },
+      "temporal_coverage": "2005/2019",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "purchase_price",
+          "name": "Purchase price",
+          "description": "Winning bid price for the land plot",
+          "unit_text": "€/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "number_of_bids",
+          "name": "Number of bids",
+          "description": "Total number of bids received for the auction",
+          "unit_text": "count"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "lot_size",
+          "name": "Lot size",
+          "description": "Size of the land plot",
+          "unit_text": "ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "number_of_land_parcels",
+          "name": "Number of land parcels",
+          "description": "Number of parcels in the land plot",
+          "unit_text": "count"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "share_of_arable_land",
+          "name": "Share of arable land",
+          "description": "Proportion of the land that is arable",
+          "unit_text": "ratio"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "soil_quality",
+          "name": "Soil quality",
+          "description": "Quality index of the soil",
+          "unit_text": "index"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "",
+      "conditions_of_access": "Data provided by the land privatizing agency in Eastern Germany (BVVG).",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "We gratefully acknowledge financial support from Deutsche Forschungsgemeinschaft (DFG), Germany (Grant ID Mu 1825/22-2).",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information related to farmland transactions. The article's title, authors, and affiliations were clearly stated, allowing for accurate extraction. The publication details, including journal name, volume, issue, and DOI, were also explicitly mentioned. The abstract provided insights into the study's focus on restricted tendering in agricultural land markets, which guided the identification of relevant datasets. The dataset description was derived from the text's mention of over 12,000 land transactions analyzed, with specific geographic and temporal coverage. Variable descriptions were inferred from the context of the study, focusing on auction and land characteristics. The extraction confidence is high due to the clarity and specificity of the provided information.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:34:46.377815",
+      "Model: gpt-4o",
+      "Content length: 53234 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:34:46.378211",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

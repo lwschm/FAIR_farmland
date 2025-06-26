@@ -1,0 +1,257 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "New insights on regional differences of the farmland price structure: An extended replication study on the parcel size–price relationship",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Henning Schaak",
+      "affiliation": "Institute of Agricultural and Forestry Economics, Department of Economics and Social Sciences, Vienna, Austria",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Luise Meissner",
+      "affiliation": "Farm Management Group, Department of Agricultural Economics and Rural Development, University of Goettingen, Göttingen, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Oliver Musshoff",
+      "affiliation": "Farm Management Group, Department of Agricultural Economics and Rural Development, University of Goettingen, Göttingen, Germany",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2023-03-20",
+  "publication_year": "2023",
+  "publisher": {
+    "type": "Organization",
+    "name": "Wiley Periodicals LLC on behalf of Agricultural & Applied Economics Association"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Applied Economic Perspectives and Policy",
+    "issn": "2040-5804",
+    "publisher": {
+      "type": "Organization",
+      "name": "Wiley Periodicals LLC on behalf of Agricultural & Applied Economics Association"
+    }
+  },
+  "publication_volume": "45",
+  "publication_issue": "3",
+  "page_start": "1427",
+  "page_end": "1449",
+  "pagination": "1427-1449",
+  "identifier": "10.1002/aepp.13366",
+  "doi": "10.1002/aepp.13366",
+  "pmid": "",
+  "abstract": "This study adds insights about the nonlinear effect of parcel sizes on farmland prices. Therefore, replications of Ritter et al. (2020, Land Use Policy, DOI: j.landusepol.2020.104771) are performed in four ways. The study contributes to the literature within two dimensions: (i) the geographical scope, which allows insights into regional differences in the price structure for farmland and (ii) the role of assumptions regarding the functional form for the size–price relationship. The results of the extended replication show that the size–price relationship differs between federal states. Further, the results highlight the importance of assumptions imposed on functional forms of nonlinear relationships in hedonic regression studies.",
+  "keywords": [
+    "agricultural land",
+    "farmland price",
+    "parcel size",
+    "replication study"
+  ],
+  "subject": [
+    "Q24",
+    "Q15",
+    "Q13",
+    "C21",
+    "Q14"
+  ],
+  "in_language": "en",
+  "license": "Creative Commons Attribution License",
+  "url": "https://onlinelibrary.wiley.com/doi/10.1002/aepp.13366",
+  "is_accessible_for_free": true,
+  "citation": "Schaak, H., Meissner, L., & Musshoff, O. (2023). New insights on regional differences of the farmland price structure: An extended replication study on the parcel size–price relationship. Applied Economic Perspectives and Policy, 45(3), 1427-1449. https://doi.org/10.1002/aepp.13366",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Saxony-Anhalt Farmland Transaction Data",
+      "description": "Original dataset used by RHOS, containing finalized farmland transactions in Saxony-Anhalt from 1994 to 2017.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Saxony-Anhalt, Germany",
+        "geo": {
+          "type": "GeoShape",
+          "box": "51.9500 11.6923"
+        },
+        "address_country": "DE"
+      },
+      "temporal_coverage": "1994/2017",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "price",
+          "name": "Price",
+          "description": "Price per hectare in EUR",
+          "unit_text": "EUR/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "size",
+          "name": "Size",
+          "description": "Parcel size in hectares",
+          "unit_text": "ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "quality",
+          "name": "Quality",
+          "description": "Soil quality index",
+          "unit_text": "index points"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "grassland",
+          "name": "Grassland",
+          "description": "Grassland dummy variable",
+          "unit_text": "boolean"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "bvvg",
+          "name": "BVVG",
+          "description": "BVVG seller dummy variable",
+          "unit_text": "boolean"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "Creative Commons License",
+      "conditions_of_access": "Data provided by RHOS",
+      "identifier": "",
+      "encoding_format": "CSV",
+      "content_size": "N/A"
+    },
+    {
+      "type": "Dataset",
+      "name": "Brandenburg Farmland Transaction Data",
+      "description": "Dataset containing finalized farmland transactions in Brandenburg from 2005 to 2015.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Brandenburg, Germany",
+        "geo": {
+          "type": "GeoShape",
+          "box": "52.5167 13.3833"
+        },
+        "address_country": "DE"
+      },
+      "temporal_coverage": "2005/2015",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "price",
+          "name": "Price",
+          "description": "Price per hectare in EUR",
+          "unit_text": "EUR/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "size",
+          "name": "Size",
+          "description": "Parcel size in hectares",
+          "unit_text": "ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "quality",
+          "name": "Quality",
+          "description": "Soil quality index",
+          "unit_text": "index points"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "grassland",
+          "name": "Grassland",
+          "description": "Grassland dummy variable",
+          "unit_text": "boolean"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "bvvg",
+          "name": "BVVG",
+          "description": "BVVG seller dummy variable",
+          "unit_text": "boolean"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "Creative Commons License",
+      "conditions_of_access": "Data provided by Land Valuation Expert Committee",
+      "identifier": "",
+      "encoding_format": "CSV",
+      "content_size": "N/A"
+    },
+    {
+      "type": "Dataset",
+      "name": "Lower Saxony Farmland Transaction Data",
+      "description": "Dataset containing finalized farmland transactions in Lower Saxony from 2005 to 2015.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Lower Saxony, Germany",
+        "geo": {
+          "type": "GeoShape",
+          "box": "52.6367 9.8451"
+        },
+        "address_country": "DE"
+      },
+      "temporal_coverage": "2005/2015",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "price",
+          "name": "Price",
+          "description": "Price per hectare in EUR",
+          "unit_text": "EUR/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "size",
+          "name": "Size",
+          "description": "Parcel size in hectares",
+          "unit_text": "ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "quality",
+          "name": "Quality",
+          "description": "Soil quality index",
+          "unit_text": "index points"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "grassland",
+          "name": "Grassland",
+          "description": "Grassland dummy variable",
+          "unit_text": "boolean"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "Creative Commons License",
+      "conditions_of_access": "Data provided by Land Valuation Expert Committee",
+      "identifier": "",
+      "encoding_format": "CSV",
+      "content_size": "N/A"
+    }
+  ],
+  "funding": "German Research Foundation",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process focused on identifying and compiling comprehensive metadata from the provided scholarly article and associated datasets. The article's bibliographic information was extracted, including authors, affiliations, title, journal details, DOI, and abstract. The datasets mentioned in the article were analyzed for farmland-related content, focusing on transaction data from German federal states. Geographic and temporal coverage, as well as variable descriptions, were detailed for each dataset. The extraction adhered to Schema.org standards and FAIR principles, ensuring metadata completeness and accuracy.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:42:11.446100",
+      "Model: gpt-4o",
+      "Content length: 76885 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:42:11.446436",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

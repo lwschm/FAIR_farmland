@@ -1,0 +1,143 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Optimal reserve prices for land auctions in Eastern Germany",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Marlene Kionka",
+      "affiliation": "Faculty of Life Sciences, Department of Agricultural Economics, Humboldt-Universität zu Berlin, Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Oliver Mußhoff",
+      "affiliation": "Department of Agricultural Economics and Rural Development, Georg-August-Universität Göttingen, Göttingen, Germany",
+      "identifier": "http://orcid.org/0000-0002-3746-623X"
+    },
+    {
+      "type": "Person",
+      "name": "Matthias Ritter",
+      "affiliation": "Faculty of Life Sciences, Department of Agricultural Economics, Humboldt-Universität zu Berlin, Berlin, Germany; Jönköping International Business School, Jönköping University, Jönköping, Sweden",
+      "identifier": "http://orcid.org/0000-0003-2543-3673"
+    },
+    {
+      "type": "Person",
+      "name": "Jan-Philip Rado Uhlemann",
+      "affiliation": "Business Economics Group, Wageningen University, Wageningen, The Netherlands",
+      "identifier": "http://orcid.org/0000-0002-9871-0849"
+    },
+    {
+      "type": "Person",
+      "name": "Martin Odening",
+      "affiliation": "Faculty of Life Sciences, Department of Agricultural Economics, Humboldt-Universität zu Berlin, Berlin, Germany",
+      "identifier": "http://orcid.org/0000-0001-6427-1641"
+    }
+  ],
+  "date_published": "2022-11-02",
+  "publication_year": "2024",
+  "publisher": {
+    "type": "Organization",
+    "name": "Informa UK Limited, trading as Taylor & Francis Group"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Applied Economics Letters",
+    "issn": "1350-4851",
+    "publisher": {
+      "type": "Organization",
+      "name": "Informa UK Limited, trading as Taylor & Francis Group"
+    }
+  },
+  "publication_volume": "31",
+  "publication_issue": "6",
+  "page_start": "574",
+  "page_end": "578",
+  "pagination": "574-578",
+  "identifier": "10.1080/13504851.2022.2140752",
+  "doi": "10.1080/13504851.2022.2140752",
+  "pmid": "",
+  "abstract": "Privatization auctions are seen as culprit for rising prices in eastern Germany. This study aims to analyse whether privatization auctions could have earned even higher revenues by setting optimal reserve prices. For this purpose, a structural estimation approach is applied to determine reserve prices and to compare the resulting expected revenues with actual revenues. The data set includes land auctions in eastern Germany from 2005–2019. The empirical results illustrate that room for increasing revenues exists, but reserve prices would be required to be higher than actual land prices. A potential consequence of high reserve prices is the risk of delays in the privatization process.",
+  "keywords": [
+    "Land prices",
+    "privatization",
+    "first price sealed bid auctions",
+    "optimal reserve prices"
+  ],
+  "subject": [
+    "Q15",
+    "C57",
+    "D44"
+  ],
+  "in_language": "en",
+  "license": "Creative Commons Attribution-NonCommercial-NoDerivatives License",
+  "url": "https://doi.org/10.1080/13504851.2022.2140752",
+  "is_accessible_for_free": true,
+  "citation": "Marlene Kionka, Oliver Mußhoff, Matthias Ritter, Jan-Philip Rado Uhlemann & Martin Odening (2024) Optimal reserve prices for land auctions in Eastern Germany, Applied Economics Letters, 31:6, 574-578, DOI: 10.1080/13504851.2022.2140752",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "BVVG Land Auction Data",
+      "description": "Data collected by the BVVG on arable land auctions in eastern German states from 2005–2019. Includes auction packages (lots) with information on plot size, number of plots, soil quality, date, number of bidders, and all bids.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Eastern Germany",
+        "address_country": "DE"
+      },
+      "temporal_coverage": "2005/2019",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "bid_amount",
+          "name": "Bid Amount",
+          "description": "Amount bid for a lot in the auction",
+          "unit_text": "€/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "plot_size",
+          "name": "Plot Size",
+          "description": "Size of the land plot",
+          "unit_text": "hectares"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "number_of_bidders",
+          "name": "Number of Bidders",
+          "description": "Number of bidders participating in the auction",
+          "unit_text": "count"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "soil_quality",
+          "name": "Soil Quality",
+          "description": "Quality of the soil in the plot",
+          "unit_text": "qualitative"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "",
+      "conditions_of_access": "Data available upon request from BVVG",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "The work was supported by the Deutsche Forschungsgemeinschaft (DFG) through Research Unit 2569 'Agricultural Land Markets – Efficiency and Regulation'.",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying and organizing metadata from the provided text. The article's title, authors, affiliations, and publication details were clearly stated, allowing for accurate extraction. The dataset information was derived from the description of the study's data sources and methodology. The confidence score reflects the clarity and completeness of the information provided in the text.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:33:24.089461",
+      "Model: gpt-4o",
+      "Content length: 19252 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:33:24.089869",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

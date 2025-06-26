@@ -1,0 +1,118 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "The distribution of the rent–price relationship of agricultural land in Germany",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Henning Schaak",
+      "affiliation": "Department of Economics, Swedish University of Agricultural Sciences, Uppsala, Sweden",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Oliver Musshoff",
+      "affiliation": "Department of Agricultural Economics and Rural Development, University of Goettingen, Germany",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2021-12-10",
+  "publication_year": "2022",
+  "publisher": {
+    "type": "Organization",
+    "name": "Oxford University Press"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "European Review of Agricultural Economics",
+    "issn": "",
+    "publisher": {
+      "type": "Organization",
+      "name": "Oxford University Press"
+    }
+  },
+  "publication_volume": "49",
+  "publication_issue": "3",
+  "page_start": "696",
+  "page_end": "718",
+  "pagination": "696-718",
+  "identifier": "https://doi.org/10.1093/erae/jbab052",
+  "doi": "https://doi.org/10.1093/erae/jbab052",
+  "pmid": "",
+  "abstract": "This paper studies the profitability of investments in agricultural land, using the rent–price ratio (RPR) as a profitability measure. In order to allow for district-level heterogeneity, the full conditional distribution of the RPR is modelled using a generalised additive model for location, shape and scale. The analysis is based on data from Lower Saxony, Germany. The profitability of investments in land varies between and within districts. The variation can be explained by differences in the farming structure, the production programme and economic indicators. Further, differences in the distribution of the RPR between arable land and grassland are found.",
+  "keywords": [
+    "agricultural land market",
+    "GAMLSS",
+    "heterogeneity",
+    "spatial statistics"
+  ],
+  "subject": [
+    "C21",
+    "C46",
+    "Q15"
+  ],
+  "in_language": "en",
+  "license": "Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/)",
+  "url": "",
+  "is_accessible_for_free": true,
+  "citation": "Schaak, H., & Musshoff, O. (2022). The distribution of the rent–price relationship of agricultural land in Germany. European Review of Agricultural Economics, 49(3), 696-718. https://doi.org/10.1093/erae/jbab052",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "German Agricultural Census 2010 and OGA Lower Saxony Data",
+      "description": "Dataset combining data from the German agricultural census and plot-level data for all agricultural land sales in Lower Saxony.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Lower Saxony, Germany",
+        "address_country": "DE"
+      },
+      "temporal_coverage": "2007-04/2010-03",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "rent_price_ratio_(rpr)",
+          "name": "Rent Price Ratio (RPR)",
+          "description": "Ratio of rental rates to sale prices of agricultural land.",
+          "unit_text": ""
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "land_price",
+          "name": "Land Price",
+          "description": "Average land purchase prices per hectare.",
+          "unit_text": "EUR/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "land_rent",
+          "name": "Land Rent",
+          "description": "Average land rent prices per hectare.",
+          "unit_text": "EUR/ha"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "",
+      "conditions_of_access": "Data available from the German Federal Statistical Office and OGA Lower Saxony.",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying and compiling all relevant metadata from the provided scholarly article content. The focus was on farmland-related datasets, particularly those involving land transactions and market data. The article's bibliographic details were extracted to provide a comprehensive citation, and the dataset information was detailed according to Schema.org standards. The geographic and temporal coverage was derived from the text, and the variables were described based on the context provided. The extraction confidence is high due to the structured nature of the source content.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:39:34.120369",
+      "Model: gpt-4o",
+      "Content length: 71701 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:39:34.120690",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

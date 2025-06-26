@@ -1,0 +1,127 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Land price diffusion across borders – the case of Germany",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Aaron Grau",
+      "affiliation": "Faculty of Life Sciences, Department of Agricultural Economics, Humboldt-Universität zu Berlin, Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Martin Odening",
+      "affiliation": "Faculty of Life Sciences, Department of Agricultural Economics, Humboldt-Universität zu Berlin, Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Matthias Ritter",
+      "affiliation": "Faculty of Life Sciences, Department of Agricultural Economics, Humboldt-Universität zu Berlin, Berlin, Germany",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2019-10-08",
+  "publication_year": "2020",
+  "publisher": {
+    "type": "Organization",
+    "name": "Informa UK Limited, trading as Taylor & Francis Group"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Applied Economics",
+    "issn": "0003-6846",
+    "publisher": {
+      "type": "Organization",
+      "name": "Informa UK Limited, trading as Taylor & Francis Group"
+    }
+  },
+  "publication_volume": "52",
+  "publication_issue": "50",
+  "page_start": "5446",
+  "page_end": "5463",
+  "pagination": "5446-5463",
+  "identifier": "10.1080/00036846.2019.1673299",
+  "doi": "10.1080/00036846.2019.1673299",
+  "pmid": "",
+  "abstract": "Land market regulations are often justified by the assumption that activities of foreign and non-agricultural investors drive up prices in domestic land markets. However, empirical knowledge about the dynamics of agricultural land prices across borders is sparse. Using the German reunification as a natural experiment, we study the effect of the former inner German border on the dynamics of agricultural land prices in East and West Germany. We apply a land price diffusion model with an error correction specification to analyse spatial agricultural land markets. A novel feature of our model is its ability to distinguish price diffusion within states and across state borders. We provide evidence for a persistent border effect given that the fraction of spatially integrated counties is larger within states than across the former border. Moreover, we observe non-significant error correction terms for many counties along the former border. From a policy perspective, it is striking to realize that even 25 years after German reunification, pronounced land price differences persist. It is quite likely that price diffusion through existing borders within the EU would take even more time given language barriers, different institutional frameworks, and information asymmetries between domestic and foreign market participants.",
+  "keywords": [
+    "Agricultural land markets",
+    "price diffusion",
+    "spatial dependence",
+    "border effect"
+  ],
+  "subject": [
+    "Q13",
+    "Q15"
+  ],
+  "in_language": "en",
+  "license": "Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/)",
+  "url": "https://doi.org/10.1080/00036846.2019.1673299",
+  "is_accessible_for_free": true,
+  "citation": "Aaron Grau, Martin Odening & Matthias Ritter (2020) Land price diffusion across borders – the case of Germany, Applied Economics, 52:50, 5446-5463, DOI: 10.1080/00036846.2019.1673299",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Land price transaction data",
+      "description": "Comprehensive dataset of sale transactions of arable land between 1994 and 2015 in Lower Saxony and Saxony-Anhalt.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Lower Saxony and Saxony-Anhalt, Germany",
+        "geo": {
+          "type": "GeoShape",
+          "box": "52.5200 13.4050 51.1657 10.4515"
+        },
+        "address_country": "DE"
+      },
+      "temporal_coverage": "1994/2015",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "price",
+          "name": "Price",
+          "description": "Price of arable land",
+          "unit_text": "€/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "size",
+          "name": "Size",
+          "description": "Size of the transferred plot",
+          "unit_text": "ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "soil_quality",
+          "name": "Soil quality",
+          "description": "Quality of the soil",
+          "unit_text": "Ackerzahl"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "",
+      "conditions_of_access": "Available through Oberer Gutachterausschuss für Grundstückswerte in Niedersachsen and Gutachterausschuss für Grundstückswerte in Sachsen-Anhalt.",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process focused on identifying and compiling comprehensive metadata for the scholarly article and any farmland-related datasets mentioned within the text. The article's bibliographic information was extracted, including authors, title, journal details, DOI, and publication date. The abstract and keywords were also noted. For datasets, the focus was on identifying any references to farmland transaction or market data, extracting details such as geographic and temporal coverage, variables, and access information. The confidence score reflects the completeness and clarity of the information provided in the text.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:40:02.403769",
+      "Model: gpt-4o",
+      "Content length: 65555 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:40:02.403895",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

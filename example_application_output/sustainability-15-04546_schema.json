@@ -1,0 +1,73 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Land Use Conflicts and Synergies on Agricultural Land in Brandenburg, Germany",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Martin Unger",
+      "affiliation": "Geography Department, Applied Geoinformation Science Lab, Humboldt-Universität zu Berlin",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Tobia Lakes",
+      "affiliation": "Geography Department, Applied Geoinformation Science Lab, Humboldt-Universität zu Berlin",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2023-03-03",
+  "publication_year": "2023",
+  "publisher": {
+    "type": "Organization",
+    "name": "MDPI"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Sustainability",
+    "issn": "",
+    "publisher": {
+      "type": "Organization",
+      "name": "MDPI"
+    }
+  },
+  "publication_volume": "15",
+  "publication_issue": "",
+  "page_start": "4546",
+  "page_end": "",
+  "pagination": "4546",
+  "identifier": "10.3390/su15054546",
+  "doi": "10.3390/su15054546",
+  "pmid": "",
+  "abstract": "The growing and multiple interests in land as a resource has led to an increase in locally or regionally clashing land use interests on agricultural land which may result in conflicts or open up possibilities for synergies. Urbanization, food production, renewable energy production, environmental protection, and climate protection are known as key land use interests in many regions. The objective of our study is to identify and map land use conflicts, land use synergies, and areas with land use synergy potentials in the federal state of Brandenburg, Germany. We have combined different methods: an analysis of statistical data, an online survey with farmers, a primary document analysis (articles, court documents, policy documents, position papers), and a GIS-based spatial analysis. In our Brandenburg case study, we have identified the use of agricultural land for renewable energy production and environmental protection as the most relevant land use interests leading to conflict situations. We show that land use synergies can make a significant contribution to achieving environmental and climate protection goals, as well as sustainable development. Through the site-adapted and targeted establishment of agroforestry systems, agricultural areas with agri-photovoltaic systems and agricultural parcels with integrated nonproductive areas may lead to land use synergies. Our study contributes to a better understanding of the occurrence of land use conflicts and land use synergies. We highlight the potential for targeted and sustainable environmental and climate protection through the promotion of land use synergies as a result of establishing agroforestry systems and agricultural parcels with agri-photovoltaic systems and integrated nonproductive areas. Our results provide a basis for agricultural policy to promote land use systems that contribute to environmental and climate protection.",
+  "keywords": [
+    "land use interests",
+    "land use",
+    "land use conflicts",
+    "land use synergies",
+    "agriculture",
+    "sustainable development"
+  ],
+  "subject": [],
+  "in_language": "en",
+  "license": "Creative Commons Attribution (CC BY)",
+  "url": "https://www.mdpi.com/journal/sustainability",
+  "is_accessible_for_free": true,
+  "citation": "Unger, M.; Lakes, T. Land Use Conflicts and Synergies on Agricultural Land in Brandenburg, Germany. Sustainability 2023, 15, 4546. https://doi.org/10.3390/su15054546",
+  "dataset": [],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information related to farmland. The article's title, authors, affiliations, abstract, keywords, and publication details were extracted directly from the text. The datasets mentioned in the article were analyzed to determine their relevance to farmland transactions or market data. Since the article primarily discusses land use conflicts and synergies, no specific farmland transaction datasets were identified. The confidence score reflects the completeness and accuracy of the extracted information.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:33:51.729255",
+      "Model: gpt-4o",
+      "Content length: 87994 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:33:51.729623",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

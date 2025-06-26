@@ -1,0 +1,161 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Revisiting the relationship between land price and parcel size in agriculture",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Matthias Ritter",
+      "affiliation": "Department of Agricultural Economics, Humboldt-Universität zu Berlin, Philippstr. 13, 10115 Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Silke Hüttel",
+      "affiliation": "Institute of Food and Resource Economics, University of Bonn, Meckenheimer Allee 174, 53115 Bonn, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Martin Odening",
+      "affiliation": "Department of Agricultural Economics, Humboldt-Universität zu Berlin, Philippstr. 13, 10115 Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Stefan Seifert",
+      "affiliation": "Institute of Food and Resource Economics, University of Bonn, Meckenheimer Allee 174, 53115 Bonn, Germany",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2020-06-02",
+  "publication_year": "2020",
+  "publisher": {
+    "type": "Organization",
+    "name": "Elsevier Ltd."
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Land Use Policy",
+    "issn": "0264-8377",
+    "publisher": {
+      "type": "Organization",
+      "name": "Elsevier Ltd."
+    }
+  },
+  "publication_volume": "97",
+  "publication_issue": "",
+  "page_start": "104771",
+  "page_end": "104771",
+  "pagination": "104771",
+  "identifier": "10.1016/j.landusepol.2020.104771",
+  "doi": "10.1016/j.landusepol.2020.104771",
+  "pmid": "",
+  "abstract": "Hedonic land price models often use parcel size as an explanatory variable. Empirical analyses, however, are rather ambiguous regarding the direction and the size of the effect of this variable on farmland values. The objective of this paper is to investigate this size–price relation for agricultural land use in detail and to derive recommendations for an appropriate specification of hedonic land price models. Our analysis consists of three steps. First, we conduct a meta-analysis based on a comprehensive literature review. Second, we analyze a dataset of more than 80,000 agricultural land transactions in Saxony-Anhalt, Germany, using the nonparametric locally weighted scatterplot smoothing (LOWESS) estimator. This unconditional smoothing algorithm identifies negative size–price relations for very small and large plots, whereas it finds a positive relation for medium plots. We use this finding in our third step, a hedonic land price model, in which the size–price relation is modeled conditional on land and buyer characteristics. From these steps, we conclude that the complex relationship between land price and plot size cannot be captured by a simple functional form since it is affected by several economic factors, such as economies of size, transaction costs, and financial constraints.",
+  "keywords": [
+    "Land prices",
+    "Parcel size",
+    "Hedonic model",
+    "LOWESS"
+  ],
+  "subject": [
+    "Agricultural Economics",
+    "Land Use Policy"
+  ],
+  "in_language": "en",
+  "license": "© 2020 Elsevier Ltd. All rights reserved.",
+  "url": "https://doi.org/10.1016/j.landusepol.2020.104771",
+  "is_accessible_for_free": false,
+  "citation": "Ritter, M., Hüttel, S., Odening, M., & Seifert, S. (2020). Revisiting the relationship between land price and parcel size in agriculture. Land Use Policy, 97, 104771. https://doi.org/10.1016/j.landusepol.2020.104771",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Saxony-Anhalt Land Transactions Dataset",
+      "description": "Dataset of more than 80,000 agricultural land transactions in Saxony-Anhalt, Germany, from 1994 to 2017, including price, size, soil quality, location, and type of land.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Saxony-Anhalt, Germany",
+        "geo": {
+          "type": "GeoShape",
+          "box": "51.9500 11.6920"
+        },
+        "address_country": "DE"
+      },
+      "temporal_coverage": "1994/2017",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "price",
+          "name": "Price",
+          "description": "Price per hectare of land",
+          "unit_text": "€/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "size",
+          "name": "Size",
+          "description": "Size of the land parcel",
+          "unit_text": "hectares"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "quality",
+          "name": "Quality",
+          "description": "Soil quality index points",
+          "unit_text": "index points"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "grassland",
+          "name": "Grassland",
+          "description": "Dummy variable indicating if the land is grassland",
+          "unit_text": "boolean"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "seller_bvvg",
+          "name": "Seller BVVG",
+          "description": "Dummy variable indicating if the seller is BVVG",
+          "unit_text": "boolean"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "lagged_price",
+          "name": "Lagged price",
+          "description": "Lagged price per hectare",
+          "unit_text": "€/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "buyer_non-farmer",
+          "name": "Buyer Non-Farmer",
+          "description": "Dummy variable indicating if the buyer is a non-farmer",
+          "unit_text": "boolean"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "Not specified",
+      "conditions_of_access": "Data provided by the Committee of Land Valuation Experts (Gutachterausschuss für Grundstückswerte in Sachsen-Anhalt)",
+      "identifier": "",
+      "encoding_format": "Not specified",
+      "content_size": "82,650 observations"
+    }
+  ],
+  "funding": "Financial support from the German Research Foundation (DFG) through Research Unit 2569 'Agricultural Land Markets – Efficiency and Regulation' (www.forland.hu-berlin.de) is gratefully acknowledged.",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying and compiling all relevant metadata from the provided text. The scholarly article's bibliographic details were extracted, including the title, authors, affiliations, journal name, volume, issue, pages, DOI, and publication dates. The abstract and keywords were also noted. For datasets, the focus was on farmland-related data, specifically land transactions in Saxony-Anhalt, Germany. The dataset's geographic and temporal coverage, along with variable descriptions, were detailed. The extraction confidence is high due to the completeness of the provided information.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:35:58.845646",
+      "Model: gpt-4o",
+      "Content length: 58856 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:35:58.845917",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

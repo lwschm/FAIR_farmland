@@ -1,0 +1,114 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "What Moves the German Land Market? A Decomposition of the Land Rent-Price Ratio",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Jana Plogmann",
+      "affiliation": "Georg-August-Universität Göttingen and Humboldt-Universität zu Berlin",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Oliver Mußhoff",
+      "affiliation": "Georg-August-Universität Göttingen",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Martin Odening",
+      "affiliation": "Humboldt-Universität zu Berlin",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Matthias Ritter",
+      "affiliation": "Humboldt-Universität zu Berlin",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2020-01-01",
+  "publication_year": "2020",
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "German Journal of Agricultural Economics (GJAE)",
+    "issn": ""
+  },
+  "publication_volume": "69",
+  "publication_issue": "1",
+  "page_start": "1",
+  "page_end": "11",
+  "pagination": "1-11",
+  "identifier": "",
+  "doi": "",
+  "pmid": "",
+  "abstract": "The price increases on agricultural land markets over the last decade have triggered a debate about land as an attractive investment opportunity for agricultural and non-agricultural investors. In a static environment, the rent-price ratio provides a first indicator of the profitability of an investment in land. In this paper, we apply the dynamic Gordon growth model to Western Germany and decompose the rent-price ratio into the expected present values of rental growth rates, real interest rates, and a land premium, i.e., the excess return on investment. This analysis reveals that the recent price surge on agricultural land markets was not unprecedented; that the land market rent-price ratio is rather low and varies considerably among federal states; and that (expected) premia for land are mostly negative. Finally, we find that changing expected present values of returns on land investments are the major driver for land price volatility.",
+  "keywords": [
+    "agricultural land market",
+    "rent-price ratio",
+    "Campbell-Shiller decomposition",
+    "dynamic Gordon growth model"
+  ],
+  "subject": [
+    "Agricultural Economics",
+    "Land Market Analysis"
+  ],
+  "in_language": "en",
+  "license": "",
+  "url": "",
+  "is_accessible_for_free": false,
+  "citation": "Plogmann, J., Mußhoff, O., Odening, M., & Ritter, M. (2020). What Moves the German Land Market? A Decomposition of the Land Rent-Price Ratio. German Journal of Agricultural Economics (GJAE), 69(1), 1-11.",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "German Agricultural Land Market Data",
+      "description": "Data on sales and rental prices of agricultural land in Western Germany from 1975-2016.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Western Germany",
+        "address_country": "DE"
+      },
+      "temporal_coverage": "1975/2016",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "sales_price",
+          "name": "Sales Price",
+          "description": "Nominal and real sales prices of agricultural land",
+          "unit_text": "Euros per hectare"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "rental_price",
+          "name": "Rental Price",
+          "description": "Nominal and real rental prices of agricultural land",
+          "unit_text": "Euros per hectare"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "",
+      "conditions_of_access": "Data extracted from Statistisches Jahrbuch published by Statistisches Bundesamt.",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information related to farmland transactions. The article's title, authors, affiliations, and abstract were clearly stated, allowing for accurate extraction. The journal name, volume, issue, and page numbers were also explicitly mentioned. However, specific dataset details such as geographic coordinates, temporal coverage, and variable descriptions were not provided in the text, so these fields are marked as empty or null. The confidence score reflects the completeness of the available information.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:32:53.041007",
+      "Model: gpt-4o",
+      "Content length: 67758 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:32:53.041333",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

@@ -107,6 +107,16 @@ output_20241214_143022/
 └── processing_summary.json         # Processing summary and statistics
 ```
 
+### 📋 Example Output Available
+
+The repository includes `example_application_output/` containing **22 real Schema.org JSON-LD files** generated from processing farmland research papers. These serve as:
+- **Quality examples** of the tool's output
+- **Schema.org compliance references**
+- **Integration testing data**
+- **Validation benchmarks**
+
+See `example_application_output/README.md` for details.
+
 ### Example Schema.org Output
 
 ```json

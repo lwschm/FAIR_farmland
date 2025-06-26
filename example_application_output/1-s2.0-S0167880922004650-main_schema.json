@@ -1,0 +1,93 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Multi-objective spatial optimization to balance trade-offs between farmland bird diversity and potential agricultural net returns",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Maximilian Wesemeyer",
+      "affiliation": "Geography Department, Humboldt-Universität zu Berlin, Unter den Linden 6, 10099 Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Johannes Kamp",
+      "affiliation": "Dachverband Deutscher Avifaunisten (DDA), An den Speichern 2, 48157 Münster, Germany; Department of Conservation Biology, University of Göttingen, Bürgerstr. 50, 37073 Göttingen, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Tillman Schmitz",
+      "affiliation": "Geography Department, Humboldt-Universität zu Berlin, Unter den Linden 6, 10099 Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Daniel Müller",
+      "affiliation": "Geography Department, Humboldt-Universität zu Berlin, Unter den Linden 6, 10099 Berlin, Germany; Leibniz Institute of Agricultural Development in Transition Economies (IAMO), Theodor-Lieser-Str. 2, 06120 Halle (Saale), Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Tobia Lakes",
+      "affiliation": "Geography Department, Humboldt-Universität zu Berlin, Unter den Linden 6, 10099 Berlin, Germany; Integrative Research Institute on Transformations of Human-Environment Systems (IRI THESys), Humboldt-Universität zu Berlin, Unter den Linden 6, 10099 Berlin, Germany",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2023-01-01",
+  "publication_year": "2023",
+  "publisher": {
+    "type": "Organization",
+    "name": "Elsevier"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Agriculture, Ecosystems and Environment",
+    "issn": "0167-8809",
+    "publisher": {
+      "type": "Organization",
+      "name": "Elsevier"
+    }
+  },
+  "publication_volume": "345",
+  "publication_issue": "",
+  "page_start": "108316",
+  "page_end": "108316",
+  "pagination": "108316",
+  "identifier": "10.1016/j.agee.2022.108316",
+  "doi": "10.1016/j.agee.2022.108316",
+  "pmid": "",
+  "abstract": "Global farmland biodiversity has declined rapidly in recent decades due to the homogenization of agricultural landscapes, including an increase in field sizes and decrease in woody features, such as hedgerows. Restructuring landscapes by (re)introducing woody features and decreasing field sizes can support biodiversity but at the cost of lower returns in farming. Striking a balance between biodiversity and agricultural net returns is increasingly pertinent. Here, we use spatial multi-objective optimization to allocate woody features and adapt average field sizes at the landscape scale to assess the trade-off between biodiversity, measured as the occurrence of farmland birds, and potential net returns from crop production. Our results suggest that, compared to the current landscape configuration, both agricultural net returns and biodiversity can be simultaneously increased. Restructuring only 5% of the landscape can improve bird abundance by 2% and generate about €2 million in agricultural net returns. We show that increases in farmland bird diversity are highly dependent on the location and on farmers’ willingness to accept negative impacts on agricultural net returns. Our spatially explicit approach supports spatially targeted land use planning that can strike a better balance between the economic objectives of farmers and the societal desire to conserve biodiversity.",
+  "keywords": [
+    "Linear programming",
+    "Field size",
+    "Hedgerows",
+    "Win-win solutions",
+    "Trade-offs"
+  ],
+  "subject": [
+    "Agricultural Sciences",
+    "Environmental Sciences"
+  ],
+  "in_language": "en",
+  "license": "CC BY-NC-ND",
+  "url": "https://www.elsevier.com/locate/agee",
+  "is_accessible_for_free": true,
+  "citation": "Wesemeyer, M., Kamp, J., Schmitz, T., Müller, D., & Lakes, T. (2023). Multi-objective spatial optimization to balance trade-offs between farmland bird diversity and potential agricultural net returns. Agriculture, Ecosystems and Environment, 345, 108316. https://doi.org/10.1016/j.agee.2022.108316",
+  "dataset": [],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on the scholarly article's bibliographic details and any datasets related to farmland. The article's metadata was extracted based on standard bibliographic fields such as title, authors, journal, volume, issue, pages, DOI, and abstract. The dataset extraction focused on identifying any mention of farmland-related data, but none were explicitly described in the text. Therefore, no farmland datasets were extracted. The confidence in the extraction is high due to the structured nature of the provided content.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:38:19.830922",
+      "Model: gpt-4o",
+      "Content length: 64270 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:38:19.831202",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

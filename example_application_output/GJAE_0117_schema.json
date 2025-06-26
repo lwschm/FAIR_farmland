@@ -1,0 +1,142 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Market Power in Agricultural Land Markets: Concepts and Empirical Challenges",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Alfons Balmann",
+      "affiliation": "IAMO, Halle (Saale)",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Marten Graubner",
+      "affiliation": "IAMO, Halle (Saale)",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Daniel Müller",
+      "affiliation": "IAMO, Halle (Saale)",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Silke Hüttel",
+      "affiliation": "Universität Bonn",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Stefan Seifert",
+      "affiliation": "Universität Bonn",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Martin Odening",
+      "affiliation": "Humboldt-Universität zu Berlin",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Jana Plogmann",
+      "affiliation": "Humboldt-Universität zu Berlin",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Matthias Ritter",
+      "affiliation": "Humboldt-Universität zu Berlin",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2021-01-01",
+  "publication_year": "2021",
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "German Journal of Agricultural Economics (GJAE)",
+    "issn": ""
+  },
+  "publication_volume": "70",
+  "publication_issue": "4",
+  "page_start": "213",
+  "page_end": "218",
+  "pagination": "213-218",
+  "identifier": "10.30430/gjae.2021.0117",
+  "doi": "10.30430/gjae.2021.0117",
+  "pmid": "",
+  "abstract": "This paper provides a review about challenges and opportunities to assess and quantify market power in agricultural land markets. Measuring land market power is challenging because the characteristics of this production factor hinder the direct application of familiar concepts from commodity markets. The study uses a case study for the Federal State of Brandenburg in Germany to illustrate these challenges.",
+  "keywords": [
+    "market power",
+    "bargaining power",
+    "concentration",
+    "land markets"
+  ],
+  "subject": [
+    "Agricultural Economics",
+    "Land Use"
+  ],
+  "in_language": "en",
+  "license": "",
+  "url": "",
+  "is_accessible_for_free": false,
+  "citation": "Balmann, A., Graubner, M., Müller, D., Hüttel, S., Seifert, S., Odening, M., Plogmann, J., & Ritter, M. (2021). Market Power in Agricultural Land Markets: Concepts and Empirical Challenges. German Journal of Agricultural Economics (GJAE), 70(4), 213-218. https://doi.org/10.30430/gjae.2021.0117",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Brandenburg Land Market Data",
+      "description": "Empirical analysis of land sales and market power in the Federal State of Brandenburg, Germany.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Brandenburg, Germany",
+        "geo": {
+          "type": "GeoShape",
+          "box": "52.5200 13.4050"
+        },
+        "address_country": "DE"
+      },
+      "temporal_coverage": "2010/2020",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "land_use_concentration",
+          "name": "land use concentration",
+          "description": "Degree of land use concentration in the region",
+          "unit_text": "percentage"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "farmland_prices",
+          "name": "farmland prices",
+          "description": "Prices of farmland transactions",
+          "unit_text": "EUR/ha"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "Not specified",
+      "conditions_of_access": "Not specified",
+      "identifier": "Not specified",
+      "encoding_format": "Not specified",
+      "content_size": "Not specified"
+    }
+  ],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information related to farmland markets. The article's title, authors, affiliations, and abstract were clearly stated, allowing for accurate extraction. The DOI was explicitly mentioned, ensuring precise identification of the article. The abstract provided insights into the study's focus on market power in agricultural land markets, which guided the identification of relevant datasets. However, specific datasets were not detailed in the text, so dataset metadata is limited to the general description of the study's empirical focus on Brandenburg, Germany.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:37:56.444501",
+      "Model: gpt-4o",
+      "Content length: 108888 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:37:56.444719",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

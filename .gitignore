@@ -27,3 +27,8 @@ secrets.toml
 /data/input/md_papers/*.md
 
 *.pdf
+
+# Preserve example application output (important technical documentation)
+!example_application_output/
+!example_application_output/*.json
+!example_application_output/README.md

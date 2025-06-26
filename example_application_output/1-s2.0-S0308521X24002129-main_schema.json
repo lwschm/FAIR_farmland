@@ -1,0 +1,125 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Eco-efficiency in the agricultural landscape of North Rhine-Westphalia, Germany",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Stefan Seifert",
+      "affiliation": "University of Göttingen, Department of Agricultural Economics and Rural Development, Platz der Göttinger Sieben 5, 37073 Göttingen, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Saskia Wolff",
+      "affiliation": "Humboldt-Universität Berlin, Unter den Linden 6, 10099 Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Silke Hüttel",
+      "affiliation": "University of Bonn, Faculty of Agriculture, Meckenheimer Allee 174, 53115 Bonn, Germany",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2024-07-18",
+  "publication_year": "2024",
+  "publisher": {
+    "type": "Organization",
+    "name": "Elsevier Ltd."
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Agricultural Systems",
+    "issn": "0308-521X",
+    "publisher": {
+      "type": "Organization",
+      "name": "Elsevier Ltd."
+    }
+  },
+  "publication_volume": "220",
+  "publication_issue": "",
+  "page_start": "104062",
+  "page_end": "104062",
+  "pagination": "104062",
+  "identifier": "10.1016/j.agsy.2024.104062",
+  "doi": "10.1016/j.agsy.2024.104062",
+  "pmid": "",
+  "abstract": "The study investigates the eco-efficiency of agricultural landscapes in North Rhine-Westphalia, Germany, using spatially explicit data to analyze ecosystem functionality and economic output. The research identifies improvement potentials in ecological dimensions and suggests policy applications.",
+  "keywords": [
+    "Agricultural landscapes",
+    "Eco-efficiency",
+    "Improvement potentials",
+    "Ecosystem services",
+    "IACS data",
+    "Spatial patterns"
+  ],
+  "subject": [
+    "Agricultural Economics",
+    "Environmental Science"
+  ],
+  "in_language": "en",
+  "license": "CC BY 4.0",
+  "url": "https://doi.org/10.1016/j.agsy.2024.104062",
+  "is_accessible_for_free": true,
+  "citation": "Seifert, S., Wolff, S., & Hüttel, S. (2024). Eco-efficiency in the agricultural landscape of North Rhine-Westphalia, Germany. Agricultural Systems, 220, 104062. https://doi.org/10.1016/j.agsy.2024.104062",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Integrated Administration and Control System (IACS) Data",
+      "description": "Spatially explicit land cover data used to describe landscape composition and configuration in North Rhine-Westphalia, Germany.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "North Rhine-Westphalia, Germany",
+        "address_country": "DE"
+      },
+      "temporal_coverage": "2019/2019",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "land_use",
+          "name": "Land use",
+          "description": "Type of land use (arable/grassland)",
+          "unit_text": ""
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "crop_choice",
+          "name": "Crop choice",
+          "description": "Type of crops grown",
+          "unit_text": ""
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "ecological_focus_areas",
+          "name": "Ecological focus areas",
+          "description": "Types of ecological focus areas",
+          "unit_text": ""
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "Not specified",
+      "conditions_of_access": "Publicly available data",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information relevant to farmland research. The article's metadata was extracted based on standard scholarly publication elements, while the dataset information was derived from the description of the study's methodology and data sources. The confidence in extraction is high due to the detailed information provided in the text, allowing for accurate metadata compilation.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:38:46.619697",
+      "Model: gpt-4o",
+      "Content length: 106400 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:38:46.620014",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Farmland values and bidder behaviour in first-price land auctions",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Carsten Croonenbroeck",
+      "affiliation": "University of Rostock, Agricultural Economics Group, Rostock",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Martin Odening",
+      "affiliation": "Humboldt-Universität zu Berlin, Department of Agricultural Economics, Berlin",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Silke Hüttel",
+      "affiliation": "Rheinische Friedrich-Wilhelms-Universität Bonn, Institute of Food and Resource Economics, Production Economics Group, Bonn",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2020-05-13",
+  "publication_year": "2020",
+  "publisher": {
+    "type": "Organization",
+    "name": "Oxford University Press and Foundation for the European Review of Agricultural Economics"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "European Review of Agricultural Economics",
+    "issn": "",
+    "publisher": {
+      "type": "Organization",
+      "name": "Oxford University Press and Foundation for the European Review of Agricultural Economics"
+    }
+  },
+  "publication_volume": "47",
+  "publication_issue": "2",
+  "page_start": "558",
+  "page_end": "590",
+  "pagination": "558-590",
+  "identifier": "10.1093/erae/jbz025",
+  "doi": "10.1093/erae/jbz025",
+  "pmid": "",
+  "abstract": "We investigate potential asymmetries among bidders in land auctions that may entail market inefficiencies. Using representative data for eastern Germany including winning bids, bidder characteristics and land amenities, we pursue a structural approach to derive distributions of latent land values for different bidder groups. By applying non-parametric techniques, we cannot find evidence for distinct asymmetries while differentiating between legal entities, tenancy status and nationality of bidders. Our findings challenge the hypothesis that land privatisation via auctions discriminates against certain buyer groups – an argument that is often used to justify stricter regulation of agricultural land markets.",
+  "keywords": [
+    "first-price sealed bid land auctions",
+    "structural estimation",
+    "buyer heterogeneity"
+  ],
+  "subject": [
+    "C57",
+    "D44",
+    "Q12",
+    "Q15"
+  ],
+  "in_language": "en",
+  "license": "All rights reserved",
+  "url": "",
+  "is_accessible_for_free": false,
+  "citation": "Croonenbroeck, C., Odening, M., & Hüttel, S. (2020). Farmland values and bidder behaviour in first-price land auctions. European Review of Agricultural Economics, 47(2), 558-590. doi:10.1093/erae/jbz025",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "BVVG Auction Data",
+      "description": "Data from the major land privatising agency in Eastern Germany (Bodenverwertungs- und -verwaltungs GmbH) over the period 2007–2015, including winning bids, bidder characteristics, and land amenities.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Eastern Germany",
+        "address_country": "DE"
+      },
+      "temporal_coverage": "2007/2015",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "winning_bid",
+          "name": "Winning bid",
+          "description": "The final bid amount for the land auction",
+          "unit_text": "Euros per square metre"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "number_of_bids",
+          "name": "Number of bids",
+          "description": "Total number of bids placed in the auction",
+          "unit_text": "count"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "distance_buyer_to_plot",
+          "name": "Distance buyer to plot",
+          "description": "Distance from the buyer's location to the land plot",
+          "unit_text": "kilometres"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "lot_size",
+          "name": "Lot size",
+          "description": "Size of the land plot",
+          "unit_text": "hectares"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "share_arable_land",
+          "name": "Share arable land",
+          "description": "Proportion of the land that is arable",
+          "unit_text": "percentage"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "average_soil_quality_index",
+          "name": "Average soil quality index",
+          "description": "Index measuring the quality of the soil",
+          "unit_text": "points"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "number_of_parcels",
+          "name": "Number of parcels",
+          "description": "Number of parcels in the auctioned lot",
+          "unit_text": "count"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "Not specified",
+      "conditions_of_access": "Data access not specified",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information relevant to farmland research. The article's metadata was extracted based on standard academic citation formats, while dataset details were inferred from the context of the study, which involved land auctions in Eastern Germany. The confidence in extraction is high due to the structured nature of the source text, which clearly delineates authorship, publication details, and research focus.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:35:18.948806",
+      "Model: gpt-4o",
+      "Content length: 96199 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:35:18.949124",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

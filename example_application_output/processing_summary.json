@@ -1,0 +1,342 @@
+{
+  "processing_summary": {
+    "total_files": 22,
+    "successful_files": 22,
+    "failed_files": 0,
+    "pdfs_converted": 0,
+    "markdowns_processed": 22,
+    "total_datasets_found": 18,
+    "processing_duration_seconds": 609.171104,
+    "average_confidence": 0.9454545454545452,
+    "output_directory": "example_application_output"
+  },
+  "successful_extractions": [
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/108.full.md",
+      "output_file": "example_application_output/108.full_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "The Spatial and Temporal Diffusion of Agricultural Land Prices",
+      "authors": [
+        "Xinyue Yang",
+        "Martin Odening",
+        "Matthias Ritter"
+      ],
+      "processing_time": "2025-06-26T18:32:27.899968"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/810_org.md",
+      "output_file": "example_application_output/810_org_schema.json",
+      "extraction_confidence": 0.9,
+      "datasets_found": 1,
+      "article_title": "What Moves the German Land Market? A Decomposition of the Land Rent-Price Ratio",
+      "authors": [
+        "Jana Plogmann",
+        "Oliver Mußhoff",
+        "Martin Odening",
+        "Matthias Ritter"
+      ],
+      "processing_time": "2025-06-26T18:32:53.042480"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/Optimal reserve prices for land auctions in Eastern Germany.md",
+      "output_file": "example_application_output/Optimal reserve prices for land auctions in Eastern Germany_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "Optimal reserve prices for land auctions in Eastern Germany",
+      "authors": [
+        "Marlene Kionka",
+        "Oliver Mußhoff",
+        "Matthias Ritter",
+        "Jan-Philip Rado Uhlemann",
+        "Martin Odening"
+      ],
+      "processing_time": "2025-06-26T18:33:24.091052"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/sustainability-15-04546.md",
+      "output_file": "example_application_output/sustainability-15-04546_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 0,
+      "article_title": "Land Use Conflicts and Synergies on Agricultural Land in Brandenburg, Germany",
+      "authors": [
+        "Martin Unger",
+        "Tobia Lakes"
+      ],
+      "processing_time": "2025-06-26T18:33:51.730952"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/jbaf001.md",
+      "output_file": "example_application_output/jbaf001_schema.json",
+      "extraction_confidence": 0.9,
+      "datasets_found": 0,
+      "article_title": "Experimental evidence of bargaining power in agricultural land markets",
+      "authors": [
+        "Marlene Kionka",
+        "Todd Kuethe",
+        "Oliver Mußhoff",
+        "Matthias Ritter",
+        "Martin Odening"
+      ],
+      "processing_time": "2025-06-26T18:34:12.288441"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/1-s2.0-S0264837721000661-main.md",
+      "output_file": "example_application_output/1-s2.0-S0264837721000661-main_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "On the effectiveness of restricted tendering as a form of policy intervention on agricultural land markets",
+      "authors": [
+        "Cord-Friedrich von Hobe",
+        "Oliver Musshoff"
+      ],
+      "processing_time": "2025-06-26T18:34:46.379376"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/jbz025.md",
+      "output_file": "example_application_output/jbz025_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "Farmland values and bidder behaviour in first-price land auctions",
+      "authors": [
+        "Carsten Croonenbroeck",
+        "Martin Odening",
+        "Silke Hüttel"
+      ],
+      "processing_time": "2025-06-26T18:35:18.950593"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/1-s2.0-S0264837719304302-main.md",
+      "output_file": "example_application_output/1-s2.0-S0264837719304302-main_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "Revisiting the relationship between land price and parcel size in agriculture",
+      "authors": [
+        "Matthias Ritter",
+        "Silke Hüttel",
+        "Martin Odening",
+        "Stefan Seifert"
+      ],
+      "processing_time": "2025-06-26T18:35:58.847061"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/American J Agri Economics - 2020 - Seifert - Price Dispersion in Farmland Markets  What Is the Role of Asymmetric.md",
+      "output_file": "example_application_output/American J Agri Economics - 2020 - Seifert - Price Dispersion in Farmland Markets  What Is the Role of Asymmetric_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "Price Dispersion in Farmland Markets: What Is the Role of Asymmetric Information?",
+      "authors": [
+        "Stefan Seifert",
+        "Christoph Kahle",
+        "Silke Hüttel"
+      ],
+      "processing_time": "2025-06-26T18:36:25.303191"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/J Agricultural Economics - 2022 - Appel - Predator or prey  Effects of farm growth on neighbouring farms.md",
+      "output_file": "example_application_output/J Agricultural Economics - 2022 - Appel - Predator or prey  Effects of farm growth on neighbouring farms_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "Predator or prey? Effects of farm growth on neighbouring farms",
+      "authors": [
+        "Franziska Appel",
+        "Alfons Balmann"
+      ],
+      "processing_time": "2025-06-26T18:36:45.545829"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/865_org.md",
+      "output_file": "example_application_output/865_org_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 0,
+      "article_title": "Public Preferences for Pasture Landscapes and the Role of Scale Heterogeneity",
+      "authors": [
+        "Henning Schaak",
+        "Oliver Mußhoff"
+      ],
+      "processing_time": "2025-06-26T18:37:02.649683"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/1-s2.0-S0264999322002814-main.md",
+      "output_file": "example_application_output/1-s2.0-S0264999322002814-main_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "Farmland sales under returns and price uncertainty",
+      "authors": [
+        "Jana Plogmann",
+        "Oliver Mußhoff",
+        "Martin Odening",
+        "Matthias Ritter"
+      ],
+      "processing_time": "2025-06-26T18:37:30.704656"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/GJAE_0117.md",
+      "output_file": "example_application_output/GJAE_0117_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 0,
+      "article_title": "Market Power in Agricultural Land Markets: Concepts and Empirical Challenges",
+      "authors": [
+        "Alfons Balmann",
+        "Marten Graubner",
+        "Daniel Müller",
+        "Silke Hüttel",
+        "Stefan Seifert",
+        "Martin Odening",
+        "Jana Plogmann",
+        "Matthias Ritter"
+      ],
+      "processing_time": "2025-06-26T18:37:56.445579"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/1-s2.0-S0167880922004650-main.md",
+      "output_file": "example_application_output/1-s2.0-S0167880922004650-main_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 0,
+      "article_title": "Multi-objective spatial optimization to balance trade-offs between farmland bird diversity and potential agricultural net returns",
+      "authors": [
+        "Maximilian Wesemeyer",
+        "Johannes Kamp",
+        "Tillman Schmitz",
+        "Daniel Müller",
+        "Tobia Lakes"
+      ],
+      "processing_time": "2025-06-26T18:38:19.832561"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/1-s2.0-S0308521X24002129-main.md",
+      "output_file": "example_application_output/1-s2.0-S0308521X24002129-main_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 0,
+      "article_title": "Eco-efficiency in the agricultural landscape of North Rhine-Westphalia, Germany",
+      "authors": [
+        "Stefan Seifert",
+        "Saskia Wolff",
+        "Silke Hüttel"
+      ],
+      "processing_time": "2025-06-26T18:38:46.621398"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/qoac017.md",
+      "output_file": "example_application_output/qoac017_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "Revisiting the relationship between farmland prices and soil quality",
+      "authors": [
+        "Luise Meissner",
+        "Oliver Musshoff"
+      ],
+      "processing_time": "2025-06-26T18:39:09.096287"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/jbab052.md",
+      "output_file": "example_application_output/jbab052_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "The distribution of the rent–price relationship of agricultural land in Germany",
+      "authors": [
+        "Henning Schaak",
+        "Oliver Musshoff"
+      ],
+      "processing_time": "2025-06-26T18:39:34.122038"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/Land price diffusion across borders   the case of Germany.md",
+      "output_file": "example_application_output/Land price diffusion across borders   the case of Germany_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "Land price diffusion across borders – the case of Germany",
+      "authors": [
+        "Aaron Grau",
+        "Martin Odening",
+        "Matthias Ritter"
+      ],
+      "processing_time": "2025-06-26T18:40:02.404354"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/10-1108_afr-03-2021-0037.md",
+      "output_file": "example_application_output/10-1108_afr-03-2021-0037_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "Measuring liquidity in agricultural land markets",
+      "authors": [
+        "Marlene Kionka",
+        "Martin Odening",
+        "Jana Plogmann",
+        "Matthias Ritter"
+      ],
+      "processing_time": "2025-06-26T18:40:28.395332"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/jbad002.md",
+      "output_file": "example_application_output/jbad002_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "Is there a risk of a winner’s curse in farmland auctions?",
+      "authors": [
+        "Stefan Seifert",
+        "Silke Hüttel"
+      ],
+      "processing_time": "2025-06-26T18:40:56.926534"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/1-s2.0-S0264837722000631-main.md",
+      "output_file": "example_application_output/1-s2.0-S0264837722000631-main_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 1,
+      "article_title": "Farm growth and land concentration",
+      "authors": [
+        "Jana Plogmann",
+        "Oliver Mußhoff",
+        "Martin Odening",
+        "Matthias Ritter"
+      ],
+      "processing_time": "2025-06-26T18:41:25.792336"
+    },
+    {
+      "status": "success",
+      "input_file": "data/input/md_papers/Applied Eco Perspectives Pol - 2023 - Schaak - New insights on regional differences of the farmland price structure  An (1).md",
+      "output_file": "example_application_output/Applied Eco Perspectives Pol - 2023 - Schaak - New insights on regional differences of the farmland price structure  An (1)_schema.json",
+      "extraction_confidence": 0.95,
+      "datasets_found": 3,
+      "article_title": "New insights on regional differences of the farmland price structure: An extended replication study on the parcel size–price relationship",
+      "authors": [
+        "Henning Schaak",
+        "Luise Meissner",
+        "Oliver Musshoff"
+      ],
+      "processing_time": "2025-06-26T18:42:11.448511"
+    }
+  ],
+  "failed_extractions": [],
+  "detailed_stats": {
+    "files_processed": 22,
+    "files_failed": 0,
+    "pdfs_converted": 0,
+    "markdowns_processed": 22,
+    "total_datasets_found": 18,
+    "processing_start_time": "2025-06-26 18:32:02.277811",
+    "processing_end_time": "2025-06-26 18:42:11.448915"
+  }
+}

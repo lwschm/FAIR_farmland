@@ -1,0 +1,67 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Public Preferences for Pasture Landscapes and the Role of Scale Heterogeneity",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Henning Schaak",
+      "affiliation": "Swedish University of Agricultural Sciences, Uppsala, Sweden",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Oliver Mußhoff",
+      "affiliation": "University of Goettingen, Germany",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2021-01-01",
+  "publication_year": "2021",
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "German Journal of Agricultural Economics (GJAE)",
+    "issn": ""
+  },
+  "publication_volume": "70",
+  "publication_issue": "3",
+  "page_start": "182",
+  "page_end": "191",
+  "pagination": "182-191",
+  "identifier": "10.30430/70.2021.3.182-191",
+  "doi": "10.30430/70.2021.3.182-191",
+  "pmid": "",
+  "abstract": "The paper investigates the influence of different model specifications for interpreting the results of discrete choice experiments when investigating heterogeneous public landscape preferences. Comparing model specifications based on the Mixed Multinomial Logit and the Generalized Multinomial Logit Model reveals that the parameter estimates appear qualitatively comparable. Still, a more in-depth investigation of the conditional estimate distributions of the sample show that parameter interactions in the Generalized Multinomial Logit Model lead to different interpretations compared to the Mixed Multinomial Logit Model. This highlights the potential impact of common model specifications in the results in landscape preference studies.",
+  "keywords": [
+    "discrete choice experiment",
+    "public landscape preferences",
+    "livestock",
+    "Mixed Multinomial Logit Model",
+    "Generalized Multinomial Mixed Logit Model"
+  ],
+  "subject": [
+    "Agricultural Economics",
+    "Landscape Studies"
+  ],
+  "in_language": "en",
+  "license": "",
+  "url": "",
+  "is_accessible_for_free": false,
+  "citation": "Schaak, H., & Mußhoff, O. (2021). Public Preferences for Pasture Landscapes and the Role of Scale Heterogeneity. German Journal of Agricultural Economics (GJAE), 70(3), 182-191. https://doi.org/10.30430/70.2021.3.182-191",
+  "dataset": [],
+  "funding": "Henning Schaak acknowledges financial support from the Ministry for Science and Culture of Lower Saxony (MWK). Oliver Musshoff acknowledges financial support from the German Research Foundation (DFG).",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information. The article's title, authors, affiliations, abstract, keywords, and publication details were extracted directly from the text. No specific farmland datasets were mentioned, so that section remains empty. The confidence score reflects the completeness and clarity of the provided information.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:37:02.648390",
+      "Model: gpt-4o",
+      "Content length: 43733 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:37:02.648700",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

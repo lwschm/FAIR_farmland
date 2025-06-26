@@ -1,0 +1,131 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Is there a risk of a winner’s curse in farmland auctions?",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Stefan Seifert",
+      "affiliation": "Department of Agricultural Economics and Rural Development, Agriculture and Food Business Management, University of Göttingen, Göttingen, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Silke Hüttel",
+      "affiliation": "Department of Agricultural Economics and Rural Development, Agriculture and Food Business Management, University of Göttingen, Göttingen, Germany",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2023-02-08",
+  "publication_year": "2023",
+  "publisher": {
+    "type": "Organization",
+    "name": "Oxford University Press on behalf of the Foundation for the European Review of Agricultural Economics"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "European Review of Agricultural Economics",
+    "issn": "",
+    "publisher": {
+      "type": "Organization",
+      "name": "Oxford University Press on behalf of the Foundation for the European Review of Agricultural Economics"
+    }
+  },
+  "publication_volume": "50",
+  "publication_issue": "3",
+  "page_start": "1140",
+  "page_end": "1177",
+  "pagination": "1140-1177",
+  "identifier": "https://doi.org/10.1093/erae/jbad002",
+  "doi": "https://doi.org/10.1093/erae/jbad002",
+  "pmid": "",
+  "abstract": "We test the assumption that bidders in farmland auctions have private valuations, a necessary condition for auction efficiency. We apply the test of Haile et al. (2003) to farmland auctions in Eastern Germany covering the price boom 2007–2020. To disentangle valuations from observed and unobserved heterogeneity, we develop a new approach relying on professional appraisals of the land. Based on our rich identification strategy, validation and robustness checks, we reject pure private valuations. We conclude that the presence of a common value in bidders’ valuations is very likely resulting in potentially inefficient land privatisation auctions and a winner’s curse.",
+  "keywords": [
+    "farmland auctions",
+    "common values",
+    "unobserved heterogeneity"
+  ],
+  "subject": [
+    "C57",
+    "D44",
+    "Q12"
+  ],
+  "in_language": "en",
+  "license": "Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/)",
+  "url": "",
+  "is_accessible_for_free": true,
+  "citation": "Seifert, S., & Hüttel, S. (2023). Is there a risk of a winner’s curse in farmland auctions? European Review of Agricultural Economics, 50(3), 1140–1177. https://doi.org/10.1093/erae/jbad002",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Farmland Auctions in Eastern Germany",
+      "description": "A dataset of 9,754 first-price sealed-bid farmland privatisation auctions conducted in eastern Germany between 2007 and 2020.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Eastern Germany",
+        "address_country": "DE"
+      },
+      "temporal_coverage": "2007/2020",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "winning_bid",
+          "name": "Winning Bid",
+          "description": "The highest bid in the auction",
+          "unit_text": "EUR/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "number_of_bids",
+          "name": "Number of Bids",
+          "description": "Total number of bids received for the auction",
+          "unit_text": "count"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "appraisal_value",
+          "name": "Appraisal Value",
+          "description": "Estimated value of the land by experts",
+          "unit_text": "EUR/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "lot_size",
+          "name": "Lot Size",
+          "description": "Size of the auctioned land",
+          "unit_text": "ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "soil_quality",
+          "name": "Soil Quality",
+          "description": "Index of soil quality",
+          "unit_text": "index"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "",
+      "conditions_of_access": "Data is not publicly accessible; used for research purposes in the study.",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying and compiling all relevant metadata from the provided scholarly article text. The focus was on farmland-related datasets, ensuring that all bibliographic details were captured accurately. The article's metadata was extracted based on standard academic citation formats, and the dataset information was detailed according to the instructions, emphasizing farmland auctions and related data. The confidence in the extraction is high due to the clear presentation of information in the source text.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:40:56.924982",
+      "Model: gpt-4o",
+      "Content length: 106293 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:40:56.925326",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

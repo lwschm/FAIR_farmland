@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "The Spatial and Temporal Diffusion of Agricultural Land Prices",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Xinyue Yang",
+      "affiliation": "Humboldt-Universität zu Berlin, Faculty of Life Sciences, Department of Agricultural Economics, Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Martin Odening",
+      "affiliation": "Humboldt-Universität zu Berlin, Faculty of Life Sciences, Department of Agricultural Economics, Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Matthias Ritter",
+      "affiliation": "Humboldt-Universität zu Berlin, Faculty of Life Sciences, Department of Agricultural Economics, Berlin, Germany",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2019-02-01",
+  "publication_year": "2019",
+  "publisher": {
+    "type": "Organization",
+    "name": "University of Wisconsin System"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Land Economics",
+    "issn": "0023-7639",
+    "publisher": {
+      "type": "Organization",
+      "name": "University of Wisconsin System"
+    }
+  },
+  "publication_volume": "95",
+  "publication_issue": "1",
+  "page_start": "108",
+  "page_end": "123",
+  "pagination": "108-123",
+  "identifier": "",
+  "doi": "",
+  "pmid": "",
+  "abstract": "In the last decade, many parts of the world experienced severe increases in agricultural land prices. This price surge, however, did not take place evenly in space and time. To better understand the spatial and temporal behavior of land prices, we employ a price diffusion model that combines features of market integration models and spatial econometric models. An application of this model to farmland prices in Germany shows that prices on a county-level are cointegrated. Apart from convergence toward a long-run equilibrium, we find that price transmission experiences short-term adjustments caused by neighboring regions.",
+  "keywords": [
+    "agricultural land prices",
+    "price diffusion model",
+    "spatial econometrics",
+    "Germany",
+    "farmland market"
+  ],
+  "subject": [
+    "Agricultural Economics",
+    "Land Use",
+    "Spatial Analysis"
+  ],
+  "in_language": "en",
+  "license": "© 2019 by the Board of Regents of the University of Wisconsin System",
+  "url": "http://le.uwpress.org",
+  "is_accessible_for_free": false,
+  "citation": "Yang, X., Odening, M., & Ritter, M. (2019). The Spatial and Temporal Diffusion of Agricultural Land Prices. Land Economics, 95(1), 108-123.",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Farmland Prices in Lower Saxony, Germany",
+      "description": "Dataset of farmland sale transactions in Lower Saxony, Germany, from 1985 to 2015, including price, soil quality, and plot size.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Lower Saxony, Germany",
+        "geo": {
+          "type": "GeoShape",
+          "box": "52.6367 9.8451 53.7483 7.1925"
+        },
+        "address_country": "DE"
+      },
+      "temporal_coverage": "1985/2015",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "price",
+          "name": "Price",
+          "description": "Transaction price per hectare",
+          "unit_text": "€/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "soil_quality",
+          "name": "Soil Quality",
+          "description": "Soil quality index",
+          "unit_text": "Index points"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "plot_size",
+          "name": "Plot Size",
+          "description": "Size of the plot in hectares",
+          "unit_text": "ha"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "",
+      "conditions_of_access": "Available upon request from the authors",
+      "identifier": "",
+      "encoding_format": "CSV",
+      "content_size": ""
+    }
+  ],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information related to farmland transactions. The text provided clear information on authors, affiliations, publication details, and the abstract, which were extracted accurately. The datasets mentioned were related to farmland prices in Germany, specifically Lower Saxony, and were described in terms of geographic and temporal coverage. The extraction confidence is high due to the clarity and completeness of the provided information.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:32:27.897228",
+      "Model: gpt-4o",
+      "Content length: 67319 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:32:27.898916",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Experimental evidence of bargaining power in agricultural land markets",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Marlene Kionka",
+      "affiliation": "Humboldt-Universität zu Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Todd Kuethe",
+      "affiliation": "Purdue University, USA",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Oliver Mußhoff",
+      "affiliation": "Georg-August-Universität Göttingen, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Matthias Ritter",
+      "affiliation": "University of Tübingen, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Martin Odening",
+      "affiliation": "Humboldt-Universität zu Berlin, Germany",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2025-01-30",
+  "publication_year": "2025",
+  "publisher": {
+    "type": "Organization",
+    "name": "Oxford University Press"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "European Review of Agricultural Economics",
+    "issn": "",
+    "publisher": {
+      "type": "Organization",
+      "name": "Oxford University Press"
+    }
+  },
+  "publication_volume": "51",
+  "publication_issue": "5",
+  "page_start": "1273",
+  "page_end": "1311",
+  "pagination": "1273-1311",
+  "identifier": "https://doi.org/10.1093/erae/jbaf001",
+  "doi": "https://doi.org/10.1093/erae/jbaf001",
+  "pmid": "",
+  "abstract": "There is public concern about the degree to which rising farmland rental rates are driven by the perceived market influence of non-agricultural actors. We conduct a structural estimation to analyse the potential bargaining power of different types of actors in the farmland market. It allows us to infer their latent reservation utilities by exploiting equilibrium conditions, derived from a stochastic ultimatum game. Reservation utilities reflect outside options in negotiations, as they are determinants of bargaining power. We conduct economic experiments in the rental market. Our findings show that farmers and local actors have more bargaining power than non-farmers and absentee actors, respectively.",
+  "keywords": [
+    "agricultural land market",
+    "bargaining power",
+    "structural estimation",
+    "stochastic ultimatum game",
+    "economic experiments"
+  ],
+  "subject": [
+    "C78-Bargaining Theory",
+    "Matching Theory",
+    "Q15-Land Ownership and Tenure",
+    "Land Reform",
+    "Land Use",
+    "Irrigation",
+    "Agriculture and Environment"
+  ],
+  "in_language": "en",
+  "license": "© The Author(s) 2025. Published by Oxford University Press on behalf of the Foundation for the European Review of Agricultural Economics. All rights reserved.",
+  "url": "",
+  "is_accessible_for_free": false,
+  "citation": "Kionka, M., Kuethe, T., Mußhoff, O., Ritter, M., & Odening, M. (2025). Experimental evidence of bargaining power in agricultural land markets. European Review of Agricultural Economics, 51(5), 1273-1311. https://doi.org/10.1093/erae/jbaf001",
+  "dataset": [],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information related to farmland research. The article's metadata was extracted based on standard scholarly publication requirements, including authorship, journal details, and DOI. The dataset information was derived from the context of the study, focusing on farmland market data, although specific datasets were not explicitly mentioned in the text. The confidence score reflects the completeness and clarity of the provided information.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:34:12.286688",
+      "Model: gpt-4o",
+      "Content length: 127567 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:34:12.287225",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

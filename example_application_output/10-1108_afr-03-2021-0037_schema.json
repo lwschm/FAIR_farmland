@@ -1,0 +1,138 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Measuring liquidity in agricultural land markets",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Marlene Kionka",
+      "affiliation": "Department of Agricultural Economics, Humboldt-Universität zu Berlin",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Martin Odening",
+      "affiliation": "Department of Agricultural Economics, Humboldt-Universität zu Berlin",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Jana Plogmann",
+      "affiliation": "Department of Agricultural Economics, Humboldt-Universität zu Berlin",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Matthias Ritter",
+      "affiliation": "Department of Agricultural Economics, Humboldt-Universität zu Berlin",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2022-01-01",
+  "publication_year": "2022",
+  "publisher": {
+    "type": "Organization",
+    "name": "Emerald Publishing Limited"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Agricultural Finance Review",
+    "issn": "0002-1466",
+    "publisher": {
+      "type": "Organization",
+      "name": "Emerald Publishing Limited"
+    }
+  },
+  "publication_volume": "82",
+  "publication_issue": "4",
+  "page_start": "690",
+  "page_end": "713",
+  "pagination": "690-713",
+  "identifier": "10.1108/AFR-03-2021-0037",
+  "doi": "10.1108/AFR-03-2021-0037",
+  "pmid": "",
+  "abstract": "Liquidity is an important aspect of market efficiency. This paper discusses indicators of liquidity in agricultural land markets, reflects on determinants of market liquidity, and analyzes the relationship with land prices through an empirical analysis for Germany.",
+  "keywords": [
+    "Agricultural land markets",
+    "Liquidity indicators",
+    "Panel vector autoregressive model",
+    "Granger causality"
+  ],
+  "subject": [
+    "C32",
+    "C33",
+    "Q13",
+    "Q24"
+  ],
+  "in_language": "en",
+  "license": "© Emerald Publishing Limited",
+  "url": "https://www.emerald.com/insight/0002-1466.htm",
+  "is_accessible_for_free": false,
+  "citation": "Kionka, M., Odening, M., Plogmann, J., & Ritter, M. (2022). Measuring liquidity in agricultural land markets. Agricultural Finance Review, 82(4), 690-713. https://doi.org/10.1108/AFR-03-2021-0037",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Lower Saxony Farmland Transactions Dataset",
+      "description": "Dataset includes 72,547 sale transactions of arable land in Lower Saxony, Germany, from 1990 to 2018.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Lower Saxony, Germany",
+        "address_country": "DE"
+      },
+      "temporal_coverage": "1990/2018",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "transaction_price",
+          "name": "Transaction Price",
+          "description": "Price of the land transaction",
+          "unit_text": "EUR"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "sold_area",
+          "name": "Sold Area",
+          "description": "Area of land sold in the transaction",
+          "unit_text": "hectares"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "transaction_date",
+          "name": "Transaction Date",
+          "description": "Date of the land transaction",
+          "unit_text": "date"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "seller_information",
+          "name": "Seller Information",
+          "description": "Information if the seller is a farmer",
+          "unit_text": "boolean"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "",
+      "conditions_of_access": "Data provided by the Oberer Gutachterausschuss für Grundstückswerte in Niedersachsen",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "Financial support from the German Research Foundation (DFG) through Research Unit 2569 'Agricultural Land Markets – Efficiency and Regulation'",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information related to farmland transactions. The article's title, authors, and affiliations were clearly stated, allowing for accurate extraction. The journal name, volume, issue, and page numbers were also explicitly mentioned. The abstract provided a summary of the research focus, which is crucial for understanding the context of the datasets. The dataset description was derived from the empirical analysis section, which detailed the data used in the study, including the number of transactions and the geographic focus on Lower Saxony, Germany. The temporal coverage was extracted from the dataset description, which mentioned the years 1990 to 2018. The extraction confidence is high due to the clarity and completeness of the provided information.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:40:28.394793",
+      "Model: gpt-4o",
+      "Content length: 73328 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:40:28.394890",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

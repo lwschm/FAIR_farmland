@@ -1,0 +1,152 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Farmland sales under returns and price uncertainty",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Jana Plogmann",
+      "affiliation": "Humboldt-Universität zu Berlin, Faculty of Life Sciences, Department of Agricultural Economics",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Oliver Mußhoff",
+      "affiliation": "Georg-August-Universität Göttingen, Department of Agricultural Economics and Rural Development",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Martin Odening",
+      "affiliation": "Humboldt-Universität zu Berlin, Faculty of Life Sciences, Department of Agricultural Economics",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Matthias Ritter",
+      "affiliation": "Jönköping University, Jönköping International Business School",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2022-09-19",
+  "publication_year": "2022",
+  "publisher": {
+    "type": "Organization",
+    "name": "Elsevier"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Economic Modelling",
+    "issn": "0264-9993",
+    "publisher": {
+      "type": "Organization",
+      "name": "Elsevier"
+    }
+  },
+  "publication_volume": "117",
+  "publication_issue": "",
+  "page_start": "",
+  "page_end": "",
+  "pagination": "106044",
+  "identifier": "10.1016/j.econmod.2022.106044",
+  "doi": "10.1016/j.econmod.2022.106044",
+  "pmid": "",
+  "abstract": "This paper investigates the observed heterogeneity in the liquidity of agricultural land markets. We adopt a real options model to determine the value of an opportunity to sell farmland and derive the optimal disinvestment triggers. A proportional hazards model is applied to estimate the duration between land sales in Germany and test the implications of the real options model. In contrast to expectations, we find an ambiguous effect of returns and price volatility on the optimal timing of land sales. There is no evidence that non-agricultural investors buy and sell land more frequently than farmers. Our results contribute to the current discussion on land market regulations, one major point of which is capping land prices. According to our results, such policies could increase the rent–price ratio and thus discourage land sales. In turn, the land supply would be reduced, causing further price pressure on farmland markets.",
+  "keywords": [
+    "Cox proportional hazards model",
+    "Farmland supply",
+    "Land market liquidity",
+    "Land price uncertainty",
+    "Real options model",
+    "Duration model"
+  ],
+  "subject": [
+    "Agricultural Economics",
+    "Land Market Analysis"
+  ],
+  "in_language": "en",
+  "license": "©2022 Elsevier B.V. All rights reserved.",
+  "url": "https://doi.org/10.1016/j.econmod.2022.106044",
+  "is_accessible_for_free": false,
+  "citation": "Plogmann, J., Mußhoff, O., Odening, M., & Ritter, M. (2022). Farmland sales under returns and price uncertainty. Economic Modelling, 117, 106044. https://doi.org/10.1016/j.econmod.2022.106044",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Land Sales Transactions in Lower Saxony",
+      "description": "Dataset containing sale transactions of arable land in Lower Saxony between 2005 and 2018, including price, size, seller, buyer, date of transaction, and location.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Lower Saxony, Germany",
+        "address_country": "DE"
+      },
+      "temporal_coverage": "2005/2018",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "price",
+          "name": "Price",
+          "description": "Sale price of the land",
+          "unit_text": "EUR"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "size",
+          "name": "Size",
+          "description": "Size of the land sold",
+          "unit_text": "hectares"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "seller",
+          "name": "Seller",
+          "description": "Information about the seller",
+          "unit_text": ""
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "buyer",
+          "name": "Buyer",
+          "description": "Information about the buyer",
+          "unit_text": ""
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "date_of_transaction",
+          "name": "Date of transaction",
+          "description": "Date when the transaction was completed",
+          "unit_text": "date"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "location",
+          "name": "Location",
+          "description": "Geographic location of the land",
+          "unit_text": ""
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "",
+      "conditions_of_access": "Data provided by the Committee of Land Valuation Experts in Lower Saxony",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information related to farmland transactions. The article's title, authors, affiliations, and publication details were clearly stated, allowing for accurate extraction. The datasets mentioned were related to land sales and transactions, fitting the criteria for farmland-related data. Geographic and temporal coverage were derived from the context, and variable descriptions were inferred from the text. The DOI and other identifiers were explicitly provided, ensuring accurate metadata extraction. The confidence score reflects the completeness and clarity of the information extracted.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:37:30.702912",
+      "Model: gpt-4o",
+      "Content length: 82132 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:37:30.703214",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

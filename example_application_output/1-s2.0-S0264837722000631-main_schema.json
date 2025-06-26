@@ -1,0 +1,134 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Farm growth and land concentration",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Jana Plogmann",
+      "affiliation": "Humboldt-Universität zu Berlin, Faculty of Life Sciences, Department of Agricultural Economics, Unter den Linden 6, D-10099 Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Oliver Mußhoff",
+      "affiliation": "Georg-August-Universität Göttingen, Department of Agricultural Economics and Rural Development, Platz der Göttinger Sieben 5, D-37073 Göttingen, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Martin Odening",
+      "affiliation": "Humboldt-Universität zu Berlin, Faculty of Life Sciences, Department of Agricultural Economics, Unter den Linden 6, D-10099 Berlin, Germany",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Matthias Ritter",
+      "affiliation": "Jönköping University, Jönköping International Business School, P.O. Box 1026, 55111 Jönköping, Sweden",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2022-02-11",
+  "publication_year": "2022",
+  "publisher": {
+    "type": "Organization",
+    "name": "Elsevier"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Land Use Policy",
+    "issn": "0264-8377",
+    "publisher": {
+      "type": "Organization",
+      "name": "Elsevier"
+    }
+  },
+  "publication_volume": "115",
+  "publication_issue": "",
+  "page_start": "",
+  "page_end": "",
+  "pagination": "106036",
+  "identifier": "10.1016/j.landusepol.2022.106036",
+  "doi": "10.1016/j.landusepol.2022.106036",
+  "pmid": "",
+  "abstract": "This paper adds to the sparse empirical literature on the relation between land market concentration and farm size changes, considering different definitions of the relevant market. Using data from the Integrated Administrative Control System (IACS) from 2005 until 2017 for Brandenburg, Germany, we find that about half of the land transactions occur beyond municipality borders. This emphasizes the importance of carefully defining the relevant market. The descriptive analysis shows that although concentration rates, on average, did not increase over time, spatial differences are present. In the econometric analysis, we apply a two-stage model to analyze how competition for agricultural land impacts the probability and relative level of expansion. For farms that remained active between 2005 and 2017, we find a negative relation between farm size and relative growth. Our conjecture that higher inequality of land distribution fosters the expansion of large farms was not confirmed.",
+  "keywords": [
+    "Farm growth",
+    "Concentration measures",
+    "Agricultural land markets",
+    "Structural change",
+    "IACS"
+  ],
+  "subject": [
+    "Agricultural Economics",
+    "Land Use Policy"
+  ],
+  "in_language": "en",
+  "license": "©2022 Elsevier Ltd. All rights reserved.",
+  "url": "https://doi.org/10.1016/j.landusepol.2022.106036",
+  "is_accessible_for_free": false,
+  "citation": "Plogmann, J., Mußhoff, O., Odening, M., & Ritter, M. (2022). Farm growth and land concentration. Land Use Policy, 115, 106036. https://doi.org/10.1016/j.landusepol.2022.106036",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Integrated Administrative Control System (IACS) Dataset",
+      "description": "Data from the Integrated Administrative Control System (IACS) from 2005 until 2017 for Brandenburg, Germany, used to analyze farm size development and land concentration.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Brandenburg, Germany",
+        "geo": {
+          "type": "GeoShape",
+          "box": "52.5200 13.4050"
+        },
+        "address_country": "DE"
+      },
+      "temporal_coverage": "2005/2017",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "farm_size",
+          "name": "Farm size",
+          "description": "Total utilized agricultural area (UAA) in hectares",
+          "unit_text": "hectares"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "land_transactions",
+          "name": "Land transactions",
+          "description": "Number of land transactions beyond municipality borders",
+          "unit_text": "count"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "concentration_measures",
+          "name": "Concentration measures",
+          "description": "Gini coefficient and concentration rates",
+          "unit_text": "percentage"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "Not specified",
+      "conditions_of_access": "Data access not specified in the text",
+      "identifier": "Not specified",
+      "encoding_format": "Not specified",
+      "content_size": "Not specified"
+    }
+  ],
+  "funding": "",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information related to farmland research. The article's metadata was extracted based on standard scholarly publication elements such as title, authors, journal details, DOI, and abstract. For datasets, the focus was on identifying any mentioned farmland-related data, its geographic and temporal coverage, and variables involved. The confidence in extraction is high due to the clear presentation of information in the text.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:41:25.790763",
+      "Model: gpt-4o",
+      "Content length: 66424 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:41:25.791071",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}

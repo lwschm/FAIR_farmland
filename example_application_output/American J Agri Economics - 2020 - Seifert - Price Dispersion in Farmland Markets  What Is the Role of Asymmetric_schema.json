@@ -1,0 +1,132 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ScholarlyArticle",
+  "name": "Price Dispersion in Farmland Markets: What Is the Role of Asymmetric Information?",
+  "author": [
+    {
+      "type": "Person",
+      "name": "Stefan Seifert",
+      "affiliation": "Institute for Food and Resource Economics, University of Bonn",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Christoph Kahle",
+      "affiliation": "Institute for Food and Resource Economics, University of Bonn",
+      "identifier": ""
+    },
+    {
+      "type": "Person",
+      "name": "Silke Hüttel",
+      "affiliation": "Institute for Food and Resource Economics, University of Bonn",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2020-10-20",
+  "publication_year": "2020",
+  "publisher": {
+    "type": "Organization",
+    "name": "Wiley Periodicals LLC on behalf of Agricultural & Applied Economics Association"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "American Journal of Agricultural Economics",
+    "issn": "",
+    "publisher": {
+      "type": "Organization",
+      "name": "Wiley Periodicals LLC on behalf of Agricultural & Applied Economics Association"
+    }
+  },
+  "publication_volume": "103",
+  "publication_issue": "4",
+  "page_start": "1545",
+  "page_end": "1568",
+  "pagination": "1545-1568",
+  "identifier": "10.1111/ajae.12153",
+  "doi": "10.1111/ajae.12153",
+  "pmid": "",
+  "abstract": "This article investigates the role played by information, search, and bargaining cost in agricultural land markets to explain price dispersion. Based on a hedonic model under incomplete information, we build a two-tier stochastic frontier. By linking costs of being information deficient to agent characteristics such as degree of professionalism, we identify relative price effects of buyer and seller types related to information deficiency. We compile a comprehensive data set of more than 10,000 transactions in Saxony-Anhalt, Germany, between 2014 and 2017. We find institutional sellers to achieve the lowest losses resulting from information deficiency and sell with mark-ups, whereas other sellers incur losses. This seller group could benefit from investments in professionalism and roughly halve their cost of being information deficient. Tenant buyers can benefit from informational advantages resulting in markdowns with lowest effects in the harvest season. We conclude that Germany’s policy makers can do more to support market transparency.",
+  "keywords": [
+    "Farmland markets",
+    "hedonic pricing",
+    "information deficiency",
+    "two-tier frontier"
+  ],
+  "subject": [
+    "D82",
+    "D83",
+    "Q15",
+    "Q24"
+  ],
+  "in_language": "en",
+  "license": "Creative Commons Attribution License",
+  "url": "https://onlinelibrary.wiley.com/doi/10.1111/ajae.12153",
+  "is_accessible_for_free": true,
+  "citation": "Seifert, S., Kahle, C., & Hüttel, S. (2020). Price Dispersion in Farmland Markets: What Is the Role of Asymmetric Information? American Journal of Agricultural Economics, 103(4), 1545-1568. https://doi.org/10.1111/ajae.12153",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Saxony-Anhalt Farmland Transactions Dataset",
+      "description": "A comprehensive dataset of more than 10,000 farmland transactions in Saxony-Anhalt, Germany, used to analyze price dispersion in farmland markets.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Saxony-Anhalt, Germany",
+        "address_country": "DE"
+      },
+      "temporal_coverage": "2014/2017",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "transaction_price",
+          "name": "Transaction Price",
+          "description": "Price at which the farmland was transacted",
+          "unit_text": "Euros"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "lot_size",
+          "name": "Lot Size",
+          "description": "Size of the farmland lot",
+          "unit_text": "Hectares"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "soil_quality_index",
+          "name": "Soil Quality Index",
+          "description": "Index indicating the quality of the soil",
+          "unit_text": "Index"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "lease_status",
+          "name": "Lease Status",
+          "description": "Indicates if the lot was leased out at the time of transaction",
+          "unit_text": "Boolean"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "",
+      "conditions_of_access": "Data provided by the Committee of Land Valuation Experts of Saxony-Anhalt",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "German Research Foundation (DFG) through Research Unit 2569 'Agricultural Land Markets - Efficiency and Regulation.'",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information related to farmland transactions. The article's title, authors, journal details, and abstract were clearly stated, allowing for accurate extraction. The dataset description was derived from the text mentioning transactions in Saxony-Anhalt, Germany, with specific temporal coverage. The confidence score reflects the completeness and clarity of the provided information.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:36:25.301639",
+      "Model: gpt-4o",
+      "Content length: 106150 characters",
+      "API: OpenAI Responses API with structured outputs"
+    ],
+    "generated_at": "2025-06-26T18:36:25.301880",
+    "generator": "FAIR Farmland AI Metadata Extractor"
+  }
+}
