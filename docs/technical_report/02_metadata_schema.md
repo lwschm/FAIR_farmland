@@ -1,378 +1,451 @@
-# Concept for a Schema.org-Based Farmland Research Metadatabase (Germany)
+# LASI Metadata Schema: Schema.org-Based Framework for German Agricultural Land Market Data
 
-## Introduction
+## Introduction and LASI Project Context
 
-Building a metadatabase for farmland research data in Germany (focusing on farmland sales transactions data) requires a schema that is both researcher-friendly and compliant with web standards. The goal is to make data discoverable, integratable, and aligned with FAIR principles (Findable, Accessible, Interoperable, Reusable). This concept outlines a metadata schema based on Schema.org (using JSON-LD format) to describe farmland sale datasets, ensuring compatibility with repositories like BonaRes (a German agricultural data repository) and others. By using schema.org and related standards, the metadata can be easily harvested by search engines and data catalogs, increasing the data's visibility to researchers. Importantly, actual farmland sale transaction records (prices, dates, locations, etc.) are considered high-quality ("gold standard") data for land economics research, so a robust metadata structure will maximize their reusability.
+The LASI use case (Linking Agrosystem Data with Socio-economic Information) within the FAIRagro consortium addresses gaps in Germany's agricultural research data infrastructure. Building a metadata framework for farmland research data requires integration of socio-economic datasets into research infrastructures while maintaining compliance with metadata standards and compatibility with existing German agricultural data repositories.
 
-## Target Audience: This schema is designed for agricultural researchers and data managers who need to document, publish, and integrate farmland transaction datasets. It emphasizes clarity, consistency, and integration with existing data infrastructures, without assuming any specific software stack (the output is standard JSON-LD metadata).
+This document presents the LASI metadata schema—a domain-specific metadata framework tailored to agricultural land market datasets that serves both human interpretation and machine-actionable workflows. The schema addresses the structural heterogeneity, variable provenance, and legal sensitivity characteristic of German land market data while ensuring integration with the FAIRagro ecosystem.
 
-## Approach Overview
+## Institutional Context and Infrastructure Integration
 
-### Schema.org Integration
+### FAIRagro and NFDI Integration
 
-The metadatabase leverages schema.org vocabulary, particularly the Dataset schema for data description, nested within a ScholarlyArticle if the data is associated with a publication. Schema.org was chosen because it's widely used for data indexing (e.g., Google Dataset Search indexes datasets via schema.org metadata on web pages), and it's flexible enough to accommodate domain-specific extensions.
+The LASI metadata schema operates within Germany's **National Research Data Infrastructure (NFDI)** framework, specifically designed to support **FAIRagro's mission** of enabling seamless data sharing across agricultural, environmental, and economic domains. Key integration requirements include:
 
-### Standards Alignment
+- **BonaRes Repository Compatibility**: Direct integration with Germany's premier agricultural data repository
+- **INSPIRE Compliance**: Alignment with European spatial data infrastructure standards
+- **DataCite Integration**: Support for persistent identifier systems and academic citation frameworks
+- **Cross-Domain Interoperability**: Enabling connections between socio-economic land data and agrosystemic research
 
-To ensure interoperability with German and international repositories, the schema aligns with:
+### Addressing German Land Market Data Challenges
 
-- **DataCite Metadata Schema**: for DOI registration and citation information
-- **INSPIRE (EU Spatial Data standard)**: for geospatial metadata compliance
-- **AGROVOC Thesaurus**: for consistent agricultural keywords (used by BonaRes to tag data)
+The schema addresses the institutional fragmentation of German land market data, where information is distributed across:
 
-By adhering to these standards, any metadata record can be cross-walked into repository-specific formats. For example, BonaRes requires datasets to have DOIs and uses DataCite schema fields, as well as INSPIRE for spatial info. Our schema.org approach includes equivalent fields (like identifier for DOI, spatialCoverage for location, etc.), ensuring the farmland data can be easily registered and published in BonaRes or similar portals.
+- **BORIS-D**: Federal state land valuation portals with inconsistent metadata practices
+- **ALKIS**: Cadastral information systems with varying access conditions across Länder
+- **BVVG**: Eastern German privatization agency auction data with specialized access requirements  
+- **Statistical Offices**: Administrative datasets with limited interoperability
+- ....
 
-### Metadata Focus
+## Schema Architecture and Design Principles
 
-This concept concentrates on the metadata structure of the research dataset (the descriptive information), not the raw data storage. We outline what fields (metadata "columns") should describe a farmland transaction dataset and how they map to schema.org. Ultimately, the metadata will be presented in JSON format (JSON-LD), which is both human-readable and machine-actionable for web integration. No specific database or software is assumed; the JSON-LD could be stored in any catalog or embedded in webpages.
+### Core Design Objectives
 
-## Metadata Schema Architecture
+The LASI metadata schema pursues three main objectives:
 
-### Hierarchical Structure
+1. **Standardized Description**: Providing consistent metadata structure across spatial, thematic, legal, and technical dimensions
+2. **Comprehensive Inventorization**: Enabling systematic cataloging and documentation of agricultural land market datasets
+3. **Repository Integration**: Ensuring compatibility with German and international research data infrastructures
 
-The metadata schema follows a nested, hierarchical design reflecting real-world context and provenance. At the top level we have a ScholarlyArticle (or Report) representing the research context (if the dataset is part of a study or publication), under which one or more Dataset entries are described. For each Dataset, further nested properties capture details like variables, spatial/temporal coverage, etc. This hierarchy ensures that:
+### Hierarchical Information Architecture
 
-- **Context is preserved**: Each dataset is linked to its research publication or project for context
-- **Reusability**: Datasets can be understood independently, but also traced back to sources
-- **Integration**: The structure can be parsed to fill multiple catalogs (publication databases and data repositories)
-
-### Schematic Overview
+The schema employs a **nested, hierarchical design** reflecting real-world context and institutional provenance:
 
 ```
-ScholarlyArticle (or ResearchProject)
-├── Basic Publication Info (title, authors, datePublished, DOI, etc.)
-├── Keywords and License
-├── dataset: Dataset
-│    ├── Dataset Title and Description
-│    ├── Identifier (e.g., DOI for dataset if available)
-│    ├── Spatial Coverage (location of farmland)
-│    ├── Temporal Coverage (date range of transactions)
-│    ├── Variables Measured (key attributes like price, area)
-│    ├── Keywords (e.g., "land sale", "farmland")
-│    ├── Access Info (access rights, license)
-│    └── Optionally: distribution (links to data files)
-└── Optionally: additionalProperty or processingInfo (if capturing processing details)
+ScholarlyArticle/Report (Research Context)
+├── Institutional Metadata (Authors, DOI, Journal, Dates)
+├── Research Keywords and License Information  
+├── Geographic and Temporal Scope
+└── dataset: Dataset[] (One or more linked datasets)
+     ├── Dataset Identification (Title, Description, DOI)
+     ├── Spatial Coverage (INSPIRE-compliant geographic boundaries)
+     ├── Temporal Coverage (ISO 8601 interval notation)
+     ├── Variable Documentation (PropertyValue objects with units)
+     ├── Access and Licensing Information
+     ├── Data Format and Technical Specifications
+     └── FAIR Compliance Assessment
 ```
 
-This approach nests the Dataset within the context of a publication. If the dataset is standalone (not from a paper), the top-level could simply be Dataset by itself. However, linking data to publications is useful for academic datasets to provide provenance.
+This structure ensures that:
+- **Research Context**: Each dataset maintains links to source publications and research provenance
+- **Administrative Compliance**: Metadata meets German repository requirements (BonaRes, DataCite)
+- **Legal Transparency**: Access conditions and licensing are explicitly documented
+- **Technical Interoperability**: Format specifications enable automated processing and integration
 
-### Schema.org Types Employed
+## LASI Metadata Dimensions
 
-- **ScholarlyArticle**: Chosen as the top-level type to model academic outputs. It inherits from CreativeWork but adds specific fields for academic citation. This is ideal to capture publication metadata (DOI, authors, etc.) which many repositories (and DataCite) expect.
+### Core Descriptive Dimensions
 
-- **Dataset**: Represents the actual dataset. It includes properties for description, coverage, format, etc. This is the core of our metadatabase entry, describing farmland sales data in detail.
+The LASI schema systematically captures seven key metadata dimensions for land market datasets:
 
-- **Place (with GeoShape)**: Used for spatial coverage to denote geographic focus (e.g., a state or region in Germany).
+#### 1. Identification and General Description
+- **Dataset Title**: Descriptive, unique identifier with geographic and temporal context
+- **Abstract**: Comprehensive description including methodology, scope, and analytical potential
+- **Institutional Responsibility**: Responsible institution, research network, or data provider
+- **Publication Context**: Year of publication, associated research project, funding information
+- **Persistent Identifiers**: DOI registration or alternative persistent URL where available
 
-- **PropertyValue**: Used to describe variables (columns) within the dataset in a flexible way. Each key attribute of the dataset (like sale price, land area) is given as a PropertyValue with a name and value (and optionally a unit or identifier).
+*Schema.org Mapping*: `schema:name`, `schema:description`, `schema:publisher`, `schema:identifier`
 
-- **Organization/Person**: For author and publisher information, ensuring proper credit and contact info.
+#### 2. Thematic Focus and Content Classification
+- **Land Market Topics**: Categorized coverage (land prices, ownership structures, leasing arrangements, sales transactions)
+- **Agricultural Context**: Integration with agrosystem data (soil quality, land use, agricultural production)
+- **Economic Scope**: Market analysis focus (regional comparisons, temporal trends, policy impacts)
+- **Methodological Approach**: Analytical framework and research methodology
 
-- **DataCatalog (optional)**: If integrating into a larger catalog, the dataset might reference a catalog entry or be part of a DataCatalog. For example, BonaRes itself could be represented as a DataCatalog in schema.org terms; our dataset could include "includedInDataCatalog": "BonaRes Repository".
+*Controlled Vocabulary*: AGROVOC thesaurus terms for agricultural concepts, custom LASI vocabulary for land market specifics
 
-This multi-type integration means our metadata can capture all necessary details. For instance, a ScholarlyArticle can have an author (Person) and a publisher (Organization), and a Dataset can have spatialCoverage (Place), all within one JSON-LD document.
+#### 3. Geographic Scope and Spatial Resolution
+- **Administrative Coverage**: Federal state, district, municipality, or sub-municipal resolution
+- **Coordinate Systems**: INSPIRE-compliant spatial reference systems (typically ETRS89/UTM)
+- **Boundary Specifications**: Precise geographic boundaries using GeoShape objects
+- **Urban-Rural Classification**: Settlement context and proximity to urban centers
 
-## Core Components of the Metadata Schema
-
-### 1. Publication Metadata (Context)
-
-If the farmland transaction data is part of a research study or report, the metadata begins with the publication context. Key fields include:
-
-- **Identifier (DOI)**: A persistent identifier for the publication (if available). This maps to @id in JSON-LD and identifier property. Using DOIs is crucial for integration and citation.
-- **Title (name)**: Title of the article or report.
-- **Authors (author)**: List of authors (as Persons, with names and affiliations optionally).
-- **Publication Date (datePublished)**: Year (or full date) of publication.
-- **Publisher (publisher)**: The institution or journal.
-- **License (license)**: License of the publication or data (e.g., Creative Commons).
-- **Keywords (keywords)**: Keywords to describe the content (could include terms like farmland, sales, land market, Germany, etc.). Using controlled vocabularies like AGROVOC for keywords enhances interoperability.
-
-**Rationale**: Using ScholarlyArticle ensures we capture rich bibliographic metadata. This is in line with DataCite requirements for dataset registration (since DataCite often links datasets with publications). For example, a dataset could inherit the publication's DOI or have its own; either way, linking them is beneficial. If the data is not linked to a paper, one could use a more generic Dataset at top level, but for research data, context is often a publication.
-
-### 2. Dataset Description
-
-The Dataset is the central part of the metadata, describing the farmland sales transactions data. Key sub-components include:
-
-#### Basic Information
-
-- **Name (name)**: A descriptive title of the dataset, e.g. "Farmland Sales Transactions in Saxony-Anhalt (2014–2017)". This should be concise and informative.
-
-- **Description (description)**: A brief summary of the dataset content. For instance: "This dataset contains records of agricultural land sales in Saxony-Anhalt, Germany, from 2014 to 2017, including sale dates, prices, land area, and buyer type."
-
-- **Identifier**: If the dataset itself has a DOI or other ID (apart from the publication's ID), include it (as identifier or @id). This enables independent citation of the dataset.
-
-#### Spatial Coverage (spatialCoverage)
-
-Geographic area covered by the data. Implemented using a Place with a name (e.g., "Saxony-Anhalt, Germany") and a GeoShape or coordinates. For example:
-
+*Schema.org Implementation*:
 ```json
 "spatialCoverage": {
   "@type": "Place",
   "name": "Saxony-Anhalt, Germany",
   "geo": {
     "@type": "GeoShape",
-    "box": "50.7 10.9 53.1 13.1" 
+    "box": "50.7 10.9 53.1 13.1"
+  },
+  "addressCountry": "DE",
+  "containedInPlace": {
+    "@type": "AdministrativeArea",
+    "name": "Saxony-Anhalt"
   }
 }
 ```
 
-Here GeoShape.box gives a latitude-longitude bounding box of the region for simplicity. This follows standard WGS84 coordinates. More complex shapes (polygons) or place identifiers (like an INSPIRE location code) could be used if needed, but a bounding box is a simple way to declare spatial extent. Using the region name and country code (implicitly in name or as addressCountry: "DE") helps integration with catalogs that filter by country.
+#### 4. Temporal Coverage and Data Currency
+- **Data Collection Period**: Start and end dates for data collection (ISO 8601 format)
+- **Publication Lag**: Time difference between data collection and publication
+- **Update Frequency**: Whether dataset receives regular updates or represents historical snapshot
+- **Temporal Resolution**: Annual, quarterly, or irregular observation frequency
 
-#### Temporal Coverage (temporalCoverage)
+*Example*: "temporalCoverage": "2014-01/2017-12" for quarterly data from 2014-2017
 
-The time span of the dataset, given as an interval string (ISO 8601 format). For example: "2014/2017" indicates the data covers 2014 through 2017 inclusive. This helps users and catalogs know the period of data collection. It could be more granular (e.g., "2014-01/2017-12" for month range) if needed.
+#### 5. Variable Documentation and Data Structure
+- **Core Transaction Variables**: Sale price, land area, transaction date, property characteristics
+- **Contextual Variables**: Soil quality indices, land use classifications, buyer/seller categories
+- **Geographic Variables**: Coordinates, administrative codes, distance measurements
+- **Quality Indicators**: Data completeness, validation procedures, uncertainty measures
 
-#### Variables Measured (variableMeasured)
-
-This is critical for understanding what attributes the dataset contains. We use an array of PropertyValue entries to list each key variable (or column) in the dataset. Each PropertyValue can include:
-
-- **propertyID**: a unique identifier or code for the variable (could be a short code or ontology term)
-- **name**: human-friendly name of the variable
-- **value (or unitText etc.)**: an example value or, more appropriately, the general type of value
-- **unitText (if numeric and has units)**: e.g., "EUR" for price, "ha" for hectares
-
-#### Farmland Sales Transaction Data – Key Fields
-
-Typical variables for land sale transactions include:
-
-- **Transaction Date**: Date of the sale record
-- **Sale Price**: Price at which the land was sold, in Euros
-- **Land Area**: Area of land sold, in hectares
-- **Land Use Type**: Classification of the land (e.g., arable, pasture)
-- **Buyer Type**: Category of buyer (e.g., farmer, private investor, company, etc.)
-- **(Possibly) Parcel ID or Location Detail**: An identifier for the specific parcel or a more granular location indicator
-
-Each of these can be represented as a PropertyValue. For example:
-
+*PropertyValue Structure*:
 ```json
-"variableMeasured": [
-  {
-    "@type": "PropertyValue",
-    "propertyID": "salePrice",
-    "name": "Sale Price",
-    "unitText": "EUR",
-    "description": "Transaction sale price in Euros"
-  },
-  {
-    "@type": "PropertyValue",
-    "propertyID": "landArea",
-    "name": "Land Area",
-    "unitText": "ha",
-    "description": "Area of land sold in hectares"
-  },
-  {
-    "@type": "PropertyValue",
-    "propertyID": "transactionDate",
-    "name": "Transaction Date",
-    "description": "Date of land sale (YYYY-MM-DD)"
-  },
-  {
-    "@type": "PropertyValue",
-    "propertyID": "landUseType",
-    "name": "Land Use Type",
-    "description": "Type of land use (e.g., arable, pasture)"
-  },
-  {
-    "@type": "PropertyValue",
-    "propertyID": "buyerType",
-    "name": "Buyer Type",
-    "description": "Category of buyer (e.g., farmer, investor)"
-  }
-]
-```
-
-Each PropertyValue here acts like a column definition in the metadata, describing what each field means. By providing description for each variable, we ensure clarity for future users. The use of propertyID allows linking to standard definitions or ontologies.
-
-#### Additional Dataset Properties
-
-- **Keywords**: In addition to publication keywords, the dataset can have its own keywords list. These might include terms like "land sales", "farmland transactions", specific regions, etc. Using standardized vocabularies (e.g. AGROVOC or GEMET for environmental terms) is recommended for interoperability.
-
-- **License**: The dataset's license (often the same as publication, but should be explicit). E.g., "license": "https://creativecommons.org/licenses/by/4.0/" for CC BY 4.0.
-
-- **Access conditions**: Using schema.org's isAccessibleForFree or conditionsOfAccess can indicate if the dataset is open, restricted, etc.
-
-- **Related publication link**: If using ScholarlyArticle as context, the link is inherent. If not, one could use citation property to link a paper.
-
-### 3. Example Farmland Transaction Dataset Fields and Definitions
-
-To clarify the dataset's content, below are typical column definitions (variables) one would expect in a farmland sales transactions dataset:
-
-| Dataset Field (Column) | Description | Metadata Representation |
-|------------------------|-------------|------------------------|
-| Transaction ID | Unique identifier for each transaction record | identifier (as part of Dataset distribution or implicit in data) |
-| Transaction Date | Date when the sale was recorded/finalized | variableMeasured: transactionDate (PropertyValue with expected Date format) |
-| Sale Price (EUR) | Sale price of the land in Euros | variableMeasured: salePrice (PropertyValue with unitText "EUR") |
-| Land Area (ha) | Size of the land parcel sold, in hectares | variableMeasured: landArea (PropertyValue with unitText "ha") |
-| Land Use Type | Type of land use or crop at time of sale | variableMeasured: landUseType (PropertyValue, possibly with ontology code) |
-| Buyer Type | Category of buyer | variableMeasured: buyerType (PropertyValue, could enumerate values) |
-| Location Details | Specific location info | Primarily captured under spatialCoverage |
-
-### 4. Processing and Provenance Information (Optional)
-
-If the dataset was generated or processed through a specific pipeline, metadata can capture that provenance. For example:
-
-```json
-"processingInformation": {
-  "@type": "CreativeWork",
-  "description": "Data processed and quality-checked by the FAIRagro Pipeline v1.2",
-  "datePublished": "2025-06-01",
-  "softwareApplication": "FAIRagro Toolkit 1.2"
+{
+  "@type": "PropertyValue",
+  "propertyID": "landSalePrice",
+  "name": "Farmland Sale Price per Hectare",
+  "description": "Transaction price in Euros per hectare of agricultural land",
+  "unitText": "EUR/ha",
+  "measurementTechnique": "Administrative record from land registry"
 }
 ```
 
-This could also use schema:Action type (e.g., DataProcessing) to describe an action taken on the data. This is mostly for internal provenance and aligns with advanced metadata practices.
+#### 6. Access Conditions and Legal Framework
+- **Public Availability**: Open access, restricted access, or closed access classification
+- **Licensing Terms**: Creative Commons, institutional, or proprietary licensing
+- **Access Procedures**: Registration requirements, institutional approval, data sharing agreements
+- **Legal Constraints**: GDPR compliance, commercial sensitivity, privacy protection measures
+- **Usage Restrictions**: Academic use only, non-commercial restrictions, attribution requirements
 
-## Controlled Vocabularies and Value Standards
+#### 7. Technical Specifications and Format Information
+- **Data Formats**: CSV, Excel, Shapefile, GeoJSON, database formats
+- **File Sizes**: Dataset scale and processing requirements
+- **Access Methods**: Direct download, API access, web services (WMS/WFS)
+- **Technical Documentation**: Data dictionaries, processing scripts, validation procedures
 
-To maximize interoperability, certain fields should use controlled vocabularies or standard codes:
+## Integration with German Research Infrastructure
 
-### Locations
-For German farmland, use official names of states (Bundesländer) or regions, possibly with codes. E.g., use "Saxony-Anhalt" (English) or "Sachsen-Anhalt" (German) consistently. INSPIRE's NUTS or LAU codes could be included for compatibility with other EU datasets.
+### BonaRes Repository Alignment
 
-### Land Use Types
-Could reference a vocabulary like LCML (Land Cover Meta Language) or simply a controlled list: e.g., {arable, pasture, forest, mixed-use, other}. Using standard terms (perhaps AGROVOC or INSPIRE Land Use themes) will help integration.
+The LASI schema ensures **direct compatibility** with BonaRes metadata requirements:
 
-### Buyer Type
-Define a controlled list in the metadata documentation (e.g., categories of buyers). This field might not always be available, but if it is, it's useful for analysis.
+| BonaRes Requirement | LASI Schema Element | Schema.org Property |
+|---------------------|---------------------|---------------------|
+| Dataset Title | name | schema:name |
+| Principal Investigator | author | schema:author |
+| DOI Registration | identifier | schema:identifier |
+| Spatial Coverage | spatialCoverage | schema:spatialCoverage |
+| Temporal Coverage | temporalCoverage | schema:temporalCoverage |
+| Keywords (AGROVOC) | keywords | schema:keywords |
+| License Information | license | schema:license |
+| Access Conditions | conditionsOfAccess | schema:conditionsOfAccess |
 
-### Research Keywords
-Using AGROVOC for keywords is recommended since BonaRes and many agricultural data portals integrate AGROVOC. For example, instead of free text "farmland", use the AGROVOC term for farmland and include its identifier if possible.
+### INSPIRE Directive Compliance
 
-### Data Type Classification
-Internally, we might classify the dataset under a certain type (for internal cataloging). For example: "transaction_data" vs "experimental_data". In our case, transaction_data is appropriate.
+For datasets with spatial components, the schema incorporates **INSPIRE metadata elements**:
 
-## Integration with Repositories (BonaRes and Others)
+- **Geographic Extent**: Precise boundary definitions using ETRS89 coordinate system
+- **Temporal References**: Creation, publication, and revision dates
+- **Data Quality**: Completeness, consistency, and accuracy indicators  
+- **Responsible Organizations**: Data providers and contact information
+- **Access Constraints**: Legal and security restrictions
 
-### BonaRes Repository
+### DataCite Integration
 
-BonaRes uses a custom metadata schema merging INSPIRE (for geospatial info) and DataCite (for citation and DOI). By including spatialCoverage and the usual citation fields, we cover both aspects. The mapping includes:
+Schema elements map directly to **DataCite metadata schema** for DOI registration:
 
-- Title → name
-- Authors → author
-- DOI → identifier/@id
-- Abstract/Description → description
-- Spatial extent → spatialCoverage
-- Temporal extent → temporalCoverage
-- Variables (parameters) → variableMeasured
-- License → license
-- Keywords → keywords (with AGROVOC URIs ideally)
+```json
+{
+  "identifier": "10.5194/soil-data-journal-example",
+  "creators": [{"name": "Research Team", "affiliation": "Institution"}],
+  "titles": [{"title": "Dataset Title"}],
+  "publicationYear": "2024",
+  "resourceType": "Dataset",
+  "geoLocations": [{"geoLocationBox": "50.7 10.9 53.1 13.1"}]
+}
+```
 
-### Other German/International Repositories
+## AI-Enhanced Metadata Quality Assessment
 
-Many repositories use either DataCite or Dublin Core or DCAT metadata. Our schema.org can be crosswalked to those:
+### Automated Metadata Validation Framework
 
-- **DataCite XML**: We have all the pieces (creators, title, publisher, publicationYear, geoLocations, etc.)
-- **DCAT (Data Catalog Vocabulary)**: DCAT has Dataset as well, with similar fields
-- **OAI-PMH harvesting**: If a repository harvests metadata via OAI-PMH in Dublin Core, our fields cover the DC core fields
-- **FAIR Data Principles**: By including rich metadata and identifiers, we adhere to FAIR principles
+The LASI schema incorporates **AI-assisted quality assessment** using structured prompts and large language models:
 
-## Technical Implementation Notes
+#### 1. Prompt-Based Extraction and Classification
+- **Metadata Parsing**: Automated identification of schema.org elements from unstructured descriptions
+- **Content Validation**: Classification of metadata elements for completeness and accuracy
+- **Consistency Validation**: Cross-reference checking between related metadata fields
 
-### Format
-JSON-LD is the chosen format for metadata exchange. JSON-LD can be easily generated and consumed by web services, and it can also be embedded in HTML pages or sent via APIs.
+#### 2. Completeness Assessment
+- **Field-Level Assessment**: Evaluation of individual metadata element completeness and quality
+- **Schema-Level Coverage**: Overall dataset documentation coverage assessment
+- **Confidence Indicators**: AI model confidence scores for extracted metadata elements
 
-### No Specific Stack Required
-This concept does not assume a particular database or platform. The metadatabase could be:
-- A simple collection of JSON files in a Git repository
-- A dedicated metadata catalog software
-- Part of a research data management system
+#### 3. Enhancement Recommendations
+- **Gap Identification**: Systematic detection of missing or incomplete metadata elements
+- **Standardization Suggestions**: Recommendations for vocabulary alignment and format standardization
+- **Documentation Improvement**: Specific suggestions for enhancing metadata completeness and clarity
 
-### Validation
-To ensure quality, a JSON Schema or SHACL (for RDF) can be developed to validate that each metadata record conforms to the required structure.
+### Validation and Curation Workflow
 
-### Example Workflow
-1. Researchers input dataset info (perhaps via a web form or metadata editor)
-2. The system populates a JSON-LD template with that info
-3. The JSON-LD is then published (on a webpage, via an API endpoint, or directly submitted to a repository)
-4. Search engines or repository harvesters pick it up, and users can find the dataset online
+```
+Raw Dataset Description → AI Extraction → Schema Validation → Human Review → Repository Submission
+                              ↓               ↓               ↓
+                         Confidence      Completeness    Quality
+                         Scoring         Assessment      Enhancement
+```
 
-## Example Metadata Record (JSON-LD)
+## Implementation Examples
 
-Below is a simplified example JSON-LD metadata for a hypothetical farmland transaction dataset:
+### Example 1: BVVG Auction Dataset
 
 ```json
 {
   "@context": "https://schema.org/",
   "@type": "ScholarlyArticle",
-  "@id": "https://doi.org/10.1234/FARMLAND.SAX14-17", 
-  "name": "Farmland Market Analysis in Saxony-Anhalt, 2014-2017",
+  "name": "On the effectiveness of restricted tendering as a form of policy intervention on agricultural land markets",
   "author": [
-    { "@type": "Person", "name": "Dr. Anna Müller" },
-    { "@type": "Person", "name": "Jonas Schmidt" }
-  ],
-  "datePublished": "2025-03-01",
-  "publisher": { "@type": "Organization", "name": "Leibniz-ZALF" },
-  "keywords": ["farmland sale", "land transaction", "Saxony-Anhalt", "land market"],
-  "license": "https://creativecommons.org/licenses/by/4.0/",
-  "dataset": {
-    "@type": "Dataset",
-    "name": "Farmland Sales Transactions – Saxony-Anhalt (2014-2017)",
-    "description": "Dataset of 150 farmland sale transactions in Saxony-Anhalt, Germany, from 2014 to 2017. Includes sale dates, prices (EUR), land areas (ha), land use type, and buyer category for each transaction.",
-    "identifier": "https://doi.org/10.5678/dataset12345", 
-    "spatialCoverage": {
-      "@type": "Place",
-      "name": "Saxony-Anhalt, DE",
-      "geo": {
-        "@type": "GeoShape",
-        "box": "50.7 10.9 53.1 13.1"
-      }
+    {
+      "type": "Person",
+      "name": "Cord-Friedrich von Hobe",
+      "affiliation": "Department of Agricultural Economics and Rural Development, Georg-August-Universität Göttingen",
+      "identifier": ""
     },
-    "temporalCoverage": "2014-01/2017-12",
-    "variableMeasured": [
-      {
-        "@type": "PropertyValue",
-        "propertyID": "transactionDate",
-        "name": "Transaction Date",
-        "description": "Date of sale (YYYY-MM-DD)"
+    {
+      "type": "Person",
+      "name": "Oliver Musshoff",
+      "affiliation": "Department of Agricultural Economics and Rural Development, Georg-August-Universität Göttingen",
+      "identifier": ""
+    }
+  ],
+  "date_published": "2021-02-22",
+  "publication_year": "2021",
+  "publisher": {
+    "type": "Organization",
+    "name": "Elsevier"
+  },
+  "is_part_of": {
+    "type": "Periodical",
+    "name": "Land Use Policy",
+    "issn": "0264-8377",
+    "publisher": {
+      "type": "Organization",
+      "name": "Elsevier"
+    }
+  },
+  "publication_volume": "103",
+  "publication_issue": "",
+  "page_start": "",
+  "page_end": "",
+  "pagination": "",
+  "identifier": "10.1016/j.landusepol.2021.105343",
+  "doi": "10.1016/j.landusepol.2021.105343",
+  "pmid": "",
+  "abstract": "The ongoing sharp rise in farmland prices in Europe has led to a discussion concerning the need for political intervention and stronger market regulation on agricultural land markets. In this context, restricted tendering for the privatization of agricultural land in post-communist countries is discussed and used as one form of political intervention. Only certain groups of bidders may participate in such tendering procedures in order to give them greater opportunities and to counteract effects such as land grabbing or structural change. Against this background this paper aims to answer the question, whether restricted tendering procedures allow structurally disadvantaged groups of bidders to buy at lower prices as is intended by the assessed policy intervention. A rich data set of over 12,000 first-price-sealed-bit auctions of agricultural land between 2005 and 2019 from Eastern Germany is analyzed using an auction theory individual private value framework and Propensity Score Matching. Results show that restricted tendering on agricultural land markets does not fulfill its intended purpose. Although the policy’s intermediate aim of considerably reducing the number of bidders is achieved, the ultimate goal of lower purchase prices is missed. On the contrary, the findings indicate that restricted tendering actually leads to higher purchase prices for comparable farmland plots.",
+  "keywords": [
+    "Agricultural land markets",
+    "Farmland auctions",
+    "Restricted tendering",
+    "Propensity score matching"
+  ],
+  "subject": [
+    "Land Use Policy",
+    "Agricultural Economics"
+  ],
+  "in_language": "en",
+  "license": "©2021 Elsevier Ltd. All rights reserved.",
+  "url": "https://doi.org/10.1016/j.landusepol.2021.105343",
+  "is_accessible_for_free": false,
+  "citation": "von Hobe, C.-F., & Musshoff, O. (2021). On the effectiveness of restricted tendering as a form of policy intervention on agricultural land markets. Land Use Policy, 103, 105343. https://doi.org/10.1016/j.landusepol.2021.105343",
+  "dataset": [
+    {
+      "type": "Dataset",
+      "name": "Eastern Germany Agricultural Land Auctions Dataset",
+      "description": "A dataset of over 12,000 first-price-sealed-bid auctions of agricultural land between 2005 and 2019, used to analyze the effectiveness of restricted tendering procedures.",
+      "spatial_coverage": {
+        "type": "Place",
+        "name": "Eastern Germany",
+        "address_country": "DE"
       },
-      {
-        "@type": "PropertyValue",
-        "propertyID": "salePrice",
-        "name": "Sale Price",
-        "unitText": "EUR",
-        "description": "Sale price in Euros"
-      },
-      {
-        "@type": "PropertyValue",
-        "propertyID": "landArea",
-        "name": "Land Area",
-        "unitText": "ha",
-        "description": "Land area in hectares"
-      },
-      {
-        "@type": "PropertyValue",
-        "propertyID": "landUseType",
-        "name": "Land Use Type",
-        "description": "Type of land use (arable, pasture, etc.)"
-      },
-      {
-        "@type": "PropertyValue",
-        "propertyID": "buyerType",
-        "name": "Buyer Type",
-        "description": "Category of buyer (e.g., farmer, investor)"
-      }
+      "temporal_coverage": "2005/2019",
+      "variable_measured": [
+        {
+          "type": "PropertyValue",
+          "property_id": "purchase_price",
+          "name": "Purchase price",
+          "description": "Winning bid price for the land plot",
+          "unit_text": "€/ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "number_of_bids",
+          "name": "Number of bids",
+          "description": "Total number of bids received for the auction",
+          "unit_text": "count"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "lot_size",
+          "name": "Lot size",
+          "description": "Size of the land plot",
+          "unit_text": "ha"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "number_of_land_parcels",
+          "name": "Number of land parcels",
+          "description": "Number of parcels in the land plot",
+          "unit_text": "count"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "share_of_arable_land",
+          "name": "Share of arable land",
+          "description": "Proportion of the land that is arable",
+          "unit_text": "ratio"
+        },
+        {
+          "type": "PropertyValue",
+          "property_id": "soil_quality",
+          "name": "Soil quality",
+          "description": "Quality index of the soil",
+          "unit_text": "index"
+        }
+      ],
+      "keywords": [
+        "farmland"
+      ],
+      "license": "",
+      "conditions_of_access": "Data provided by the land privatizing agency in Eastern Germany (BVVG).",
+      "identifier": "",
+      "encoding_format": "",
+      "content_size": ""
+    }
+  ],
+  "funding": "We gratefully acknowledge financial support from Deutsche Forschungsgemeinschaft (DFG), Germany (Grant ID Mu 1825/22-2).",
+  "about": [],
+  "genre": "research article",
+  "extraction_metadata": {
+    "reasoning": "The extraction process involved identifying key metadata elements from the provided text, focusing on bibliographic details and dataset information related to farmland transactions. The article's title, authors, and affiliations were clearly stated, allowing for accurate extraction. The publication details, including journal name, volume, issue, and DOI, were also explicitly mentioned. The abstract provided insights into the study's focus on restricted tendering in agricultural land markets, which guided the identification of relevant datasets. The dataset description was derived from the text's mention of over 12,000 land transactions analyzed, with specific geographic and temporal coverage. Variable descriptions were inferred from the context of the study, focusing on auction and land characteristics. The extraction confidence is high due to the clarity and specificity of the provided information.",
+    "confidence": 0.95,
+    "processing_notes": [
+      "Processed at 2025-06-26T18:34:46.377815",
+      "Model: gpt-4o",
+      "Content length: 53234 characters",
+      "API: OpenAI Responses API with structured outputs"
     ],
-    "keywords": ["agricultural land", "land sale", "transaction data", "Germany"],
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "isAccessibleForFree": true,
-    "url": "https://fairagro.example.org/dataset/SA_land_sales_2014-2017"
+    "generated_at": "2025-06-26T18:34:46.378211",
+    "generator": "FAIR Farmland AI Metadata Extractor"
   }
 }
 ```
 
-In this JSON:
-- The top-level is a ScholarlyArticle with a DOI as @id
-- It contains one dataset entry of type Dataset with its own DOI
-- Both German context and international standards are used
-- The url in dataset points to a landing page where the data can be accessed
-- The variables listed match the earlier table of columns
-- No actual data values are in metadata, just descriptions and units of each field
+### Example 2: Regional Land Transaction Analysis
+
+```json
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "name": "Saxony-Anhalt Agricultural Land Transactions (2014-2017)",
+  "description": "Comprehensive land transaction records from Saxony-Anhalt including sale prices, plot characteristics, and buyer/seller information for agricultural land markets analysis.",
+  "keywords": ["farmland sales", "land markets", "Saxony-Anhalt", "agricultural economics", "AGROVOC:farmland", "AGROVOC:land_markets"],
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "Saxony-Anhalt, Germany",
+    "geo": {"@type": "GeoShape", "box": "50.7 10.9 53.1 13.1"},
+    "addressCountry": "DE",
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": "Saxony-Anhalt",
+      "identifier": "DE-ST"
+    }
+  },
+  "temporalCoverage": "2014-01/2017-12",
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "salePrice",
+      "name": "Sale Price per Hectare", 
+      "unitText": "EUR/ha",
+      "description": "Transaction sale price in Euros per hectare of agricultural land"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "plotSize",
+      "name": "Plot Size",
+      "unitText": "ha",
+      "description": "Size of agricultural land plot in hectares"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "buyerCategory",
+      "name": "Buyer Category",
+      "description": "Classification of land buyer (farmer, investor, institution)"
+    }
+  ],
+  "distribution": {
+    "@type": "DataDownload",
+    "encodingFormat": "CSV",
+    "contentUrl": "https://repository.example.org/dataset/example.csv"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "isAccessibleForFree": true,
+  "provider": {
+    "@type": "Organization",
+    "name": "Statistical Office Saxony-Anhalt",
+    "url": "https://example.example.de/"
+  }
+}
+```
+
+## Quality Assurance and Validation
+
+### Automated Validation Procedures
+
+- **JSON-LD Syntax Validation**: Ensures proper schema.org structure and syntax
+- **Required Field Completeness**: Verifies presence of mandatory metadata elements
+- **Controlled Vocabulary Compliance**: Validates use of AGROVOC and other standard vocabularies
+- **Geographic Coordinate Validation**: Confirms spatial coverage within reasonable bounds
+- **Temporal Format Consistency**: Ensures ISO 8601 compliance for all date fields
+
+### Community-Based Enhancement
+
+- **Researcher Feedback Integration**: Mechanisms for metadata authors to refine and enhance descriptions
+- **Expert Review Workflows**: Subject matter expert validation of domain-specific metadata
+- **Version Control**: Tracking metadata improvements and corrections over time
+- **Usage Analytics**: Monitoring metadata quality through usage patterns and user feedback
 
 ## Conclusion
 
-This concept provides a comprehensive metadata schema for a farmland research data metadatabase, specifically tailored to farmland sales transaction data in Germany. By using schema.org in JSON-LD, it ensures the metadata is web-friendly and search engine indexed, increasing findability for researchers.
+The LASI metadata schema provides a standards-compliant framework for documenting German agricultural land market datasets within the FAIRagro ecosystem. By integrating Schema.org vocabulary with domain-specific requirements and German research infrastructure standards, the schema enables:
 
-At the same time, aligning with DataCite and INSPIRE standards means the records are ready for integration into national repositories like BonaRes, which emphasize DOIs and spatial metadata.
+- Discoverability: Web-scale indexing and discovery through standard vocabularies
+- Repository Integration: Compatibility with BonaRes, DataCite, and INSPIRE systems
+- Quality Assurance: AI-assisted validation and enhancement of metadata quality
+- Research Integration: Connection between socio-economic land data and broader agricultural research
 
-The schema is designed to capture all crucial information about farmland sales datasets: from the context of the research (publication details) to the specifics of the data (where, when, what variables). It caters to researchers' needs by clearly defining each data element and ensuring that terms and units are standardized.
-
-Finally, the use of an open, flexible format (JSON-LD) without tying to a particular tech stack makes the solution sustainable. It can evolve with schema.org updates or domain standards, and it can be adopted in various environments. By following this concept, the FAIR Agro project can build a metadatabase that not only meets current standards but is robust against future integration demands, thereby truly FAIR-ifying German farmland transaction data for the broader research community.
+This framework provides a foundation for agricultural research data management in Germany, supporting the transition from fragmented, poorly documented datasets to a coherent, discoverable, and reusable research data infrastructure that supports evidence-based policy making and interdisciplinary research collaboration.

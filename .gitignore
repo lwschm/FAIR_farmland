@@ -7,7 +7,7 @@ static/
 *.csv
 *.log
 *.pdf
-
+*.txt
 */pdf_papers/
 */md_papers/
 geckodriver.exe
