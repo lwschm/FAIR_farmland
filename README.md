@@ -5,6 +5,8 @@
 
 A streamlined tool for extracting farmland research metadata from PDF and markdown files using OpenAI Responses API and generating Schema.org-compliant JSON-LD metadata.
 
+> **📝 Note**: This is a standalone repository, developed independently to focus on AI-powered metadata extraction for agricultural research data.
+
 ## 🎯 What it does
 
 This tool helps researchers **extract structured metadata** from farmland research papers and generate **Schema.org-compliant JSON-LD files** ready for:
@@ -29,7 +31,7 @@ This tool helps researchers **extract structured metadata** from farmland resear
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/FAIR_farmland.git
+git clone https://github.com/lwschm/FAIR_farmland.git
 cd FAIR_farmland
 
 # Install dependencies
